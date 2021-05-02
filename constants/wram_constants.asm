@@ -31,7 +31,8 @@ JOYPAD_DISABLE_SGB_TRANSFER_F EQU 7
 
 ; wOptions1::
 TEXT_DELAY_MASK EQU %111
-	const_def 4
+	const_def 3
+    const CLOCK_24_HOURS ; 3
 	const NO_TEXT_SCROLL ; 4
 	const STEREO         ; 5
 	const BATTLE_SHIFT   ; 6
