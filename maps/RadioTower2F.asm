@@ -418,8 +418,7 @@ GruntM5SeenText:
 	done
 
 GruntM5BeatenText:
-	text "You think you're a"
-	line "hero?"
+	text "Rats!"
 	done
 
 GruntM5AfterBattleText:
