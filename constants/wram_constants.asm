@@ -69,6 +69,8 @@ GBPRINTER_DARKEST  EQU $7f
 ; wOptions2::
 	const_def
 	const MENU_ACCOUNT ; 0
+    const FAST_HP_BAR  ; 1
+    const NO_AI_ITEMS  ; 2
 
 ; wWalkingDirection::
 	const_def -1

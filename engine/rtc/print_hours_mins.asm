@@ -17,8 +17,15 @@ PrintFiveDigitNumber: ; unreferenced
 
 PrintHoursMins:
 ; Hours in b, minutes in c
-	ld a, b
-	cp 12
+    ld l, 12
+    ld a, [wOptions]
+    bit CLOCK_24_HOURS,a
+    jr z, .do_12hr
+    ld l, 99
+
+.do_12hr:
+    ld a, b
+    cp l
 	push af
 	jr c, .AM
 	jr z, .PM

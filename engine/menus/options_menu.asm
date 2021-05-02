@@ -7,8 +7,14 @@
 	const OPT_PRINT        ; 4
 	const OPT_MENU_ACCOUNT ; 5
 	const OPT_FRAME        ; 6
-	const OPT_CANCEL       ; 7
-NUM_OPTIONS EQU const_value    ; 8
+	const OPT_24HOUR       ; 7
+	const OPT_HP_BAR       ; 8
+	const OPT_AI_ITEMS     ; 9
+	const OPT_CANCEL       ; 10
+NUM_OPTIONS EQU const_value
+
+text_On:  db "On @"
+text_Off: db "Off@"
 
 _Option:
 	ld hl, hInMenu
@@ -27,7 +33,7 @@ _Option:
 	ld [wJumptableIndex], a
 
 ; display the settings of each option when the menu is opened
-	ld c, NUM_OPTIONS - 2 ; omit frame type, the last option
+	ld c, NUM_OPTIONS - 1
 .print_text_loop
 	push bc
 	xor a
@@ -74,21 +80,18 @@ _Option:
 	ret
 
 StringOptions:
-	db "TEXT SPEED<LF>"
-	db "        :<LF>"
-	db "BATTLE SCENE<LF>"
-	db "        :<LF>"
-	db "BATTLE STYLE<LF>"
-	db "        :<LF>"
-	db "SOUND<LF>"
-	db "        :<LF>"
-	db "PRINT<LF>"
-	db "        :<LF>"
-	db "MENU ACCOUNT<LF>"
-	db "        :<LF>"
-	db "FRAME<LF>"
-	db "        :TYPE<LF>"
-	db "CANCEL@"
+    ;   01234567890123456789
+	db "Text Speed:<LF>"
+	db "Battle Anim:<LF>"
+	db "Battle Shift:<LF>"
+	db "Sound:<LF>"
+	db "Print:<LF>"
+	db "Menu Desc:<LF>"
+	db "Frame Type:<LF>"
+	db "Clock: xx-hour<LF>"
+    db "HP Bar:<LF>"
+    db "AI Items:<LF>"
+	db "Exit@"
 
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
@@ -102,12 +105,16 @@ GetOptionPointer:
 	dw Options_Print
 	dw Options_MenuAccount
 	dw Options_Frame
+	dw Options_24Hour
+	dw Options_FastHPBar
+	dw Options_AIItems
 	dw Options_Cancel
 
 	const_def
 	const OPT_TEXT_SPEED_FAST ; 0
 	const OPT_TEXT_SPEED_MED  ; 1
 	const OPT_TEXT_SPEED_SLOW ; 2
+
 
 Options_TextSpeed:
 	call GetTextSpeed
@@ -151,7 +158,7 @@ Options_TextSpeed:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 3
+	hlcoord 14, 2
 	call PlaceString
 	and a
 	ret
@@ -162,9 +169,9 @@ Options_TextSpeed:
 	dw .Mid
 	dw .Slow
 
-.Fast: db "FAST@"
-.Mid:  db "MID @"
-.Slow: db "SLOW@"
+.Fast: db "Fast@"
+.Mid:  db "Mid @"
+.Slow: db "Slow@"
 
 GetTextSpeed:
 ; converts TEXT_DELAY_* value in a to OPT_TEXT_SPEED_* value in c,
@@ -190,6 +197,7 @@ GetTextSpeed:
 	lb de, TEXT_DELAY_SLOW, TEXT_DELAY_MED
 	ret
 
+
 Options_BattleScene:
 	ld hl, wOptions
 	ldh a, [hJoyPressed]
@@ -213,21 +221,19 @@ Options_BattleScene:
 
 .ToggleOn:
 	res BATTLE_SCENE, [hl]
-	ld de, .On
+	ld de, text_On
 	jr .Display
 
 .ToggleOff:
 	set BATTLE_SCENE, [hl]
-	ld de, .Off
+	ld de, text_Off
 
 .Display:
-	hlcoord 11, 5
+	hlcoord 15, 3
 	call PlaceString
 	and a
 	ret
 
-.On:  db "ON @"
-.Off: db "OFF@"
 
 Options_BattleStyle:
 	ld hl, wOptions
@@ -251,21 +257,19 @@ Options_BattleStyle:
 
 .ToggleShift:
 	res BATTLE_SHIFT, [hl]
-	ld de, .Shift
+	ld de, text_On
 	jr .Display
 
 .ToggleSet:
 	set BATTLE_SHIFT, [hl]
-	ld de, .Set
+	ld de, text_Off
 
 .Display:
-	hlcoord 11, 7
+	hlcoord 16, 4
 	call PlaceString
 	and a
 	ret
 
-.Shift: db "SHIFT@"
-.Set:   db "SET  @"
 
 Options_Sound:
 	ld hl, wOptions
@@ -304,13 +308,14 @@ Options_Sound:
 	ld de, .Stereo
 
 .Display:
-	hlcoord 11, 9
+	hlcoord 9, 5
 	call PlaceString
 	and a
 	ret
 
-.Mono:   db "MONO  @"
-.Stereo: db "STEREO@"
+.Mono:   db "Mono  @"
+.Stereo: db "Stereo@"
+
 
 	const_def
 	const OPT_PRINT_LIGHTEST ; 0
@@ -358,7 +363,7 @@ Options_Print:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 11
+	hlcoord 9, 6
 	call PlaceString
 	and a
 	ret
@@ -371,11 +376,11 @@ Options_Print:
 	dw .Darker
 	dw .Darkest
 
-.Lightest: db "LIGHTEST@"
-.Lighter:  db "LIGHTER @"
-.Normal:   db "NORMAL  @"
-.Darker:   db "DARKER  @"
-.Darkest:  db "DARKEST @"
+.Lightest: db "Lightest@"
+.Lighter:  db "Lighter @"
+.Normal:   db "Normal  @"
+.Darker:   db "Darker  @"
+.Darkest:  db "Darkest @"
 
 GetPrinterSetting:
 ; converts GBPRINTER_* value in a to OPT_PRINT_* value in c,
@@ -414,6 +419,7 @@ GetPrinterSetting:
 	lb de, GBPRINTER_DARKER, GBPRINTER_LIGHTEST
 	ret
 
+
 Options_MenuAccount:
 	ld hl, wOptions2
 	ldh a, [hJoyPressed]
@@ -436,21 +442,19 @@ Options_MenuAccount:
 
 .ToggleOff:
 	res MENU_ACCOUNT, [hl]
-	ld de, .Off
+	ld de, text_Off
 	jr .Display
 
 .ToggleOn:
 	set MENU_ACCOUNT, [hl]
-	ld de, .On
+	ld de, text_On
 
 .Display:
-	hlcoord 11, 13
+	hlcoord 13, 7
 	call PlaceString
 	and a
 	ret
 
-.Off: db "OFF@"
-.On:  db "ON @"
 
 Options_Frame:
 	ld hl, wTextboxFrame
@@ -476,12 +480,133 @@ Options_Frame:
 	ld [hl], a
 UpdateFrame:
 	ld a, [wTextboxFrame]
-	hlcoord 16, 15 ; where on the screen the number is drawn
+	hlcoord 14, 8 ; where on the screen the number is drawn
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
 	and a
 	ret
+
+
+Options_24Hour: ; e4365
+	ld hl, wOptions
+	ld a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .NonePressed
+	bit CLOCK_24_HOURS, [hl]
+	jr nz, .ToggleOn
+	jr .ToggleOff
+
+.LeftPressed:
+	bit CLOCK_24_HOURS, [hl]
+	jr z, .ToggleOff
+	jr .ToggleOn
+
+.NonePressed:
+	bit CLOCK_24_HOURS, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
+
+.ToggleOn:
+	res CLOCK_24_HOURS, [hl]
+	ld de, .On
+	jr .Display
+
+.ToggleOff:
+	set CLOCK_24_HOURS, [hl]
+	ld de, .Off
+
+.Display:
+	hlcoord 9, 9
+	call PlaceString
+	and a
+	ret
+; e4398
+
+.On:  db "12@"
+.Off: db "24@"
+; e43a0
+
+
+Options_FastHPBar: ; e44c1
+	ld hl, wOptions2
+	ld a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .NonePressed
+	bit FAST_HP_BAR, [hl]
+	jr nz, .ToggleOff
+	jr .ToggleOn
+
+.LeftPressed:
+	bit FAST_HP_BAR, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
+
+.NonePressed:
+	bit FAST_HP_BAR, [hl]
+	jr nz, .ToggleOn
+
+.ToggleOff:
+	res FAST_HP_BAR, [hl]
+	ld de, .Off
+	jr .Display
+
+.ToggleOn:
+	set FAST_HP_BAR, [hl]
+	ld de, .On
+
+.Display:
+	hlcoord 10, 10
+	call PlaceString
+	and a
+	ret
+; e44f2
+
+.Off: db "Normal@"
+.On:  db "Fast  @"
+; e44fa
+
+
+Options_AIItems:
+	ld hl, wOptions2
+	ld a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .NonePressed
+	bit NO_AI_ITEMS, [hl]
+	jr nz, .ToggleOff
+	jr .ToggleOn
+
+.LeftPressed:
+	bit NO_AI_ITEMS, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
+
+.NonePressed:
+	bit NO_AI_ITEMS, [hl]
+	jr nz, .ToggleOn
+
+.ToggleOff:
+	res NO_AI_ITEMS, [hl]
+	ld de, text_On
+	jr .Display
+
+.ToggleOn:
+	set NO_AI_ITEMS, [hl]
+	ld de, text_Off
+
+.Display:
+	hlcoord 12, 11
+	call PlaceString
+	and a
+	ret
+; e44f2
+
 
 Options_Cancel:
 	ldh a, [hJoyPressed]
@@ -493,6 +618,7 @@ Options_Cancel:
 .Exit:
 	scf
 	ret
+
 
 OptionsControl:
 	ld hl, wJumptableIndex
@@ -552,7 +678,7 @@ Options_UpdateCursorPosition:
 	dec c
 	jr nz, .loop
 	hlcoord 1, 2
-	ld bc, 2 * SCREEN_WIDTH
+	ld bc, SCREEN_WIDTH
 	ld a, [wJumptableIndex]
 	call AddNTimes
 	ld [hl], "▶"
