@@ -514,15 +514,44 @@ Pokegear_UpdateClock:
 	ld b, a
 	ldh a, [hMinutes]
 	ld c, a
-	decoord 6, 8
+	decoord 4, 8
+    ld a, [wOptions]
+    bit CLOCK_24_HOURS,a
+    jr z, .show_time
+    decoord 6, 8
+.show_time:
+    push de
 	farcall PrintHoursMins
-	ld hl, .GearTodayText
+
+    ; show seconds
+    pop hl
+    ld de,5
+    add hl,de
+    ld de, hSeconds
+	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
+    ld [hl],":" ; XXX update clock.tilemap.rle instead
+    inc hl
+	call PrintNum
+
+    ; HACK: show AM/PM since we clobbered it
+    ld a, [wOptions]
+    bit CLOCK_24_HOURS,a
+    jr nz, .skip_ampm
+    ld a,[hHours]
+    cp 12
+    ld a, "P"
+    jr nc, .place_ampm
+    ld a, "A"
+.place_ampm:
+    inc hl
+    ld [hli],a
+    ld [hl],"M"
+
+.skip_ampm:
+    ld hl, .GearTodayText
 	bccoord 6, 6
 	call PlaceHLTextAtBC
 	ret
-
-	db "ごぜん@"
-	db "ごご@"
 
 .GearTodayText:
 	text_far _GearTodayText
