@@ -252,3 +252,8 @@ MoveNames::
 	li "WHIRLPOOL"
 	li "BEAT UP"
 	assert_list_length NUM_ATTACKS
+    li "MOVE 252"
+    li "MOVE 253"
+    li "MOVE 254"
+    li "MOVE 255"
+    li "MOVE 0"

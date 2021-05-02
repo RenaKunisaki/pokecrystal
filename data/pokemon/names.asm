@@ -252,10 +252,10 @@ PokemonNames::
 	db "HO-OH@@@@@"
 	db "CELEBI@@@@"
 	assert_table_length NUM_POKEMON
-	db "?????@@@@@"
+	db "<PKMN> 252@@@@@"
 	db "EGG@@@@@@@"
 	assert_table_length EGG
-	db "?????@@@@@"
-	db "?????@@@@@"
-	db "?????@@@@@"
+	db "<PKMN> 254@@@@@"
+	db "<PKMN> 255@@@@@"
+	db "MISSINGNO."
 	assert_table_length $100
