@@ -8,6 +8,33 @@ ln: MACRO ; r, hi, lo
 	ld \1, ((\2) & $f) << 4 | ((\3) & $f)
 ENDM
 
+pushm: MACRO ; eg pushm af, bc, de, hl
+    push \1
+IF _NARG > 1
+    push \2
+ENDC
+IF _NARG > 2
+    push \3
+ENDC
+IF _NARG > 3
+    push \4
+ENDC
+ENDM
+
+popm: MACRO
+    pop \1
+IF _NARG > 1
+    pop \2
+ENDC
+IF _NARG > 2
+    pop \3
+ENDC
+IF _NARG > 3
+    pop \4
+ENDC
+ENDM
+
+
 ; Design patterns
 
 jumptable: MACRO

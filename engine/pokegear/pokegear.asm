@@ -189,7 +189,7 @@ AnimatePokegearModeIndicatorArrow:
 	db $20 ; POKEGEARCARD_PHONE
 	db $30 ; POKEGEARCARD_RADIO
 
-TownMap_GetCurrentLandmark:
+TownMap_GetCurrentLandmark::
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -201,8 +201,7 @@ TownMap_GetCurrentLandmark:
 	ld b, a
 	ld a, [wBackupMapNumber]
 	ld c, a
-	call GetWorldMapLocation
-	ret
+	jp GetWorldMapLocation
 
 TownMap_InitCursorAndPlayerIconPositions:
 	ld a, [wMapGroup]

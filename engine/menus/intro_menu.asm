@@ -480,6 +480,15 @@ FinishContinueFunction:
 	call SpawnAfterRed
 	jr .loop
 
+
+; XXX move to some common area
+GetPlayerGender::
+    ld a, BANK(sCrystalData)
+    call OpenSRAM
+    ld a, [sCrystalData + (wPlayerGender - wCrystalData)]
+    call CloseSRAM
+    ret
+
 DisplaySaveInfoOnContinue:
 	call CheckRTCStatus
 	and %10000000
@@ -489,9 +498,154 @@ DisplaySaveInfoOnContinue:
 	ret
 
 .clock_ok
-	lb de, 4, 8
-	call DisplayNormalContinueData
-	ret
+	;lb de, 4, 8
+    ;call DisplayNormalContinueData
+
+    ; new save info screen
+    ;call LoadFontsBattleExtra
+    ; doing that gets us the level icon but no colon.
+    ; correct fix is to copy the level icon over the unused
+    ; Japanese character that appears in its place.
+
+    ; display box and base text
+	hlcoord 1, 0
+	ld b, SCREEN_HEIGHT - 2
+	ld c, SCREEN_WIDTH - 5
+	call Textbox
+    hlcoord 2, 1
+	ld de, .text
+	call PlaceString
+
+    ; display player gender
+    call GetPlayerGender
+    hlcoord 14, 1
+    or a
+    ld a, "♂"
+    jr z, .showGender
+    ld a, "♀"
+.showGender
+    ld [hl], a
+
+    ; TODO: display badges
+
+    ; display pokedex seen count
+    ld hl, wPokedexSeen
+if NUM_POKEMON % 8
+	ld b, NUM_POKEMON / 8 + 1
+else
+	ld b, NUM_POKEMON / 8
+endc
+	call CountSetBits
+	ld de, wNumSetBits
+	lb bc, PRINTNUM_ONE_BYTE, 3 ; 1 byte, 3 digits
+    hlcoord 14, 7
+	call PrintNum
+
+    ; display pokedex owned count
+    ld hl, wPokedexCaught
+if NUM_POKEMON % 8
+	ld b, NUM_POKEMON / 8 + 1
+else
+	ld b, NUM_POKEMON / 8
+endc
+	call CountSetBits
+	ld de, wNumSetBits
+	lb bc, PRINTNUM_ONE_BYTE, 3 ; 1 byte, 3 digits
+    hlcoord 14, 6
+	call PrintNum
+
+    ; display game time
+    hlcoord 9, 8
+    ld de, wGameTimeHours
+	lb bc, PRINTNUM_TWO_BYTES, 5
+	call PrintNum
+	ld [hl], "<COLON>"
+	inc hl
+	ld de, wGameTimeMinutes
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
+	call PrintNum
+
+    ; display map name (XXX why is this wrong?)
+    farcall TownMap_GetCurrentLandmark
+    ld e, a
+    farcall GetLandmarkName
+    hlcoord 2, 9
+	ld de, wStringBuffer1
+	call PlaceString
+
+    ; display money
+    hlcoord 10, 10
+    ld de, wMoney
+	lb bc, PRINTNUM_MONEY | PRINTNUM_THREE_BYTES, 6
+	call PrintNum
+
+    ; display party mons
+	hlcoord 2, 11
+	ld a, [wPartyCount]
+	and a
+	ret z
+	ld c, a
+	ld b, 0
+.nextMonName
+	push bc
+	push hl
+	push hl
+	ld hl, wPartyMonNicknames
+	ld a, b
+	call GetNickname
+	pop hl
+	call PlaceString
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	pop bc
+	inc b
+	dec c
+	jr nz, .nextMonName
+
+    ; display party mon levels
+    hlcoord 13, 11
+    ld a, [wPartyCount]
+    ld c, a
+	ld b, 0
+.nextMonLevel
+    push bc
+    push hl
+
+    ; get the level (de = &level)
+    push hl
+	ld a, b
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld hl, wPartyMon1Level
+	call AddNTimes
+	ld e, l
+	ld d, h
+	pop hl
+
+    ; display the level indicator
+    ld a, "<LV>"
+    ld [hli], a
+
+    ; print the level
+    lb bc, PRINTNUM_ONE_BYTE, 3
+    call PrintNum
+    pop hl
+    ld de, SCREEN_WIDTH
+	add hl, de
+    pop bc
+    inc b
+	dec c
+	jr nz, .nextMonLevel
+
+.end ; end of subroutine
+    ret
+
+.text:
+    db "  <PLAYER><LF>"
+    db "<LF><LF><LF><LF>" ; empty space to draw badges
+    db "Seen<LF>"
+    db "Owned<LF>"
+    db "Time@"
 
 DisplaySaveInfoOnSave:
 	lb de, 4, 0

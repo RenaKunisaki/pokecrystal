@@ -5,10 +5,9 @@ _PrintNum::
 ; The high nybble of the c register specifies how many of the total amount of
 ; digits will be in front of the decimal point.
 ; Some extra flags can be given in bits 5-7 of b.
-; Bit 5: money if set (unless left-aligned without leading zeros)
-; Bit 6: left-aligned if set
-; Bit 7: print leading zeros if set
-
+; Bit 5 (PRINTNUM_MONEY): money if set (unless left-aligned without leading zeros)
+; Bit 6 (PRINTNUM_LEFTALIGN): left-aligned if set
+; Bit 7 (PRINTNUM_LEADINGZEROS): print leading zeros if set
 	push bc
 
 	bit 5, b

@@ -272,7 +272,7 @@ DebugRoomMenu_WinWorkClr:
 	ret
 
 DebugRoom_PrintWindowStackBottomTop:
-	ret ; stubbed out
+	;ret ; stubbed out
 
 	ld a, $00
 	call OpenSRAM
