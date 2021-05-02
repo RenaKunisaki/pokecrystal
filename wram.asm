@@ -1660,7 +1660,6 @@ wMinutesSince:: db
 wHoursSince:: db
 wDaysSince:: db
 
-
 SECTION "WRAM 1", WRAMX
 
 wGBCOnlyDecompressBuffer:: ; a $540-byte buffer that continues past this SECTION

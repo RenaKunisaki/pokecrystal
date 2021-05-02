@@ -526,7 +526,16 @@ DisplaySaveInfoOnContinue:
 .showGender
     ld [hl], a
 
-    ; TODO: display badges
+    ; display badges (TODO)
+    ;call WaitBGMap
+	;ld de, LeaderGFX
+	;ld hl, vTiles2 tile $29
+	;lb bc, BANK(LeaderGFX), 86
+	;call Request2bpp
+	;ld de, BadgeGFX
+	;ld hl, vTiles0 tile $00
+	;lb bc, BANK(BadgeGFX), 44
+	;call Request2bpp
 
     ; display pokedex seen count
     ld hl, wPokedexSeen

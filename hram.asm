@@ -31,7 +31,7 @@ hVBlank:: db
 hMapEntryMethod:: db
 
 hMenuReturn:: db
-hUnusedByte:: db
+;hUnusedByte:: db
 
 hJoypadReleased:: db
 hJoypadPressed::  db
@@ -175,4 +175,9 @@ hDebugRoomMenuPage::
 endc
 hClockResetTrigger:: db
 
-	ds 19
+; scratch buffer for short farcall
+hShortFarCallA:: db
+hShortFarCallH:: db
+hShortFarCallL:: db
+
+	ds 16
