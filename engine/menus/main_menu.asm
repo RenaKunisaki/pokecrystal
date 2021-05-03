@@ -313,7 +313,7 @@ MainMenu_PrintCurrentTimeAndDay:
 	ldh a, [hHours]
 	ld c, a
     farcall PrintHour
-
+    
     ; minute
     ld [hl], ":"
 	inc hl

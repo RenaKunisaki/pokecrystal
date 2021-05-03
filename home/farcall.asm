@@ -1,6 +1,7 @@
 FarCall_de::
 ; Call a:de.
 ; Preserves other registers.
+; XXX only used in two places. can we remove it?
 	ldh [hTempBank], a
 	ldh a, [hROMBank]
 	push af
@@ -16,6 +17,7 @@ FarCall_JumpToDE:
 FarCall_hl::
 ; Call a:hl.
 ; Preserves other registers.
+; XXX only used in one place (since we replaced the RST), can we remove it?
 	ldh [hTempBank], a
 	ldh a, [hROMBank]
 	push af

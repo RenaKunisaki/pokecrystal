@@ -31,7 +31,7 @@ hVBlank:: db
 hMapEntryMethod:: db
 
 hMenuReturn:: db
-;hUnusedByte:: db
+hUnusedByte:: db ;not actually unused, apparently.
 
 hJoypadReleased:: db
 hJoypadPressed::  db
@@ -176,8 +176,11 @@ endc
 hClockResetTrigger:: db
 
 ; scratch buffer for short farcall
-hShortFarCallA:: db
+hShortFarCallA:: db ; temp storage for regs A, H, L
 hShortFarCallH:: db
 hShortFarCallL:: db
+hShortFarCallBank:: db ; temp storage for ROM bank
+hShortFarCallJump:: db ; always 0xC3, a jump instruction
+hShortFarCallTarget:: dw ; the jump target
 
-	ds 16
+	ds 12

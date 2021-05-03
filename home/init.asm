@@ -52,7 +52,7 @@ Init::
 	ldh [rTAC], a
 	ld [wBetaTitleSequenceOpeningType], a
 
-	ld a, %100 ; Start timer at 4096Hz
+    ld a, %100 ; Start timer at 4096Hz
 	ldh [rTAC], a
 
 .wait
@@ -96,6 +96,9 @@ Init::
 	call ClearVRAM
 	call ClearSprites
 	call ClearsScratch
+
+    ld a, $C3 ; a jump instruction
+    ldh [hShortFarCallJump], a
 
 	ld a, BANK(WriteOAMDMACodeToHRAM) ; aka BANK(GameInit)
 	rst Bankswitch
