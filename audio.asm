@@ -1,8 +1,9 @@
 INCLUDE "constants.asm"
 
+SECTION "Audio Home", ROMX
+INCLUDE "audio/home.asm"
 
 SECTION "Audio", ROMX
-
 INCLUDE "audio/engine.asm"
 INCLUDE "data/trainers/encounter_music.asm"
 INCLUDE "audio/music_pointers.asm"

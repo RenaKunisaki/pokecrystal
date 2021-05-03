@@ -1,28 +1,9 @@
-; Audio interfaces.
+; Audio interfaces in home bank.
 
+; these are just overly complicated far calls.
 InitSound::
-	push hl
-	push de
-	push bc
-	push af
-
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(_InitSound)
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
-	call _InitSound
-
-	pop af
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
-	pop af
-	pop bc
-	pop de
-	pop hl
-	ret
+    farcall _InitSound
+    ret
 
 UpdateSound::
 	push hl
@@ -30,18 +11,9 @@ UpdateSound::
 	push bc
 	push af
 
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(_UpdateSound)
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
+	farcall _UpdateSound
 
-	call _UpdateSound
-
-	pop af
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
+pop_af_bc_de_hl_ret::
 	pop af
 	pop bc
 	pop de
@@ -63,68 +35,18 @@ _LoadMusicByte::
 
 PlayMusic::
 ; Play music de.
-
-	push hl
-	push de
-	push bc
-	push af
-
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(_PlayMusic) ; aka BANK(_InitSound)
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
-	ld a, e
-	and a
-	jr z, .nomusic
-
-	call _PlayMusic
-	jr .end
-
-.nomusic
-	call _InitSound
-
-.end
-	pop af
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-	pop af
-	pop bc
-	pop de
-	pop hl
+	farcall PlayMusic_far
 	ret
 
 PlayMusic2::
 ; Stop playing music, then play music de.
-
-	push hl
-	push de
-	push bc
-	push af
-
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(_PlayMusic)
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
 	push de
 	ld de, MUSIC_NONE
-	call _PlayMusic
+	farcall _PlayMusic
 	call DelayFrame
 	pop de
-	call _PlayMusic
-
-	pop af
-	ldh [hROMBank], a
-	ld [MBC3RomBank], a
-
-	pop af
-	pop bc
-	pop de
-	pop hl
-	ret
+	farcall _PlayMusic
+    ret
 
 PlayCry::
 ; Play cry de.
@@ -224,77 +146,38 @@ WaitPlaySFX::
 
 WaitSFX::
 ; infinite loop until sfx is done playing
-
-	push hl
-
-.wait
-	ld hl, wChannel5Flags1
-	bit 0, [hl]
-	jr nz, .wait
-	ld hl, wChannel6Flags1
-	bit 0, [hl]
-	jr nz, .wait
-	ld hl, wChannel7Flags1
-	bit 0, [hl]
-	jr nz, .wait
-	ld hl, wChannel8Flags1
-	bit 0, [hl]
-	jr nz, .wait
-
-	pop hl
+    farcall WaitSFX_far
 	ret
 
 IsSFXPlaying::
 ; Return carry if no sound effect is playing.
 ; The inverse of CheckSFX.
-	push hl
-
-	ld hl, wChannel5Flags1
-	bit 0, [hl]
-	jr nz, .playing
-	ld hl, wChannel6Flags1
-	bit 0, [hl]
-	jr nz, .playing
-	ld hl, wChannel7Flags1
-	bit 0, [hl]
-	jr nz, .playing
-	ld hl, wChannel8Flags1
-	bit 0, [hl]
-	jr nz, .playing
-
-	pop hl
-	scf
-	ret
-
-.playing
-	pop hl
-	and a
+	farcall IsSFXPlaying_far
 	ret
 
 MaxVolume::
 	ld a, MAX_VOLUME
+_storeVolume:
 	ld [wVolume], a
 	ret
 
 LowVolume::
 	ld a, $33 ; 50%
-	ld [wVolume], a
-	ret
+    jr _storeVolume
 
 MinVolume::
 	xor a
-	ld [wVolume], a
-	ret
+    jr _storeVolume
 
 FadeOutToMusic:: ; unreferenced
 	ld a, 4
+_setMusicFade:
 	ld [wMusicFade], a
 	ret
 
 FadeInToMusic::
 	ld a, 4 | (1 << MUSIC_FADE_IN_F)
-	ld [wMusicFade], a
-	ret
+    jr _setMusicFade
 
 SkipMusic::
 ; Skip a frames of music.
@@ -306,159 +189,28 @@ SkipMusic::
 	jr .loop
 
 FadeToMapMusic::
-	push hl
-	push de
-	push bc
-	push af
-
-	call GetMapMusic_MaybeSpecial
-	ld a, [wMapMusic]
-	cp e
-	jr z, .done
-
-	ld a, 8
-	ld [wMusicFade], a
-	ld a, e
-	ld [wMusicFadeID], a
-	ld a, d
-	ld [wMusicFadeID + 1], a
-	ld a, e
-	ld [wMapMusic], a
-
-.done
-	pop af
-	pop bc
-	pop de
-	pop hl
+	farcall FadeToMapMusic_far
 	ret
 
 PlayMapMusic::
-	push hl
-	push de
-	push bc
-	push af
-
-	call GetMapMusic_MaybeSpecial
-	ld a, [wMapMusic]
-	cp e
-	jr z, .done
-
-	push de
-	ld de, MUSIC_NONE
-	call PlayMusic
-	call DelayFrame
-	pop de
-	ld a, e
-	ld [wMapMusic], a
-	call PlayMusic
-
-.done
-	pop af
-	pop bc
-	pop de
-	pop hl
+	farcall PlayMapMusic_far
 	ret
 
 PlayMapMusicBike::
 ; If the player's on a bike, play the bike music instead of the map music
-	push hl
-	push de
-	push bc
-	push af
-
-	xor a
-	ld [wDontPlayMapMusicOnReload], a
-	ld de, MUSIC_BICYCLE
-	ld a, [wPlayerState]
-	cp PLAYER_BIKE
-	jr z, .play
-	call GetMapMusic_MaybeSpecial
-.play
-	push de
-	ld de, MUSIC_NONE
-	call PlayMusic
-	call DelayFrame
-	pop de
-
-	ld a, e
-	ld [wMapMusic], a
-	call PlayMusic
-
-	pop af
-	pop bc
-	pop de
-	pop hl
+	farcall PlayMapMusicBike_far
 	ret
 
 TryRestartMapMusic::
-	ld a, [wDontPlayMapMusicOnReload]
-	and a
-	jr z, RestartMapMusic
-	xor a
-	ld [wMapMusic], a
-	ld de, MUSIC_NONE
-	call PlayMusic
-	call DelayFrame
-	xor a
-	ld [wDontPlayMapMusicOnReload], a
+	farcall TryRestartMapMusic_far
 	ret
 
 RestartMapMusic::
-	push hl
-	push de
-	push bc
-	push af
-	ld de, MUSIC_NONE
-	call PlayMusic
-	call DelayFrame
-	ld a, [wMapMusic]
-	ld e, a
-	ld d, 0
-	call PlayMusic
-	pop af
-	pop bc
-	pop de
-	pop hl
+	farcall RestartMapMusic_far
 	ret
 
 SpecialMapMusic::
-	ld a, [wPlayerState]
-	cp PLAYER_SURF
-	jr z, .surf
-	cp PLAYER_SURF_PIKA
-	jr z, .surf
-
-	ld a, [wStatusFlags2]
-	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
-	jr nz, .contest
-
-.no
-	and a
-	ret
-
-.bike ; unreferenced
-	ld de, MUSIC_BICYCLE
-	scf
-	ret
-
-.surf
-	ld de, MUSIC_SURF
-	scf
-	ret
-
-.contest
-	ld a, [wMapGroup]
-	cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
-	jr nz, .no
-	ld a, [wMapNumber]
-	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
-	jr z, .ranking
-	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
-	jr nz, .no
-
-.ranking
-	ld de, MUSIC_BUG_CATCHING_CONTEST_RANKING
-	scf
+    farcall SpecialMapMusic_far
 	ret
 
 GetMapMusic_MaybeSpecial::
@@ -467,87 +219,21 @@ GetMapMusic_MaybeSpecial::
 	call GetMapMusic
 	ret
 
-PlaceBCDNumberSprite:: ; unreferenced
-; Places a BCD number at the upper center of the screen.
-	ld a, 4 * TILE_WIDTH
-	ld [wVirtualOAMSprite38YCoord], a
-	ld [wVirtualOAMSprite39YCoord], a
-	ld a, 10 * TILE_WIDTH
-	ld [wVirtualOAMSprite38XCoord], a
-	ld a, 11 * TILE_WIDTH
-	ld [wVirtualOAMSprite39XCoord], a
-	xor a
-	ld [wVirtualOAMSprite38Attributes], a
-	ld [wVirtualOAMSprite39Attributes], a
-	ld a, [wUnusedBCDNumber]
-	cp 100
-	jr nc, .max
-	add 1
-	daa
-	ld b, a
-	swap a
-	and $f
-	add "0"
-	ld [wVirtualOAMSprite38TileID], a
-	ld a, b
-	and $f
-	add "0"
-	ld [wVirtualOAMSprite39TileID], a
-	ret
-
-.max
-	ld a, "9"
-	ld [wVirtualOAMSprite38TileID], a
-	ld [wVirtualOAMSprite39TileID], a
-	ret
-
 CheckSFX::
 ; Return carry if any SFX channels are active.
-	ld a, [wChannel5Flags1]
-	bit 0, a
-	jr nz, .playing
-	ld a, [wChannel6Flags1]
-	bit 0, a
-	jr nz, .playing
-	ld a, [wChannel7Flags1]
-	bit 0, a
-	jr nz, .playing
-	ld a, [wChannel8Flags1]
-	bit 0, a
-	jr nz, .playing
-	and a
-	ret
-.playing
-	scf
+	farcall CheckSFX_far
 	ret
 
 TerminateExpBarSound::
-	xor a
-	ld [wChannel5Flags1], a
-	ld [wPitchSweep], a
-	ldh [rNR10], a
-	ldh [rNR11], a
-	ldh [rNR12], a
-	ldh [rNR13], a
-	ldh [rNR14], a
+	farcall TerminateExpBarSound_far
 	ret
 
 ChannelsOff::
 ; Quickly turn off music channels
-	xor a
-	ld [wChannel1Flags1], a
-	ld [wChannel2Flags1], a
-	ld [wChannel3Flags1], a
-	ld [wChannel4Flags1], a
-	ld [wPitchSweep], a
+	farcall ChannelsOff_far
 	ret
 
 SFXChannelsOff::
 ; Quickly turn off sound effect channels
-	xor a
-	ld [wChannel5Flags1], a
-	ld [wChannel6Flags1], a
-	ld [wChannel7Flags1], a
-	ld [wChannel8Flags1], a
-	ld [wPitchSweep], a
+	farcall SFXChannelsOff_far
 	ret
