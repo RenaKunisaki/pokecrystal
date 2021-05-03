@@ -12,22 +12,14 @@ ResetBikeFlags::
 	ret
 
 ResetFlashIfOutOfCave::
-	ld a, [wEnvironment]
-	cp ROUTE
-	jr z, .outdoors
-	cp TOWN
-	jr z, .outdoors
-	ret
-
-.outdoors
-	ld hl, wStatusFlags
-	res STATUSFLAGS_FLASH_F, [hl]
+	farcall ResetFlashIfOutOfCave_far
 	ret
 
 EventFlagAction::
 	ld hl, wEventFlags
-	call FlagAction
-	ret
+	;call FlagAction
+	;ret
+    ; fall through
 
 FlagAction::
 ; Perform action b on bit de in flag array hl.

@@ -29,10 +29,10 @@ Bankswitch::
 
 SECTION "rst18", ROM0[$0018] ; short farcall (was unused)
 ShortFarCall::
-    ldh [hShortFarCallA], a ; 0018 save a
-    ld a, h ; 001A
-    ldh [hShortFarCallH], a ; 001B save h
-	ld a, l ; 001D
+    push af ; 0018 stack: af_in, ret
+    ldh [hShortFarCallA], a ; 0019 save a_in (again)
+    ld a, h ; 001B
+    ldh [hShortFarCallH], a ; 001C save h_in
 	jr _shortFarCallContinued ; 001E
 
 SECTION "rst20", ROM0[$0020] ; unused
@@ -65,11 +65,11 @@ SECTION "rst30", ROM0[$0030] ; unused (was clobbered by JumpTable)
     rst $38 ; 0037
 
 SECTION "rst38", ROM0[$0038] ; error handler
+Panic::
+    di ; 0038
 _rst38_loop:
-    jr _rst38_loop ; 0038
-    rst $38 ; 003A
-    rst $38 ; 003B
-    rst $38 ; 003C
+    stop ; 0039, NOP added automatically after
+    jr _rst38_loop ; 003B
     rst $38 ; 003D
     rst $38 ; 003E
     rst $38 ; 003F
@@ -121,7 +121,12 @@ _jumpTableContinued:
     jp hl
 
 _shortFarCallContinued:
-    ldh [hShortFarCallL], a ; save l
+    ld a, l
+    ldh [hShortFarCallL], a ; save l_in
+
+    pop hl ; h=a_in, l=f_in; stack: ret
+    ld a, l
+    ldh [hShortFarCallF], a ; save f_in (already saved a)
 
     ; save current bank
     ldh a, [hROMBank]
@@ -132,25 +137,32 @@ _shortFarCallContinued:
     ;ldh [hShortFarCallJump], a
 
     ; get target address
-    pop hl ; get return address (actually params)
+    pop hl ; get return address (actually params); stack: empty
     ld a, [hli] ; get target byte 1
     ldh [hShortFarCallTarget], a
     ld a, [hli] ; get target byte 2
     ldh [hShortFarCallTarget+1], a
     ld a, [hli] ; get bank
-    push hl ; re-store corrected return address
+    push hl ; re-store corrected return address; stack: ret
     rst Bankswitch ; switch to target bank
 
     ; save previous bank to stack, to allow recursion
     ldh a,[hShortFarCallBank]
-    push af
+    push af ; stack: bank, ret
 
-    ; restore h, l, a inputs to target
+    ; restore af inputs to target
+    ldh a, [hShortFarCallA]
+    ld h, a
+    ldh a, [hShortFarCallF]
+    ld l, a
+    push hl ; will pop into af; stack: af_in, bank, ret
+
+    ; restore hl inputs
     ldh a, [hShortFarCallH]
     ld h, a
     ldh a, [hShortFarCallL]
     ld l, a
-    ldh a, [hShortFarCallA]
+    pop af ; af = af_in; stack: bank, ret
 
     ; call the target
     call hShortFarCallJump
@@ -164,7 +176,8 @@ _shortFarCallContinued:
 	ld [wFarCallBC + 1], a
 
 ; Restore the working bank.
-	pop bc
+	pop bc ; b=bank; stack: ret
+    push af ; keep those flags; stack: af_out, ret
 	ld a, b
 	rst Bankswitch
 
@@ -173,8 +186,9 @@ _shortFarCallContinued:
 	ld b, a
 	ld a, [wFarCallBC + 1]
 	ld c, a
+    pop af ; af = af_out; stack: ret
     ldh a, [hShortFarCallA]
-	ret
+	ret ; stack: empty
 ; 009E
 
 SECTION "Header", ROM0[$0100]

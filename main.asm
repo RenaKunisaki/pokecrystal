@@ -163,6 +163,8 @@ SECTION "Battle Core", ROMX
 INCLUDE "engine/battle/core.asm"
 INCLUDE "data/battle/effect_command_pointers.asm"
 
+SECTION "Battle Home", ROMX
+INCLUDE "engine/battle/home.asm"
 
 SECTION "bank10", ROMX
 
@@ -252,6 +254,8 @@ INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "data/pokemon/names.asm"
 INCLUDE "data/pokemon/unused_pic_banks.asm"
 
+SECTION "Ex-Home", ROMX
+INCLUDE "ex_home.asm"
 
 SECTION "Crystal Phone Text", ROMX
 

@@ -1,13 +1,6 @@
 GetPartyParamLocation::
 ; Get the location of parameter a from wCurPartyMon in hl
-	push bc
-	ld hl, wPartyMons
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [wCurPartyMon]
-	call GetPartyLocation
-	pop bc
+	farcall GetPartyParamLocation_far
 	ret
 
 GetPartyLocation::
@@ -15,68 +8,22 @@ GetPartyLocation::
 	ld bc, PARTYMON_STRUCT_LENGTH
 	jp AddNTimes
 
-GetDexNumber:: ; unreferenced
-; Probably used in gen 1 to convert index number to dex number
-; Not required in gen 2 because index number == dex number
-	push hl
-	ld a, b
-	dec a
-	ld b, 0
-	add hl, bc
-	ld hl, BaseData + BASE_DEX_NO
-	ld bc, BASE_DATA_SIZE
-	call AddNTimes
-	ld a, BANK(BaseData)
-	call GetFarWord
-	ld b, l
-	ld c, h
-	pop hl
-	ret
-
 UserPartyAttr::
-	push af
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .ot
-	pop af
-	jr BattlePartyAttr
-.ot
-	pop af
-	jr OTPartyAttr
+	farcall UserPartyAttr_far
+    ret
 
 OpponentPartyAttr::
-	push af
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ot
-	pop af
-	jr BattlePartyAttr
-.ot
-	pop af
-	jr OTPartyAttr
+	farcall OpponentPartyAttr_far
+    ret
 
 BattlePartyAttr::
 ; Get attribute a from the party struct of the active battle mon.
-	push bc
-	ld c, a
-	ld b, 0
-	ld hl, wPartyMons
-	add hl, bc
-	ld a, [wCurBattleMon]
-	call GetPartyLocation
-	pop bc
+	farcall BattlePartyAttr_far
 	ret
 
 OTPartyAttr::
 ; Get attribute a from the party struct of the active enemy mon.
-	push bc
-	ld c, a
-	ld b, 0
-	ld hl, wOTPartyMon1Species
-	add hl, bc
-	ld a, [wCurOTMon]
-	call GetPartyLocation
-	pop bc
+	farcall OTPartyAttr_far
 	ret
 
 ResetDamage::
@@ -87,13 +34,13 @@ ResetDamage::
 
 SetPlayerTurn::
 	xor a
+_setTurn:
 	ldh [hBattleTurn], a
 	ret
 
 SetEnemyTurn::
 	ld a, 1
-	ldh [hBattleTurn], a
-	ret
+	jr _setTurn
 
 UpdateOpponentInParty::
 	ldh a, [hBattleTurn]
@@ -153,6 +100,7 @@ UpdateBattleHuds::
 
 INCLUDE "home/battle_vars.asm"
 
+; why is this here?
 FarCopyRadioText::
 	inc hl
 	ldh a, [hROMBank]
@@ -164,10 +112,13 @@ FarCopyRadioText::
 	ld a, [hli]
 	ldh [hROMBank], a
 	ld [MBC3RomBank], a
-	ld a, e
-	ld l, a
-	ld a, d
-	ld h, a
+    ; why use a here? you did the same above in reverse...
+	;ld a, e
+	;ld l, a
+    ld l, e
+	;ld a, d
+	;ld h, a
+    ld h, d
 	ld de, wRadioText
 	ld bc, 2 * SCREEN_WIDTH
 	call CopyBytes
@@ -178,16 +129,7 @@ FarCopyRadioText::
 
 MobileTextBorder::
 	; For mobile link battles only.
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret c
-
-	; Draw a cell phone icon at the
-	; top right corner of the border.
-	hlcoord 19, 12
-	ld [hl], $5e ; top
-	hlcoord 19, 13
-	ld [hl], $5f ; bottom
+	farcall MobileTextBorder_far
 	ret
 
 BattleTextbox::
@@ -261,20 +203,5 @@ GetBattleAnimByte::
 	ret
 
 PushLYOverrides::
-	ldh a, [hLCDCPointer]
-	and a
-	ret z
-
-	ld a, LOW(wLYOverridesBackup)
-	ld [wRequested2bppSource], a
-	ld a, HIGH(wLYOverridesBackup)
-	ld [wRequested2bppSource + 1], a
-
-	ld a, LOW(wLYOverrides)
-	ld [wRequested2bppDest], a
-	ld a, HIGH(wLYOverrides)
-	ld [wRequested2bppDest + 1], a
-
-	ld a, (wLYOverridesEnd - wLYOverrides) / LEN_2BPP_TILE
-	ld [wRequested2bppSize], a
+	farcall PushLYOverrides_far
 	ret
