@@ -50,7 +50,8 @@ Init::
 	ldh [rOBP1], a
 	ldh [rTMA], a
 	ldh [rTAC], a
-	ld [wBetaTitleSequenceOpeningType], a
+    ; pointless, we clear WRAM soon
+	;ld [wBetaTitleSequenceOpeningType], a
 
     ld a, %100 ; Start timer at 4096Hz
 	ldh [rTAC], a
@@ -99,121 +100,29 @@ Init::
 
     ld a, $C3 ; a jump instruction
     ldh [hShortFarCallJump], a
-    xor a
-    ldh [hShortFarCallDepth], a
+    ;xor a
+    ;ldh [hShortFarCallDepth], a
 
 	ld a, BANK(WriteOAMDMACodeToHRAM) ; aka BANK(GameInit)
 	rst Bankswitch
 
 	call WriteOAMDMACodeToHRAM
+    farcall Init2_far
 
-	xor a
-	ldh [hMapAnims], a
-	ldh [hSCX], a
-	ldh [hSCY], a
-	ldh [rJOYP], a
-
-	ld a, $8 ; HBlank int enable
-	ldh [rSTAT], a
-
-	ld a, $90
-	ldh [hWY], a
-	ldh [rWY], a
-
-	ld a, 7
-	ldh [hWX], a
-	ldh [rWX], a
-
-	ld a, LCDC_DEFAULT ; %11100011
-	; LCD on
-	; Win tilemap 1
-	; Win on
-	; BG/Win tiledata 0
-	; BG Tilemap 0
-	; OBJ 8x8
-	; OBJ on
-	; BG on
-	ldh [rLCDC], a
-
-	ld a, CONNECTION_NOT_ESTABLISHED
-	ldh [hSerialConnectionStatus], a
-
-	farcall InitCGBPals
-
-	ld a, HIGH(vBGMap1)
-	ldh [hBGMapAddress + 1], a
-	xor a ; LOW(vBGMap1)
-	ldh [hBGMapAddress], a
-
-	farcall StartClock
-
-	xor a ; SRAM_DISABLE
-	ld [MBC3LatchClock], a
-	ld [MBC3SRamEnable], a
-
-	ldh a, [hCGB]
-	and a
-	jr z, .no_double_speed
-	call NormalSpeed
-.no_double_speed
-
-	xor a
-	ldh [rIF], a
-	ld a, IE_DEFAULT
-	ldh [rIE], a
-	ei
-
-	call DelayFrame
-
-	predef InitSGBBorder
-
-	call InitSound
-	xor a
-	ld [wMapMusic], a
 	jp GameInit
 
 ClearVRAM::
 ; Wipe VRAM banks 0 and 1
-
-	ld a, 1
-	ldh [rVBK], a
-	call .clear
-
-	xor a ; 0
-	ldh [rVBK], a
-.clear
-	ld hl, VRAM_Begin
-	ld bc, VRAM_End - VRAM_Begin
-	xor a
-	call ByteFill
+    farcall ClearVRAM_far
 	ret
 
 ClearWRAM::
 ; Wipe swappable WRAM banks (1-7)
 ; Assumes CGB or AGB
-
-	ld a, 1
-.bank_loop
-	push af
-	ldh [rSVBK], a
-	xor a
-	ld hl, WRAM1_Begin
-	ld bc, WRAM1_End - WRAM1_Begin
-	call ByteFill
-	pop af
-	inc a
-	cp 8
-	jr nc, .bank_loop ; Should be jr c
+    farcall ClearWRAM_far
 	ret
 
 ClearsScratch::
 ; Wipe the first 32 bytes of sScratch
-
-	ld a, BANK(sScratch)
-	call OpenSRAM
-	ld hl, sScratch
-	ld bc, $20
-	xor a
-	call ByteFill
-	call CloseSRAM
+    farcall ClearsScratch_far
 	ret

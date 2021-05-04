@@ -440,44 +440,5 @@ PromptButton::
 	ret
 
 BlinkCursor::
-	push bc
-	ld a, [hl]
-	ld b, a
-	ld a, "▼"
-	cp b
-	pop bc
-	jr nz, .place_arrow
-	ldh a, [hMapObjectIndex]
-	dec a
-	ldh [hMapObjectIndex], a
-	ret nz
-	ldh a, [hObjectStructIndex]
-	dec a
-	ldh [hObjectStructIndex], a
-	ret nz
-	ld a, "─"
-	ld [hl], a
-	ld a, -1
-	ldh [hMapObjectIndex], a
-	ld a, 6
-	ldh [hObjectStructIndex], a
-	ret
-
-.place_arrow
-	ldh a, [hMapObjectIndex]
-	and a
-	ret z
-	dec a
-	ldh [hMapObjectIndex], a
-	ret nz
-	dec a
-	ldh [hMapObjectIndex], a
-	ldh a, [hObjectStructIndex]
-	dec a
-	ldh [hObjectStructIndex], a
-	ret nz
-	ld a, 6
-	ldh [hObjectStructIndex], a
-	ld a, "▼"
-	ld [hl], a
+	farcall BlinkCursor_far
 	ret

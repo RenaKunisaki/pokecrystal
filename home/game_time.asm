@@ -1,15 +1,8 @@
 ResetGameTime::
-	;farcall ResetGameTime_far
-	;ret
-    xor a
-	ld [wGameTimeCap], a
-	ld [wGameTimeHours], a
-	ld [wGameTimeHours + 1], a
-	ld [wGameTimeMinutes], a
-	ld [wGameTimeSeconds], a
-	ld [wGameTimeFrames], a
+	farcall ResetGameTime_far
 	ret
 
+; XXX moving this breaks things.
 GameTimer::
 	;farcall GameTimer_far
     ;ret

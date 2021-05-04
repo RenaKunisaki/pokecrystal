@@ -108,9 +108,6 @@ LoadFontsBattleExtra::
 
 LoadFontsExtra::
 	farcall _LoadFontsExtra1
-	farcall _LoadFontsExtra2
-	ret
-
 LoadFontsExtra2: ; unreferenced
 	farcall _LoadFontsExtra2
 	ret
@@ -159,12 +156,16 @@ FarCopyBytesDouble:
 	rst Bankswitch
 
 ; switcheroo, de <> hl
-	ld a, h
-	ld h, d
-	ld d, a
-	ld a, l
-	ld l, e
-	ld e, a
+	;ld a, h
+	;ld h, d
+	;ld d, a
+	;ld a, l
+	;ld l, e
+	;ld e, a
+    push hl
+    push de
+    pop hl
+    pop de
 
 	inc b
 	inc c

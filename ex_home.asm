@@ -1,5 +1,7 @@
 ; misc functions moved out of home bank
 
+; ========== clear_sprites.asm ==========
+
 ;ClearSprites_far::
 ;; Erase OAM data
 ;	ld hl, wVirtualOAM
@@ -25,6 +27,8 @@ HideSprites_far::
 	ret
 
 
+; ========== double_speed.asm ==========
+
 DoubleSpeed_far::
 	ld hl, rKEY1
 	bit 7, [hl]
@@ -46,6 +50,8 @@ SwitchSpeed_far::
 	stop ; rgbasm adds a nop after this instruction by default
 	ret
 
+; ========== flag.asm ==========
+
 ResetFlashIfOutOfCave_far::
 	ld a, [wEnvironment]
 	cp ROUTE
@@ -58,6 +64,8 @@ ResetFlashIfOutOfCave_far::
 	ld hl, wStatusFlags
 	res STATUSFLAGS_FLASH_F, [hl]
 	ret
+
+; ========== game_time.asm ==========
 
 ResetGameTime_far::
 	xor a
@@ -176,6 +184,7 @@ GameTimer_far::
 	ld [wGameTimeHours + 1], a
 	ret
 
+; ========== hm_moves.asm ==========
 
 IsHM_far::
 	cp HM01
@@ -200,3 +209,195 @@ IsHMMove_far::
 	db WATERFALL
 	db WHIRLPOOL
 	db -1 ; end
+
+; ========== init.asm ==========
+
+Init2_far::
+    xor a
+	ldh [hMapAnims], a
+	ldh [hSCX], a
+	ldh [hSCY], a
+	ldh [rJOYP], a
+
+	ld a, $8 ; HBlank int enable
+	ldh [rSTAT], a
+
+	ld a, $90
+	ldh [hWY], a
+	ldh [rWY], a
+
+	ld a, 7
+	ldh [hWX], a
+	ldh [rWX], a
+
+	ld a, LCDC_DEFAULT ; %11100011
+	; LCD on
+	; Win tilemap 1
+	; Win on
+	; BG/Win tiledata 0
+	; BG Tilemap 0
+	; OBJ 8x8
+	; OBJ on
+	; BG on
+	ldh [rLCDC], a
+
+	ld a, CONNECTION_NOT_ESTABLISHED
+	ldh [hSerialConnectionStatus], a
+
+	farcall InitCGBPals
+
+	ld a, HIGH(vBGMap1)
+	ldh [hBGMapAddress + 1], a
+	xor a ; LOW(vBGMap1)
+	ldh [hBGMapAddress], a
+
+	farcall StartClock
+
+	xor a ; SRAM_DISABLE
+	ld [MBC3LatchClock], a
+	ld [MBC3SRamEnable], a
+
+	ldh a, [hCGB]
+	and a
+	jr z, .no_double_speed
+	call NormalSpeed
+.no_double_speed
+
+	xor a
+	ldh [rIF], a
+	ld a, IE_DEFAULT
+	ldh [rIE], a
+	ei
+
+	call DelayFrame
+
+	predef InitSGBBorder
+
+	call InitSound
+	xor a
+	ld [wMapMusic], a
+
+ClearVRAM_far::
+    ld a, 1
+	ldh [rVBK], a
+	call .clear
+
+	xor a ; 0
+	ldh [rVBK], a
+.clear
+	ld hl, VRAM_Begin
+	ld bc, VRAM_End - VRAM_Begin
+	xor a
+	call ByteFill
+	ret
+
+ClearWRAM_far::
+    ld a, 1
+.bank_loop
+	push af
+	ldh [rSVBK], a
+	xor a
+	ld hl, WRAM1_Begin
+	ld bc, WRAM1_End - WRAM1_Begin
+	call ByteFill
+	pop af
+	inc a
+	cp 8
+	;jr nc, .bank_loop ; Should be jr c
+	jr c, .bank_loop
+	ret
+
+ClearsScratch_far::
+; Wipe the first 32 bytes of sScratch
+
+	ld a, BANK(sScratch)
+	call OpenSRAM
+	ld hl, sScratch
+	ld bc, $20
+	xor a
+	call ByteFill
+	call CloseSRAM
+	ret
+
+; ========== joypad.asm ==========
+
+BlinkCursor_far::
+	push bc
+	ld a, [hl]
+	ld b, a
+	ld a, "▼"
+	cp b
+	pop bc
+	jr nz, .place_arrow
+	ldh a, [hMapObjectIndex]
+	dec a
+	ldh [hMapObjectIndex], a
+	ret nz
+	ldh a, [hObjectStructIndex]
+	dec a
+	ldh [hObjectStructIndex], a
+	ret nz
+	ld a, "─"
+	ld [hl], a
+	ld a, -1
+	ldh [hMapObjectIndex], a
+	ld a, 6
+	ldh [hObjectStructIndex], a
+	ret
+
+.place_arrow
+	ldh a, [hMapObjectIndex]
+	and a
+	ret z
+	dec a
+	ldh [hMapObjectIndex], a
+	ret nz
+	dec a
+	ldh [hMapObjectIndex], a
+	ldh a, [hObjectStructIndex]
+	dec a
+	ldh [hObjectStructIndex], a
+	ret nz
+	ld a, 6
+	ldh [hObjectStructIndex], a
+	ld a, "▼"
+	ld [hl], a
+	ret
+
+; ========== map_objects.asm ==========
+
+;GetObjectStruct_far::
+;	ld bc, OBJECT_LENGTH
+;	ld hl, wObjectStructs
+;	call AddNTimes
+;	ld b, h
+;	ld c, l
+;	ret
+;
+;DoesObjectHaveASprite_far::
+;	ld hl, OBJECT_SPRITE
+;	add hl, bc
+;	ld a, [hl]
+;	and a
+;	ret
+;
+;SetSpriteDirection_far::
+;	; preserves other flags
+;	push af
+;	ld hl, OBJECT_FACING
+;	add hl, bc
+;	ld a, [hl]
+;	and %11110011
+;	ld e, a
+;	pop af
+;	maskbits NUM_DIRECTIONS, 2
+;	or e
+;	ld [hl], a
+;	ret
+;
+;GetSpriteDirection_far::
+;	ld hl, OBJECT_FACING
+;	add hl, bc
+;	ld a, [hl]
+;	maskbits NUM_DIRECTIONS, 2
+;	ret

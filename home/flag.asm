@@ -12,18 +12,7 @@ ResetBikeFlags::
 	ret
 
 ResetFlashIfOutOfCave::
-	;farcall ResetFlashIfOutOfCave_far
-	;ret
-    ld a, [wEnvironment]
-	cp ROUTE
-	jr z, .outdoors
-	cp TOWN
-	jr z, .outdoors
-	ret
-
-.outdoors
-	ld hl, wStatusFlags
-	res STATUSFLAGS_FLASH_F, [hl]
+	farcall ResetFlashIfOutOfCave_far
 	ret
 
 EventFlagAction::
