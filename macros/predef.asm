@@ -6,7 +6,8 @@ ENDM
 
 predef: MACRO
 	lda_predef \1
-	call Predef
+	;call Predef
+    rst ShortPredef
 ENDM
 
 predef_jump: MACRO

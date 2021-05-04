@@ -42,10 +42,9 @@ ShortFarCall::
     ldh [hShortFarCallH], a ; 001C save h_in
 	jr _shortFarCallContinued ; 001E
 
-SECTION "rst20", ROM0[$0020] ; unused
-    rst $38 ; 0020
-    rst $38 ; 0021
-    rst $38 ; 0022
+SECTION "rst20", ROM0[$0020] ; short predef (was unused)
+ShortPredef::
+    jp Predef ; 0020
     rst $38 ; 0023
     rst $38 ; 0024
     rst $38 ; 0025
