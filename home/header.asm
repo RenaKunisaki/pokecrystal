@@ -127,7 +127,7 @@ _jumpTableContinued:
     jp hl
 
 INCLUDE "home/shortfarcall.asm"
-; 009E
+; 00A2
 
 if DEF(_DEBUG)
 INCLUDE "home/bankswitchdebug.asm"

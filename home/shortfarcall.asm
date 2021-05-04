@@ -1,4 +1,7 @@
 _shortFarCallContinued:
+    ; first few instructions are at $0018 because why not
+    ; take advantage of that otherwise usless space?
+
     ld a, l
     ldh [hShortFarCallL], a ; save l_in
 
@@ -11,13 +14,13 @@ _shortFarCallContinued:
 	ldh [hShortFarCallBank],a
 
     ; temp debug
-    ldh a, [hShortFarCallDepth]
-    inc a
-    ldh [hShortFarCallDepth], a
+    ;ldh a, [hShortFarCallDepth]
+    ;inc a
+    ;ldh [hShortFarCallDepth], a
 
     ; this is done in init instead
-    ;ld a, $C3 ; a jump instruction
-    ;ldh [hShortFarCallJump], a
+    ld a, $C3 ; a jump instruction
+    ldh [hShortFarCallJump], a
 
     ; get target address
     pop hl ; get return address (actually params); stack: empty
@@ -61,9 +64,9 @@ _shortFarCallContinued:
 	ld [wFarCallBC + 1], a
 
     ; temp debug
-    ldh a, [hShortFarCallDepth]
-    dec a
-    ldh [hShortFarCallDepth], a
+    ;ldh a, [hShortFarCallDepth]
+    ;dec a
+    ;ldh [hShortFarCallDepth], a
 
 ; Restore the working bank.
 	pop bc ; b=bank; stack: ret

@@ -184,6 +184,6 @@ hShortFarCallL:: db
 hShortFarCallBank:: db ; temp storage for ROM bank
 hShortFarCallJump:: db ; always 0xC3, a jump instruction
 hShortFarCallTarget:: dw ; the jump target
-hShortFarCallDepth:: db ; temp debug
+;hShortFarCallDepth:: db ; temp debug
 
 	;ds 9

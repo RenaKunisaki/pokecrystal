@@ -98,8 +98,8 @@ Init::
 	call ClearSprites
 	call ClearsScratch
 
-    ld a, $C3 ; a jump instruction
-    ldh [hShortFarCallJump], a
+    ;ld a, $C3 ; a jump instruction
+    ;ldh [hShortFarCallJump], a
     ;xor a
     ;ldh [hShortFarCallDepth], a
 
