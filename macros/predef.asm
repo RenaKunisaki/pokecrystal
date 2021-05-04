@@ -7,6 +7,7 @@ ENDM
 predef: MACRO
 	;lda_predef \1
 	;call Predef
+    ; two-byte call
     rst ShortPredef
     db (\1Predef - PredefPointers) / 3
 ENDM
