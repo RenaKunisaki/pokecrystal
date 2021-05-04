@@ -1,9 +1,19 @@
+_shortFarCallStoreAHL:
+    ldh [hShortFarCallA], a ; save a_in (again)
+    ld a, h
+    ldh [hShortFarCallH], a ; save h_in
+    ld a, l
+    ldh [hShortFarCallL], a ; save l_in
+    ret
+
+; Shorter version of farcall
+; Saves 2 bytes per invocation, and preserves all regs/flags
+; on input and output.
 _shortFarCallContinued:
     ; first few instructions are at $0018 because why not
     ; take advantage of that otherwise usless space?
 
-    ld a, l
-    ldh [hShortFarCallL], a ; save l_in
+    call _shortFarCallStoreAHL
 
     pop hl ; h=a_in, l=f_in; stack: ret
     ld a, l
@@ -18,10 +28,6 @@ _shortFarCallContinued:
     ;inc a
     ;ldh [hShortFarCallDepth], a
 
-    ; this is done in init instead
-    ld a, $C3 ; a jump instruction
-    ldh [hShortFarCallJump], a
-
     ; get target address
     pop hl ; get return address (actually params); stack: empty
     ld a, [hli] ; get target byte 1
@@ -30,14 +36,16 @@ _shortFarCallContinued:
     ldh [hShortFarCallTarget+1], a
     ld a, [hli] ; get bank
     push hl ; re-store corrected return address; stack: ret
-    ;rst Bankswitch ; switch to target bank
-    ldh [hROMBank], a   ; 0010
-	ld [MBC3RomBank], a ; 0012
+    rst Bankswitch ; switch to target bank
+    ;ldh [hROMBank], a
+	;ld [MBC3RomBank], a
 
     ; save previous bank to stack, to allow recursion
     ldh a,[hShortFarCallBank]
     push af ; stack: bank, ret
 
+    ; ShortPredef joins here.
+shortFarCallDo:
     ; restore af inputs to target
     ldh a, [hShortFarCallA]
     ld h, a
@@ -50,6 +58,10 @@ _shortFarCallContinued:
     ld h, a
     ldh a, [hShortFarCallL]
     ld l, a ; hl = hl_in
+
+    ld a, $C3 ; a jump instruction
+    ldh [hShortFarCallJump], a
+
     pop af ; af = af_in; stack: bank, ret
 
     ; call the target
@@ -72,9 +84,9 @@ _shortFarCallContinued:
 	pop bc ; b=bank; stack: ret
     push af ; keep those flags; stack: af_out, ret
 	ld a, b
-	;rst Bankswitch
-    ldh [hROMBank], a   ; 0010
-	ld [MBC3RomBank], a ; 0012
+	rst Bankswitch
+    ;ldh [hROMBank], a
+	;ld [MBC3RomBank], a
 
 ; Restore the contents of bc.
 	ld a, [wFarCallBC]

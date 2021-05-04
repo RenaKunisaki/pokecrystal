@@ -5,9 +5,10 @@ lda_predef: MACRO
 ENDM
 
 predef: MACRO
-	lda_predef \1
+	;lda_predef \1
 	;call Predef
     rst ShortPredef
+    db (\1Predef - PredefPointers) / 3
 ENDM
 
 predef_jump: MACRO

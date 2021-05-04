@@ -37,18 +37,16 @@ Bankswitch::
 SECTION "rst18", ROM0[$0018] ; short farcall (was unused)
 ShortFarCall::
     push af ; 0018 stack: af_in, ret
-    ldh [hShortFarCallA], a ; 0019 save a_in (again)
-    ld a, h ; 001B
-    ldh [hShortFarCallH], a ; 001C save h_in
-	jr _shortFarCallContinued ; 001E
+    call _shortFarCallStoreAHL ; 0019
+    jr _shortFarCallContinued ; 001C
+    rst $38 ; 001E
+    rst $38 ; 001F
 
 SECTION "rst20", ROM0[$0020] ; short predef (was unused)
 ShortPredef::
-    jp Predef ; 0020
-    rst $38 ; 0023
-    rst $38 ; 0024
-    rst $38 ; 0025
-    rst $38 ; 0026
+    push af ; 0020 stack: af_in, ret
+    call _shortFarCallStoreAHL ; 0021
+    jp _shortPredefContinued ; 0024
     rst $38 ; 0027
 
 SECTION "rst28", ROM0[$0028] ; JumpTable
@@ -127,10 +125,10 @@ _jumpTableContinued:
     jp hl
 
 INCLUDE "home/shortfarcall.asm"
-; 00A2
+INCLUDE "home/shortpredef.asm"
 
 if DEF(_DEBUG)
-INCLUDE "home/bankswitchdebug.asm"
+;INCLUDE "home/bankswitchdebug.asm"
 endc
 
 SECTION "Header", ROM0[$0100]
