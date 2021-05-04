@@ -342,6 +342,7 @@ MenuJoypadLoop:
 
 Do2DMenuRTCJoypad:
 .loopRTC
+    ;breakpoint
 	call UpdateTimeAndPals
 	call Menu_WasButtonPressed
 	ret c

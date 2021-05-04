@@ -91,6 +91,7 @@ _CheckTrainerBattle::
 	ret
 
 .startbattle
+    emu_dprint "Spotted! %A%"
 	pop de
 	pop af
 	ldh [hLastTalked], a

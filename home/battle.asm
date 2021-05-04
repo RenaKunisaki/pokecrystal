@@ -1,6 +1,15 @@
 GetPartyParamLocation::
 ; Get the location of parameter a from wCurPartyMon in hl
-	farcall GetPartyParamLocation_far
+	;farcall GetPartyParamLocation_far
+	;ret
+    push bc
+	ld hl, wPartyMons
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [wCurPartyMon]
+	call GetPartyLocation
+	pop bc
 	ret
 
 GetPartyLocation::
@@ -9,21 +18,57 @@ GetPartyLocation::
 	jp AddNTimes
 
 UserPartyAttr::
-	farcall UserPartyAttr_far
-    ret
+	;farcall UserPartyAttr_far
+    ;ret
+    push af
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .ot
+	pop af
+	jr BattlePartyAttr
+.ot
+	pop af
+	jr OTPartyAttr
 
 OpponentPartyAttr::
-	farcall OpponentPartyAttr_far
-    ret
+	;farcall OpponentPartyAttr_far
+    ;ret
+    push af
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ot
+	pop af
+	jr BattlePartyAttr
+.ot
+	pop af
+	jr OTPartyAttr
 
 BattlePartyAttr::
 ; Get attribute a from the party struct of the active battle mon.
-	farcall BattlePartyAttr_far
+	;farcall BattlePartyAttr_far
+	;ret
+    push bc
+	ld c, a
+	ld b, 0
+	ld hl, wPartyMons
+	add hl, bc
+	ld a, [wCurBattleMon]
+	call GetPartyLocation
+	pop bc
 	ret
 
 OTPartyAttr::
 ; Get attribute a from the party struct of the active enemy mon.
-	farcall OTPartyAttr_far
+	;farcall OTPartyAttr_far
+	;ret
+    push bc
+	ld c, a
+	ld b, 0
+	ld hl, wOTPartyMon1Species
+	add hl, bc
+	ld a, [wCurOTMon]
+	call GetPartyLocation
+	pop bc
 	ret
 
 ResetDamage::
@@ -129,7 +174,18 @@ FarCopyRadioText::
 
 MobileTextBorder::
 	; For mobile link battles only.
-	farcall MobileTextBorder_far
+	;farcall MobileTextBorder_far
+	;ret
+    ld a, [wLinkMode]
+	cp LINK_MOBILE
+	ret c
+
+	; Draw a cell phone icon at the
+	; top right corner of the border.
+	hlcoord 19, 12
+	ld [hl], $5e ; top
+	hlcoord 19, 13
+	ld [hl], $5f ; bottom
 	ret
 
 BattleTextbox::
@@ -202,6 +258,23 @@ GetBattleAnimByte::
 	ld a, [wBattleAnimByte]
 	ret
 
-PushLYOverrides::
-	farcall PushLYOverrides_far
+PushLYOverrides:: ; why is this here?
+	;farcall PushLYOverrides_far
+	;ret
+    ldh a, [hLCDCPointer]
+	and a
+	ret z
+
+	ld a, LOW(wLYOverridesBackup)
+	ld [wRequested2bppSource], a
+	ld a, HIGH(wLYOverridesBackup)
+	ld [wRequested2bppSource + 1], a
+
+	ld a, LOW(wLYOverrides)
+	ld [wRequested2bppDest], a
+	ld a, HIGH(wLYOverrides)
+	ld [wRequested2bppDest + 1], a
+
+	ld a, (wLYOverridesEnd - wLYOverrides) / LEN_2BPP_TILE
+	ld [wRequested2bppSize], a
 	ret

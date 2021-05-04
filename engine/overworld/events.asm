@@ -8,6 +8,7 @@ OverworldLoop::
 	ld [wMapStatus], a
 .loop
 	ld a, [wMapStatus]
+    ;emu_dprint "wMapStatus=%A%"
 	ld hl, .Jumptable
 	rst JumpTable
 	ld a, [wMapStatus]
@@ -99,6 +100,7 @@ CheckWildEncountersScriptFlag:
 	ret
 
 StartMap:
+    emu_dprint "StartMap"
 	xor a
 	ld [wScriptVar], a
 	xor a
@@ -109,6 +111,7 @@ StartMap:
 	farcall InitCallReceiveDelay
 	call ClearJoypad
 EnterMap:
+    emu_dprint "EnterMap"
 	xor a
 	ld [wXYComparePointer], a
 	ld [wXYComparePointer + 1], a
@@ -141,9 +144,9 @@ UnusedWait30Frames: ; unreferenced
 	ret
 
 HandleMap:
-	call ResetOverworldDelay
+    call ResetOverworldDelay
 	call HandleMapTimeAndJoypad
-	farcall HandleCmdQueue ; no need to farcall
+	call HandleCmdQueue ; no need to farcall
 	call MapEvents
 
 ; Not immediately entering a connected map will cause problems.
@@ -172,8 +175,6 @@ MapEvents:
 	call PlayerEvents
 	call DisableEvents
 	farcall ScriptEvents
-	ret
-
 .no_events:
 	ret
 
@@ -248,7 +249,7 @@ PlayerEvents:
 	and a
 	ret nz
 
-	call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
+	;call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
 
 	call CheckTrainerBattle_GetPlayerEvent
 	jr c, .ok
@@ -292,8 +293,8 @@ PlayerEvents:
 	ret
 
 CheckTrainerBattle_GetPlayerEvent:
-	nop
-	nop
+	;nop ;???
+	;nop
 	call CheckTrainerBattle
 	jr nc, .nope
 
@@ -963,6 +964,8 @@ DoPlayerEvent:
 
 	cp NUM_PLAYER_EVENTS
 	ret nc
+
+    emu_dprint "DoPlayerEvent %A%"
 
 	ld c, a
 	ld b, 0

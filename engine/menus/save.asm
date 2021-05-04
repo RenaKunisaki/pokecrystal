@@ -197,7 +197,7 @@ AskOverwriteSaveFile:
 
 SaveTheGame_yesorno:
 	ld b, BANK(WouldYouLikeToSaveTheGameText)
-	call MapTextbox
+    call MapTextbox
 	call LoadMenuTextbox
 	lb bc, 0, 7
 	call PlaceYesNoBox

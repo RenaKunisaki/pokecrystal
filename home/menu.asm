@@ -23,6 +23,7 @@ Load2DMenuData::
 	ret
 
 StaticMenuJoypad::
+    ;breakpoint
 	callfar _StaticMenuJoypad
 	call GetMenuJoypad
 	ret

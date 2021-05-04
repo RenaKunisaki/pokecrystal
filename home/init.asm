@@ -99,6 +99,8 @@ Init::
 
     ld a, $C3 ; a jump instruction
     ldh [hShortFarCallJump], a
+    xor a
+    ldh [hShortFarCallDepth], a
 
 	ld a, BANK(WriteOAMDMACodeToHRAM) ; aka BANK(GameInit)
 	rst Bankswitch

@@ -12,6 +12,12 @@ VBlank::
 	push de
 	push hl
 
+if DEF(_DEBUG)
+    ldh a, [hVblankDepth]
+    inc a
+    ldh [hVblankDepth], a
+endc
+
 	ldh a, [hVBlank]
 	and 7
 
@@ -27,6 +33,12 @@ VBlank::
 	call _hl_
 
 	call GameTimer
+
+if DEF(_DEBUG)
+    ldh a, [hVblankDepth]
+    dec a
+    ldh [hVblankDepth], a
+endc
 
 	pop hl
 	pop de

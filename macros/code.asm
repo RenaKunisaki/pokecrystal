@@ -35,6 +35,62 @@ ENDC
 ENDM
 
 
+; emulator debug functions, supported by bgb and no$gmb, maybe others
+
+; eg emu_dprint "hello, HL=%HL%"
+; available vars: AF, BC, DE, HL, SP, PC, B, C, D, E, H, L, A, ZERO, ZF, Z,
+; CARRY, CY, IME, ALLREGS, ROMBANK, XRAMBANK, SRAMBANK, WRAMBANK, VRAMBANK,
+; TOTALCLKS, LASTCLKS, CLKS2VBLANK
+; ZEROCLKS will reset the LASTCLKS counter
+if DEF(_DEBUG)
+emu_dprint: MACRO
+    PUSHC
+    SETCHARMAP ascii
+    ld d,d ; signal debug message
+    jr .end_\@
+    dw $6464 ; additional signal
+    dw $0000 ; flags: message follows
+    db \1
+    POPC
+.end_\@:
+ENDM
+
+else
+emu_dprint: MACRO
+    ; do nothing
+ENDM
+endc
+
+; eg emu_dprint_far addressOfMyMessage
+; message can be in a different bank
+if DEF(_DEBUG)
+emu_dprint_far: MACRO
+    ld d,d ; signal debug message
+    jr .end_\@
+    dw $6464 ; additional signal
+    dw $0001 ; flags: pointer to message follows
+    dw \1
+    db BANK(\1)
+.end_\@:
+ENDM
+
+else
+emu_dprint_far: MACRO
+    ; do nothing
+ENDM
+endc
+
+if DEF(_DEBUG)
+breakpoint: MACRO
+    ld b, b
+ENDM
+else
+breakpoint: MACRO
+    ; nothing
+ENDM
+endc
+
+
 ; Design patterns
 
 jumptable: MACRO

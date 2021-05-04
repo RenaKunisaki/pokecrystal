@@ -63,8 +63,12 @@ NewGame:
 	ld [wDebugFlags], a
 	call ResetWRAM
 	call NewGame_ClearTilemapEtc
-	call AreYouABoyOrAreYouAGirl
-	call OakSpeech
+    ld hl, .defaultPlayerName
+    ld de, wPlayerName
+    ld bc, NAME_LENGTH
+    call CopyBytes
+	;call AreYouABoyOrAreYouAGirl
+	;call OakSpeech
 	call InitializeWorld
 
 	ld a, LANDMARK_NEW_BARK_TOWN
@@ -76,6 +80,10 @@ NewGame:
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
 	jp FinishContinueFunction
+
+.defaultPlayerName:
+    db "Krystal@"
+
 
 AreYouABoyOrAreYouAGirl:
 	farcall Mobile_AlwaysReturnNotCarry ; mobile
@@ -490,7 +498,7 @@ GetPlayerGender::
     ret
 
 DisplaySaveInfoOnContinue:
-	call CheckRTCStatus
+    call CheckRTCStatus
 	and %10000000
 	jr z, .clock_ok
 	lb de, 4, 8
@@ -506,6 +514,18 @@ DisplaySaveInfoOnContinue:
     ; doing that gets us the level icon but no colon.
     ; correct fix is to copy the level icon over the unused
     ; Japanese character that appears in its place.
+
+if DEF(_DEBUG)
+    ld a, [wMapGroup]
+    ld h, a
+    ld a, [wMapNumber]
+    ld l, a
+    ld a, [wXCoord]
+    ld b, a
+    ld a, [wYCoord]
+    ld c, a
+    emu_dprint "Map %HL% %BC%"
+endc
 
     ; display box and base text
 	hlcoord 1, 0
@@ -575,12 +595,12 @@ endc
 	call PrintNum
 
     ; display map name (XXX why is this wrong?)
-    farcall TownMap_GetCurrentLandmark
-    ld e, a
-    farcall GetLandmarkName
-    hlcoord 2, 9
-	ld de, wStringBuffer1
-	call PlaceString
+    ;farcall TownMap_GetCurrentLandmark
+    ;ld e, a
+    ;farcall GetLandmarkName
+    ;hlcoord 2, 9
+	;ld de, wStringBuffer1
+	;call PlaceString
 
     ; display money
     hlcoord 10, 10
@@ -658,7 +678,7 @@ endc
 
 DisplaySaveInfoOnSave:
 	lb de, 4, 0
-	jr DisplayNormalContinueData
+	;jr DisplayNormalContinueData
 
 DisplayNormalContinueData:
 	call Continue_LoadMenuHeader
@@ -971,8 +991,10 @@ StorePlayerName:
 	ret
 
 ShrinkPlayer:
-	ldh a, [hROMBank]
-	push af
+    ; this code tries to back up and restore the ROM bank
+    ; even though it's IN a ROM bank -.-
+	;ldh a, [hROMBank]
+	;push af
 
 	ld a, 32 ; fade time
 	ld [wMusicFade], a
@@ -984,8 +1006,8 @@ ShrinkPlayer:
 
 	ld de, SFX_ESCAPE_ROPE
 	call PlaySFX
-	pop af
-	rst Bankswitch
+	;pop af
+	;rst Bankswitch
 
 	ld c, 8
 	call DelayFrames

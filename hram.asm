@@ -172,16 +172,18 @@ hSystemBooted:: db
 
 if DEF(_DEBUG)
 hDebugRoomMenuPage::
+hVblankDepth:: db
 endc
 hClockResetTrigger:: db
 
 ; scratch buffer for short farcall
 hShortFarCallA:: db ; temp storage for regs A, H, L
-hShortFarCallF:: db
-hShortFarCallH:: db
+hShortFarCallF:: db ; only used during setup, not during
+hShortFarCallH:: db ; the actual call.
 hShortFarCallL:: db
 hShortFarCallBank:: db ; temp storage for ROM bank
 hShortFarCallJump:: db ; always 0xC3, a jump instruction
 hShortFarCallTarget:: dw ; the jump target
+hShortFarCallDepth:: db ; temp debug
 
-	ds 11
+	;ds 9

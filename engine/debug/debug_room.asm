@@ -30,10 +30,10 @@ DEBUGROOMMENU_NUM_PAGES EQU const_value
 	const DEBUGROOMMENUITEM_BT_BUG_POKE  ; 14
 
 _DebugRoom:
-	ldh a, [hJoyDown]
-	and SELECT | START
-	cp SELECT | START
-	ret nz
+	;ldh a, [hJoyDown]
+	;and SELECT | START
+	;cp SELECT | START
+	;ret nz
 	ldh a, [hDebugRoomMenuPage]
 	push af
 	xor a
@@ -272,7 +272,7 @@ DebugRoomMenu_WinWorkClr:
 	ret
 
 DebugRoom_PrintWindowStackBottomTop:
-	;ret ; stubbed out
+	ret ; stubbed out
 
 	ld a, $00
 	call OpenSRAM
@@ -454,7 +454,7 @@ DebugRoomMenu_TelDebug:
 	ret
 
 DebugRoom_PrintTelDebug:
-	hlcoord 16, 16
+    hlcoord 16, 16
 	ld de, .TelString
 	call PlaceString
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)

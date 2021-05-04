@@ -376,12 +376,35 @@ CheckUnknownMap:: ; unreferenced
 	cp ENVIRONMENT_5
 	ret
 
+if DEF(_DEBUG)
+_DebugPrintMapEvents:
+    pushm af, bc, de, hl
+    ld a, [wCurMapWarpCount]
+    ld b, a
+    ld a, [wCurMapCoordEventCount]
+    ld c, a
+    ld a, [wCurMapBGEventCount]
+    ld d, a
+    ld a, [wCurMapObjectEventCount]
+    ld e, a
+    ld a, [wCurMapSceneScriptCount]
+    ld h, a
+    ld a, [wCurMapCallbackCount]
+    ld l, a
+    ;emu_dprint "Warps=%B% CoordEvt=%C% BGEvt=%D% ObjEvt=%E% Script=%H% Callbk=%L%"
+    popm hl, de, bc, af
+    ret
+endc
+
 LoadMapAttributes::
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts
 	xor a ; do not skip object events
 	call ReadMapEvents
+if DEF(_DEBUG)
+    ;jr _DebugPrintMapEvents
+endc
 	ret
 
 LoadMapAttributes_SkipObjects::
@@ -390,6 +413,9 @@ LoadMapAttributes_SkipObjects::
 	call ReadMapScripts
 	ld a, TRUE ; skip object events
 	call ReadMapEvents
+if DEF(_DEBUG)
+    ;jp _DebugPrintMapEvents
+endc
 	ret
 
 CopyMapPartialAndAttributes::
@@ -928,7 +954,7 @@ LoadMapStatus::
 
 CallScript::
 ; Call a script at a:hl.
-
+    ;emu_dprint "CallScript(%A%:%HL%)"
 	ld [wScriptBank], a
 	ld a, l
 	ld [wScriptPos], a
@@ -943,6 +969,7 @@ CallScript::
 
 CallMapScript::
 ; Call a script at hl in the current bank if there isn't already a script running
+    ;emu_dprint "CallMapScript(%HL%)"
 	ld a, [wScriptRunning]
 	and a
 	ret nz
@@ -951,6 +978,8 @@ CallMapScript::
 
 RunMapCallback::
 ; Will run the first callback found with execution index equal to a.
+    ;emu_dprint "RunMapCallback(%A%)"
+    ;breakpoint
 	ld b, a
 	ldh a, [hROMBank]
 	push af
@@ -1001,6 +1030,7 @@ RunMapCallback::
 
 ExecuteCallbackScript::
 ; Do map callback de and return to script bank b.
+    ;emu_dprint "ExecuteCallbackScript"
 	farcall CallCallback
 	ld a, [wScriptMode]
 	push af
@@ -1017,7 +1047,7 @@ ExecuteCallbackScript::
 	ret
 
 MapTextbox::
-	ldh a, [hROMBank]
+    ldh a, [hROMBank]
 	push af
 
 	ld a, b

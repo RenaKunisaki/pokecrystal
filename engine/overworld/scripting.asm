@@ -57,6 +57,21 @@ WaitScriptMovement:
 
 RunScriptCommand:
 	call GetScriptByte
+if DEF(_DEBUG)
+    push hl
+    push af
+    push bc
+    ld b,a
+    ld a,[wScriptPos]
+    ld l,a
+    ld a,[wScriptPos+1]
+    ld h,a
+    ld a,[wScriptBank]
+    emu_dprint "ScriptCmd %A%:%HL%: %B%"
+    pop bc
+    pop af
+    pop hl
+endc
 	ld hl, ScriptCommandTable
 	rst JumpTable
 	ret

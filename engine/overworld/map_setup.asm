@@ -10,16 +10,33 @@ RunMapSetupScript::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+    ldh a, [hMapEntryMethod]
+    emu_dprint "RunMapSetupScript(%A%) %ROMBANK%:%HL%"
 	call ReadMapSetupScript
+    emu_dprint "Done map setup script"
+
+if DEF(_DEBUG)
+    ld a, [wMapGroup]
+    ld h, a
+    ld a, [wMapNumber]
+    ld l, a
+    ld a, [wXCoord]
+    ld b, a
+    ld a, [wYCoord]
+    ld c, a
+    emu_dprint "Map %HL% %BC%"
+endc
+
 	ret
 
 INCLUDE "data/maps/setup_scripts.asm"
 
 ReadMapSetupScript:
 .loop
-	ld a, [hli]
-	cp -1 ; end?
-	ret z
+    ld a, [hli]
+    emu_dprint "MapSetupCmd %A%"
+    cp -1 ; end?
+    ret z
 
 	push hl
 

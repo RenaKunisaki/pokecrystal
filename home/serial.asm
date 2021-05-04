@@ -280,12 +280,14 @@ Serial_ExchangeSyncBytes::
 
 Serial_PrintWaitingTextAndSyncAndExchangeNybble::
 	call LoadTilemapToTempTilemap
+    breakpoint
 	callfar PlaceWaitingText
 	call WaitLinkTransfer
 	jp SafeLoadTempTilemapToTilemap
 
 Serial_SyncAndExchangeNybble:: ; unreferenced
 	call LoadTilemapToTempTilemap
+    breakpoint
 	callfar PlaceWaitingText
 	jp WaitLinkTransfer ; pointless
 
