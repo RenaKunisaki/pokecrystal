@@ -17,6 +17,16 @@ _shortPredefContinued:
     rst Bankswitch
     call GetPredefPointer
     ; now a=bank, wPredefAddress=addr, wPredefHL=hl
+    and a
+    jr nz, .doBankSwitch
+    ; for home calls there's no need to change bank.
+    ; but we did already change it for GetPredefPointer.
+    ; so change back to what it used to be.
+    ; this allows predefs for functions that read from
+    ; arbitrary ROM banks such as CopyBytes.
+    pop af
+    push af
+.doBankSwitch:
     rst Bankswitch
 
     ; store the pointer
