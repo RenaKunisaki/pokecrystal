@@ -2317,7 +2317,7 @@ BillsPC_PrintBoxCountAndCapacity:
 	hlcoord 13, 11
 	ld de, wTextDecimalByte
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	ld de, .OutOf20
 	call PlaceString
 	ret

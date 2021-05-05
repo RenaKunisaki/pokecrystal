@@ -98,7 +98,7 @@ DisplayDexEntry:
 	ld [hli], a
 	ld de, wTempSpecies
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 ; Check to see if we caught it.  Get out of here if we haven't.
 	ld a, [wTempSpecies]
 	dec a
@@ -130,7 +130,7 @@ DisplayDexEntry:
 	ld e, l
 	hlcoord 12, 7
 	lb bc, 2, (2 << 4) | 4
-	call PrintNum
+	predef PrintNum
 ; Replace the decimal point with a ft symbol
 	hlcoord 14, 7
 	ld [hl], $5e
@@ -156,7 +156,7 @@ DisplayDexEntry:
 	ld e, l
 	hlcoord 11, 9
 	lb bc, 2, (4 << 4) | 5
-	call PrintNum
+	predef PrintNum
 	pop de
 
 .skip_weight

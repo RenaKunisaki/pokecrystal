@@ -379,7 +379,7 @@ _HallOfFamePC:
 	hlcoord 2, 2
 	ld de, wHallOfFameTempWinCount
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 11, 2
 
 .finish
@@ -479,7 +479,7 @@ DisplayHOFMon:
 	hlcoord 3, 13
 	ld de, wTextDecimalByte
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	call GetBasePokemonName
 	hlcoord 7, 13
 	call PlaceString
@@ -513,7 +513,7 @@ DisplayHOFMon:
 	hlcoord 10, 16
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ret
 
 HOF_AnimatePlayerPic:
@@ -583,19 +583,19 @@ HOF_AnimatePlayerPic:
 	hlcoord 4, 6
 	ld de, wPlayerID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 8
 	ld de, .PlayTime
 	call PlaceString
 	hlcoord 3, 9
 	ld de, wGameTimeHours
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	ld [hl], HALLOFFAME_COLON
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	call WaitBGMap
 	farcall ProfOaksPCRating
 	ret

@@ -1092,7 +1092,7 @@ Pokedex_DrawMainScreenBG:
 	ld de, wNumSetBits
 	hlcoord 5, 12
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 14
 	ld de, String_OWN
 	call Pokedex_PlaceString
@@ -1102,7 +1102,7 @@ Pokedex_DrawMainScreenBG:
 	ld de, wNumSetBits
 	hlcoord 5, 15
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 17
 	ld de, String_SELECT_OPTION
 	call Pokedex_PlaceString
@@ -1262,7 +1262,7 @@ Pokedex_DrawSearchResultsScreenBG:
 	ld de, wDexSearchResultCount
 	hlcoord 1, 16
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 8, 0
 	ld [hl], $59
 	hlcoord 8, 1
@@ -1535,7 +1535,7 @@ Pokedex_PrintNumberIfOldMode:
 	add hl, de
 	ld de, wTempSpecies
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ret
 

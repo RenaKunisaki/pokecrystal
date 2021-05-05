@@ -67,12 +67,12 @@ PrintDiplomaPage2:
 	hlcoord 12, 15
 	ld de, wGameTimeHours
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	ld [hl], $67 ; colon
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 .PlayTime: db "PLAY TIME@"

@@ -888,7 +888,7 @@ Function8b880:
 	ld l, e
 	ld de, wMenuSelection
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 Function8b88c:

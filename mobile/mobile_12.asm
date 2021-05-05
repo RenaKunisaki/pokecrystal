@@ -890,7 +890,7 @@ Function487ff:
 	pop hl
 	ld b, PRINTNUM_LEADINGZEROS | 1
 	ld c, 3
-	call PrintNum
+	predef PrintNum
 	ret
 
 String_4880d:

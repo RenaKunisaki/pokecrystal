@@ -5711,7 +5711,7 @@ MoveInfoBox:
 	push hl
 	ld de, wStringBuffer1
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	pop hl
 	inc hl
 	inc hl
@@ -5719,7 +5719,7 @@ MoveInfoBox:
 	inc hl
 	ld de, wNamedObjectIndex
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 CheckPlayerHasUsableMoves:
@@ -8506,20 +8506,20 @@ ReadAndPrintLinkBattleRecord:
 	push hl
 	ld de, wLinkBattleRecordWins
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ld de, 5
 	add hl, de
 	push hl
 	ld de, wLinkBattleRecordLosses
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ld de, 5
 	add hl, de
 	ld de, wLinkBattleRecordDraws
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	jr .next
 
 .PrintFormatString:
@@ -8558,21 +8558,21 @@ ReadAndPrintLinkBattleRecord:
 	jr c, .quit
 
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 
 	hlcoord 11, 4
 	ld de, sLinkBattleLosses
 	call .PrintZerosIfNoSaveFileExists
 
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 
 	hlcoord 16, 4
 	ld de, sLinkBattleDraws
 	call .PrintZerosIfNoSaveFileExists
 
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 
 .quit
 	ret

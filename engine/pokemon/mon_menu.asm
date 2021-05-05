@@ -1205,7 +1205,7 @@ PlaceMoveData:
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	jr .description
 
 .no_power

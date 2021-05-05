@@ -240,11 +240,11 @@ TrainerCard_PrintTopHalfOfCard:
 	hlcoord 5, 4
 	ld de, wPlayerID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	hlcoord 7, 6
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 3
 	ld de, .HorizontalDivider
 	call TrainerCardSetup_PlaceTilemapString
@@ -279,7 +279,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ld de, wNumSetBits
 	hlcoord 15, 10
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	call TrainerCard_Page1_PrintGameTime
 	hlcoord 2, 8
 	ld de, .StatusTilemap
@@ -445,11 +445,11 @@ TrainerCard_Page1_PrintGameTime:
 	hlcoord 11, 12
 	ld de, wGameTimeHours
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ldh a, [hVBlankCounter]
 	and $1f
 	ret nz

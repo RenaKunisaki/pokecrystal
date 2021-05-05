@@ -70,7 +70,7 @@ SafariBattleMenuHeader:
 	hlcoord 17, 13
 	ld de, wSafariBallsRemaining
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 ContestBattleMenuHeader:
@@ -96,5 +96,5 @@ ContestBattleMenuHeader:
 	hlcoord 13, 16
 	ld de, wParkBallsRemaining
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret

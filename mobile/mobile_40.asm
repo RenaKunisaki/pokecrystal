@@ -1037,7 +1037,7 @@ Function100697:
 
 .asm_1006b4
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 .asm_1006bb
@@ -1408,7 +1408,7 @@ Function100902:
 	hlcoord 8, 11
 	lb bc, 1, 2
 	ld de, wStringBuffer2
-	call PrintNum
+	predef PrintNum
 	ld de, SFX_TWO_PC_BEEPS
 	predef PlaySFX
 	farcall ReloadMapPart

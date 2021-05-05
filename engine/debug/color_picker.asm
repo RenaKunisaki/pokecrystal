@@ -324,7 +324,7 @@ DebugColor_InitScreen:
 	hlcoord 0, 1
 	ld de, wTextDecimalByte
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	ld a, [wDebugColorIsTrainer]
 	and a
 	jr nz, .trainer

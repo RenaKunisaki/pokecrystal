@@ -71,7 +71,7 @@ Rate:
 	predef ByteFill
 	pop hl
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-	call PrintNum
+	predef PrintNum
 	ret
 
 FindOakRating:

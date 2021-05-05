@@ -361,7 +361,7 @@ TMHM_DisplayPocketItems:
 	jr nc, .HM
 	ld de, wTempTMHM
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	jr .okay
 
 .HM:
@@ -372,7 +372,7 @@ TMHM_DisplayPocketItems:
 	inc hl
 	ld de, wTempTMHM
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	call PrintNum
+	predef PrintNum
 	pop af
 	ld [wTempTMHM], a
 .okay
@@ -402,7 +402,7 @@ TMHM_DisplayPocketItems:
 	ld [wTempTMHM], a
 	ld de, wTempTMHM
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 .hm2
 	pop bc
 	pop de

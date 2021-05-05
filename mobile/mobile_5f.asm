@@ -4135,7 +4135,7 @@ Function17f382:
 	ld b, a
 	ld a, 3
 	ld c, a
-	call PrintNum
+	predef PrintNum
 	predef CloseSRAM
 	ld a, l
 	ld [wcd52], a
@@ -5161,7 +5161,7 @@ Function17ff3c:
 	hlcoord 14, 2
 	ld de, wMobileErrorCodeBuffer
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	pop af
 	ld [wMobileErrorCodeBuffer], a
 	and a

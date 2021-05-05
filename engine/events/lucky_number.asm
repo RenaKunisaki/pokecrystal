@@ -127,11 +127,11 @@ CheckForLuckyNumberWinners:
 	ld e, l
 	ld hl, wMonIDDigitsBuffer
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ld hl, wLuckyNumberDigitsBuffer
 	ld de, wLuckyIDNumber
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ld b, 5
 	ld c, 0
 	ld hl, wLuckyNumberDigitsBuffer + 4
@@ -221,7 +221,7 @@ PrintTodaysLuckyNumber:
 	ld hl, wStringBuffer3
 	ld de, wLuckyIDNumber
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ld a, "@"
 	ld [wStringBuffer3 + 5], a
 	ret

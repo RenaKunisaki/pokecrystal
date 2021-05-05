@@ -1285,7 +1285,7 @@ Function898aa:
 	hlcoord 6, 1
 	ld de, wMenuSelection
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	pop bc
 	ret
 
@@ -1335,7 +1335,7 @@ Function898f3:
 	jr c, .asm_8990a
 	hlcoord 5, 5
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	jr .asm_89913
 
 .asm_8990a
@@ -1485,7 +1485,7 @@ Function899b2:
 Function899c9:
 	ld de, wPlayerID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ret
 
 Function899d3:

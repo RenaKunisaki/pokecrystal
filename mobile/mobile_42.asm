@@ -1317,7 +1317,7 @@ MobileTradeAnim_MonDisplay_UpdateBGMap:
 MobileTradeAnim_MonDisplay_PrintSpeciesNumber:
 	hlcoord 9, 0
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	ret
 
 MobileTradeAnim_MonDisplay_PrintSpeciesName:
@@ -1351,7 +1351,7 @@ MobileTradeAnim_MonDisplay_PrintOTNameAndGender:
 MobileTradeAnim_MonDisplay_PrintIDNumber:
 	hlcoord 8, 6
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	ret
 
 MobileTradeAnim_ClearTilemap:

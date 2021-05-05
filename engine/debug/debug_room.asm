@@ -973,7 +973,7 @@ DebugRoom_PrintPagedValue:
 	or a
 	jr nz, .hex
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	jr .printed
 .hex
 	ld c, 1
@@ -1413,17 +1413,17 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	hlcoord 8, 15
 	ld de, wDebugRoomRTCCurHour
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], ":"
 	inc hl
 	ld de, wDebugRoomRTCCurMin
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], ":"
 	inc hl
 	ld de, wDebugRoomRTCCurSec
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 DebugRoom_DayHTimeString:

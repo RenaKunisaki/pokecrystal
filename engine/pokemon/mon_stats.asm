@@ -69,7 +69,7 @@ DrawHP:
 	ld de, wTempMonMaxHP
 .not_boxmon_2
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 
 	ld a, "/"
 	ld [hli], a
@@ -77,7 +77,7 @@ DrawHP:
 ; Print max HP
 	ld de, wTempMonMaxHP
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	pop hl
 	pop de
 	ret
@@ -107,7 +107,7 @@ PrintTempMonStats:
 
 .PrintStat:
 	push hl
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ld de, SCREEN_WIDTH * 2
 	add hl, de
@@ -292,12 +292,12 @@ ListMovePP:
 	push hl
 	ld de, wStringBuffer1 + 4
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	ld a, "/"
 	ld [hli], a
 	ld de, wTempPP
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ld a, [wListMovesLineSpacing]
 	ld e, a

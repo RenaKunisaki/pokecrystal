@@ -168,7 +168,7 @@ PrintPartyMonPage1:
 	inc hl
 	ld de, wTempMonMaxHP
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
 	ld [wCurSpecies], a
@@ -188,7 +188,7 @@ PrintPartyMonPage1:
 	inc hl
 	ld de, wNamedObjectIndex
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 9
 	ld de, PrintParty_OTString
 	call PlaceString
@@ -202,7 +202,7 @@ PrintPartyMonPage1:
 	hlcoord 4, 11
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 14
 	ld de, PrintParty_MoveString
 	call PlaceString
@@ -281,7 +281,7 @@ PrintPartyMonPage2:
 
 .PrintTempMonStats:
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	ret
 
 GetCurPartyMonName:

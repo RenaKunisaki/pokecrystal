@@ -61,11 +61,11 @@ DisplayCaughtContestMonStats:
 	hlcoord 11, 4
 	ld de, wContestMonMaxHP
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 
 	hlcoord 11, 10
 	ld de, wEnemyMonMaxHP
-	call PrintNum
+	predef PrintNum
 
 	ld hl, ContestAskSwitchText
 	call PrintText

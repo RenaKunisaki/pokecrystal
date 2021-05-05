@@ -223,11 +223,11 @@ SlotsLoop:
 	hlcoord 5, 1
 	ld de, wCoins
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
-	call PrintNum
+	predef PrintNum
 	hlcoord 11, 1
 	ld de, wPayout
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
-	call PrintNum
+	predef PrintNum
 	ret
 
 DebugPrintSlotBias: ; unreferenced

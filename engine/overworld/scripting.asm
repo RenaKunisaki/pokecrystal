@@ -1669,7 +1669,7 @@ Script_getmoney:
 	call GetMoneyAccount
 	ld hl, wStringBuffer1
 	lb bc, PRINTNUM_LEFTALIGN | 3, 6
-	call PrintNum
+	predef PrintNum
 	ld de, wStringBuffer1
 	jp GetStringBuffer
 
@@ -1678,7 +1678,7 @@ Script_getcoins:
 	ld hl, wStringBuffer1
 	ld de, wCoins
 	lb bc, PRINTNUM_LEFTALIGN | 2, 6
-	call PrintNum
+	predef PrintNum
 	ld de, wStringBuffer1
 	jp GetStringBuffer
 
@@ -1687,7 +1687,7 @@ Script_getnum:
 	ld de, wScriptVar
 	ld hl, wStringBuffer1
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-	call PrintNum
+	predef PrintNum
 	ld de, wStringBuffer1
 	jp GetStringBuffer
 

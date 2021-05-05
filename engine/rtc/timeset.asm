@@ -286,7 +286,7 @@ PrintTwoDigitNumberLeftAlign:
 	ld [hl], a
 	pop hl
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 OakTimeWokeUpText:
@@ -343,7 +343,7 @@ OakText_ResponseToSetTime:
 	inc hl
 	ld de, wInitMinuteBuffer
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld b, h
 	ld c, l
 	ld a, [wInitHourBuffer]
@@ -659,17 +659,17 @@ MrChrono: ; unreferenced
 
 .PrintTime:
 	lb bc, 1, 3
-	call PrintNum
+	predef PrintNum
 	ld [hl], "."
 	inc hl
 	inc de
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], ":"
 	inc hl
 	inc de
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 PrintHour:

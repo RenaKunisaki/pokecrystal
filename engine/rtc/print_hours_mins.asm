@@ -11,7 +11,7 @@ PrintFiveDigitNumber: ; unreferenced
 	ld e, l
 	pop hl
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+	predef PrintNum
 	pop bc
 	ret
 
@@ -46,7 +46,7 @@ PrintHoursMins:
 	pop hl
 	ld [hl], " "
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], ":"
 	inc hl
 	ld d, h
@@ -57,7 +57,7 @@ PrintHoursMins:
 	pop de
 	pop hl
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	pop bc
 	ld de, String_AM
 	pop af

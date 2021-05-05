@@ -199,7 +199,7 @@ PrintBlueCardBalance:
 	ld [hld], a
 	pop de
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	ret
 
 .Points_string:

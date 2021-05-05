@@ -426,7 +426,7 @@ StatsScreen_InitUpperHalf:
 	hlcoord 10, 0
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
 	ld de, wTextDecimalByte
-	call PrintNum
+	predef PrintNum
 	hlcoord 14, 0
 	call PrintLevel
 	ld hl, .NicknamePointers
@@ -631,12 +631,12 @@ LoadPinkPage:
 	hlcoord 13, 10
 	lb bc, 3, 7
 	ld de, wTempMonExp
-	call PrintNum
+	predef PrintNum
 	call .CalcExpToNextLevel
 	hlcoord 13, 13
 	lb bc, 3, 7
 	ld de, wExpToNextLevel
-	call PrintNum
+	predef PrintNum
 	ld de, .LevelUpStr
 	hlcoord 10, 12
 	call PlaceString
@@ -787,7 +787,7 @@ LoadBluePage:
 	hlcoord 2, 10
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
-	call PrintNum
+	predef PrintNum
 	ld hl, .OTNamePointers
 	call GetNicknamenamePointer
 	call CopyNickname

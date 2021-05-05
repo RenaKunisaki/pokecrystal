@@ -261,7 +261,7 @@ GetMartPrice:
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer2
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 6 ; 6 digits
-	call PrintNum
+	predef PrintNum
 	pop hl
 
 	ld de, wStringBuffer1

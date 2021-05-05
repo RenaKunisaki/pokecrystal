@@ -4667,11 +4667,11 @@ Function11a302:
 	hlcoord 9, 4
 	ld de, wcd68
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	hlcoord 14, 4
 	ld de, wcd67
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable

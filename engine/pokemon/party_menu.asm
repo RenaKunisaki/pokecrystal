@@ -202,14 +202,14 @@ PlacePartyMenuHPDigits:
 	pop hl
 	push de
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	pop de
 	ld a, "/"
 	ld [hli], a
 	inc de
 	inc de
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 
 .next
 	pop hl
@@ -251,7 +251,7 @@ PlacePartyMonLevel:
 .ThreeDigits:
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
 ; .okay
-	call PrintNum
+	predef PrintNum
 
 .next
 	pop hl

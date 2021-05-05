@@ -568,7 +568,7 @@ endc
 	ld de, wNumSetBits
 	lb bc, PRINTNUM_ONE_BYTE, 3 ; 1 byte, 3 digits
     hlcoord 14, 7
-	call PrintNum
+	predef PrintNum
 
     ; display pokedex owned count
     ld hl, wPokedexCaught
@@ -581,18 +581,18 @@ endc
 	ld de, wNumSetBits
 	lb bc, PRINTNUM_ONE_BYTE, 3 ; 1 byte, 3 digits
     hlcoord 14, 6
-	call PrintNum
+	predef PrintNum
 
     ; display game time
     hlcoord 9, 8
     ld de, wGameTimeHours
 	lb bc, PRINTNUM_TWO_BYTES, 5
-	call PrintNum
+	predef PrintNum
 	ld [hl], "<COLON>"
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
-	call PrintNum
+	predef PrintNum
 
     ; display map name (XXX why is this wrong?)
     ;farcall TownMap_GetCurrentLandmark
@@ -606,7 +606,7 @@ endc
     hlcoord 10, 10
     ld de, wMoney
 	lb bc, PRINTNUM_MONEY | PRINTNUM_THREE_BYTES, 6
-	call PrintNum
+	predef PrintNum
 
     ; display party mons
 	hlcoord 2, 11
@@ -808,7 +808,7 @@ endc
 Continue_DisplayGameTime:
 	ld de, wGameTimeHours
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	ld [hl], "<COLON>"
 	inc hl
 	ld de, wGameTimeMinutes

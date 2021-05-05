@@ -22,7 +22,7 @@ PlaceMenuItemQuantity:
 	inc hl
 	ld de, wMenuSelectionQuantity
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 
 .done
 	ret
@@ -49,7 +49,7 @@ PlaceMoneyTextbox:
 	add hl, de
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
-	call PrintNum
+	predef PrintNum
 	ret
 
 MoneyTopRightMenuHeader:
@@ -79,7 +79,7 @@ DisplayCoinCaseBalance:
 	ld de, wCoins
 	lb bc, 2, 4
 	hlcoord 13, 1
-	call PrintNum
+	predef PrintNum
 	ret
 
 DisplayMoneyAndCoinBalance:
@@ -93,14 +93,14 @@ DisplayMoneyAndCoinBalance:
 	hlcoord 12, 1
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
-	call PrintNum
+	predef PrintNum
 	hlcoord 6, 3
 	ld de, CoinString
 	call PlaceString
 	hlcoord 15, 3
 	ld de, wCoins
 	lb bc, 2, 4
-	call PrintNum
+	predef PrintNum
 	ret
 
 MoneyString:
@@ -122,7 +122,7 @@ StartMenu_PrintSafariGameStatus: ; unreferenced
 	hlcoord 1, 1
 	ld de, wSafariTimeRemaining
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	hlcoord 4, 1
 	ld de, .slash_500
 	call PlaceString
@@ -132,7 +132,7 @@ StartMenu_PrintSafariGameStatus: ; unreferenced
 	hlcoord 5, 3
 	ld de, wSafariBallsRemaining
 	lb bc, 1, 2
-	call PrintNum
+	predef PrintNum
 	pop af
 	ld [wOptions], a
 	ret
@@ -161,7 +161,7 @@ StartMenu_PrintBugContestStatus:
 	hlcoord 8, 5
 	ld de, wParkBallsRemaining
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	call PrintNum
+	predef PrintNum
 	hlcoord 1, 1
 	ld de, .CaughtString
 	call PlaceString

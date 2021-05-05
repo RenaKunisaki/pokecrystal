@@ -272,7 +272,7 @@ HPBarAnim_UpdateHPRemaining:
 	ld [wStringBuffer2], a
 	ld de, wStringBuffer2
 	lb bc, 2, 3
-	call PrintNum
+	predef PrintNum
 	pop hl
 	ret
 

@@ -90,12 +90,12 @@ PrintMagikarpLength:
 	ld hl, wStringBuffer1
 	ld de, wMagikarpLength
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], "′"
 	inc hl
 	ld de, wMagikarpLength + 1
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
-	call PrintNum
+	predef PrintNum
 	ld [hl], "″"
 	inc hl
 	ld [hl], "@"

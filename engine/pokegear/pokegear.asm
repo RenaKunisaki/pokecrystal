@@ -530,7 +530,7 @@ Pokegear_UpdateClock:
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
     ld [hl],":" ; XXX update clock.tilemap.rle instead
     inc hl
-	call PrintNum
+	predef PrintNum
 
     ; HACK: show AM/PM since we clobbered it
     ld a, [wOptions]
