@@ -58,7 +58,7 @@ UnusedTitleScreen: ; unreferenced
 	set rLCDC_SPRITE_SIZE, a
 	ldh [rLCDC], a
 
-	call DelayFrame
+	predef DelayFrame
 
 	ldh a, [rSVBK]
 	push af
@@ -165,7 +165,7 @@ TestCrystalTitleScreen: ; unreferenced
 	and A_BUTTON
 	jr nz, .done
 	call SuicuneFrameIterator
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 .done
 	ret

@@ -94,7 +94,7 @@ Credits::
 	jr nz, .exit_credits
 
 	call Credits_Jumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .execution_loop
 
 .exit_credits
@@ -338,7 +338,7 @@ ParseCredits:
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	pop de
 	call PlayMusic
 	jp .loop

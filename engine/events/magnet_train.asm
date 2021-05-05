@@ -49,7 +49,7 @@ MagnetTrain:
 	call MagnetTrain_Jumptable
 	call MagnetTrain_UpdateLYOverrides
 	call PushLYOverrides
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .initialize
@@ -390,7 +390,7 @@ MagnetTrain_Jumptable_FirstRunThrough:
 	call MagnetTrain_Jumptable
 	call MagnetTrain_UpdateLYOverrides
 	call PushLYOverrides
-	call DelayFrame
+	predef DelayFrame
 
 	ldh a, [rSVBK]
 	push af

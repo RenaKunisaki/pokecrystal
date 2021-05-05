@@ -34,7 +34,7 @@ GBCOnlyScreen:
 
 ; better luck next time
 .loop
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 DrawGBCOnlyScreen:

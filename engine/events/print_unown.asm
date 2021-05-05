@@ -78,7 +78,7 @@ _UnownPrinter:
 	jr nz, .pressed_a
 
 	call .LeftRight
-	call DelayFrame
+	predef DelayFrame
 	jr .joy_loop
 
 .pressed_a

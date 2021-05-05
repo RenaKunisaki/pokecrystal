@@ -7,7 +7,7 @@ INCBIN "gfx/tilesets/forest-tree/3.2bpp"
 INCBIN "gfx/tilesets/forest-tree/4.2bpp"
 
 CelebiShrineEvent:
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wVramState]
 	push af
 	xor a

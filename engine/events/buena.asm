@@ -77,7 +77,7 @@ BuenaPrize:
 	call BuenaPrintText
 
 .okay
-	call DelayFrame
+	predef DelayFrame
 	call UpdateSprites
 	call PrintBlueCardBalance
 	call Buena_PrizeMenu

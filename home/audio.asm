@@ -37,7 +37,7 @@ PlayMusic2::
 	push de
 	ld de, MUSIC_NONE
 	farcall _PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	pop de
 	farcall _PlayMusic
     ret

@@ -17,7 +17,7 @@ DoBattleTransition:
 	ld [wOBP0], a
 	ldh a, [rOBP1]
 	ld [wOBP1], a
-	call DelayFrame
+	predef DelayFrame
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
@@ -28,7 +28,7 @@ DoBattleTransition:
 	bit 7, a ; BATTLETRANSITION_END?
 	jr nz, .done
 	call BattleTransitionJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -48,7 +48,7 @@ DoBattleTransition:
 	ld a, %11111111
 	ld [wBGP], a
 	call DmgToCgbBGPals
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hLYOverrideStart], a
@@ -59,7 +59,7 @@ DoBattleTransition:
 	ldh [rSVBK], a
 	pop af
 	ldh [hVBlank], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .InitGFX:
@@ -68,7 +68,7 @@ DoBattleTransition:
 	jr z, .mobile
 	farcall ReanchorBGMap_NoOAMUpdate
 	call UpdateSprites
-	call DelayFrame
+	predef DelayFrame
 	call .NonMobile_LoadPokeballTiles
 	call BattleStart_CopyTilemapAtOnce
 	jr .resume
@@ -79,7 +79,7 @@ DoBattleTransition:
 .resume
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hBGMapMode], a
 	ld hl, wJumptableIndex
@@ -392,8 +392,8 @@ endr
 	call .load
 	ld a, 1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ld hl, wBattleTransitionCounter
 	inc [hl]
 	ret
@@ -401,9 +401,9 @@ endr
 .end
 	ld a, 1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hBGMapMode], a
 	ld a, BATTLETRANSITION_FINISH
@@ -537,9 +537,9 @@ StartTrainerBattle_SpeckleToBlack:
 .done
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hBGMapMode], a
 	ld a, BATTLETRANSITION_FINISH
@@ -646,8 +646,8 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	jr nz, .cgb
 	ld a, 1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	jr .nextscene
 
 .cgb
@@ -675,7 +675,7 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call DelayFrame
+	predef DelayFrame
 	call BattleStart_CopyTilemapAtOnce
 
 .nextscene

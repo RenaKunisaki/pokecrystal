@@ -85,7 +85,7 @@ SafeUpdateSprites::
 
 	xor a
 	ldh [hOAMUpdate], a
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	ldh [hBGMapMode], a
 	pop af

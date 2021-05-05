@@ -62,7 +62,7 @@ Function17a6a8:
 	farcall LoadOW_BGPal7
 	farcall Function49420
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function17a6f5:

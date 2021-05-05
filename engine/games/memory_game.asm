@@ -1,6 +1,6 @@
 _MemoryGame:
 	call .LoadGFXAndPals
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call .JumptableLoop
 	jr nc, .loop
@@ -48,7 +48,7 @@ _MemoryGame:
 	jr nz, .quit
 	call .ExecuteJumptable
 	callfar PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 

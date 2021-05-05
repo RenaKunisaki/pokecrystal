@@ -19,7 +19,7 @@ _CardFlip:
 	predef ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	call DisableLCD
 	call LoadStandardFont
 	call LoadFontsExtra
@@ -51,7 +51,7 @@ _CardFlip:
 	call DmgToCgbBGPals
 	lb de, %11100100, %11100100
 	call DmgToCgbObjPals
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ld [wJumptableIndex], a
 	ld a, $2
@@ -236,7 +236,7 @@ _CardFlip:
 	jr nz, .betdone
 	call ChooseCard_HandleJoypad
 	call CardFlip_UpdateCursorOAM
-	call DelayFrame
+	predef DelayFrame
 	jr .betloop
 
 .betdone

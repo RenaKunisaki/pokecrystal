@@ -174,7 +174,7 @@ SwitchPartyMons:
 	ld [hl], "▷"
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 
 	farcall PartyMenuSelect
 	bit 1, b

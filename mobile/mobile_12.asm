@@ -916,7 +916,7 @@ Function4880e:
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, .asm_4885f
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 .asm_48838

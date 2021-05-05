@@ -66,7 +66,7 @@ DebugColorPicker: ; unreferenced
 	jr nz, .exit
 	call DebugColorMain
 	call DebugColor_PlaceCursor
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .exit
@@ -445,9 +445,9 @@ DebugColor_UpdateScreen:
 
 	ld a, 2
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 
 .sgb
 	predef WaitBGMap
@@ -1281,7 +1281,7 @@ DebugTileset_UpdatePalettes:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 DebugTileset_Joypad:

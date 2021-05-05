@@ -75,7 +75,7 @@ HallOfFame_PlayMusicDE:
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	pop de
 	call PlayMusic
 	ret
@@ -280,7 +280,7 @@ HOF_SlideBackpic:
 	ret z
 	add 4
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	jr .backpicloop
 
 HOF_SlideFrontpic:
@@ -291,7 +291,7 @@ HOF_SlideFrontpic:
 	dec a
 	dec a
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	jr .frontpicloop
 
 _HallOfFamePC:
@@ -325,7 +325,7 @@ _HallOfFamePC:
 	ld a, [hl]
 	and START
 	jr nz, .start_button
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .a_button

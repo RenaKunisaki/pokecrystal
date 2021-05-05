@@ -491,7 +491,7 @@ MailboxPC:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	farcall PartyMenuSelect
 	jr c, .exit2
 	ld a, [wCurPartySpecies]

@@ -666,7 +666,7 @@ EggHatch_DoAnimFrame:
 	push de
 	push bc
 	callfar PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 	pop de
 	pop hl

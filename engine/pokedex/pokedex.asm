@@ -42,7 +42,7 @@ Pokedex:
 	xor a
 	ldh [hMapAnims], a
 	call InitPokedex
-	call DelayFrame
+	predef DelayFrame
 
 .main
 	call JoyTextDelay
@@ -50,7 +50,7 @@ Pokedex:
 	bit 7, a
 	jr nz, .exit
 	call Pokedex_RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .main
 
 .exit
@@ -304,7 +304,7 @@ Pokedex_UpdateMainScreen:
 	ldh [hSCX], a
 	ld a, $a7
 	ldh [hWX], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .start
@@ -315,7 +315,7 @@ Pokedex_UpdateMainScreen:
 	ldh [hSCX], a
 	ld a, $a7
 	ldh [hWX], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .b
@@ -436,7 +436,7 @@ DexEntryScreen_MenuActionJumptable:
 	call Pokedex_BlackOutBG
 	xor a
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	ld a, $7
 	ldh [hWX], a
 	ld a, $90
@@ -446,14 +446,14 @@ DexEntryScreen_MenuActionJumptable:
 	ld e, a
 	predef Pokedex_GetArea
 	call Pokedex_BlackOutBG
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $90
 	ldh [hWY], a
 	ld a, POKEDEX_SCX
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	call Pokedex_RedisplayDexEntry
 	call Pokedex_LoadSelectedMonTiles
 	predef WaitBGMap
@@ -822,7 +822,7 @@ Pokedex_UpdateUnownMode:
 	call Pokedex_BlackOutBG
 	ld a, DEXSTATE_OPTION_SCR
 	ld [wJumptableIndex], a
-	call DelayFrame
+	predef DelayFrame
 	call Pokedex_CheckSGB
 	jr nz, .decompress
 	farcall LoadSGBPokedexGFX2
@@ -878,8 +878,8 @@ Pokedex_UnownModeHandleDPadInput:
 	farcall PrintUnownWord
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 Pokedex_UnownModeEraseCursor:
@@ -2323,7 +2323,7 @@ Pokedex_ApplyPrintPals:
 	call DmgToCgbBGPals
 	ld a, $ff
 	call DmgToCgbObjPal0
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Pokedex_GetSGBLayout:

@@ -49,7 +49,7 @@ Buena_ExitMenu:
 	call UpdateSprites
 	xor a
 	ldh [hOAMUpdate], a
-	call DelayFrame
+	predef DelayFrame
 	ld a, $1
 	ldh [hOAMUpdate], a
 	call ApplyTilemap

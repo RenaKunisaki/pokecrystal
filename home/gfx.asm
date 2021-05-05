@@ -66,7 +66,7 @@ SafeHDMATransfer: ; unreferenced
 ; DMA transfer state
 	ld a, $f
 	ldh [hDMATransfer], a
-	call DelayFrame
+	predef DelayFrame
 ; add $100 to hl and de
 	ld a, l
 	add LOW($100)
@@ -86,7 +86,7 @@ SafeHDMATransfer: ; unreferenced
 	ld a, c
 	and $7f ; pretty silly, considering at most bits 0-2 would be set
 	ldh [hDMATransfer], a
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	rst Bankswitch
 
@@ -229,7 +229,7 @@ Request2bpp::
 
 	ld [wRequested2bppSize], a
 .wait
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wRequested2bppSize]
 	and a
 	jr nz, .wait
@@ -249,7 +249,7 @@ Request2bpp::
 	ld [wRequested2bppSize], a
 
 .wait2
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wRequested2bppSize]
 	and a
 	jr nz, .wait2
@@ -303,7 +303,7 @@ Request1bpp::
 
 	ld [wRequested1bppSize], a
 .wait
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wRequested1bppSize]
 	and a
 	jr nz, .wait
@@ -323,7 +323,7 @@ Request1bpp::
 	ld [wRequested1bppSize], a
 
 .wait2
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wRequested1bppSize]
 	and a
 	jr nz, .wait2

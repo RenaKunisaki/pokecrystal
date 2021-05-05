@@ -15,7 +15,7 @@ ShowLinkBattleParticipants:
 FindFirstAliveMonAndStartBattle:
 	xor a
 	ldh [hMapAnims], a
-	call DelayFrame
+	predef DelayFrame
 	ld b, PARTY_LENGTH
 	ld hl, wPartyMon1HP
 	ld de, PARTYMON_STRUCT_LENGTH - 1
@@ -55,7 +55,7 @@ PlayBattleMusic:
 	ld [wMusicFade], a
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	call MaxVolume
 
 	ld a, [wBattleType]

@@ -1,7 +1,7 @@
 Intro_MainMenu:
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	ld de, MUSIC_MAIN_MENU
 	ld a, e
 	ld [wMapMusic], a
@@ -126,19 +126,19 @@ _ResetWRAM:
 
 	ldh a, [rLY]
 	ldh [hUnusedBackup], a
-	call DelayFrame
+	predef DelayFrame
 	ldh a, [hRandomSub]
 	ld [wPlayerID], a
 
 	ldh a, [rLY]
 	ldh [hUnusedBackup], a
-	call DelayFrame
+	predef DelayFrame
 	ldh a, [hRandomAdd]
 	ld [wPlayerID + 1], a
 
 	predef Random
 	ld [wSecretID], a
-	call DelayFrame
+	predef DelayFrame
 	predef Random
 	ld [wSecretID + 1], a
 
@@ -440,7 +440,7 @@ Continue_MobileAdapterMenu:
 
 ConfirmContinue:
 .loop
-	call DelayFrame
+	predef DelayFrame
 	call GetJoypad
 	ld hl, hJoyPressed
 	bit A_BUTTON_F, [hl]
@@ -1068,11 +1068,11 @@ IntroFadePalettes:
 Intro_WipeInFrontpic:
 	ld a, $77
 	ldh [hWX], a
-	call DelayFrame
+	predef DelayFrame
 	ld a, %11100100
 	call DmgToCgbBGPals
 .loop
-	call DelayFrame
+	predef DelayFrame
 	ldh a, [hWX]
 	sub $8
 	cp -1
@@ -1168,7 +1168,7 @@ StartTitleScreen:
 	ldh [rSVBK], a
 
 	call .TitleScreen
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call RunTitleScreen
 	jr nc, .loop
@@ -1226,7 +1226,7 @@ RunTitleScreen:
 	jr nz, .done_title
 	call TitleScreenScene
 	farcall SuicuneFrameIterator
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 

@@ -2548,7 +2548,7 @@ PlayVictoryMusic:
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	ld de, MUSIC_WILD_VICTORY
 	ld a, [wBattleMode]
 	dec a
@@ -2756,7 +2756,7 @@ ForcePlayerMonChoice:
 	call InitBattleMon
 	call ResetPlayerStatLevels
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call _LoadHPBar
 	call CloseWindow
 	call GetMemSGBLayout
@@ -2827,7 +2827,7 @@ JumpToPartyMenuAndPrintText:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 SelectBattleMon:
@@ -3499,7 +3499,7 @@ OfferSwitch:
 	ld a, [wCurPartyMon]
 	ld [wCurBattleMon], a
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call _LoadHPBar
 	pop af
 	ld [wCurPartyMon], a
@@ -3511,7 +3511,7 @@ OfferSwitch:
 
 .canceled_switch
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call _LoadHPBar
 
 .said_no
@@ -4983,7 +4983,7 @@ BattleMenu_Pack:
 
 .didnt_use_item
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call _LoadBattleFontsHPBar
 	call GetBattleMonBackpic
 	call GetEnemyMonFrontpic
@@ -5083,7 +5083,7 @@ BattleMenuPKMN_Loop:
 .Cancel:
 	predef ClearSprites
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call _LoadHPBar
 	call CloseWindow
 	call LoadTilemapToTempTilemap
@@ -5169,7 +5169,7 @@ TryPlayerSwitch:
 	ld a, BATTLEPLAYERACTION_SWITCH
 	ld [wBattlePlayerAction], a
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	predef ClearSprites
 	call _LoadHPBar
 	call CloseWindow
@@ -6968,7 +6968,7 @@ FinishBattleAnim:
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	pop hl
 	pop de
 	pop bc

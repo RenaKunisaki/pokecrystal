@@ -16,14 +16,14 @@ _DepositPKMN:
 	call BillsPC_InitRAM
 	xor a
 	ld [wBillsPC_LoadedBox], a
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .done
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 .done
 	predef ClearSprites
@@ -87,8 +87,8 @@ _DepositPKMN:
 	call PCMonInfo
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 .a_button
@@ -272,14 +272,14 @@ _WithdrawPKMN:
 	call BillsPC_InitRAM
 	ld a, NUM_BOXES + 1
 	ld [wBillsPC_LoadedBox], a
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .done
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 .done
 	predef ClearSprites
@@ -345,8 +345,8 @@ _WithdrawPKMN:
 	call PCMonInfo
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 .a_button
 	call BillsPC_GetSelectedPokemonSpecies
@@ -512,14 +512,14 @@ _MovePKMNWithoutMail:
 	and $f
 	inc a
 	ld [wBillsPC_LoadedBox], a
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .done
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -587,8 +587,8 @@ _MovePKMNWithoutMail:
 	call PCMonInfo
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 .d_pad
@@ -735,8 +735,8 @@ _MovePKMNWithoutMail:
 	call BillsPC_RefreshTextboxes
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 .dpad_2

@@ -38,7 +38,7 @@ PokeGear:
 	xor a
 	ld [wVramState], a
 	call .InitTilemap
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call UpdateTime
 	call JoyTextDelay
@@ -47,7 +47,7 @@ PokeGear:
 	jr nz, .done
 	call PokegearJumptable
 	farcall PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -1177,7 +1177,7 @@ PokegearPhoneContactSubmenu:
 	ld a, [hl]
 	and A_BUTTON | B_BUTTON
 	jr nz, .a_b
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .d_up
@@ -1830,7 +1830,7 @@ _TownMap:
 	jr z, .dmg
 	ld a, %11100100
 	call DmgToCgbObjPal0
-	call DelayFrame
+	predef DelayFrame
 
 .dmg
 	ld a, [wTownMapPlayerIconLandmark]
@@ -1874,7 +1874,7 @@ _TownMap:
 	push de
 	farcall PlaySpriteAnimations
 	pop de
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .pressed_up
@@ -1971,7 +1971,7 @@ PlayRadio:
 	jr z, .zero
 	rst FarCall
 .zero
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .stop
@@ -2083,7 +2083,7 @@ _FlyMap:
 	call .HandleDPad
 	call GetMapCursorCoordinates
 	farcall PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .pressedB
@@ -2412,7 +2412,7 @@ Pokedex_GetArea:
 .select
 	call .HideNestsShowPlayer
 .next
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .a_b
@@ -2868,7 +2868,7 @@ EntireFlyMap: ; unreferenced
 	call .HandleDPad
 	call GetMapCursorCoordinates
 	farcall PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .pressedB

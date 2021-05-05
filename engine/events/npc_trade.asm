@@ -441,7 +441,7 @@ TradedForText:
 	text_asm
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	ld hl, .done
 	ret
 

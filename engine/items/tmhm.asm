@@ -87,7 +87,7 @@ ChooseMonToLearnTMHM_NoRefresh:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	farcall PartyMenuSelect
 	push af
 	ld a, [wCurPartySpecies]

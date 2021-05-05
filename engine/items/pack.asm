@@ -22,7 +22,7 @@ Pack:
 	bit 7, a
 	jr nz, .done
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -575,7 +575,7 @@ GiveItem:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	farcall PartyMenuSelect
 	jr c, .finish
 	ld a, [wCurPartySpecies]
@@ -631,7 +631,7 @@ BattlePack:
 	bit 7, a
 	jr nz, .end
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .end
@@ -1438,7 +1438,7 @@ Pack_InitColors:
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 ItemsPocketMenuHeader:

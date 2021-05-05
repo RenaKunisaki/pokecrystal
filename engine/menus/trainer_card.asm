@@ -28,7 +28,7 @@ TrainerCard:
 	and B_BUTTON
 	jr nz, .quit
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .quit

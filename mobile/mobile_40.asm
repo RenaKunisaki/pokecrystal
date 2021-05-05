@@ -128,7 +128,7 @@ Function1000ba:
 	ld a, [wcd2b]
 	and a
 	jr z, .loop
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function1000e8:
@@ -203,7 +203,7 @@ Function100163:
 	bit 6, [hl]
 	ret z
 	res 6, [hl]
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function10016f:
@@ -307,7 +307,7 @@ Function10020b:
 	farcall FadeOutPalettes
 	farcall Function106464
 	call HideSprites
-	call DelayFrame
+	predef DelayFrame
 
 	ldh a, [rSVBK]
 	push af
@@ -411,7 +411,7 @@ Function1002ed:
 	farcall ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function100301:
@@ -1383,7 +1383,7 @@ Function1008e0:
 	call Function100970
 	call Function100902
 	call Function100989
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 	ld a, c
 	ldh [hVBlank], a
@@ -1580,21 +1580,21 @@ _LinkBattleSendReceiveAction:
 	ld [wOtherPlayerLinkAction], a
 .waiting
 	call LinkTransfer
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wOtherPlayerLinkAction]
 	inc a
 	jr z, .waiting
 
 	ld b, 10
 .receive
-	call DelayFrame
+	predef DelayFrame
 	call LinkTransfer
 	dec b
 	jr nz, .receive
 
 	ld b, 10
 .acknowledge
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	dec b
 	jr nz, .acknowledge
@@ -1609,7 +1609,7 @@ _LinkBattleSendReceiveAction:
 	ld a, 0
 	ld [wcd27], a
 .asm_100a92
-	call DelayFrame
+	predef DelayFrame
 	call GetJoypad
 	farcall Function100382
 	ld c, $01
@@ -4878,8 +4878,8 @@ Function10224b:
 	jr nz, .asm_10225e
 	bit 2, [hl]
 	jr nz, .asm_10225e
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	xor a
 	ret
 
@@ -6179,7 +6179,7 @@ Function102bac:
 	ld [wMenuCursorY], a
 	call Function102d9a
 	call ClearPalettes
-	call DelayFrame
+	predef DelayFrame
 	call MaxVolume
 	call Function102dd3
 	call Function102dec
@@ -6456,7 +6456,7 @@ Function102dec:
 	call FarCopyWRAM
 	farcall Function49742
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function102e07:

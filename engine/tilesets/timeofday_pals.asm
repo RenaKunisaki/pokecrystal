@@ -95,7 +95,7 @@ _TimeOfDayPals::
 
 ; update palettes
 	call _UpdateTimePals
-	call DelayFrame
+	predef DelayFrame
 
 ; successful change
 	scf

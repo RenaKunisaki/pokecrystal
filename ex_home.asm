@@ -269,7 +269,7 @@ Init2_far::
 	ldh [rIE], a
 	ei
 
-	call DelayFrame
+	predef DelayFrame
 
 	predef InitSGBBorder
 

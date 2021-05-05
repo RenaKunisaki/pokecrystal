@@ -222,14 +222,14 @@ CutDownTreeOrGrass:
 	ldh [hBGMapMode], a
 	call OverworldTextModeSwitch
 	call UpdateSprites
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wCutWhirlpoolAnimationType]
 	ld e, a
 	farcall OWCutAnimation
 	call BufferScreen
 	call GetMovementPermissions
 	call UpdateSprites
-	call DelayFrame
+	predef DelayFrame
 	call LoadStandardFont
 	ret
 
@@ -625,7 +625,7 @@ FlyFunction:
 
 .ReturnFromFly:
 	farcall RespawnPlayer
-	call DelayFrame
+	predef DelayFrame
 	call UpdatePlayerSprite
 	farcall LoadOverworldFont
 	ret
@@ -1644,7 +1644,7 @@ BikeFunction:
 	ld [wMusicFade], a
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	call MaxVolume
 	ld de, MUSIC_BICYCLE
 	ld a, e

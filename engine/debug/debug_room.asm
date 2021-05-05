@@ -604,7 +604,7 @@ DebugRoom_EditPagedValues:
 	call GetSGBLayout
 	call SetPalettes
 .resume
-	call DelayFrame
+	predef DelayFrame
 	call JoyTextDelay
 	ldh a, [hJoyLast]
 	bit 1, a

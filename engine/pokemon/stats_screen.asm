@@ -120,7 +120,7 @@ StatsScreen_WaitAnim:
 	jr nz, .try_anim
 	bit 5, [hl]
 	jr nz, .finish
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .try_anim
@@ -462,7 +462,7 @@ StatsScreen_InitUpperHalf:
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .PlaceGenderChar:
@@ -555,7 +555,7 @@ StatsScreen_LoadGFX:
 	maskbits NUM_STAT_PAGES
 	ld c, a
 	farcall LoadStatsScreenPals
-	call DelayFrame
+	predef DelayFrame
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
 	ret
@@ -965,7 +965,7 @@ StatsScreen_LoadTextboxSpaceGFX:
 	push de
 	push bc
 	push af
-	call DelayFrame
+	predef DelayFrame
 	ldh a, [rVBK]
 	push af
 	ld a, $1
@@ -1036,7 +1036,7 @@ endc
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
 	call SetPalettes ; pals
-	call DelayFrame
+	predef DelayFrame
 	hlcoord 0, 0
 	call PrepMonFrontpic
 	farcall HDMATransferTilemapToWRAMBank3

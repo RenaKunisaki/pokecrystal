@@ -34,7 +34,7 @@ _InterpretMobileMenu::
 	ld hl, w2DMenuFlags1
 	set 7, [hl]
 .loop
-	call DelayFrame
+	predef DelayFrame
 	farcall Function10032e
 	ld a, [wcd2b]
 	and a

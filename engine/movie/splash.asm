@@ -45,7 +45,7 @@ SplashScreen:
 	jr nz, .finish
 	call GameFreakPresentsScene
 	farcall PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	jr .joy_loop
 
 .pressed_button

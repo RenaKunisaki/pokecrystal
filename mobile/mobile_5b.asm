@@ -34,7 +34,7 @@ Function16c000: ; unreferenced
 	ld [wd002], a
 	ld [wd003], a
 .loop
-	call DelayFrame
+	predef DelayFrame
 	farcall Function10635c
 	ld a, [wd002]
 	ld hl, .Jumptable

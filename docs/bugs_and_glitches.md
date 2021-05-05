@@ -1576,7 +1576,7 @@ Then edit [engine/battle/start_battle.asm](https://github.com/pret/pokecrystal/b
  FindFirstAliveMonAndStartBattle:
  	xor a
  	ldh [hMapAnims], a
- 	call DelayFrame
+ 	predef DelayFrame
 -	ld b, PARTY_LENGTH
 -	ld hl, wPartyMon1HP
 -	ld de, PARTYMON_STRUCT_LENGTH - 1

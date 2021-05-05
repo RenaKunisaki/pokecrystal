@@ -2,7 +2,7 @@ MoveTutor:
 	call FadeToMenu
 	predef ClearBGPalettes
 	call ClearScreen
-	call DelayFrame
+	predef DelayFrame
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
 	xor a

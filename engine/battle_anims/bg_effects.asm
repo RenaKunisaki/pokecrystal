@@ -2289,7 +2289,7 @@ BattleBGEffect_Rollout:
 	xor a
 .okay
 	push af
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	ldh [hSCY], a
 	xor $ff

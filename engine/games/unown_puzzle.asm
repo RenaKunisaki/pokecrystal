@@ -56,7 +56,7 @@ _UnownPuzzle:
 	call DmgToCgbObjPal0
 	xor a
 	ld [wSolvedUnownPuzzle], a
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
@@ -76,7 +76,7 @@ _UnownPuzzle:
 .clear
 	predef ClearSprites
 .next
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .quit

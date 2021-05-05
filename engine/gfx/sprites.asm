@@ -12,7 +12,7 @@ ClearSpriteAnims:
 
 PlaySpriteAnimationsAndDelayFrame:
 	call PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 PlaySpriteAnimations:
@@ -559,7 +559,7 @@ AnimateEndOfExpBar:
 .loop
 	push bc
 	call .AnimateFrame
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 	inc d
 	inc d

@@ -9,7 +9,7 @@ SendScreenToPrinter:
 	call PrinterJumptableIteration
 	call CheckPrinterStatus
 	call PlacePrinterStatusString
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .finished
@@ -66,7 +66,7 @@ PrintDexEntry:
 	predef ClearTilemap
 	ld a, %11100100
 	call DmgToCgbBGPals
-	call DelayFrame
+	predef DelayFrame
 
 	ld hl, hVBlank
 	ld a, [hl]
@@ -108,7 +108,7 @@ PrintDexEntry:
 	ld c, 8
 .low_volume_delay_frames
 	call LowVolume
-	call DelayFrame
+	predef DelayFrame
 	dec c
 	jr nz, .low_volume_delay_frames
 
@@ -257,7 +257,7 @@ PrintUnownStamp:
 .check_status
 	call CheckPrinterStatus
 	call PlacePrinterStatusString
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done

@@ -179,7 +179,7 @@ Function1080b7:
 	ldh [hWY], a
 	farcall ClearSpriteAnims
 
-	call DelayFrame
+	predef DelayFrame
 
 	ld de, TradeBallGFX
 	ld hl, vTiles0
@@ -243,7 +243,7 @@ Function108157:
 	ld hl, wSpriteAnimDict
 	ld [hli], a
 	ld [hl], $00
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wPlayerTrademonSpecies]
 	ld de, wPlayerTrademonSpeciesName
 	call MobileTradeAnim_InitSpeciesName
@@ -340,7 +340,7 @@ MobileTradeAnim_JumptableLoop:
 	bit 7, a
 	jr nz, .StopAnim
 	call .ExecuteMobileTradeAnimCommand
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
@@ -412,7 +412,7 @@ WaitMobileTradeSpriteAnims:
 	push bc
 	farcall PlaySpriteAnimations
 	pop bc
-	call DelayFrame
+	predef DelayFrame
 	dec c
 	jr nz, .loop
 	ret
@@ -428,7 +428,7 @@ Function1082db:
 Function1082f0:
 .loop
 	call Function108b78
-	call DelayFrame
+	predef DelayFrame
 	dec c
 	jr nz, .loop
 	ret
@@ -441,7 +441,7 @@ Function1082fa:
 	farcall PlaySpriteAnimations
 	pop bc
 	pop hl
-	call DelayFrame
+	predef DelayFrame
 	dec c
 	jr nz, .loop
 	ret
@@ -479,7 +479,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 	ldh a, [hSCX]
 	sub $4
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .okay
@@ -585,7 +585,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	ld [wCurPartySpecies], a
 	ld hl, wPlayerTrademonDVs
 	call Function10898a
-	call DelayFrame
+	predef DelayFrame
 	ld de, TradeBallGFX
 	ld hl, vTiles0
 	lb bc, BANK(TradeBallGFX), 6
@@ -612,7 +612,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	ldh a, [hSCX]
 	sub $4
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -658,7 +658,7 @@ MobileTradeAnim_ShowOTMonFromGTS:
 	call Function108201
 	call EnableLCD
 	farcall DeinitializeAllSprites
-	call DelayFrame
+	predef DelayFrame
 	ld de, TradeBallGFX
 	ld hl, vTiles0
 	lb bc, BANK(TradeBallGFX), 6
@@ -726,7 +726,7 @@ MobileTradeAnim_GetOddEgg:
 	call Function108201
 	call EnableLCD
 	farcall DeinitializeAllSprites
-	call DelayFrame
+	predef DelayFrame
 	ld de, TradeBallGFX
 	ld hl, vTiles0
 	lb bc, BANK(TradeBallGFX), 6
@@ -1184,7 +1184,7 @@ Function10895e:
 Function108963:
 	ld de, vTiles2 tile $31
 asm_108966:
-	call DelayFrame
+	predef DelayFrame
 	ld hl, vTiles2
 	lb bc, BANK(TradeGameBoyLZ), $31
 	call Request2bpp
@@ -1375,7 +1375,7 @@ Function108ad4:
 	ld hl, vTiles2 tile $4a
 	lb bc, BANK(MobileCable1GFX), 16 ; aka BANK(MobileCable2GFX)
 	call Get2bppViaHDMA
-	call DelayFrame
+	predef DelayFrame
 	ld a, $0
 	ldh [rVBK], a
 	ret
@@ -1415,7 +1415,7 @@ Function108af4:
 	call DmgToCgbObjPal0
 	ld a, %11100100 ; 3,2,1,0
 	call DmgToCgbBGPals
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function108b45:

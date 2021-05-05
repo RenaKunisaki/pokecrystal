@@ -13,7 +13,7 @@ DelayFrame::
 
 DelayFrames::
 ; Wait c frames
-	call DelayFrame
+	predef DelayFrame
 	dec c
 	jr nz, DelayFrames
 	ret

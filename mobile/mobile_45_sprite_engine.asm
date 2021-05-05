@@ -658,7 +658,7 @@ Function1163c0:
 	ld hl, wVirtualOAM
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
 	predef ByteFill
-	call DelayFrame
+	predef DelayFrame
 	farcall _RefreshSprites
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
@@ -673,7 +673,7 @@ Function1163c0:
 	pop af
 	ldh [rSVBK], a
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	ld a, $90
 	ldh [hWY], a
 	call UpdateSprites

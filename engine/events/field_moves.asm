@@ -55,7 +55,7 @@ ShakeHeadbuttTree:
 	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .done
@@ -129,7 +129,7 @@ OWCutAnimation:
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
 	call OWCutJumptable
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .finish
@@ -297,7 +297,7 @@ Cut_Headbutt_GetPixelFacing:
 	dbpixel 12, 11
 
 FlyFromAnim:
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wVramState]
 	push af
 	xor a
@@ -322,7 +322,7 @@ FlyFromAnim:
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
 	call FlyFunction_FrameTimer
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .exit
@@ -331,7 +331,7 @@ FlyFromAnim:
 	ret
 
 FlyToAnim:
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wVramState]
 	push af
 	xor a
@@ -359,7 +359,7 @@ FlyToAnim:
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
 	call FlyFunction_FrameTimer
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .exit

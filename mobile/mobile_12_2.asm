@@ -315,7 +315,7 @@ Function4aa34:
 	call Function4aab6
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	call Function4ab1a
 	jr z, .asm_4aa66
 	push af

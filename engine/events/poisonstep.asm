@@ -103,7 +103,7 @@ DoPoisonStep::
 	predef PlaySFX
 	ld b, $2
 	predef LoadPoisonBGPals
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .Script_MonFaintedToPoison:

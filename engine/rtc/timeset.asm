@@ -143,7 +143,7 @@ SetHour:
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .down
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
@@ -233,7 +233,7 @@ SetMinutes:
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .d_down
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
@@ -450,7 +450,7 @@ SetDayOfWeek:
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .d_down
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 

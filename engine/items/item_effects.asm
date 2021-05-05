@@ -1112,7 +1112,7 @@ Text_GotchaMonWasCaught:
 	push bc
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	ld de, MUSIC_CAPTURE
 	call PlayMusic
 	pop bc
@@ -1749,7 +1749,7 @@ ChooseMonToUseItemOn:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	farcall PartyMenuSelect
 	ret
 
@@ -1766,7 +1766,7 @@ ItemActionText:
 	farcall PrintPartyMenuActionText
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 	pop de
 	pop hl

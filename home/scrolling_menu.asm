@@ -41,7 +41,7 @@ InitScrollingMenu::
 	jp Textbox
 
 JoyTextDelay_ForcehJoyDown::
-	call DelayFrame
+	predef DelayFrame
 
 	ldh a, [hInMenu]
 	push af

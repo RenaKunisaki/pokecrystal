@@ -334,7 +334,7 @@ Function4a20e:
 	call MenuClickSound
 	farcall Function1719c8
 	predef ClearBGPalettes
-	call DelayFrame
+	predef DelayFrame
 	jr Function4a239
 
 Function4a221:

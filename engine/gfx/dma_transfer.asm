@@ -58,7 +58,7 @@ ReloadMapPart::
 	decoord 0, 0
 	ld hl, wScratchTilemap
 	call PadTilemapForHDMATransfer
-	call DelayFrame
+	predef DelayFrame
 
 	di
 	ldh a, [rVBK]
@@ -89,7 +89,7 @@ Mobile_ReloadMapPart:
 	decoord 0, 0
 	ld hl, wScratchTilemap
 	call PadTilemapForHDMATransfer
-	call DelayFrame
+	predef DelayFrame
 
 	di
 	ldh a, [rVBK]
@@ -159,7 +159,7 @@ OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 	decoord 0, 0
 	ld hl, wScratchTilemap
 	call PadTilemapForHDMATransfer
-	call DelayFrame
+	predef DelayFrame
 
 	di
 	ldh a, [rVBK]
@@ -240,7 +240,7 @@ HDMATransferToWRAMBank3:
 
 WaitDMATransfer:
 .loop
-	call DelayFrame
+	predef DelayFrame
 	ldh a, [hDMATransfer]
 	and a
 	jr nz, .loop
@@ -481,7 +481,7 @@ HDMATransfer2bpp::
 	pop bc
 
 	push bc
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 
 	ld d, h
@@ -546,7 +546,7 @@ HDMATransfer1bpp::
 	pop bc
 
 	push bc
-	call DelayFrame
+	predef DelayFrame
 	pop bc
 
 	ld d, h

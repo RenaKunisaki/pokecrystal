@@ -18,7 +18,7 @@ CrystalIntro:
 	jr nz, .done
 	call IntroSceneJumper
 	farcall PlaySpriteAnimations
-	call DelayFrame
+	predef DelayFrame
 	jp .loop
 
 .ShutOffMusic
@@ -448,14 +448,14 @@ IntroScene9:
 	predef ByteFill
 	ld a, $2
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ld a, LOW(vBGMap0 + $c) ; $c
 	ldh [hBGMapAddress], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hBGMapAddress], a
@@ -1565,8 +1565,8 @@ Intro_ClearBGPals:
 	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 Intro_DecompressRequest2bpp_128Tiles:

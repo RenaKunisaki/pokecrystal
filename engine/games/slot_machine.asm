@@ -78,7 +78,7 @@ _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
 	call .InitGFX
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call SlotsLoop
 	jr nc, .loop
@@ -100,7 +100,7 @@ _SlotMachine:
 	predef ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	call DisableLCD
 	hlbgcoord 0, 0
 	ld bc, vBGMap1 - vBGMap0
@@ -186,7 +186,7 @@ SlotsLoop:
 	callfar DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
 	call .Stubbed_AlternateMatchingSevensPalette
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 

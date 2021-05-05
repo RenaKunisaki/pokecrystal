@@ -198,7 +198,7 @@ InitBattleTowerChallengeRAM:
 _BattleTowerBattle:
 .loop
 	call .do_dw
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerBattleEnded]
 	cp TRUE
 	jr nz, .loop

@@ -105,7 +105,7 @@ PlayMapMusic_far::
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic_far
-	call DelayFrame
+	predef DelayFrame
 	pop de
 	ld a, e
 	ld [wMapMusic], a
@@ -131,7 +131,7 @@ PlayMapMusicBike_far::
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic_far
-	call DelayFrame
+	predef DelayFrame
 	pop de
 
 	ld a, e
@@ -148,7 +148,7 @@ TryRestartMapMusic_far::
 	ld [wMapMusic], a
 	ld de, MUSIC_NONE
 	call PlayMusic_far
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
 	ret
@@ -160,7 +160,7 @@ RestartMapMusic_far::
 	push af
 	ld de, MUSIC_NONE
 	call PlayMusic_far
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wMapMusic]
 	ld e, a
 	ld d, 0

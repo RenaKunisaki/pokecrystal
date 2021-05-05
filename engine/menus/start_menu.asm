@@ -515,7 +515,7 @@ StartMenu_Pokemon:
 	farcall PrintPartyMenuText
 	predef WaitBGMap
 	call SetPalettes ; load regular palettes?
-	call DelayFrame
+	predef DelayFrame
 	farcall PartyMenuSelect
 	jr c, .return ; if cancelled or pressed B
 

@@ -235,7 +235,7 @@ EvolutionAnimation:
 	ret
 
 .WaitFrames_CheckPressedB:
-	call DelayFrame
+	predef DelayFrame
 	push bc
 	call JoyTextDelay
 	ldh a, [hJoyDown]
@@ -352,7 +352,7 @@ endr
 	dec c
 	jr nz, .loop6
 	pop bc
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .GFX:

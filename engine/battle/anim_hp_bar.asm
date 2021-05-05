@@ -291,8 +291,8 @@ HPBarAnim_BGMapUpdate:
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	ret
 
 .cgb
@@ -319,13 +319,13 @@ HPBarAnim_BGMapUpdate:
 	ldh [hBGMapMode], a
 	ld a, c
 	ldh [hBGMapThird], a
-	call DelayFrame
+	predef DelayFrame
 .skip_delay
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld a, c
 	ldh [hBGMapThird], a
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	cp $2
 	jr z, .two_frames
@@ -339,12 +339,12 @@ HPBarAnim_BGMapUpdate:
 	ldh [hBGMapMode], a
 	ld a, c
 	ldh [hBGMapThird], a
-	call DelayFrame
+	predef DelayFrame
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld a, c
 	ldh [hBGMapThird], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 .load_0
@@ -354,10 +354,10 @@ HPBarAnim_BGMapUpdate:
 .load_1
 	ld c, $1
 .finish
-	call DelayFrame
+	predef DelayFrame
 	ld a, c
 	ldh [hBGMapThird], a
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 ShortHPBar_CalcPixelFrame:

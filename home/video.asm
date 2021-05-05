@@ -107,7 +107,7 @@ WaitTop::
 	and a
 	jr z, .done
 
-	call DelayFrame
+	predef DelayFrame
 	jr WaitTop
 
 .done

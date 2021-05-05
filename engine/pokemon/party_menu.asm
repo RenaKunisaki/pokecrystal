@@ -6,7 +6,7 @@ SelectMonFromParty:
 	call InitPartyMenuLayout
 	predef WaitBGMap
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	call PartyMenuSelect
 	call ReturnToMapWithSpeechTextbox
 	ret
@@ -21,7 +21,7 @@ SelectTradeOrDayCareMon:
 	ld b, SCGB_PARTY_MENU
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
+	predef DelayFrame
 	call PartyMenuSelect
 	call ReturnToMapWithSpeechTextbox
 	ret

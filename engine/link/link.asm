@@ -56,7 +56,7 @@ Gen2ToGen1LinkComms:
 	ld a, (1 << rSC_ON) | (1 << rSC_CLOCK)
 	ldh [rSC], a
 
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hSerialSend], a
 	ld a, (0 << rSC_ON) | (1 << rSC_CLOCK)
@@ -213,7 +213,7 @@ Gen2ToGen2LinkComms:
 	ld a, (1 << rSC_ON) | (1 << rSC_CLOCK)
 	ldh [rSC], a
 
-	call DelayFrame
+	predef DelayFrame
 	xor a
 	ldh [hSerialSend], a
 	ld a, (0 << rSC_ON) | (1 << rSC_CLOCK)
@@ -506,7 +506,7 @@ LinkTimeout:
 	ld de, .LinkTimeoutText
 	ld b, 10
 .loop
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	dec b
 	jr nz, .loop
@@ -2258,9 +2258,9 @@ WaitForLinkedFriend:
 	ldh [rSC], a
 	ld a, (1 << rSC_ON) | (0 << rSC_CLOCK)
 	ldh [rSC], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 
 .no_link_action
 	ld a, $2
@@ -2299,12 +2299,12 @@ WaitForLinkedFriend:
 	ldh [rSC], a
 	ld a, (1 << rSC_ON) | (1 << rSC_CLOCK)
 	ldh [rSC], a
-	call DelayFrame
+	predef DelayFrame
 	jr .loop
 
 .connected
 	call LinkDataReceived
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	ld c, 50
 	predef DelayFrames
@@ -2328,8 +2328,8 @@ CheckLinkTimeout_Receptionist:
 	predef WaitBGMap
 	ld a, $2
 	ldh [hVBlank], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	call Link_CheckCommunicationError
 	xor a
 	ldh [hVBlank], a
@@ -2350,8 +2350,8 @@ CheckLinkTimeout_Gen2:
 	predef WaitBGMap
 	ld a, $2
 	ldh [hVBlank], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	call Link_CheckCommunicationError
 	ld a, [wScriptVar]
 	and a
@@ -2435,7 +2435,7 @@ Link_CheckCommunicationError:
 .AcknowledgeSerial:
 	ld b, 10
 .loop
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	dec b
 	jr nz, .loop
@@ -2476,7 +2476,7 @@ CheckBothSelectedSameRoom:
 	call Link_EnsureSync
 	push af
 	call LinkDataReceived
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	pop af
 	ld b, a
@@ -2558,8 +2558,8 @@ Link_EnsureSync:
 	ld [wLinkPlayerSyncBuffer + 1], a
 	ld a, $2
 	ldh [hVBlank], a
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 .receive_loop
 	call Serial_ExchangeSyncBytes
 	ld a, [wLinkReceivedSyncBuffer]

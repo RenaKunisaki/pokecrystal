@@ -4,7 +4,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     384 	predef CloseSRAM
     351 	predef OpenSRAM
     345 	predef ByteFill
-    297 	call DelayFrame
+    297 	predef DelayFrame
     296 	predef AddNTimes
     242 	call PrintText
     218 	call GetScriptByte
@@ -3712,7 +3712,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call .DeleteEmote
       1 	call _DelCmdQueue
       1  	predef DelayFrames
-      1  	call DelayFrame
+      1  	predef DelayFrame
       1 	call .deinit
       1 	call Defrost
       1 	call DeformWater

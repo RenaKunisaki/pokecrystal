@@ -102,7 +102,7 @@ Function891b8:
 	ld a, " "
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	predef ByteFill
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function891ca:
@@ -511,7 +511,7 @@ Function893fe: ; unreferenced
 	call DisableLCD
 	call Function893ef
 	call EnableLCD
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 EZChatCursorGFX:
@@ -1206,7 +1206,7 @@ Function89807:
 	ld a, BANK(ChrisSilhouetteGFX) ; aka BANK(KrisSilhouetteGFX)
 	call FarCopyBytes
 	call EnableLCD
-	call DelayFrame
+	predef DelayFrame
 	ret
 
 Function89829:
@@ -1692,7 +1692,7 @@ Function89b00:
 
 Function89b07:
 	call Mobile22_SetBGMapMode0
-	call DelayFrame
+	predef DelayFrame
 	farcall Function4a3a7
 	ret
 
@@ -2374,7 +2374,7 @@ endr
 	dec a
 	jr nz, .asm_89f34
 .asm_89f58
-	call DelayFrame
+	predef DelayFrame
 	ld hl, wd014
 	ld c, $4
 .asm_89f60
@@ -3491,7 +3491,7 @@ Function8a78c:
 	ld hl, wd002
 	call InitName
 	predef CloseSRAM
-	call DelayFrame
+	predef DelayFrame
 	call JoyTextDelay
 	call Function891de
 	predef ClearBGPalettes

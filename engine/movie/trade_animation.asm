@@ -227,7 +227,7 @@ DoTradeAnimation:
 	callfar PlaySpriteAnimations
 	ld hl, wFrameCounter2
 	inc [hl]
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
@@ -630,7 +630,7 @@ TradeAnim_EnterLinkTube1:
 	call WaitTop
 	ld a, $a0
 	ldh [hSCX], a
-	call DelayFrame
+	predef DelayFrame
 	hlcoord 8, 2
 	ld de, TradeLinkTubeTilemap
 	lb bc, 3, 12
@@ -730,7 +730,7 @@ TradeAnim_ScrollOutRight:
 	ldh [hWX], a
 	xor a
 	ldh [hWY], a
-	call DelayFrame
+	predef DelayFrame
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
@@ -834,7 +834,7 @@ TradeAnim_ShowGivemonFrontpic:
 TradeAnim_ShowGetmonFrontpic:
 	ld de, vTiles0 tile $31
 TradeAnim_ShowFrontpic:
-	call DelayFrame
+	predef DelayFrame
 	ld hl, vTiles2
 	lb bc, 10, $31
 	call Request2bpp
@@ -1342,7 +1342,7 @@ TradeAnim_FlashBGPals:
 	ret
 
 LoadTradeBallAndCableGFX:
-	call DelayFrame
+	predef DelayFrame
 	ld de, TradeBallGFX
 	ld hl, vTiles0 tile $62
 	lb bc, BANK(TradeBallGFX), 6
@@ -1362,7 +1362,7 @@ LoadTradeBallAndCableGFX:
 	ret
 
 LoadTradeBubbleGFX:
-	call DelayFrame
+	predef DelayFrame
 	ld e, MONICON_TRADE
 	callfar LoadMenuMonIcon
 	ld de, TradeBubbleGFX

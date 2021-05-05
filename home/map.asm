@@ -1991,7 +1991,7 @@ ReturnToMapWithSpeechTextbox::
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call UpdateTimePals
-	call DelayFrame
+	predef DelayFrame
 	ld a, $1
 	ldh [hMapAnims], a
 	pop af

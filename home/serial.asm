@@ -226,7 +226,7 @@ Serial_ExchangeByte::
 	ret z
 	ld a, [hl]
 	ldh [hSerialSend], a
-	call DelayFrame
+	predef DelayFrame
 	jp .timeout_loop
 
 .ShortDelay:
@@ -260,7 +260,7 @@ Serial_ExchangeSyncBytes::
 	ld a, TRUE
 	ldh [hSerialIgnoringInitialData], a
 .exchange
-	call DelayFrame
+	predef DelayFrame
 	ld a, [hl]
 	ldh [hSerialSend], a
 	call Serial_ExchangeByte
@@ -296,7 +296,7 @@ WaitLinkTransfer::
 	ld [wOtherPlayerLinkAction], a
 .loop
 	call LinkTransfer
-	call DelayFrame
+	predef DelayFrame
 	call CheckLinkTimeoutFramesNonzero
 	jr z, .check
 	push hl
@@ -321,14 +321,14 @@ WaitLinkTransfer::
 
 	ld b, 10
 .receive
-	call DelayFrame
+	predef DelayFrame
 	call LinkTransfer
 	dec b
 	jr nz, .receive
 
 	ld b, 10
 .acknowledge
-	call DelayFrame
+	predef DelayFrame
 	call LinkDataReceived
 	dec b
 	jr nz, .acknowledge

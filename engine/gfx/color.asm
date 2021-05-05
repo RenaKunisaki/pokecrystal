@@ -591,10 +591,10 @@ ApplyAttrmap:
 	push af
 	ld a, $2
 	ldh [hBGMapMode], a
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
-	call DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
+	predef DelayFrame
 	pop af
 	ldh [hBGMapMode], a
 	ret

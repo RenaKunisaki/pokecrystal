@@ -511,7 +511,7 @@ EndOrContinueMysteryGiftIRCommunication:
 	or 1 << VBLANK
 	ldh [rIE], a
 	ei
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	ret
 
@@ -668,7 +668,7 @@ EndNameCardIRCommunication:
 	or 1 << VBLANK
 	ldh [rIE], a
 	ei
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	ret
 

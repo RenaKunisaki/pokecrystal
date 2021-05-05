@@ -263,7 +263,7 @@ StopAutoInput::
 
 JoyTitleScreenInput:: ; unreferenced
 .loop
-	call DelayFrame
+	predef DelayFrame
 
 	push bc
 	call JoyTextDelay
@@ -291,7 +291,7 @@ JoyTitleScreenInput:: ; unreferenced
 
 JoyWaitAorB::
 .loop
-	call DelayFrame
+	predef DelayFrame
 	call GetJoypad
 	ldh a, [hJoyPressed]
 	and A_BUTTON | B_BUTTON
@@ -417,7 +417,7 @@ PromptButton::
 	call UpdateTimeAndPals
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrame
+	predef DelayFrame
 	jr .input_wait_loop
 
 .received_input

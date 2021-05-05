@@ -50,7 +50,7 @@ BattleIntroSlidingPics:
 	pop de
 
 .skip1
-	call DelayFrame
+	predef DelayFrame
 	pop af
 	dec a
 	jr nz, .loop1

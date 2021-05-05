@@ -2849,7 +2849,7 @@ PlayTrainerEncounterMusic::
 	push de
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call DelayFrame
+	predef DelayFrame
 	; play new song
 	call MaxVolume
 	pop de

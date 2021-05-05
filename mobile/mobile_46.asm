@@ -33,7 +33,7 @@ asm_11800b:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -73,7 +73,7 @@ Function11805f:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -118,7 +118,7 @@ Function1180b8:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -162,7 +162,7 @@ Function118125:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -249,7 +249,7 @@ Function1181da:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -286,7 +286,7 @@ Function118233:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -321,7 +321,7 @@ Function118284:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -357,7 +357,7 @@ Function1182d5: ; unreferenced
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -394,7 +394,7 @@ Function118329:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -430,7 +430,7 @@ Function11837a:
 	call BattleTowerRoomMenu_WriteMessage
 	farcall Function115dd3
 	farcall Function11619d
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wBattleTowerRoomMenuJumptableIndex]
 	ld hl, wcd33
 	cp [hl]
@@ -1817,7 +1817,7 @@ Function118f5e:
 	call BattleTowerRoomMenu2
 	ret c
 	call Function118440
-	call DelayFrame
+	predef DelayFrame
 
 Function118f68:
 	call Function119223
@@ -2443,7 +2443,7 @@ Function119388:
 Function1193a0:
 	call BattleTowerRoomMenu2
 	ret c
-	call DelayFrame
+	predef DelayFrame
 	ld a, $8
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu2
@@ -2489,7 +2489,7 @@ Function1193e3:
 Function1193fb:
 	call BattleTowerRoomMenu2
 	ret c
-	call DelayFrame
+	predef DelayFrame
 	ld a, $8
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu2
@@ -2849,7 +2849,7 @@ Function119629:
 Function119648:
 	call BattleTowerRoomMenu2
 	ret c
-	call DelayFrame
+	predef DelayFrame
 	ld a, $8
 	ld [wBattleTowerRoomMenu2JumptableIndex], a
 	call BattleTowerRoomMenu2
@@ -3136,7 +3136,7 @@ Function1197c9:
 Function1197dc:
 	call BattleTowerRoomMenu2
 	ret c
-	call DelayFrame
+	predef DelayFrame
 	ld hl, wd002
 	ld de, wcc60
 	ld bc, $0080
@@ -5545,7 +5545,7 @@ Function11ac51:
 	ld [wcd4d], a
 	ld [wcd4e], a
 	call Function11ad1b
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
@@ -6809,7 +6809,7 @@ Mobile46_InitJumptable:
 Mobile46_RunJumptable:
 .loop
 	call .IterateJumptable
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wJumptableIndex]
 	cp 4
 	jr nz, .loop
@@ -7110,7 +7110,7 @@ Function11b5e8:
 
 .loop
 	call .RunJumptable
-	call DelayFrame
+	predef DelayFrame
 	ld a, [wJumptableIndex]
 	cp $1
 	jr nz, .loop

@@ -33,7 +33,7 @@ MovePlayerPic:
 	xor a
 	ldh [hBGMapThird], a
 	predef WaitBGMap
-	call DelayFrame
+	predef DelayFrame
 	pop de
 	pop hl
 	add hl, de

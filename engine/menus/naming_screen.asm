@@ -30,7 +30,7 @@ NamingScreen:
 	ld a, $1
 	ldh [hInMenu], a
 	call .SetUpNamingScreen
-	call DelayFrame
+	predef DelayFrame
 .loop
 	call NamingScreenJoypadLoop
 	jr nc, .loop
@@ -327,7 +327,7 @@ NamingScreenJoypadLoop:
 	call .RunJumptable
 	farcall PlaySpriteAnimationsAndDelayFrame
 	call .UpdateStringEntry
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
@@ -904,7 +904,7 @@ _ComposeMailMessage:
 	ld a, $1
 	ldh [hInMenu], a
 	call .InitBlankMail
-	call DelayFrame
+	predef DelayFrame
 
 .loop
 	call .DoMailEntry
@@ -1013,7 +1013,7 @@ INCBIN "gfx/icons/mail_big.2bpp"
 	call .DoJumptable
 	farcall PlaySpriteAnimationsAndDelayFrame
 	call .Update
-	call DelayFrame
+	predef DelayFrame
 	and a
 	ret
 
