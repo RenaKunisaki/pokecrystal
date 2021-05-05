@@ -63,7 +63,7 @@ PrintDexEntry:
 	ln a, 1, 0
 	ld [wPrinterMargins], a
 	farcall PrintPage1
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, %11100100
 	call DmgToCgbBGPals
 	call DelayFrame

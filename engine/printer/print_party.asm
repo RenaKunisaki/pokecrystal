@@ -132,7 +132,7 @@ GBPrinterString_PrinterError4:
 
 PrintPartyMonPage1:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a
@@ -230,7 +230,7 @@ PrintPartyMonPage1:
 
 PrintPartyMonPage2:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a

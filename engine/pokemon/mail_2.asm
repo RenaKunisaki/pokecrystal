@@ -23,7 +23,7 @@ ReadAnyMail:
 	push de
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call LoadFontsExtra
 	pop de

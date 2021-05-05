@@ -21,7 +21,7 @@ TestMobileTradeBorderTilemap: ; unreferenced
 ; after pressing A or B. Possibly used for testing.
 	call LoadStandardMenuHeader
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	farcall __LoadTradeScreenBorderGFX ; useless to farcall
 	farcall LoadMobileTradeBorderTilemap ; useless to farcall

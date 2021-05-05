@@ -5,7 +5,7 @@ NewPokedexEntry:
 	ldh [hMapAnims], a
 	call LowVolume
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	call UpdateSprites
 	predef ClearSprites
 	ld a, [wPokedexStatus]
@@ -34,7 +34,7 @@ NewPokedexEntry:
 	ret
 
 .ReturnFromDexRegistration:
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
 	farcall Pokedex_PlaceFrontpicTopLeftCorner

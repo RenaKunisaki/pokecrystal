@@ -149,7 +149,7 @@ Function1080b7:
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
 	call MobileTradeAnim_ClearBGMap
@@ -224,7 +224,7 @@ Function108157:
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
 	call MobileTradeAnim_ClearBGMap
@@ -515,7 +515,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 MobileTradeAnim_ShowOTMonFromTrade:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
 	ld a, [wOTTrademonSpecies]
@@ -648,7 +648,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 MobileTradeAnim_ShowOTMonFromGTS:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
 	ld a, [wOTTrademonSpecies]
@@ -716,7 +716,7 @@ MobileTradeAnim_ShowOTMonFromGTS:
 MobileTradeAnim_GetOddEgg:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
 	ld a, [wOTTrademonSpecies]
@@ -784,7 +784,7 @@ MobileTradeAnim_02:
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	call DisableLCD
@@ -819,7 +819,7 @@ MobileTradeAnim_10:
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	call DisableLCD
@@ -863,7 +863,7 @@ MobileTradeAnim_10:
 MobileTradeAnim_11:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	call DisableLCD
@@ -1149,7 +1149,7 @@ MobileTradeAnim_0f:
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
 	call MobileTradeAnim_ClearBGMap

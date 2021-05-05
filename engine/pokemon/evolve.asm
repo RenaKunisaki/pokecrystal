@@ -253,7 +253,7 @@ EvolveAfterBattle_MasterLoop:
 	ld c, 40
 	predef DelayFrames
 
-	call ClearTilemap
+	predef ClearTilemap
 	call UpdateSpeciesNameIfNotNicknamed
 	call GetBaseData
 
@@ -379,7 +379,7 @@ UpdateSpeciesNameIfNotNicknamed:
 CancelEvolution:
 	ld hl, StoppedEvolvingText
 	call PrintText
-	call ClearTilemap
+	predef ClearTilemap
 	pop hl
 	jp EvolveAfterBattle_MasterLoop
 

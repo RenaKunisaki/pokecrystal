@@ -72,7 +72,7 @@ PokeGear:
 
 .InitTilemap:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call DisableLCD
 	xor a
@@ -1798,7 +1798,7 @@ _TownMap:
 	ld [wVramState], a
 
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call DisableLCD
 	call Pokegear_LoadGFX
@@ -2052,7 +2052,7 @@ PokegearMap:
 
 _FlyMap:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ld hl, hInMenu
 	ld a, [hl]
@@ -2824,7 +2824,7 @@ EntireFlyMap: ; unreferenced
 	xor a
 	ld [wTownMapPlayerIconLandmark], a
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ld hl, hInMenu
 	ld a, [hl]

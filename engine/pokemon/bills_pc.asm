@@ -774,7 +774,7 @@ _MovePKMNWithoutMail:
 BillsPC_InitRAM:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call BillsPC_InitGFX
 	ld hl, wBillsPCData
 	ld bc, wBillsPCDataEnd - wBillsPCData
@@ -2454,7 +2454,7 @@ BillsPC_ChangeBoxSubmenu:
 	ld b, NAME_BOX
 	ld de, wBoxNameBuffer
 	farcall NamingScreen
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadStandardFont
 	call LoadFontsBattleExtra
 	ld a, [wMenuSelection]

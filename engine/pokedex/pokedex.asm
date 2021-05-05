@@ -79,7 +79,7 @@ Pokedex:
 InitPokedex:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call Pokedex_LoadGFX
 
 	ld hl, wPokedexDataStart

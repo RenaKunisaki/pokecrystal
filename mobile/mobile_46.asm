@@ -5625,7 +5625,7 @@ Function11acb7:
 Function11ad1b:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	farcall Function17c000
 	ld a, [wMenuCursorY]
 	ld [wcd82], a

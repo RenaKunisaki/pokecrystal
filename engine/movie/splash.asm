@@ -6,7 +6,7 @@ SplashScreen:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
 	xor a ; LOW(vBGMap0)
@@ -28,7 +28,7 @@ SplashScreen:
 	predef WaitBGMap
 	ld c, 100
 	predef DelayFrames
-	call ClearTilemap
+	predef ClearTilemap
 
 ; Stop here if not in GBC mode
 	farcall GBCOnlyScreen
@@ -116,7 +116,7 @@ GameFreakPresentsInit:
 
 GameFreakPresentsEnd:
 	farcall ClearSpriteAnims
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ld c, 16
 	predef DelayFrames

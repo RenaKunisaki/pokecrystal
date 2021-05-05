@@ -17,7 +17,7 @@ Credits::
 	ldh [rSVBK], a
 
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 
 	ld hl, wCreditsBlankFrame2bpp

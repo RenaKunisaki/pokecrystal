@@ -1,6 +1,6 @@
 UnusedTitleScreen: ; unreferenced
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 
 ; Turn BG Map update off

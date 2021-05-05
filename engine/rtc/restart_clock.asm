@@ -44,7 +44,7 @@ RestartClock:
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	call LoadStandardMenuHeader
-	call ClearTilemap
+	predef ClearTilemap
 	ld hl, .ClockSetWithControlPadText
 	call PrintText
 	call .SetClock

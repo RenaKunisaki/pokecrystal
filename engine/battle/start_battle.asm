@@ -8,7 +8,7 @@ ShowLinkBattleParticipants:
 	farcall _ShowLinkBattleParticipants
 	ld c, 150
 	predef DelayFrames
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ret
 
@@ -38,7 +38,7 @@ FindFirstAliveMonAndStartBattle:
 	ld a, 1
 	ldh [hBGMapMode], a
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hWY], a

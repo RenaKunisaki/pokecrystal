@@ -41,7 +41,7 @@ TrainerCard:
 .InitRAM:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 
 	farcall GetCardPic

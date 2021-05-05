@@ -844,7 +844,7 @@ ChooseMoveToDelete:
 	ld hl, w2DMenuFlags1
 	res 6, [hl]
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	pop af
 	ret
 
@@ -1089,7 +1089,7 @@ String_MoveWhere:
 
 SetUpMoveScreenBG:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a

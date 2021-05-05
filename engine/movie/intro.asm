@@ -28,7 +28,7 @@ CrystalIntro:
 .done
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hSCX], a
 	ldh [hSCY], a
@@ -96,7 +96,7 @@ IntroScene1:
 ; Setup the next scene.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -172,7 +172,7 @@ IntroScene3:
 ; More setup. Transition to the outdoor scene.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -234,7 +234,7 @@ IntroScene5:
 ; Go back to the Unown.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hLCDCPointer], a
@@ -332,7 +332,7 @@ IntroScene7:
 ; Back to the outdoor scene.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 
@@ -502,7 +502,7 @@ IntroScene11:
 ; Back to Unown again.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hLCDCPointer], a
@@ -626,7 +626,7 @@ IntroScene13:
 ; Switch scenes again.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -730,7 +730,7 @@ IntroScene15:
 ; Transition to a new scene.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -812,7 +812,7 @@ IntroScene17:
 ; ...
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -878,7 +878,7 @@ IntroScene19:
 ; More setup.
 	call Intro_ClearBGPals
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -1056,7 +1056,7 @@ IntroScene26:
 ; Load the final scene.
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1

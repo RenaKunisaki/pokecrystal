@@ -1917,7 +1917,7 @@ LinkTrade:
 
 	ld c, 100
 	predef DelayFrames
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadFontsBattleExtra
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout

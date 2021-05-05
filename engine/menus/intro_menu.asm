@@ -42,7 +42,7 @@ PrintDayOfWeek:
 NewGame_ClearTilemapEtc:
 	xor a
 	ldh [hMapAnims], a
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
 	call ClearWindowData
@@ -375,7 +375,7 @@ Continue:
 	predef ClearBGPalettes
 	call Continue_MobileAdapterMenu
 	call CloseWindow
-	call ClearTilemap
+	predef ClearTilemap
 	ld c, 20
 	predef DelayFrames
 	farcall JumpRoamMons
@@ -818,7 +818,7 @@ Continue_DisplayGameTime:
 OakSpeech:
 	farcall InitClock
 	call RotateFourPalettesLeft
-	call ClearTilemap
+	predef ClearTilemap
 
 	ld de, MUSIC_ROUTE_30
 	call PlayMusic
@@ -838,7 +838,7 @@ OakSpeech:
 	ld hl, OakText1
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	predef ClearTilemap
 
 	ld a, WOOPER
 	ld [wCurSpecies], a
@@ -861,7 +861,7 @@ OakSpeech:
 	ld hl, OakText4
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	predef ClearTilemap
 
 	xor a
 	ld [wCurPartySpecies], a
@@ -876,7 +876,7 @@ OakSpeech:
 	ld hl, OakText5
 	call PrintText
 	call RotateThreePalettesRight
-	call ClearTilemap
+	predef ClearTilemap
 
 	xor a
 	ld [wCurPartySpecies], a
@@ -943,7 +943,7 @@ NamePlayer:
 	farcall NamingScreen
 
 	call RotateThreePalettesRight
-	call ClearTilemap
+	predef ClearTilemap
 
 	call LoadFontsExtra
 	predef WaitBGMap
@@ -1041,7 +1041,7 @@ ShrinkPlayer:
 	predef DelayFrames
 
 	call RotateThreePalettesRight
-	call ClearTilemap
+	predef ClearTilemap
 	ret
 
 Intro_RotatePalettesLeftFrontpic:
@@ -1506,7 +1506,7 @@ ENDM
 	trail_coords  0,  0, 11, 11
 
 Copyright:
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadFontsExtra
 	ld de, CopyrightGFX
 	ld hl, vTiles2 tile $60
@@ -1535,7 +1535,7 @@ GameInit::
 	farcall TryLoadSaveData
 	call ClearWindowData
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
 	xor a ; LOW(vBGMap0)

@@ -2403,7 +2403,7 @@ WinTrainerBattle:
 	inc hl
 	or [hl]
 	ret nz
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearBGPalettes
 	ret
 
@@ -2945,7 +2945,7 @@ LostBattle:
 	ld c, BATTLETOWERTEXT_WIN_TEXT
 	farcall BattleTowerText
 	call WaitPressAorB_BlinkCursor
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearBGPalettes
 	ret
 
@@ -8348,7 +8348,7 @@ CheckPayDay:
 	ld a, [wInBattleTowerBattle]
 	bit 0, a
 	ret z
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearBGPalettes
 	ret
 
@@ -8360,7 +8360,7 @@ ShowLinkBattleParticipantsAfterEnd:
 	call GetPartyLocation
 	ld a, [wEnemyMonStatus]
 	ld [hl], a
-	call ClearTilemap
+	predef ClearTilemap
 	farcall _ShowLinkBattleParticipants
 	ret
 
@@ -8415,13 +8415,13 @@ DisplayLinkBattleResult:
 	call IsMobileBattle2
 	jr z, .mobile
 	call WaitPressAorB_BlinkCursor
-	call ClearTilemap
+	predef ClearTilemap
 	ret
 
 .mobile
 	ld c, 200
 	predef DelayFrames
-	call ClearTilemap
+	predef ClearTilemap
 	ret
 
 .YouWin:
@@ -8437,7 +8437,7 @@ DisplayLinkBattleResult:
 	call PlaceString
 	ld c, 200
 	predef DelayFrames
-	call ClearTilemap
+	predef ClearTilemap
 	ret
 
 .InvalidBattle:
@@ -8469,7 +8469,7 @@ _DisplayLinkRecord:
 	ret
 
 ReadAndPrintLinkBattleRecord:
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call .PrintBattleRecord
 	hlcoord 0, 8

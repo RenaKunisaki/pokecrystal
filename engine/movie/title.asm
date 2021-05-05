@@ -1,7 +1,7 @@
 _TitleScreen:
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 
 ; Turn BG Map update off
 	xor a

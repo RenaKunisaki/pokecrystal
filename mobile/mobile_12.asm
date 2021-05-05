@@ -144,7 +144,7 @@ asm_4815f:
 	predef ClearBGPalettes
 	call Function48d30
 	pop bc
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, $ff
 	ret
 
@@ -254,7 +254,7 @@ Function4820d:
 	predef ClearBGPalettes
 	call Function48d30
 	pop bc
-	call ClearTilemap
+	predef ClearTilemap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	ld hl, wd479

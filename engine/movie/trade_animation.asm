@@ -158,7 +158,7 @@ RunTradeAnimScript:
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
 	predef ClearSprites
-	call ClearTilemap
+	predef ClearTilemap
 	call DisableLCD
 	call LoadFontsBattleExtra
 	callfar ClearSpriteAnims
@@ -465,7 +465,7 @@ TradeAnim_TubeToPlayer6:
 TradeAnim_TubeToOT8:
 TradeAnim_TubeToPlayer8:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call DisableLCD
 	callfar ClearSpriteAnims
@@ -592,7 +592,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	call WaitTop
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
+	predef ClearTilemap
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH
 	ld a, "─"
@@ -622,11 +622,11 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
+	predef ClearTilemap
 	ret
 
 TradeAnim_EnterLinkTube1:
-	call ClearTilemap
+	predef ClearTilemap
 	call WaitTop
 	ld a, $a0
 	ldh [hSCX], a
@@ -670,7 +670,7 @@ TradeAnim_ExitLinkTube:
 	ret
 
 .done
-	call ClearTilemap
+	predef ClearTilemap
 	xor a
 	ldh [hSCX], a
 	call TradeAnim_AdvanceScriptPointer
@@ -734,7 +734,7 @@ TradeAnim_ScrollOutRight:
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
+	predef ClearTilemap
 	call TradeAnim_IncrementJumptableIndex
 	ret
 

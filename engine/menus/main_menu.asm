@@ -41,7 +41,7 @@ MainMenu:
 	call MainMenuJoypadLoop
 	call CloseWindow
 	jr c, .quit
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
@@ -371,7 +371,7 @@ MainMenu_PrintCurrentTimeAndDay:
 ClearTilemapEtc:
 	xor a
 	ldh [hMapAnims], a
-	call ClearTilemap
+	predef ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
 	call ClearWindowData

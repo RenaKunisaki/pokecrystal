@@ -19,7 +19,7 @@ InitClock:
 	ld c, 8
 	predef DelayFrames
 	call RotateFourPalettesLeft
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout

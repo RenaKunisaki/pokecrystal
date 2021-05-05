@@ -15,7 +15,7 @@ _CardFlip:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic

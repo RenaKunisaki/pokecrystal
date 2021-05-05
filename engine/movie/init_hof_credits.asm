@@ -1,6 +1,6 @@
 InitDisplayForHallOfFame:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call DisableLCD
 	call LoadStandardFont
@@ -29,7 +29,7 @@ InitDisplayForHallOfFame:
 
 InitDisplayForRedCredits:
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	predef ClearSprites
 	call DisableLCD
 	call LoadStandardFont

@@ -15,7 +15,7 @@ _UnownPrinter:
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 
 	ld de, UnownDexATile
 	ld hl, vTiles0 tile UNOWNSTAMP_BOLD_A

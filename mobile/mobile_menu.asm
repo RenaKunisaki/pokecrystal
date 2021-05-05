@@ -65,7 +65,7 @@ Function49f16:
 .b_button
 	pop bc
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	ld a, MUSIC_MAIN_MENU
 	ld [wMapMusic], a
 	ld de, MUSIC_MAIN_MENU
@@ -204,7 +204,7 @@ Function4a100:
 	predef ClearBGPalettes
 	call Function4a13b
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 
 asm_4a111:
 	pop bc
@@ -711,7 +711,7 @@ asm_4a54d:
 .asm_4a574
 	pop bc
 	predef ClearBGPalettes
-	call ClearTilemap
+	predef ClearTilemap
 	jp Function49f0a
 .asm_4a57e
 	ld hl, wMenuCursorY
