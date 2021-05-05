@@ -397,8 +397,8 @@ DoPlayerMovement::
 ; making bumps silent.
 
 	ld a, [wWalkingDirection]
-	; cp STANDING
-	; jr z, .not_warp
+	cp STANDING ; this line was commented
+	jr z, .not_warp ; this line was commented
 	ld e, a
 	ld d, 0
 	ld hl, .EdgeWarps

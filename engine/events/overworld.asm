@@ -414,7 +414,7 @@ UsedSurfScript:
 	special PlayMapMusic
 ; step into the water (slow_step DIR, step_end)
 	special SurfStartStep
-	applymovement PLAYER, wMovementBuffer
+	;applymovement PLAYER, wMovementBuffer
 	end
 
 .stubbed_fn
