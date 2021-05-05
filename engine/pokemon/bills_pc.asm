@@ -64,7 +64,7 @@ _DepositPKMN:
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
 	call BillsPC_ApplyPalettes
-	call WaitBGMap
+	predef WaitBGMap
 	call BillsPC_UpdateSelectionCursor
 	call BillsPC_IncrementJumptableIndex
 	ret
@@ -322,7 +322,7 @@ _WithdrawPKMN:
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
 	call BillsPC_ApplyPalettes
-	call WaitBGMap
+	predef WaitBGMap
 	call BillsPC_UpdateSelectionCursor
 	call BillsPC_IncrementJumptableIndex
 	ret
@@ -563,7 +563,7 @@ _MovePKMNWithoutMail:
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
 	call BillsPC_ApplyPalettes
-	call WaitBGMap
+	predef WaitBGMap
 	call BillsPC_UpdateSelectionCursor
 	call BillsPC_IncrementJumptableIndex
 	ret
@@ -713,7 +713,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_MoveMonWOMail_BoxNameAndArrows
 	predef ClearSprites
 	call BillsPC_UpdateInsertCursor
-	call WaitBGMap
+	predef WaitBGMap
 	call BillsPC_IncrementJumptableIndex
 	ret
 
@@ -1791,7 +1791,7 @@ DepositPokemon:
 	hlcoord 0, 15
 	lb bc, 1, 18
 	call Textbox
-	call WaitBGMap
+	predef WaitBGMap
 	hlcoord 1, 16
 	ld de, PCString_Stored
 	call PlaceString
@@ -1846,7 +1846,7 @@ TryWithdrawPokemon:
 	hlcoord 0, 15
 	lb bc, 1, 18
 	call Textbox
-	call WaitBGMap
+	predef WaitBGMap
 	hlcoord 1, 16
 	ld de, PCString_Got
 	call PlaceString
@@ -1883,7 +1883,7 @@ ReleasePKMN_ByePKMN:
 	lb bc, 1, 18
 	call Textbox
 
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wCurPartySpecies]
 	call GetCryIndex
 	jr c, .skip_cry

@@ -157,7 +157,7 @@ Function4a098:
 	ld a, 2
 	call MenuClickSound
 	call PlaceHollowCursor
-	call WaitBGMap
+	predef WaitBGMap
 	call LoadStandardMenuHeader
 	farcall Function89de0
 	call Call_ExitMenu
@@ -371,7 +371,7 @@ Function4a28a:
 	ld a, " "
 	call Function4a6d8
 	call PlaceHollowCursor
-	call WaitBGMap
+	predef WaitBGMap
 	call LoadStandardMenuHeader
 	ld a, $5
 	predef OpenSRAM

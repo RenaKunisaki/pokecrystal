@@ -2292,7 +2292,7 @@ HandleEnemySwitch:
 	ld hl, wEnemyHPPal
 	ld e, HP_BAR_LENGTH_PX
 	call UpdateHPPal
-	call WaitBGMap
+	predef WaitBGMap
 	farcall EnemySwitch_TrainerHud
 	ld a, [wLinkMode]
 	and a
@@ -2739,7 +2739,7 @@ ForcePlayerMonChoice:
 	call _LoadHPBar
 	predef ExitMenu
 	call LoadTilemapToTempTilemap
-	call WaitBGMap
+	predef WaitBGMap
 	call GetMemSGBLayout
 	call SetPalettes
 	xor a
@@ -2825,7 +2825,7 @@ SetUpBattlePartyMenu_Loop: ; switch to fullscreen menu?
 JumpToPartyMenuAndPrintText:
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	ret
@@ -3528,7 +3528,7 @@ ClearEnemyMonBox:
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
-	call WaitBGMap
+	predef WaitBGMap
 	jp FinishBattleAnim
 
 ShowBattleTextEnemySentOut:
@@ -4019,7 +4019,7 @@ SendOutPlayerMon:
 	ld b, 7
 	ld c, 8
 	call ClearBox
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	call GetBattleMonBackpic
@@ -4988,7 +4988,7 @@ BattleMenu_Pack:
 	call GetBattleMonBackpic
 	call GetEnemyMonFrontpic
 	predef ExitMenu
-	call WaitBGMap
+	predef WaitBGMap
 	call FinishBattleAnim
 	call LoadTilemapToTempTilemap
 	jp BattleMenu
@@ -5024,7 +5024,7 @@ BattleMenu_Pack:
 	ld [wMenuCursorY], a
 	predef ExitMenu
 	call UpdateBattleHUDs
-	call WaitBGMap
+	predef WaitBGMap
 	call LoadTilemapToTempTilemap
 	call ClearWindowData
 	call FinishBattleAnim
@@ -6957,7 +6957,7 @@ Call_PlayBattleAnim:
 	ld [wFXAnimID], a
 	ld a, d
 	ld [wFXAnimID + 1], a
-	call WaitBGMap
+	predef WaitBGMap
 	predef_jump PlayBattleAnim
 
 FinishBattleAnim:
@@ -8924,7 +8924,7 @@ InitBattleDisplay:
 	ld a, $90
 	ldh [hWY], a
 	ldh [rWY], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	farcall BattleIntroSlidingPics
@@ -8938,7 +8938,7 @@ InitBattleDisplay:
 	xor a
 	ldh [hWY], a
 	ldh [rWY], a
-	call WaitBGMap
+	predef WaitBGMap
 	call HideSprites
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout

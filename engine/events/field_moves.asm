@@ -60,7 +60,7 @@ ShakeHeadbuttTree:
 
 .done
 	call OverworldTextModeSwitch
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	farcall ClearSpriteAnims
@@ -99,7 +99,7 @@ HideHeadbuttTree:
 	add hl, bc
 	ld [hli], a
 	ld [hld], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ret

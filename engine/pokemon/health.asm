@@ -104,7 +104,7 @@ ComputeHPBarPixels:
 	ret
 
 AnimateHPBar:
-	call WaitBGMap
+	predef WaitBGMap
 	call _AnimateHPBar
-	call WaitBGMap
+	predef WaitBGMap
 	ret

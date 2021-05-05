@@ -252,7 +252,7 @@ BattleMonMenu:
 	call MenuBox
 	call UpdateSprites
 	call PlaceVerticalMenuItems
-	call WaitBGMap
+	predef WaitBGMap
 	call CopyMenuData
 	ld a, [wMenuDataFlags]
 	bit 7, a

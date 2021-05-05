@@ -25,5 +25,5 @@ BattleCommand_Selfdestruct:
 	ret nc
 	farcall DrawPlayerHUD
 	farcall DrawEnemyHUD
-	call WaitBGMap
+	predef WaitBGMap
 	jp RefreshBattleHuds

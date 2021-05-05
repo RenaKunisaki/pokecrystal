@@ -173,7 +173,7 @@ _CardFlip:
 	predef DelayFrames
 	hlcoord 2, 6
 	call PlaceCardFaceDown
-	call WaitBGMap
+	predef WaitBGMap
 	ld hl, .CardFlipChooseACardText
 	call CardFlip_UpdateCoinBalanceDisplay
 	xor a

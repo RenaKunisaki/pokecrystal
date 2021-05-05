@@ -27,12 +27,12 @@ NAME_CARD_PREFIX EQU $3c
 DoMysteryGift:
 	call ClearTilemap
 	predef ClearSprites
-	call WaitBGMap
+	predef WaitBGMap
 	call InitMysteryGiftLayout
 	hlcoord 3, 8
 	ld de, .String_PressAToLink_BToCancel
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 
 	; Prepare the first of two messages for wMysteryGiftPartnerData
 	farcall StageDataForMysteryGift
@@ -54,7 +54,7 @@ DoMysteryGift:
 	push de
 	call ClearTilemap
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
@@ -1513,7 +1513,7 @@ InitMysteryGiftLayout:
 	hlcoord 17, 15
 	ld [hl], $41
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_MYSTERY_GIFT
 	call GetSGBLayout
 	call SetPalettes
@@ -1570,12 +1570,12 @@ INCBIN "gfx/mystery_gift/mystery_gift.2bpp"
 DoNameCardSwap:
 	call ClearTilemap
 	predef ClearSprites
-	call WaitBGMap
+	predef WaitBGMap
 	call InitNameCardLayout
 	hlcoord 3, 8
 	ld de, .String_PressAToLink_BToCancel_JP
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call StageDataForNameCard
 	call ClearMysteryGiftTrainer
 	ld a, wNameCardDataEnd - wNameCardData
@@ -1685,7 +1685,7 @@ endr
 	predef ClearSprites
 	call ClearTilemap
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
@@ -1810,7 +1810,7 @@ InitNameCardLayout:
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
 	call CopyBytes
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, CRYSTAL_CGB_NAME_CARD
 	farcall GetCrystalCGBLayout
 	jp SetPalettes

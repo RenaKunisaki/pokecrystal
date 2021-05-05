@@ -374,7 +374,7 @@ TradeAnim_InitTubeAnim:
 	pop bc
 	ld [hl], b
 
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_TRADE_TUBE
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
@@ -479,7 +479,7 @@ TradeAnim_TubeToPlayer8:
 	ldh [hWY], a
 	call EnableLCD
 	call LoadTradeBallAndCableGFX
-	call WaitBGMap
+	predef WaitBGMap
 	call TradeAnim_NormalPals
 	call TradeAnim_AdvanceScriptPointer
 	ret
@@ -618,7 +618,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	ld bc, 6
 	pop af
 	predef ByteFill
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
@@ -635,7 +635,7 @@ TradeAnim_EnterLinkTube1:
 	ld de, TradeLinkTubeTilemap
 	lb bc, 3, 12
 	call TradeAnim_CopyBoxFromDEtoHL
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_TRADE_TUBE
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
@@ -725,7 +725,7 @@ TradeAnim_ScrollOutRight:
 	call WaitTop
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $7
 	ldh [hWX], a
 	xor a
@@ -749,7 +749,7 @@ TradeAnim_ScrollOutRight2:
 .done
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $7
 	ldh [hWX], a
 	ld a, $90
@@ -845,7 +845,7 @@ TradeAnim_ShowFrontpic:
 	ldh [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 TradeAnim_Wait80:
@@ -963,7 +963,7 @@ TrademonStats_Egg:
 	next "<ID>№.?????@"
 
 TrademonStats_WaitBGMap:
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
@@ -1220,7 +1220,7 @@ TradeAnim_TakeCareOfText:
 	ld bc, 8 * SCREEN_WIDTH
 	ld a, " "
 	predef ByteFill
-	call WaitBGMap
+	predef WaitBGMap
 	ld hl, .TakeGoodCareOfMonText
 	call PrintText
 	call TradeAnim_Wait80Frames

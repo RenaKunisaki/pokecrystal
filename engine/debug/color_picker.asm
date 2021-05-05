@@ -450,7 +450,7 @@ DebugColor_UpdateScreen:
 	call DelayFrame
 
 .sgb
-	call WaitBGMap
+	predef WaitBGMap
 
 	ld a, DEBUGCOLORMAIN_UPDATEPALETTES
 	ld [wJumptableIndex], a

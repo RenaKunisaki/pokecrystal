@@ -304,7 +304,7 @@ WaitButton::
 	push af
 	ld a, 1
 	ldh [hOAMUpdate], a
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 	pop af
 	ldh [hOAMUpdate], a

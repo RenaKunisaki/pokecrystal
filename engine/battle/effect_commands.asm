@@ -4335,7 +4335,7 @@ MinimizeDropSub:
 	xor a
 	ldh [hBGMapMode], a
 	call CallBattleCore
-	call WaitBGMap
+	predef WaitBGMap
 	jp BattleCommand_MoveDelay
 
 BattleCommand_AttackDown:

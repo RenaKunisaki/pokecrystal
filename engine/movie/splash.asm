@@ -16,7 +16,7 @@ SplashScreen:
 	ldh [hSCY], a
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_GAMEFREAK_LOGO
 	call GetSGBLayout
 	call SetPalettes
@@ -25,7 +25,7 @@ SplashScreen:
 
 ; Draw copyright screen
 	callfar Copyright
-	call WaitBGMap
+	predef WaitBGMap
 	ld c, 100
 	predef DelayFrames
 	call ClearTilemap

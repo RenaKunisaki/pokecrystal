@@ -2999,7 +2999,7 @@ Function17e3f0:
 	ld a, [hl]
 	and $2
 	ret nz
-	call WaitBGMap
+	predef WaitBGMap
 	jr .asm_17e3f6
 
 Function17e409:

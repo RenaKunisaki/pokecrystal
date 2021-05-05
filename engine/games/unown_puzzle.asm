@@ -47,7 +47,7 @@ _UnownPuzzle:
 	ld [wUnownPuzzleHeldPiece], a
 	ld a, %10010011
 	ldh [rLCDC], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_UNOWN_PUZZLE
 	call GetSGBLayout
 	ld a, $e4
@@ -296,7 +296,7 @@ UnownPuzzle_A:
 	ld [wUnownPuzzleHeldPiece], a
 	call RedrawUnownPuzzlePieces
 	call FillUnoccupiedPuzzleSpace
-	call WaitBGMap
+	predef WaitBGMap
 	predef WaitSFX
 	ld a, TRUE
 	ld [wHoldingUnownPuzzlePiece], a
@@ -311,7 +311,7 @@ UnownPuzzle_A:
 	ld a, [wUnownPuzzleHeldPiece]
 	ld [hl], a
 	call PlaceUnownPuzzlePieceGFX
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ld [wUnownPuzzleHeldPiece], a
 	call RedrawUnownPuzzlePieces

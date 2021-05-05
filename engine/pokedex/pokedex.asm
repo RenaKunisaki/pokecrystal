@@ -244,7 +244,7 @@ Pokedex_InitMainScreen:
 	ldh [hWX], a
 	xor a
 	ldh [hWY], a
-	call WaitBGMap
+	predef WaitBGMap
 
 	call Pokedex_ResetBGMapMode
 	ld a, -1
@@ -337,7 +337,7 @@ Pokedex_InitDexEntryScreen:
 	ld [wPrevDexEntry], a
 	farcall DisplayDexEntry
 	call Pokedex_DrawFootprint
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $a7
 	ldh [hWX], a
 	call Pokedex_GetSelectedMon
@@ -390,7 +390,7 @@ Pokedex_Page:
 	call Pokedex_GetSelectedMon
 	ld [wPrevDexEntry], a
 	farcall DisplayDexEntry
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 Pokedex_ReinitDexEntryScreen:
@@ -408,7 +408,7 @@ Pokedex_ReinitDexEntryScreen:
 	farcall DisplayDexEntry
 	call Pokedex_DrawFootprint
 	call Pokedex_LoadSelectedMonTiles
-	call WaitBGMap
+	predef WaitBGMap
 	call Pokedex_GetSelectedMon
 	ld [wCurPartySpecies], a
 	ld a, SCGB_POKEDEX
@@ -456,7 +456,7 @@ DexEntryScreen_MenuActionJumptable:
 	call DelayFrame
 	call Pokedex_RedisplayDexEntry
 	call Pokedex_LoadSelectedMonTiles
-	call WaitBGMap
+	predef WaitBGMap
 	call Pokedex_GetSelectedMon
 	ld [wCurPartySpecies], a
 	ld a, SCGB_POKEDEX
@@ -494,7 +494,7 @@ DexEntryScreen_MenuActionJumptable:
 	call Pokedex_LoadInvertedFont
 	call Pokedex_RedisplayDexEntry
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, POKEDEX_SCX
 	ldh [hSCX], a
 	call Pokedex_ApplyUsualPals
@@ -517,7 +517,7 @@ Pokedex_InitOptionScreen:
 	ld a, [wCurDexMode]
 	ld [wDexArrowCursorPosIndex], a
 	call Pokedex_DisplayModeDescription
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, SCGB_POKEDEX_SEARCH_OPTION
 	call Pokedex_GetSGBLayout
 	call Pokedex_IncrementDexPointer
@@ -625,7 +625,7 @@ Pokedex_InitSearchScreen:
 	xor a
 	ld [wDexSearchSlowpokeFrame], a
 	farcall DoDexSearchSlowpokeFrame
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, SCGB_POKEDEX_SEARCH_OPTION
 	call Pokedex_GetSGBLayout
 	call Pokedex_IncrementDexPointer
@@ -690,7 +690,7 @@ Pokedex_UpdateSearchScreen:
 	call Pokedex_DrawSearchScreenBG
 	call Pokedex_InitArrowCursor
 	call Pokedex_PlaceSearchScreenTypeStrings
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 .show_search_results
@@ -738,7 +738,7 @@ Pokedex_InitSearchResultsScreen:
 	ldh [hWX], a
 	xor a
 	ldh [hWY], a
-	call WaitBGMap
+	predef WaitBGMap
 	call Pokedex_ResetBGMapMode
 	farcall DrawPokedexSearchResultsWindow
 	call Pokedex_PlaceSearchResultsTypeStrings
@@ -804,7 +804,7 @@ Pokedex_InitUnownMode:
 	call Pokedex_LoadUnownFrontpicTiles
 	call Pokedex_UnownModePlaceCursor
 	farcall PrintUnownWord
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, SCGB_POKEDEX_UNOWN_MODE
 	call Pokedex_GetSGBLayout
 	call Pokedex_IncrementDexPointer
@@ -2538,7 +2538,7 @@ _NewPokedexEntry:
 	predef ByteFill
 	farcall DisplayDexEntry
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	call GetBaseData
 	ld de, vTiles2
 	predef GetMonFrontpic

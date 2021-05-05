@@ -199,7 +199,7 @@ BuySell_DisplaySubtotal:
 	ld de, hMoneyTemp
 	lb bc, PRINTNUM_MONEY | 3, 6
 	predef PrintNum
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 TossItem_MenuHeader:

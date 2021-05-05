@@ -54,7 +54,7 @@ _UnownPrinter:
 	xor a
 	ld [wJumptableIndex], a
 	call .UpdateUnownFrontpic
-	call WaitBGMap
+	predef WaitBGMap
 
 	ld a, UNOWN
 	ld [wCurPartySpecies], a

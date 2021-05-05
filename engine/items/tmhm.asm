@@ -6,7 +6,7 @@ TMHMPocket:
 	ldh [hInMenu], a
 	ret nc
 	call PlaceHollowCursor
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wCurItem]
 	dec a
 	ld [wCurItemQuantity], a
@@ -85,7 +85,7 @@ ChooseMonToLearnTMHM_NoRefresh:
 .loopback
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	farcall PartyMenuSelect

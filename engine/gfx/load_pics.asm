@@ -313,7 +313,7 @@ GetTrainerPic:
 	ret z
 	cp NUM_TRAINER_CLASSES + 1
 	ret nc
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ld hl, TrainerPicPointers
@@ -344,7 +344,7 @@ GetTrainerPic:
 	call Get2bpp
 	pop af
 	ldh [rSVBK], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, 1
 	ldh [hBGMapMode], a
 	ret

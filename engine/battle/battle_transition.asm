@@ -784,7 +784,7 @@ StartTrainerBattle_ZoomToBlack:
 	xor a
 	ldh [hBGMapMode], a
 	call .Copy
-	call WaitBGMap
+	predef WaitBGMap
 	jr .loop
 
 .done
@@ -829,7 +829,7 @@ ENDM
 UnusedWaitBGMapOnce: ; unreferenced
 	ld a, 1
 	ldh [hBGMapMode], a ; redundant
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ret

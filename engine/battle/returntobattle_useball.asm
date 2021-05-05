@@ -15,5 +15,5 @@ _ReturnToBattle_UseBall:
 	call GetMemSGBLayout
 	call CloseWindow
 	call LoadStandardMenuHeader
-	call WaitBGMap
+	predef WaitBGMap
 	jp SetPalettes

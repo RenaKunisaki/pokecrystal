@@ -172,7 +172,7 @@ SwitchPartyMons:
 	dec a
 	predef AddNTimes
 	ld [hl], "▷"
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 
@@ -1150,7 +1150,7 @@ SetUpMoveList:
 	predef ListMoves
 	hlcoord 10, 4
 	predef ListMovePP
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	ld a, [wNumMoves]
 	inc a

@@ -478,7 +478,7 @@ Mom_WithdrawDepositMenuJoypad:
 	ld [hl], " "
 
 .skip
-	call WaitBGMap
+	predef WaitBGMap
 	jr .loop
 
 .pressedB

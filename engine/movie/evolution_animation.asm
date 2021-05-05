@@ -44,7 +44,7 @@ EvolutionAnimation:
 
 	xor a
 	ld [wLowHealthAlarm], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 
@@ -230,7 +230,7 @@ EvolutionAnimation:
 	jr nz, .loop1
 	ld a, $1
 	ldh [hBGMapMode], a
-	call WaitBGMap
+	predef WaitBGMap
 	pop bc
 	ret
 

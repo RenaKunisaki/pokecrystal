@@ -599,7 +599,7 @@ DebugRoom_EditPagedValues:
 	ld [wDebugRoomCurPage], a
 	inc a
 	ldh [hBGMapMode], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes

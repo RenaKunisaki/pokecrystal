@@ -313,7 +313,7 @@ Function4aa34:
 	ld [wPartyMenuActionText], a
 	farcall PrintPartyMenuText
 	call Function4aab6
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	call Function4ab1a

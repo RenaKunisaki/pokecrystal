@@ -53,7 +53,7 @@ NamingScreen:
 	ld a, LCDC_DEFAULT
 	ldh [rLCDC], a
 	call .GetNamingScreenSetup
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitTop
 	call SetPalettes
 	call NamingScreen_InitNameEntry
@@ -944,7 +944,7 @@ _ComposeMailMessage:
 	call .initwNamingScreenMaxNameLength
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitTop
 	ld a, %11100100
 	call DmgToCgbBGPals

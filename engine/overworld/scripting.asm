@@ -391,7 +391,7 @@ Script_promptbutton:
 	push af
 	ld a, $1
 	ldh [hOAMUpdate], a
-	call WaitBGMap
+	predef WaitBGMap
 	call PromptButton
 	pop af
 	ldh [hOAMUpdate], a

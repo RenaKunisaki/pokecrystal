@@ -246,7 +246,7 @@ Function4820d:
 	ld de, MobileString_ProfileChanged
 	hlcoord 1, 16
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	ld c, 48
 	predef DelayFrames
 
@@ -292,7 +292,7 @@ asm_4828d:
 	hlcoord 13, 6
 	ld de, String_484ff
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wPlayerGender]
 	inc a
 	ld [wMenuCursorPosition], a
@@ -826,7 +826,7 @@ Function4876f:
 	ld b, $1
 	ld c, $8
 	call Function48cdc
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wd473]
 	and a
 	jr z, .asm_487ab
@@ -985,7 +985,7 @@ Function4880e:
 .asm_488a7
 	hlcoord 11, 6
 	call Function487ec
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $1
 	and a
 	ret
@@ -1031,7 +1031,7 @@ Function488d3:
 	ld d, $0
 	hlcoord 11, 10
 	call Function489ea
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wd475]
 	ld b, a
 	ld a, [wd476]
@@ -1120,7 +1120,7 @@ asm_48972:
 	ld b, $3
 	call Function48c11
 .asm_48994
-	call WaitBGMap
+	predef WaitBGMap
 	pop af
 	pop bc
 	jr nc, asm_48922
@@ -1603,7 +1603,7 @@ Function48c8e: ; unreferenced
 	farcall Function48c63
 	hlcoord 10, 7
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 Function48ca3: ; unreferenced

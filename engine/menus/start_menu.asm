@@ -513,7 +513,7 @@ StartMenu_Pokemon:
 .menunoreload
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes ; load regular palettes?
 	call DelayFrame
 	farcall PartyMenuSelect

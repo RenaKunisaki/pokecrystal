@@ -4,7 +4,7 @@ SelectMonFromParty:
 	ld [wPartyMenuActionText], a
 	predef ClearBGPalettes
 	call InitPartyMenuLayout
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	call PartyMenuSelect
@@ -17,7 +17,7 @@ SelectTradeOrDayCareMon:
 	call DisableSpriteUpdates
 	predef ClearBGPalettes
 	call InitPartyMenuLayout
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_PARTY_MENU
 	call GetSGBLayout
 	call SetPalettes

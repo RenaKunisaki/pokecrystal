@@ -122,7 +122,7 @@ AnimateHallOfFame:
 	ld de, .String_NewHallOfFamer
 	hlcoord 1, 2
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	decoord 6, 5
 	ld c, ANIM_MON_HOF
 	predef HOF_AnimateFrontpic
@@ -251,7 +251,7 @@ AnimateHOFMonEntrance:
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hSCX], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
@@ -266,7 +266,7 @@ AnimateHOFMonEntrance:
 	predef ByteFill
 	hlcoord 6, 5
 	call _PrepMonFrontpic
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hSCY], a
@@ -385,7 +385,7 @@ _HallOfFamePC:
 .finish
 	ld de, .EmptyString
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	call SetPalettes
@@ -536,7 +536,7 @@ HOF_AnimatePlayerPic:
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hSCX], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ld [wCurPartySpecies], a
@@ -558,7 +558,7 @@ HOF_AnimatePlayerPic:
 	predef PlaceGraphic
 	ld a, $c0
 	ldh [hSCX], a
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hSCY], a
@@ -596,7 +596,7 @@ HOF_AnimatePlayerPic:
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	predef PrintNum
-	call WaitBGMap
+	predef WaitBGMap
 	farcall ProfOaksPCRating
 	ret
 

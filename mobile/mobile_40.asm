@@ -1994,7 +1994,7 @@ Function100d67:
 	call MenuBox
 	call UpdateSprites
 	call PlaceVerticalMenuItems
-	call WaitBGMap
+	predef WaitBGMap
 	call CopyMenuData
 	call InitVerticalMenuCursor
 	ld hl, w2DMenuFlags1

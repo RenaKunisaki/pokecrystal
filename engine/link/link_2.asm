@@ -18,7 +18,7 @@ LinkMonStatsScreen:
 	ret
 
 Link_WaitBGMap:
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitBGMap2
 	ret
 

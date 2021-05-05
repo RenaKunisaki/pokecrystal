@@ -73,7 +73,7 @@ DisplayCaughtContestMonStats:
 	pop af
 	ld [wOptions], a
 
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes

@@ -28,7 +28,7 @@ PlaceDiplomaOnScreen:
 	hlcoord 2, 8
 	call PlaceString
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes

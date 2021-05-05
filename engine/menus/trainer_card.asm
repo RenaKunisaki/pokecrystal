@@ -65,11 +65,11 @@ TrainerCard:
 	call TrainerCard_InitBorder
 
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_TRAINER_CARD
 	call GetSGBLayout
 	call SetPalettes
-	call WaitBGMap
+	predef WaitBGMap
 	ld hl, wJumptableIndex
 	xor a ; TRAINERCARDSTATE_PAGE1_LOADGFX
 	ld [hli], a ; wJumptableIndex
@@ -106,7 +106,7 @@ TrainerCard_Page1_LoadGFX:
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder
-	call WaitBGMap
+	predef WaitBGMap
 	ld de, CardStatusGFX
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(CardStatusGFX), 86
@@ -141,7 +141,7 @@ TrainerCard_Page2_LoadGFX:
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder
-	call WaitBGMap
+	predef WaitBGMap
 	ld de, LeaderGFX
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX), 86
@@ -189,7 +189,7 @@ TrainerCard_Page3_LoadGFX:
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder
-	call WaitBGMap
+	predef WaitBGMap
 	ld de, LeaderGFX2
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX2), 86

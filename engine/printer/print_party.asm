@@ -222,7 +222,7 @@ PrintPartyMonPage1:
 .got_alignment
 	hlcoord 0, 0
 	call _PrepMonFrontpic
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 	call SetPalettes
@@ -273,7 +273,7 @@ PrintPartyMonPage2:
 	hlcoord 16, 15
 	ld de, wTempMonSpeed
 	call .PrintTempMonStats
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 	call SetPalettes

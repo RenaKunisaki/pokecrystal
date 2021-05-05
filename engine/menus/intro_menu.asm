@@ -946,7 +946,7 @@ NamePlayer:
 	call ClearTilemap
 
 	call LoadFontsExtra
-	call WaitBGMap
+	predef WaitBGMap
 
 	xor a
 	ld [wCurPartySpecies], a
@@ -1545,5 +1545,5 @@ GameInit::
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
-	call WaitBGMap
+	predef WaitBGMap
 	jp IntroSequence

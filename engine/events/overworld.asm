@@ -593,7 +593,7 @@ FlyFunction:
 
 .illegal
 	call CloseWindow
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $80
 	ret
 

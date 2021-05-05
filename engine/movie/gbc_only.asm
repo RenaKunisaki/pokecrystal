@@ -30,7 +30,7 @@ GBCOnlyScreen:
 
 	call DrawGBCOnlyScreen
 
-	call WaitBGMap
+	predef WaitBGMap
 
 ; better luck next time
 .loop

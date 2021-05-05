@@ -28,7 +28,7 @@ TestMobileTradeBorderTilemap: ; unreferenced
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 	call Call_ExitMenu
 	ret
@@ -172,7 +172,7 @@ PrintWaitingTextAndSyncAndExchangeNybble:
 	hlcoord 5, 11
 	ld de, .Waiting
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitBGMap2
 	ld c, 50
 	jp DelayFrames
@@ -235,7 +235,7 @@ LinkTradeMenu:
 	push af
 	ld a, $1
 	ldh [hOAMUpdate], a
-	call WaitBGMap
+	predef WaitBGMap
 	pop af
 	ldh [hOAMUpdate], a
 	xor a

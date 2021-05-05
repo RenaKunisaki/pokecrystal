@@ -1747,7 +1747,7 @@ ChooseMonToUseItemOn:
 	farcall InitPartyMenuGFX
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	farcall PartyMenuSelect
@@ -1764,7 +1764,7 @@ ItemActionText:
 	push bc
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuActionText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	pop bc

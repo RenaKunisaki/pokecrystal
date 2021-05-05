@@ -489,7 +489,7 @@ MailboxPC:
 	farcall InitPartyMenuGFX
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	farcall PartyMenuSelect

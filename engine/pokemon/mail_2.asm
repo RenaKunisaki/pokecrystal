@@ -48,7 +48,7 @@ ReadAnyMail:
 	pop de
 	call .LoadGFX
 	call EnableLCD
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, [wCurMailIndex]
 	ld e, a
 	farcall LoadMailPalettes

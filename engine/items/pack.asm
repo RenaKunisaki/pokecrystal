@@ -573,7 +573,7 @@ GiveItem:
 .loop
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
-	call WaitBGMap
+	predef WaitBGMap
 	call SetPalettes
 	call DelayFrame
 	farcall PartyMenuSelect
@@ -1206,7 +1206,7 @@ Pack_PrintTextNoScroll:
 	ret
 
 WaitBGMap_DrawPackGFX:
-	call WaitBGMap
+	predef WaitBGMap
 DrawPackGFX:
 	ld a, [wCurPocket]
 	maskbits NUM_POCKETS
@@ -1434,7 +1434,7 @@ ClearPocketList:
 	ret
 
 Pack_InitColors:
-	call WaitBGMap
+	predef WaitBGMap
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
 	call SetPalettes

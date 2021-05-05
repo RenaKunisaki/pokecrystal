@@ -32,7 +32,7 @@ MovePlayerPic:
 	predef PlaceGraphic
 	xor a
 	ldh [hBGMapThird], a
-	call WaitBGMap
+	predef WaitBGMap
 	call DelayFrame
 	pop de
 	pop hl
@@ -136,7 +136,7 @@ GetChrisBackpic:
 	ret
 
 HOF_LoadTrainerFrontpic:
-	call WaitBGMap
+	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 
@@ -162,7 +162,7 @@ HOF_LoadTrainerFrontpic:
 	ld c, 7 * 7
 	call Get2bpp
 
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret

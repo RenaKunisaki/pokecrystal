@@ -469,7 +469,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
 	call DmgToCgbBGPals
-	call WaitBGMap
+	predef WaitBGMap
 .loop
 	ldh a, [hWX]
 	cp $7
@@ -602,7 +602,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
 	call DmgToCgbBGPals
-	call WaitBGMap
+	predef WaitBGMap
 .loop
 	ldh a, [hWX]
 	cp $7
@@ -1195,7 +1195,7 @@ asm_108966:
 	ldh [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 Function10898a:
@@ -1208,7 +1208,7 @@ Function10898a:
 	ldh [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 MobileTradeAnim_DisplayMonToBeSent:
@@ -1308,7 +1308,7 @@ MobileTradeAnim_LoadMonTemplate:
 	db   "@"
 
 MobileTradeAnim_MonDisplay_UpdateBGMap:
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a

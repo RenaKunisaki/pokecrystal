@@ -24,14 +24,14 @@ Pokepic::
 	ldh [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	call WaitBGMap
+	predef WaitBGMap
 	ret
 
 ClosePokepic::
 	ld hl, PokepicMenuHeader
 	call CopyMenuHeader
 	call ClearMenuBoxInterior
-	call WaitBGMap
+	predef WaitBGMap
 	call GetMemSGBLayout
 	xor a
 	ldh [hBGMapMode], a

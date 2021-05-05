@@ -2325,7 +2325,7 @@ CheckLinkTimeout_Receptionist:
 	ld [hli], a
 	xor a
 	ld [hl], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $2
 	ldh [hVBlank], a
 	call DelayFrame
@@ -2347,7 +2347,7 @@ CheckLinkTimeout_Gen2:
 	ld [hli], a
 	xor a
 	ld [hl], a
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $2
 	ldh [hVBlank], a
 	call DelayFrame

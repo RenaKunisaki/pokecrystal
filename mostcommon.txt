@@ -9,7 +9,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     242 	call PrintText
     218 	call GetScriptByte
     218 	predef DelayFrames
-    163 	call WaitBGMap
+    163 	predef WaitBGMap
     162 	call Random
     159 	predef PlaySFX
     158 	predef ClearBGPalettes

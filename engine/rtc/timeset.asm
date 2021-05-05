@@ -39,7 +39,7 @@ InitClock:
 	lb bc, BANK(TimeSetDownArrowGFX), 1
 	call Request1bpp
 	call .ClearScreen
-	call WaitBGMap
+	predef WaitBGMap
 	call RotateFourPalettesRight
 	ld hl, OakTimeWokeUpText
 	call PrintText
@@ -175,7 +175,7 @@ SetHour:
 	predef ByteFill
 	hlcoord 4, 9
 	call DisplayHourOClock
-	call WaitBGMap
+	predef WaitBGMap
 	and a
 	ret
 
@@ -264,7 +264,7 @@ SetMinutes:
 	predef ByteFill
 	hlcoord 12, 9
 	call DisplayMinutesWithMinString
-	call WaitBGMap
+	predef WaitBGMap
 	and a
 	ret
 .a_button
@@ -486,7 +486,7 @@ SetDayOfWeek:
 	call ClearBox
 	hlcoord 10, 5
 	call .PlaceWeekdayString
-	call WaitBGMap
+	predef WaitBGMap
 	and a
 	ret
 

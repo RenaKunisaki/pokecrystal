@@ -251,6 +251,6 @@ PrintWinLossText::
 	ld l, a
 	call GetMapScriptsBank
 	call FarPrintText
-	call WaitBGMap
+	predef WaitBGMap
 	call WaitPressAorB_BlinkCursor
 	ret

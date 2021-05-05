@@ -108,7 +108,7 @@ Function891b8:
 Function891ca:
 	push bc
 	call Function891b8
-	call WaitBGMap
+	predef WaitBGMap
 	pop bc
 	ret
 
@@ -3425,7 +3425,7 @@ Function8a6cd:
 	hlcoord 1, 13
 	ld de, String_89135
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	ld a, $2
 	call Function89254
 	jr c, .asm_8a6e5
@@ -3567,7 +3567,7 @@ Function8a818:
 	hlcoord 1, 13
 	ld de, .string_8a868
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8a863
 	predef CloseSRAM
@@ -3585,7 +3585,7 @@ Function8a818:
 .asm_8a87d
 	hlcoord 1, 13
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 	and a
 	ret
@@ -3638,7 +3638,7 @@ Function8a8c3:
 	hlcoord 1, 13
 	ld de, String_8a926
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8a90f
 	call Function89448
@@ -3878,7 +3878,7 @@ Function8aab6:
 	hlcoord 1, 13
 	ld de, String_8aaf0
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8aaeb
 	predef CloseSRAM
@@ -3892,7 +3892,7 @@ Function8ab00:
 	ld de, String_8911c
 	hlcoord 1, 13
 	call PlaceString
-	call WaitBGMap
+	predef WaitBGMap
 	call Mobile22_PromptButton
 	and a
 	ret

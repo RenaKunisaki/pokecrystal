@@ -333,7 +333,7 @@ MenuJoypadLoop:
 	push af
 	ld a, $1
 	ldh [hOAMUpdate], a
-	call WaitBGMap
+	predef WaitBGMap
 	pop af
 	ldh [hOAMUpdate], a
 	xor a
@@ -726,7 +726,7 @@ RestoreOverworldMapTiles: ; unreferenced
 Error_Cant_ExitMenu:
 	ld hl, .WindowPoppingErrorText
 	call PrintText
-	call WaitBGMap
+	predef WaitBGMap
 .infinite_loop
 	jr .infinite_loop
 
