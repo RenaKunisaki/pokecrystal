@@ -912,7 +912,7 @@ MoonBallMultiplier:
 	push bc
 	ld a, BANK("Evolutions and Attacks")
 	call GetFarByte
-	cp BURN_HEAL
+	cp MOON_STONE ; was BURN_HEAL
 	pop bc
 	ret nz
 
@@ -925,70 +925,133 @@ MoonBallMultiplier:
 .done
 	ret
 
-LoveBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 8 if mons are of same species, different sex
-; Reality: multiply catch rate by 8 if mons are of same species, same sex
+    LoveBallMultiplier:
+        call LoveBall_CheckSpecies
+        call LoveBall_CheckEggGroups
+        ;call LoveBall_CheckGender
+        ;ret
+        ; just fall through
 
-	; does species match?
-	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld a, [wTempBattleMonSpecies]
-	cp c
-	ret nz
+    LoveBall_CheckGender:
+    	; check player mon species
+    	push bc
+    	ld a, [wTempBattleMonSpecies]
+    	ld [wCurPartySpecies], a
+    	xor a ; PARTYMON
+    	ld [wMonType], a
+    	ld a, [wCurBattleMon]
+    	ld [wCurPartyMon], a
+    	farcall GetGender
+    	jr c, .done1 ; no effect on genderless
 
-	; check player mon species
-	push bc
-	ld a, [wTempBattleMonSpecies]
-	ld [wCurPartySpecies], a
-	xor a ; PARTYMON
-	ld [wMonType], a
-	ld a, [wCurBattleMon]
-	ld [wCurPartyMon], a
-	farcall GetGender
-	jr c, .done1 ; no effect on genderless
+    	ld d, 0 ; male
+    	jr nz, .playermale
+    	inc d   ; female
+    .playermale
 
-	ld d, 0 ; male
-	jr nz, .playermale
-	inc d   ; female
-.playermale
+    	; check wild mon species
+    	push de
+    	ld a, [wTempEnemyMonSpecies]
+    	ld [wCurPartySpecies], a
+    	ld a, WILDMON
+    	ld [wMonType], a
+    	farcall GetGender
+    	jr c, .done2 ; no effect on genderless
 
-	; check wild mon species
-	push de
-	ld a, [wTempEnemyMonSpecies]
-	ld [wCurPartySpecies], a
-	ld a, WILDMON
-	ld [wMonType], a
-	farcall GetGender
-	jr c, .done2 ; no effect on genderless
+    	ld d, 0 ; male
+    	jr nz, .wildmale
+    	inc d   ; female
+    .wildmale
 
-	ld d, 0 ; male
-	jr nz, .wildmale
-	inc d   ; female
-.wildmale
+    	ld a, d
+    	pop de
+    	cp d
+    	pop bc
+        jr z, .same_gender
 
-	ld a, d
-	pop de
-	cp d
-	pop bc
-	ret z ; for the intended effect, this should be "ret z"
+        ;dprint "Different gender!"
+    	call DoubleB
+    .same_gender
+        ret
 
-	sla b
-	jr c, .max
-	sla b
-	jr c, .max
-	sla b
-	ret nc
-.max
-	ld b, $ff
-	ret
+    .done2
+    	pop de
 
-.done2
-	pop de
+    .done1
+    	pop bc
+    	ret
 
-.done1
-	pop bc
-	ret
+    LoveBall_CheckSpecies:
+        ; does species match?
+        ld a, [wTempEnemyMonSpecies]
+        ld c, a
+        ld a, [wTempBattleMonSpecies]
+        cp c
+        ret nz
+        ;dprint "Same species!"
+        call DoubleB ; same species = x2 boost
+        ; since they'll also be the same egg group, this is effectively x4
+        ret
+
+    LoveBall_CheckEggGroups:
+        push de
+        ; get enemy egg group into c
+        ld a, [wTempEnemyMonSpecies]
+        cp DITTO
+        jr z, .compatible
+        ld [wCurSpecies], a
+        call GetBaseData
+        ld a, [wBaseEggGroups]
+        cp EGG_NONE * $11
+        jr z, .no_eggs
+        ld c, a
+
+        ; get party egg group into d, e
+        ld a, [wTempBattleMonSpecies]
+        cp DITTO
+        jr z, .compatible
+        ld [wCurSpecies], a
+        call GetBaseData
+        ld a, [wBaseEggGroups]
+        cp EGG_NONE * $11
+        jr z, .no_eggs
+
+        push af
+        and $0F
+        ld d, a
+        pop af
+        and $F0
+        swap a
+        ld e, a
+
+        ld a, c
+        and $0F
+        cp d
+        jr z, .compatible
+        cp e
+        jr z, .compatible
+
+        ld a, c
+        and $F0
+        swap a
+        cp d
+        jr z, .compatible
+        cp e
+        jr nz, .no_eggs
+
+    .compatible
+        ;dprint "Compatible!"
+        call DoubleB ; same egg group = x2 boost
+
+    .no_eggs
+        pop de
+        ret
+
+    DoubleB:
+        sla b
+        ret nc
+    	ld b, $ff
+    	ret
 
 FastBallMultiplier:
 ; This function is buggy.
