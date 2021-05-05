@@ -49,7 +49,7 @@ BattleCommand_RolloutPower:
 	jr z, .hit
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res 6, [hl]
 	ret
 
@@ -61,13 +61,13 @@ BattleCommand_RolloutPower:
 	jr c, .not_done_with_rollout
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_ROLLOUT, [hl]
 	jr .done_with_substatus_flag
 
 .not_done_with_rollout
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_ROLLOUT, [hl]
 
 .done_with_substatus_flag

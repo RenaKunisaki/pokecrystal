@@ -94,7 +94,7 @@ HiddenPowerDamage:
 ; Overwrite the current move type.
 	push af
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	pop af
 	ld [hl], a
 

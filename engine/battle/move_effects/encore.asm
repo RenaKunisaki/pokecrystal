@@ -35,7 +35,7 @@ BattleCommand_Encore:
 	and a
 	jp nz, .failed
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_ENCORED, [hl]
 	jp nz, .failed
 	set SUBSTATUS_ENCORED, [hl]

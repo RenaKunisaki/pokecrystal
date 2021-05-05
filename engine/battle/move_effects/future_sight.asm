@@ -34,10 +34,10 @@ BattleCommand_FutureSight:
 	call GetBattleVar
 	ld b, a
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], b
 	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], b
 .AlreadyChargingFutureSight:
 	ld hl, wPlayerFutureSightCount

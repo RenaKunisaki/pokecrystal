@@ -315,7 +315,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
  HandleBerserkGene:
  	...
  	ld a, BATTLE_VARS_SUBSTATUS3
- 	call GetBattleVarAddr
+ 	predef GetBattleVarAddr
  	push af
  	set SUBSTATUS_CONFUSED, [hl]
 +	ldh a, [hBattleTurn]
@@ -329,7 +329,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
 +	add 2
 +	ld [hl], a
  	ld a, BATTLE_VARS_MOVE_ANIM
- 	call GetBattleVarAddr
+ 	predef GetBattleVarAddr
  	...
 ```
 
@@ -599,7 +599,7 @@ This bug prevents the rest of Beat Up's effect from being executed if the player
 ```diff
  .only_one_beatup
  	ld a, BATTLE_VARS_SUBSTATUS3
- 	call GetBattleVarAddr
+ 	predef GetBattleVarAddr
  	res SUBSTATUS_IN_LOOP, [hl]
 -	call BattleCommand_BeatUpFailText
 -	jp EndMoveEffect
@@ -611,7 +611,7 @@ This bug prevents the rest of Beat Up's effect from being executed if the player
 ```diff
  .only_one_beatup
  	ld a, BATTLE_VARS_SUBSTATUS3
- 	call GetBattleVarAddr
+ 	predef GetBattleVarAddr
  	res SUBSTATUS_IN_LOOP, [hl]
  	call BattleCommand_BeatUpFailText
 +	call BattleCommand_RaiseSub
@@ -823,7 +823,7 @@ This bug existed for all battles in Gold and Silver, and was only fixed for sing
 +; If the user is transformed, fail.
 -	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 +	ld a, BATTLE_VARS_SUBSTATUS5
- 	call GetBattleVarAddr
+ 	predef GetBattleVarAddr
  	bit SUBSTATUS_TRANSFORMED, [hl]
  	jp nz, .fail
 ```

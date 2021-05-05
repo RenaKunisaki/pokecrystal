@@ -64,7 +64,7 @@ BattleCommand_Curse:
 	jr nz, .failed
 
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CURSE, [hl]
 	jr nz, .failed
 

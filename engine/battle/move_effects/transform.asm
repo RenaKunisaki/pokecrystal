@@ -3,7 +3,7 @@ BattleCommand_Transform:
 
 	call ClearLastMove
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_TRANSFORMED, [hl]
 	jp nz, BattleEffect_ButItFailed
 	call CheckHiddenOpponent
@@ -14,7 +14,7 @@ BattleCommand_Transform:
 	ld a, $1
 	ld [wBattleAnimParam], a
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_SUBSTITUTE, [hl]
 	push af
 	jr z, .mimic_substitute
@@ -24,7 +24,7 @@ BattleCommand_Transform:
 	call LoadAnim
 .mimic_substitute
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_TRANSFORMED, [hl]
 	call ResetActorDisable
 	ld hl, wBattleMonSpecies

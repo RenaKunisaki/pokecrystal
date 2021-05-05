@@ -16,12 +16,12 @@ UsedMoveText:
 
 .start
 	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld d, h
 	ld e, l
 
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar

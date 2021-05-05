@@ -14,14 +14,14 @@ BattleCommand_Nightmare:
 ; Only works on a sleeping opponent.
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and SLP
 	jr z, .failed
 
 ; Bail if the opponent is already having a nightmare.
 
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_NIGHTMARE, [hl]
 	jr nz, .failed
 

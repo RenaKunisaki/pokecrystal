@@ -3,7 +3,7 @@ GetBattleVar::
 	;farcall GetBattleVar_far
 	;ret
     push hl
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	pop hl
 	ret
 

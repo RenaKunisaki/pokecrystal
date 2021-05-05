@@ -9,7 +9,7 @@ BattleCommand_Foresight:
 	jr nz, .failed
 
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_IDENTIFIED, [hl]
 	jr nz, .failed
 

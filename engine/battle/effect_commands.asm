@@ -334,11 +334,11 @@ BattleCommand_CheckTurn:
 
 CantMove:
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_ROLLOUT, [hl]
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, [hl]
 	and $ff ^ (1 << SUBSTATUS_BIDE | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_CHARGED)
 	ld [hl], a
@@ -590,7 +590,7 @@ EndTurn:
 MoveDisabled:
 	; Make sure any charged moves fail
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_CHARGED, [hl]
 
 	ld a, BATTLE_VARS_MOVE
@@ -1249,7 +1249,7 @@ BattleCommand_Stab:
 
 .go
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [wCurType], a
 
 	push hl
@@ -1675,7 +1675,7 @@ BattleCommand_CheckHit:
 ; Return nz if we are locked-on and aren't trying to use Earthquake,
 ; Fissure or Magnitude on a monster that is flying.
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
 	res SUBSTATUS_LOCK_ON, [hl]
 	ret z
@@ -2099,7 +2099,7 @@ BattleCommand_FailureText:
 
 	call GetFailureResultText
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 
 	cp FLY
 	jr z, .fly_dig
@@ -2124,7 +2124,7 @@ BattleCommand_FailureText:
 
 .fly_dig
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_UNDERGROUND, [hl]
 	res SUBSTATUS_FLYING, [hl]
 	call AppearUserRaiseSub
@@ -2348,7 +2348,7 @@ BattleCommand_SuperEffectiveLoopText:
 ; supereffectivelooptext
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_IN_LOOP, a
 	ret nz
 
@@ -3356,11 +3356,11 @@ BattleCommand_DefrostOpponent:
 	call AnimateCurrentMove
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	call Defrost
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, [hl]
 	push hl
 	push af
@@ -3566,7 +3566,7 @@ DoSubstituteDamage:
 
 .broke
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_SUBSTITUTE, [hl]
 
 	ld hl, SubFadedText
@@ -3581,7 +3581,7 @@ DoSubstituteDamage:
 	call BattleCommand_SwitchTurn
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	cp EFFECT_MULTI_HIT
 	jr z, .ok
 	cp EFFECT_DOUBLE_HIT
@@ -3601,7 +3601,7 @@ DoSubstituteDamage:
 
 UpdateMoveData:
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld d, h
 	ld e, l
 
@@ -3631,7 +3631,7 @@ BattleCommand_SleepTarget:
 
 .not_protected_by_item
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld d, h
 	ld e, l
 	ld a, [de]
@@ -3720,7 +3720,7 @@ BattleCommand_PoisonTarget:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and a
 	ret nz
 	ld a, [wTypeModifier]
@@ -3844,7 +3844,7 @@ BattleCommand_Poison:
 
 .check_toxic
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ldh a, [hBattleTurn]
 	and a
 	ld de, wEnemyToxicCount
@@ -3873,7 +3873,7 @@ CheckIfTargetIsPoisonType:
 
 PoisonOpponent:
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set PSN, [hl]
 	jp UpdateOpponentInParty
 
@@ -3990,7 +3990,7 @@ BattleCommand_BurnTarget:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and a
 	jp nz, Defrost
 	ld a, [wTypeModifier]
@@ -4008,7 +4008,7 @@ BattleCommand_BurnTarget:
 	call SafeCheckSafeguard
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set BRN, [hl]
 	call UpdateOpponentInParty
 	ld hl, ApplyBrnEffectOnAttack
@@ -4056,7 +4056,7 @@ BattleCommand_FreezeTarget:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and a
 	ret nz
 	ld a, [wTypeModifier]
@@ -4077,7 +4077,7 @@ BattleCommand_FreezeTarget:
 	call SafeCheckSafeguard
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set FRZ, [hl]
 	call UpdateOpponentInParty
 	ld de, ANIM_FRZ
@@ -4109,7 +4109,7 @@ BattleCommand_ParalyzeTarget:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and a
 	ret nz
 	ld a, [wTypeModifier]
@@ -4125,7 +4125,7 @@ BattleCommand_ParalyzeTarget:
 	call SafeCheckSafeguard
 	ret nz
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set PAR, [hl]
 	call UpdateOpponentInParty
 	ld hl, ApplyPrzEffectOnSpeed
@@ -4845,7 +4845,7 @@ BattleCommand_TriStatusChance:
 BattleCommand_Curl:
 ; curl
 	ld a, BATTLE_VARS_SUBSTATUS2
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_CURLED, [hl]
 	ret
 
@@ -4993,7 +4993,7 @@ BattleCommand_CheckRampage:
 	ld de, wEnemyRolloutCount
 .player
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_RAMPAGE, [hl]
 	ret z
 	ld a, [de]
@@ -5036,7 +5036,7 @@ BattleCommand_Rampage:
 	ld de, wEnemyRolloutCount
 .ok
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_RAMPAGE, [hl]
 ; Rampage for 1 or 2 more turns
 	call BattleRandom
@@ -5319,12 +5319,12 @@ BattleCommand_EndLoop:
 .got_addrs
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_IN_LOOP, [hl]
 	jp nz, .in_loop
 	set SUBSTATUS_IN_LOOP, [hl]
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, [hl]
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .twineedle
@@ -5368,7 +5368,7 @@ BattleCommand_EndLoop:
 
 .only_one_beatup
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_IN_LOOP, [hl]
 	call BattleCommand_BeatUpFailText
 	jp EndMoveEffect
@@ -5399,7 +5399,7 @@ BattleCommand_EndLoop:
 	jr nz, .loop_back_to_critical
 .done_loop
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_IN_LOOP, [hl]
 
 	ld hl, PlayerHitTimesText
@@ -5479,7 +5479,7 @@ BattleCommand_FlinchTarget:
 
 FlinchTarget:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
 	jp EndRechargeOpp
 
@@ -5509,7 +5509,7 @@ BattleCommand_HeldFlinch:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld d, h
 	ld e, l
 	call GetUserItem
@@ -5518,7 +5518,7 @@ BattleCommand_HeldFlinch:
 	ret nc
 	call EndRechargeOpp
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
 	ret
 
@@ -5572,7 +5572,7 @@ BattleCommand_CheckCharge:
 ; checkcharge
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CHARGED, [hl]
 	ret z
 	res SUBSTATUS_CHARGED, [hl]
@@ -5597,7 +5597,7 @@ BattleCommand_Charge:
 
 .awake
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_CHARGED, [hl]
 
 	ld hl, IgnoredOrders2Text
@@ -5624,7 +5624,7 @@ BattleCommand_Charge:
 	call DisappearUser
 .not_flying
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld b, a
@@ -5642,10 +5642,10 @@ BattleCommand_Charge:
 	call CheckUserIsCharging
 	jr nz, .mimic
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], b
 	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], b
 
 .mimic
@@ -5859,7 +5859,7 @@ BattleCommand_ConfuseTarget:
 	call CheckSubstituteOpp
 	ret nz
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CONFUSED, [hl]
 	ret nz
 	jr BattleCommand_FinishConfusingTarget
@@ -5880,7 +5880,7 @@ BattleCommand_Confuse:
 
 .no_item_protection
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CONFUSED, [hl]
 	jr z, .not_already_confused
 	call AnimateFailedMove
@@ -5991,7 +5991,7 @@ BattleCommand_Paralyze:
 
 .dont_sample_failure
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and a
 	jr nz, .failed
 	ld a, [wAttackMissed]
@@ -6005,7 +6005,7 @@ BattleCommand_Paralyze:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set PAR, [hl]
 	call UpdateOpponentInParty
 	ld hl, ApplyPrzEffectOnSpeed
@@ -6067,14 +6067,14 @@ INCLUDE "engine/battle/move_effects/substitute.asm"
 BattleCommand_RechargeNextTurn:
 ; rechargenextturn
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_RECHARGE, [hl]
 	ret
 
 EndRechargeOpp:
 	push hl
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_RECHARGE, [hl]
 	pop hl
 	ret
@@ -6188,10 +6188,10 @@ BattleCommand_Heal:
 	push af
 	call BattleCommand_MoveDelay
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_TOXIC, [hl]
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, [hl]
 	and a
 	ld [hl], REST_SLEEP_TURNS + 1
@@ -6246,12 +6246,12 @@ BattleEffect_ButItFailed:
 
 ClearLastMove:
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	xor a
 	ld [hl], a
 
 	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	xor a
 	ld [hl], a
 	ret
@@ -6427,7 +6427,7 @@ BattleCommand_ArenaTrap:
 ; Don't trap if the opponent is already trapped.
 
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CANT_RUN, [hl]
 	jr nz, .failed
 
@@ -6450,7 +6450,7 @@ BattleCommand_Defrost:
 ; Thaw the user.
 
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit FRZ, [hl]
 	ret z
 	res FRZ, [hl]

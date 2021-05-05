@@ -22,7 +22,7 @@ BattleCommand_LeechSeed:
 	jr z, .grass
 
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	jr nz, .evaded
 	set SUBSTATUS_LEECH_SEED, [hl]

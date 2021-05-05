@@ -7,7 +7,7 @@ BattleCommand_Endure:
 	ret c
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_ENDURE, [hl]
 
 	call AnimateCurrentMove

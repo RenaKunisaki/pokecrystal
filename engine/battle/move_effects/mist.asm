@@ -2,7 +2,7 @@ BattleCommand_Mist:
 ; mist
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_MIST, [hl]
 	jr nz, .already_mist
 	set SUBSTATUS_MIST, [hl]

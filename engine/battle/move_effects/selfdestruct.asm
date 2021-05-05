@@ -5,7 +5,7 @@ BattleCommand_Selfdestruct:
 	ld c, 3
 	predef DelayFrames
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	xor a
 	ld [hli], a
 	inc hl
@@ -16,10 +16,10 @@ BattleCommand_Selfdestruct:
 	call BattleCommand_LowerSub
 	call LoadMoveAnim
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_LEECH_SEED, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	call _CheckBattleScene
 	ret nc

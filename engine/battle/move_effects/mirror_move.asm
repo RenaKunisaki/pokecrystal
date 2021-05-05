@@ -4,7 +4,7 @@ BattleCommand_MirrorMove:
 	call ClearLastMove
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
 	call GetBattleVar
@@ -28,7 +28,7 @@ BattleCommand_MirrorMove:
 
 	push af
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld d, h
 	ld e, l
 	pop af

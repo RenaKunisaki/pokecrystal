@@ -35,7 +35,7 @@ BattleCommand_Metronome:
 	jr z, .GetMove
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], b
 	call UpdateMoveData
 	jp ResetTurn

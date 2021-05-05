@@ -2,7 +2,7 @@ BattleCommand_ClearHazards:
 ; clearhazards
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	jr z, .not_leeched
 	res SUBSTATUS_LEECH_SEED, [hl]

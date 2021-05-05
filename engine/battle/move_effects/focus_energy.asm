@@ -2,7 +2,7 @@ BattleCommand_FocusEnergy:
 ; focusenergy
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_FOCUS_ENERGY, [hl]
 	jr nz, .already_pumped
 	set SUBSTATUS_FOCUS_ENERGY, [hl]

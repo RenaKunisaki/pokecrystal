@@ -17,7 +17,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     129 	call GetBattleVar
     123 	call ExitMenu
     122 	predef PrintNum
-    114 	call GetBattleVarAddr
+    114 	predef GetBattleVarAddr
     109 	call ClearBox
     104 	call ClearTilemap
     100 	predef WaitSFX
@@ -595,7 +595,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       5 	call GetFarWRAMByte
       5 	call GetDecorationData
       5 	call GetBlockLocation
-      5  	call GetBattleVarAddr
+      5  	predef GetBattleVarAddr
       5 	call .get
       5 	call Function8b50a
       5 	call Function89b3b
@@ -3076,7 +3076,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call GetBreedMon2LevelGrowth
       1 	call GetBreedMon1LevelGrowth
       1 +	call GetBattleVar ; preserves hl, de, and bc
-      1 	call GetBattleVarAddr_far
+      1 	predef GetBattleVarAddr_far
       1 	call GetBattleAnimTileOffset
       1 	call GetBattleAnimPointer
       1 	call GetBattleAnimOAMPointer

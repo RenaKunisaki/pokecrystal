@@ -134,7 +134,7 @@ ResetBatonPassStatus:
 	jr nz, .ok
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_NIGHTMARE, [hl]
 .ok
 
@@ -149,13 +149,13 @@ ResetBatonPassStatus:
 	ld hl, wPlayerSubStatus5
 
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_TRANSFORMED, [hl]
 	res SUBSTATUS_ENCORED, [hl]
 
 	; New mon hasn't used a move yet.
 	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld [hl], 0
 
 	xor a

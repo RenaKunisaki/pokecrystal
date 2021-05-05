@@ -39,7 +39,7 @@ BattleCommand_Conversion2:
 	ld [hld], a
 	push hl
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	push af
 	push hl
 	ld a, d

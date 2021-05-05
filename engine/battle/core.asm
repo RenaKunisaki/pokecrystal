@@ -388,11 +388,11 @@ HandleBerserkGene:
 	xor a
 	ld [hl], a
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	push af
 	set SUBSTATUS_CONFUSED, [hl]
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	push hl
 	push af
 	xor a
@@ -967,17 +967,17 @@ EnemyTurn_EndOpponentProtectEndureDestinyBond:
 
 EndOpponentProtectEndureDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_PROTECT, [hl]
 	res SUBSTATUS_ENDURE, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	ret
 
 EndUserDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	ret
 
@@ -1057,7 +1057,7 @@ ResidualDamage:
 	jp z, .fainted
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_LEECH_SEED, [hl]
 	jr z, .not_seeded
 
@@ -1084,7 +1084,7 @@ ResidualDamage:
 	jr z, .fainted
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_NIGHTMARE, [hl]
 	jr z, .not_nightmare
 	xor a
@@ -1101,7 +1101,7 @@ ResidualDamage:
 	jr z, .fainted
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	bit SUBSTATUS_CURSE, [hl]
 	jr z, .not_cursed
 
@@ -1168,7 +1168,7 @@ HandlePerishSong:
 	pop af
 	ret nz
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_PERISH, [hl]
 	ldh a, [hBattleTurn]
 	and a
@@ -1492,7 +1492,7 @@ HandleFutureSight:
 	call StdBattleTextbox
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	push af
 	ld a, FUTURE_SIGHT
 	ld [hl], a
@@ -1509,7 +1509,7 @@ HandleFutureSight:
 	ld [wCurDamage + 1], a
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	pop af
 	ld [hl], a
 
@@ -4166,7 +4166,7 @@ PursuitSwitch:
 	rst FarCall
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, $ff
 	ld [hl], a
 
@@ -4380,7 +4380,7 @@ UseHeldStatusHealingItem:
 	dec hl
 	ld b, [hl]
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and b
 	ret z
 	xor a
@@ -4389,18 +4389,18 @@ UseHeldStatusHealingItem:
 	call UpdateOpponentInParty
 	pop bc
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and [hl]
 	res SUBSTATUS_TOXIC, [hl]
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	and [hl]
 	res SUBSTATUS_NIGHTMARE, [hl]
 	ld a, b
 	cp ALL_STATUS
 	jr nz, .skip_confuse
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_CONFUSED, [hl]
 
 .skip_confuse
@@ -4439,7 +4439,7 @@ UseConfusionHealingItem:
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_CONFUSED, [hl]
 	call GetItemName
 	call ItemRecoveryAnim

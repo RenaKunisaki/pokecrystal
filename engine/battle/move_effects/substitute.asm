@@ -41,7 +41,7 @@ BattleCommand_Substitute:
 	ld [hl], e
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_SUBSTITUTE, [hl]
 
 	ld hl, wPlayerWrapCount

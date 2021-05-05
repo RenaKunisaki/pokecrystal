@@ -47,7 +47,7 @@ BattleCommand_SleepTalk:
 	call .check_two_turn_move
 	jr z, .sample_move
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, e
 	ld [hl], a
 	call CheckUserIsCharging

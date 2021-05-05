@@ -2,7 +2,7 @@ BattleCommand_HealBell:
 ; healbell
 
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_NIGHTMARE, [hl]
 	ld de, wPartyMon1Status
 	ldh a, [hBattleTurn]
@@ -11,7 +11,7 @@ BattleCommand_HealBell:
 	ld de, wOTPartyMon1Status
 .got_status
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	xor a
 	ld [hl], a
 	ld h, d

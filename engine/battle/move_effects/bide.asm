@@ -16,14 +16,14 @@ BattleCommand_StoreEnergy:
 	jr nz, .still_storing
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	res SUBSTATUS_BIDE, [hl]
 
 	ld hl, UnleashedEnergyText
 	call StdBattleTextbox
 
 	ld a, BATTLE_VARS_MOVE_POWER
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, 1
 	ld [hl], a
 	ld hl, wPlayerDamageTaken + 1
@@ -57,7 +57,7 @@ BattleCommand_StoreEnergy:
 	ld [de], a
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	ld a, BIDE
 	ld [hl], a
 
@@ -81,7 +81,7 @@ BattleCommand_UnleashEnergy:
 	ld bc, wEnemyRolloutCount
 .got_damage
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
+	predef GetBattleVarAddr
 	set SUBSTATUS_BIDE, [hl]
 	xor a
 	ld [de], a
