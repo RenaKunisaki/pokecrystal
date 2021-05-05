@@ -33,7 +33,7 @@ BattleCommand_Sketch:
 	ld hl, wEnemyMonMoves
 .get_last_move
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	ld [wNamedObjectIndex], a
 	ld b, a
 ; Fail if move is invalid or is Struggle.

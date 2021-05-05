@@ -26,7 +26,7 @@ ProtectChance:
 ; Can't have a substitute.
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	jr nz, .failed
 

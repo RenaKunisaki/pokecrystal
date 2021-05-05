@@ -10,7 +10,7 @@ BattleCommand_Encore:
 	ld de, wPlayerEncoreCount
 .ok
 	ld a, BATTLE_VARS_LAST_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jp z, .failed
 	cp STRUGGLE

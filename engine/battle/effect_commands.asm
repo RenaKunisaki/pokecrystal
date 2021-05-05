@@ -40,7 +40,7 @@ DoTurn:
 DoMove:
 ; Get the user's move effect.
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	ld c, a
 	ld b, 0
 	ld hl, MoveEffectsPointers
@@ -115,7 +115,7 @@ BattleCommand_CheckTurn:
 
 ; Move $ff immediately ends the turn.
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	inc a
 	jp z, EndTurn
 
@@ -346,7 +346,7 @@ CantMove:
 	call ResetFuryCutterCount
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp FLY
 	jr z, .fly_dig
 
@@ -515,7 +515,7 @@ CheckEnemyTurn:
 	; Flicker the monster pic unless flying or underground.
 	ld de, ANIM_HIT_CONFUSION
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	call z, PlayFXAnimID
 
@@ -594,7 +594,7 @@ MoveDisabled:
 	res SUBSTATUS_CHARGED, [hl]
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 
@@ -618,7 +618,7 @@ HitConfusion:
 	; Flicker the monster pic unless flying or underground.
 	ld de, ANIM_HIT_CONFUSION
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	call z, PlayFXAnimID
 
@@ -916,7 +916,7 @@ BattleCommand_CheckObedience:
 
 IgnoreSleepOnly:
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 
 	; Snore and Sleep Talk bypass sleep.
 	cp SNORE
@@ -928,7 +928,7 @@ IgnoreSleepOnly:
 
 .CheckSleep:
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	ret z
 
@@ -980,7 +980,7 @@ BattleCommand_DoTurn:
 	ld [bc], a
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	cp STRUGGLE
 	ret z
 
@@ -1065,7 +1065,7 @@ BattleCommand_DoTurn:
 	call BattleCommand_MoveDelay
 ; get move effect
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 ; continuous?
 	ld hl, .continuousmoves
 	ld de, 1
@@ -1105,7 +1105,7 @@ CheckMimicUsed:
 	call UserPartyAttr
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	cp MIMIC
 	jr z, .mimic
 
@@ -1131,7 +1131,7 @@ BattleCommand_Critical:
 	ld [wCriticalHit], a
 
 	ld a, BATTLE_VARS_MOVE_POWER
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	ret z
 
@@ -1169,7 +1169,7 @@ BattleCommand_Critical:
 
 .FocusEnergy:
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_FOCUS_ENERGY, a
 	jr z, .CheckCritical
 
@@ -1178,7 +1178,7 @@ BattleCommand_Critical:
 
 .CheckCritical:
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld de, 1
 	ld hl, CriticalHitMoves
 	push bc
@@ -1221,7 +1221,7 @@ INCLUDE "engine/battle/move_effects/triple_kick.asm"
 BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp STRUGGLE
 	ret z
 
@@ -1296,7 +1296,7 @@ BattleCommand_Stab:
 
 .SkipStab:
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	ld hl, TypeMatchups
 
@@ -1310,7 +1310,7 @@ BattleCommand_Stab:
 	cp -2
 	jr nz, .SkipForesightCheck
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_IDENTIFIED, a
 	jr nz, .end
 
@@ -1419,7 +1419,7 @@ CheckTypeMatchup:
 	push de
 	push bc
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
+	predef GetBattleVar
 	ld d, a
 	ld b, [hl]
 	inc hl
@@ -1434,7 +1434,7 @@ CheckTypeMatchup:
 	cp -2
 	jr nz, .Next
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_IDENTIFIED, a
 	jr nz, .End
 	jr .TypesLoop
@@ -1582,7 +1582,7 @@ BattleCommand_CheckHit:
 
 	; Perfect-accuracy moves
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
 
@@ -1627,7 +1627,7 @@ BattleCommand_CheckHit:
 .Miss:
 ; Keep the damage value intact if we're using (Hi) Jump Kick.
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_JUMP_KICK
 	jr z, .Missed
 	call ResetDamage
@@ -1641,19 +1641,19 @@ BattleCommand_CheckHit:
 ; Return z if we're trying to eat the dream of
 ; a monster that isn't sleeping.
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_DREAM_EATER
 	ret nz
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	ret
 
 .Protect:
 ; Return nz if the opponent is protected.
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_PROTECT, a
 	ret z
 
@@ -1681,12 +1681,12 @@ BattleCommand_CheckHit:
 	ret z
 
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_FLYING, a
 	jr z, .LockedOn
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 
 	cp EARTHQUAKE
 	ret z
@@ -1706,7 +1706,7 @@ BattleCommand_CheckHit:
 	jr z, .not_draining_sub
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 
 	cp EFFECT_LEECH_HIT
 	ret z
@@ -1723,7 +1723,7 @@ BattleCommand_CheckHit:
 ; Return z if the current move can hit the opponent.
 
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret z
 
@@ -1731,7 +1731,7 @@ BattleCommand_CheckHit:
 	jr z, .DigMoves
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 
 	cp GUST
 	ret z
@@ -1744,7 +1744,7 @@ BattleCommand_CheckHit:
 
 .DigMoves:
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 
 	cp EARTHQUAKE
 	ret z
@@ -1756,7 +1756,7 @@ BattleCommand_CheckHit:
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_THUNDER
 	ret nz
 
@@ -1766,7 +1766,7 @@ BattleCommand_CheckHit:
 
 .XAccuracy:
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_X_ACCURACY, a
 	ret
 
@@ -1796,7 +1796,7 @@ BattleCommand_CheckHit:
 	; if the target's evasion is greater than the user's accuracy,
 	; check the target's foresight status
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_IDENTIFIED, a
 	ret nz
 
@@ -1896,17 +1896,17 @@ BattleCommand_LowerSub:
 ; lowersub
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret z
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_CHARGED, a
 	jr nz, .already_charged
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_RAZOR_WIND
 	jr z, .charge_turn
 	cp EFFECT_SKY_ATTACK
@@ -1943,7 +1943,7 @@ BattleCommand_LowerSub:
 
 .Rampage:
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_ROLLOUT
 	jr z, .rollout_rampage
 	cp EFFECT_RAMPAGE
@@ -1982,7 +1982,7 @@ BattleCommand_MoveAnimNoSub:
 .got_rollout_count
 	ld [wNumHits], a
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_MULTI_HIT
 	jr z, .alternate_anim
 	cp EFFECT_CONVERSION
@@ -1998,13 +1998,13 @@ BattleCommand_MoveAnimNoSub:
 
 .triplekick
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld e, a
 	ld d, 0
 	call PlayFXAnimID
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp FLY
 	jr z, .clear_sprite
 	cp DIG
@@ -2021,7 +2021,7 @@ BattleCommand_MoveAnimNoSub:
 	cp 1
 	push af
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld e, a
 	ld d, 0
 	pop af
@@ -2056,7 +2056,7 @@ BattleCommand_StatUpDownAnim:
 	xor a
 	ld [wBattleAnimParam], a
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld e, a
 	ld d, 0
 	jp PlayFXAnimID
@@ -2073,7 +2073,7 @@ BattleCommand_RaiseSub:
 ; raisesub
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret z
 
@@ -2134,7 +2134,7 @@ BattleCommand_ApplyDamage:
 ; applydamage
 
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_ENDURE, a
 	jr z, .focus_band
 
@@ -2193,7 +2193,7 @@ BattleCommand_ApplyDamage:
 
 .update_damage_taken
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 
@@ -2229,7 +2229,7 @@ GetFailureResultText:
 	and $7f
 	jr z, .got_text
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_FUTURE_SIGHT
 	ld hl, ButItFailedText
 	ld de, ItFailedText
@@ -2246,7 +2246,7 @@ GetFailureResultText:
 	ld [wCriticalHit], a
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_JUMP_KICK
 	ret nz
 
@@ -2282,7 +2282,7 @@ endr
 
 FailText_CheckOpponentProtect:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_PROTECT, a
 	jr z, .not_protected
 	ld h, d
@@ -2386,7 +2386,7 @@ BattleCommand_CheckFaint:
 	ret nz
 
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_DESTINY_BOND, a
 	jr z, .no_dbond
 
@@ -2438,7 +2438,7 @@ BattleCommand_CheckFaint:
 
 .no_dbond
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_MULTI_HIT
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_DOUBLE_HIT
@@ -2467,7 +2467,7 @@ BattleCommand_BuildOpponentRage:
 	ret nz
 
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_RAGE, a
 	ret z
 
@@ -2946,7 +2946,7 @@ BattleCommand_DamageCalc:
 ; Return 1 if successful, else 0.
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 
 ; Selfdestruct and Explosion halve defense.
 	cp EFFECT_SELFDESTRUCT
@@ -3046,7 +3046,7 @@ BattleCommand_DamageCalc:
 ; Type
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
+	predef GetBattleVar
 	cp b
 	jr nz, .DoneItem
 
@@ -3185,14 +3185,14 @@ BattleCommand_ConstantDamage:
 
 .got_turn
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_LEVEL_DAMAGE
 	ld b, [hl]
 	ld a, 0
 	jr z, .got_power
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_PSYWAVE
 	jr z, .psywave
 
@@ -3203,7 +3203,7 @@ BattleCommand_ConstantDamage:
 	jr z, .reversal
 
 	ld a, BATTLE_VARS_MOVE_POWER
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	ld a, $0
 	jr .got_power
@@ -3388,7 +3388,7 @@ FarPlayBattleAnimation:
 ; play animation de
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret nz
 
@@ -3575,7 +3575,7 @@ DoSubstituteDamage:
 	call BattleCommand_SwitchTurn
 	call BattleCommand_LowerSubNoAnim
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	call z, AppearUserLowerSub
 	call BattleCommand_SwitchTurn
@@ -3606,7 +3606,7 @@ UpdateMoveData:
 	ld e, l
 
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	ld [wCurSpecies], a
 	ld [wNamedObjectIndex], a
 
@@ -3761,7 +3761,7 @@ BattleCommand_Poison:
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	ld hl, AlreadyPoisonedText
 	and 1 << PSN
@@ -3780,7 +3780,7 @@ BattleCommand_Poison:
 .do_poison
 	ld hl, DidntAffect1Text
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr nz, .failed
 
@@ -3852,7 +3852,7 @@ BattleCommand_Poison:
 	ld de, wPlayerToxicCount
 .ok
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_TOXIC
 	ret
 
@@ -4323,7 +4323,7 @@ MinimizeDropSub:
 	ld hl, DropEnemySub
 .do_player
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp MINIMIZE
 	ret nz
 
@@ -4461,7 +4461,7 @@ BattleCommand_StatDown:
 
 ; Attacking moves that also lower accuracy are unaffected.
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_ACCURACY_DOWN_HIT
 	jr z, .DidntMiss
 
@@ -4532,7 +4532,7 @@ BattleCommand_StatDown:
 
 CheckMist:
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_ATTACK_DOWN
 	jr c, .dont_check_mist
 	cp EFFECT_EVASION_DOWN + 1
@@ -4551,7 +4551,7 @@ CheckMist:
 
 .check_mist
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_MIST, a
 	ret
 
@@ -5025,7 +5025,7 @@ BattleCommand_Rampage:
 
 ; No rampage during Sleep Talk.
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	ret nz
 
@@ -5411,7 +5411,7 @@ BattleCommand_EndLoop:
 
 	push bc
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_BEAT_UP
 	jr z, .beat_up_2
 	call StdBattleTextbox
@@ -5447,7 +5447,7 @@ BattleCommand_FakeOut:
 	jr nz, .fail
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << FRZ | SLP
 	jr nz, .fail
 
@@ -5464,7 +5464,7 @@ BattleCommand_FlinchTarget:
 	ret nz
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << FRZ | SLP
 	ret nz
 
@@ -5586,7 +5586,7 @@ BattleCommand_Charge:
 
 	call BattleCommand_ClearText
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	jr z, .awake
 
@@ -5612,7 +5612,7 @@ BattleCommand_Charge:
 	ld [wBattleAnimParam], a
 	call LoadMoveAnim
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp FLY
 	jr z, .flying
 	cp DIG
@@ -5626,7 +5626,7 @@ BattleCommand_Charge:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	predef GetBattleVarAddr
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	cp FLY
 	jr z, .set_flying
@@ -5655,7 +5655,7 @@ BattleCommand_Charge:
 	call BattleTextbox
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_SKULL_BASH
 	ld b, endturn_command
 	jp z, SkipToBattleCommand
@@ -5665,7 +5665,7 @@ BattleCommand_Charge:
 	text_far Text_BattleUser ; "<USER>"
 	text_asm
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp RAZOR_WIND
 	ld hl, .BattleMadeWhirlwindText
 	jr z, .done
@@ -5739,7 +5739,7 @@ BattleCommand_TrapTarget:
 	and a
 	ret nz
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 	call BattleRandom
@@ -5750,7 +5750,7 @@ BattleCommand_TrapTarget:
 	inc a
 	ld [hl], a
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld [de], a
 	ld b, a
 	ld hl, .Traps
@@ -5790,7 +5790,7 @@ BattleCommand_Recoil:
 	ld hl, wEnemyMonMaxHP
 .got_hp
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld d, a
 ; get 1/4 damage or 1 HP, whichever is higher
 	ld a, [wCurDamage]
@@ -5910,7 +5910,7 @@ BattleCommand_FinishConfusingTarget:
 	ld [bc], a
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_CONFUSE_HIT
 	jr z, .got_effect
 	cp EFFECT_SNORE
@@ -5938,7 +5938,7 @@ BattleCommand_FinishConfusingTarget:
 
 BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_CONFUSE_HIT
 	ret z
 	cp EFFECT_SNORE
@@ -5951,7 +5951,7 @@ BattleCommand_Paralyze:
 ; paralyze
 
 	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit PAR, a
 	jr nz, .paralyzed
 	ld a, [wTypeModifier]
@@ -6042,7 +6042,7 @@ CheckMoveTypeMatchesTarget:
 .ok
 
 	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
+	predef GetBattleVar
 	cp NORMAL
 	jr z, .normal
 
@@ -6084,7 +6084,7 @@ INCLUDE "engine/battle/move_effects/rage.asm"
 BattleCommand_DoubleFlyingDamage:
 ; doubleflyingdamage
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_FLYING, a
 	ret z
 	jr DoubleDamage
@@ -6092,7 +6092,7 @@ BattleCommand_DoubleFlyingDamage:
 BattleCommand_DoubleUndergroundDamage:
 ; doubleundergrounddamage
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret z
 
@@ -6168,7 +6168,7 @@ BattleCommand_Heal:
 	ld hl, wEnemyMonMaxHP
 .got_hp
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	push hl
 	push de
@@ -6285,7 +6285,7 @@ BattleCommand_Screen:
 
 .got_screens_pointer
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	cp EFFECT_LIGHT_SCREEN
 	jr nz, .Reflect
 
@@ -6366,7 +6366,7 @@ PrintParalyze:
 
 CheckSubstituteOpp:
 	ld a, BATTLE_VARS_SUBSTATUS4_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret
 
@@ -6691,7 +6691,7 @@ INCLUDE "engine/battle/move_effects/thunder.asm"
 CheckHiddenOpponent:
 ; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret
 
@@ -6774,7 +6774,7 @@ PlayDamageAnim:
 	ld [wFXAnimID + 1], a
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	ret z
 
@@ -6797,7 +6797,7 @@ LoadMoveAnim:
 	ld [wFXAnimID + 1], a
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	ret z
 

@@ -12,7 +12,7 @@ BattleCommand_Substitute:
 .got_hp
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	jr nz, .already_has_sub
 

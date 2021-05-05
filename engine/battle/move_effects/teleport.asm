@@ -12,7 +12,7 @@ BattleCommand_Teleport:
 	jr z, .failed
 
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .failed
 ; Only need to check these next things if it's your turn

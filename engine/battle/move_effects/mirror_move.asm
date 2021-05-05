@@ -7,7 +7,7 @@ BattleCommand_MirrorMove:
 	predef GetBattleVarAddr
 
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr z, .failed
 

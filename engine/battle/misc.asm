@@ -78,7 +78,7 @@ DoWeatherModifiers:
 	ld de, WeatherMoveModifiers
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
+	predef GetBattleVar
 	ld c, a
 
 .CheckWeatherMove:

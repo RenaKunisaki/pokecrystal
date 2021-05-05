@@ -19,7 +19,7 @@ BattleCommand_Disable:
 	jr nz, .failed
 
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr z, .failed
 	cp STRUGGLE
@@ -61,7 +61,7 @@ BattleCommand_Disable:
 	inc hl
 .got_disabled_move_pointer
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	ld [hl], a
 	ld [wNamedObjectIndex], a
 	call GetMoveName

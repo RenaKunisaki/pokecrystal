@@ -11,7 +11,7 @@ BattleCommand_Conversion2:
 	ld hl, wEnemyMonType1
 .got_type
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr z, .failed
 	push hl

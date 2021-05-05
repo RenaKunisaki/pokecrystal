@@ -14,7 +14,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     159 	predef PlaySFX
     158 	predef ClearBGPalettes
     154 	predef ClearSprites
-    129 	call GetBattleVar
+    129 	predef GetBattleVar
     123 	call ExitMenu
     122 	predef PrintNum
     114 	predef GetBattleVarAddr
@@ -1656,7 +1656,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       2 	call GetBoxCount
       2 	call GetBoxAddress
       2  	call GetBeatupMonLocation
-      2 -	call GetBattleVar
+      2 -	predef GetBattleVar
       2 	call GetBattlemonBackpicPalettePointer
       2 	call GetAnyMapEnvironment
       2 	call .get_animation
@@ -3075,7 +3075,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call GetBreedmonMovePointer
       1 	call GetBreedMon2LevelGrowth
       1 	call GetBreedMon1LevelGrowth
-      1 +	call GetBattleVar ; preserves hl, de, and bc
+      1 +	predef GetBattleVar ; preserves hl, de, and bc
       1 	predef GetBattleVarAddr_far
       1 	call GetBattleAnimTileOffset
       1 	call GetBattleAnimPointer

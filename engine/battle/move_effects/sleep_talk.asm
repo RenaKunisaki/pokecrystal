@@ -16,7 +16,7 @@ BattleCommand_SleepTalk:
 	ld d, a
 .got_moves
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	jr z, .fail
 	ld a, [hl]
@@ -38,7 +38,7 @@ BattleCommand_SleepTalk:
 	jr z, .sample_move
 	ld e, a
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	cp e
 	jr z, .sample_move
 	ld a, e
@@ -86,7 +86,7 @@ BattleCommand_SleepTalk:
 .got_move_2
 	ld b, a
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	ld c, a
 	dec hl
 	ld d, NUM_MOVES

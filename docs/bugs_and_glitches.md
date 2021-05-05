@@ -549,7 +549,7 @@ This bug affects Attract, Curse, Foresight, Mean Look, Mimic, Nightmare, Spider 
  CheckHiddenOpponent:
 -; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
 -	ld a, BATTLE_VARS_SUBSTATUS3_OPP
--	call GetBattleVar
+-	predef GetBattleVar
 -	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 +	xor a
  	ret
@@ -1141,7 +1141,7 @@ As Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") impli
  	ld hl, wBattleMonType1
 +.get_type
 +	ld a, BATTLE_VARS_MOVE_TYPE
-+	call GetBattleVar ; preserves hl, de, and bc
++	predef GetBattleVar ; preserves hl, de, and bc
  CheckTypeMatchup:
 -; There is an incorrect assumption about this function made in the AI related code: when
 -; the AI calls CheckTypeMatchup (not BattleCheckTypeMatchup), it assumes that placing the
@@ -1153,7 +1153,7 @@ As Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") impli
  	push de
  	push bc
 -	ld a, BATTLE_VARS_MOVE_TYPE
--	call GetBattleVar
+-	predef GetBattleVar
  	ld d, a
  	...
 ```

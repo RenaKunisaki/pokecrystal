@@ -12,7 +12,7 @@ BattleCommand_Spite:
 	ld hl, wBattleMonMoves
 .got_moves
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr z, .failed
 	cp STRUGGLE
@@ -60,7 +60,7 @@ BattleCommand_Spite:
 	add hl, bc
 	ld e, a
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_TRANSFORMED, a
 	jr nz, .transformed
 	ldh a, [hBattleTurn]

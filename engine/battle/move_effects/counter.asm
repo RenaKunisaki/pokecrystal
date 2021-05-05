@@ -4,7 +4,7 @@ BattleCommand_Counter:
 	ld a, 1
 	ld [wAttackMissed], a
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	ret z
 
@@ -23,7 +23,7 @@ BattleCommand_Counter:
 	ret z
 
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	dec a
 	ld de, wStringBuffer1
 	call GetMoveData

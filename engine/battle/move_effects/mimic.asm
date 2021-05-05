@@ -15,7 +15,7 @@ BattleCommand_Mimic:
 	call CheckHiddenOpponent
 	jr nz, .fail
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and a
 	jr z, .fail
 	cp STRUGGLE
@@ -35,7 +35,7 @@ BattleCommand_Mimic:
 	jr nz, .find_mimic
 	inc hl
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	ld [hl], a
 	ld [wNamedObjectIndex], a
 	ld bc, wBattleMonPP - wBattleMonMoves

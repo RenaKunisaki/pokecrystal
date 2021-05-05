@@ -31,7 +31,7 @@ BattleCommand_FutureSight:
 	call CheckUserIsCharging
 	jr nz, .AlreadyChargingFutureSight
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
 	predef GetBattleVarAddr

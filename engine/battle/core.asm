@@ -1006,7 +1006,7 @@ ResidualDamage:
 	ret z
 
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << PSN | 1 << BRN
 	jr z, .did_psn_brn
 
@@ -1034,7 +1034,7 @@ ResidualDamage:
 .check_toxic
 
 	ld a, BATTLE_VARS_SUBSTATUS5
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_TOXIC, a
 	jr z, .did_toxic
 	call GetSixteenthMaxHP
@@ -1066,7 +1066,7 @@ ResidualDamage:
 	ld [wNumHits], a
 	ld de, ANIM_SAP
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	call z, Call_PlayBattleAnim_OnlyIfVisible
 	call SwitchTurnCore
@@ -1156,7 +1156,7 @@ HandlePerishSong:
 
 .got_count
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_PERISH, a
 	ret z
 	dec [hl]
@@ -1230,7 +1230,7 @@ HandleWrap:
 	ret z
 
 	ld a, BATTLE_VARS_SUBSTATUS4
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 
@@ -1242,7 +1242,7 @@ HandleWrap:
 	jr z, .release_from_bounds
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	jr nz, .skip_anim
 
@@ -1710,7 +1710,7 @@ HandleWeather:
 
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret nz
 
@@ -4144,7 +4144,7 @@ SpikesDamage:
 
 PursuitSwitch:
 	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
+	predef GetBattleVar
 	ld b, a
 	call GetMoveEffect
 	ld a, b
@@ -4425,7 +4425,7 @@ INCLUDE "data/battle/held_heal_status.asm"
 
 UseConfusionHealingItem:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_CONFUSED, a
 	ret z
 	callfar GetOpponentItem
@@ -6948,7 +6948,7 @@ _BattleRandom::
 
 Call_PlayBattleAnim_OnlyIfVisible:
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret nz
 

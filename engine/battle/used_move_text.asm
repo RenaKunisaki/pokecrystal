@@ -24,7 +24,7 @@ UsedMoveText:
 	predef GetBattleVarAddr
 
 	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+	predef GetBattleVar
 	ld [wMoveGrammar], a
 
 	push hl

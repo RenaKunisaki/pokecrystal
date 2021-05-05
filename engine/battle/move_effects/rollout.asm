@@ -10,7 +10,7 @@ BattleCommand_CheckCurl:
 	ld de, wEnemyRolloutCount
 .ok
 	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_ROLLOUT, a
 	jr z, .reset
 
@@ -26,7 +26,7 @@ BattleCommand_RolloutPower:
 ; rolloutpower
 
 	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
+	predef GetBattleVar
 	and SLP
 	ret nz
 
@@ -72,7 +72,7 @@ BattleCommand_RolloutPower:
 
 .done_with_substatus_flag
 	ld a, BATTLE_VARS_SUBSTATUS2
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_CURLED, a
 	jr z, .not_curled
 	inc b

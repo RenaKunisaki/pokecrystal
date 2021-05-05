@@ -2,7 +2,7 @@ BattleCommand_StoreEnergy:
 ; storeenergy
 
 	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVar
+	predef GetBattleVar
 	bit SUBSTATUS_BIDE, a
 	ret z
 
