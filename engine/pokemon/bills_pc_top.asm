@@ -28,7 +28,7 @@ _BillsPC:
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	ld hl, .PCWhatText
-	call PrintText
+	predef PrintText
 	pop af
 	ld [wOptions], a
 	call LoadFontsBattleExtra
@@ -111,7 +111,7 @@ BillsPC_MovePKMNMenu:
 	farcall IsAnyMonHoldingMail
 	jr nc, .no_mail
 	ld hl, .PCMonHoldingMailText
-	call PrintText
+	predef PrintText
 	jr .quit
 
 .no_mail

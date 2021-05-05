@@ -238,7 +238,7 @@ Function4a94e:
 	ld de, SFX_WRONG
 	predef PlaySFX
 	ld hl, MobilePickThreeMonForBattleText
-	call PrintText
+	predef PrintText
 	jr .asm_4a974
 
 MobilePickThreeMonForBattleText:
@@ -289,7 +289,7 @@ Function4a9d7:
 	ld bc, NAME_LENGTH_JAPANESE
 	predef CopyBytes
 	ld hl, MobileUseTheseThreeMonText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	ret
 
@@ -773,7 +773,7 @@ Function4ad17:
 	ld de, SFX_WRONG
 	call WaitPlaySFX
 	ld hl, MobileOnlyThreeMonMayEnterText
-	call PrintText
+	predef PrintText
 	ret
 
 .asm_4ad39

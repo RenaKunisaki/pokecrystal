@@ -235,7 +235,7 @@ PokeBallEffect:
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, ItemUsedText
-	call PrintText
+	predef PrintText
 
 	ld a, [wEnemyMonCatchRate]
 	ld b, a
@@ -513,7 +513,7 @@ PokeBallEffect:
 	farcall StubbedTrainerRankings_WildMonsCaught
 
 	ld hl, Text_GotchaMonWasCaught
-	call PrintText
+	predef PrintText
 
 	predef ClearSprites
 
@@ -534,7 +534,7 @@ PokeBallEffect:
 	jr z, .skip_pokedex
 
 	ld hl, NewDexDataText
-	call PrintText
+	predef PrintText
 
 	predef ClearSprites
 
@@ -579,7 +579,7 @@ PokeBallEffect:
 
 .SkipPartyMonFriendBall:
 	ld hl, AskGiveNicknameText
-	call PrintText
+	predef PrintText
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -639,7 +639,7 @@ PokeBallEffect:
 	predef CloseSRAM
 
 	ld hl, AskGiveNicknameText
-	call PrintText
+	predef PrintText
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -682,7 +682,7 @@ PokeBallEffect:
 	predef CloseSRAM
 
 	ld hl, BallSentToPCText
-	call PrintText
+	predef PrintText
 
 	call RotateThreePalettesRight
 	call LoadStandardFont
@@ -696,7 +696,7 @@ PokeBallEffect:
 	ld hl, Text_GotchaMonWasCaught
 
 .shake_and_break_free
-	call PrintText
+	predef PrintText
 	predef ClearSprites
 
 .return_from_capture
@@ -1214,7 +1214,7 @@ VitaminEffect:
 	call Play_SFX_FULL_HEAL
 
 	ld hl, ItemStatRoseText
-	call PrintText
+	predef PrintText
 
 	ld c, HAPPINESS_USEDITEM
 	farcall ChangeHappiness
@@ -1223,7 +1223,7 @@ VitaminEffect:
 
 NoEffectMessage:
 	ld hl, ItemWontHaveEffectText
-	call PrintText
+	predef PrintText
 	jp ClearPalettes
 
 UpdateStatsAfterItem:
@@ -2215,7 +2215,7 @@ PokeFluteEffect:
 	ld hl, .PlayedFluteText
 	jp z, PrintText
 	ld hl, .PlayedTheFlute
-	call PrintText
+	predef PrintText
 
 	ld a, [wLowHealthAlarm]
 	and 1 << DANGER_ON_F
@@ -2329,7 +2329,7 @@ RestorePPEffect:
 	ld hl, RestoreThePPOfWhichMoveText
 
 .ppup
-	call PrintText
+	predef PrintText
 
 	ld a, [wCurMoveNum]
 	push af
@@ -2370,7 +2370,7 @@ RestorePPEffect:
 
 .CantUsePPUpOnSketch:
 	ld hl, PPIsMaxedOutText
-	call PrintText
+	predef PrintText
 	jr .loop2
 
 .do_ppup
@@ -2383,7 +2383,7 @@ RestorePPEffect:
 	call Play_SFX_FULL_HEAL
 
 	ld hl, PPsIncreasedText
-	call PrintText
+	predef PrintText
 
 FinishPPRestore:
 	call ClearPalettes
@@ -2406,7 +2406,7 @@ BattleRestorePP:
 .not_in_battle
 	call Play_SFX_FULL_HEAL
 	ld hl, PPRestoredText
-	call PrintText
+	predef PrintText
 	jr FinishPPRestore
 
 .UpdateBattleMonPP:
@@ -2584,7 +2584,7 @@ OpenBox:
 	farcall SetSpecificDecorationFlag
 
 	ld hl, .SentTrophyHomeText
-	call PrintText
+	predef PrintText
 
 	jp UseDisposableItem
 
@@ -2604,7 +2604,7 @@ Play_SFX_FULL_HEAL:
 
 UseItemText:
 	ld hl, ItemUsedText
-	call PrintText
+	predef PrintText
 	call Play_SFX_FULL_HEAL
 	call WaitPressAorB_BlinkCursor
 UseDisposableItem:
@@ -2626,14 +2626,14 @@ UseBallInTrainerBattle:
 	ld [wNumHits], a
 	predef PlayBattleAnim
 	ld hl, BallBlockedText
-	call PrintText
+	predef PrintText
 	ld hl, BallDontBeAThiefText
-	call PrintText
+	predef PrintText
 	jr UseDisposableItem
 
 WontHaveAnyEffect_NotUsedMessage:
 	ld hl, ItemWontHaveEffectText
-	call PrintText
+	predef PrintText
 
 	; Item wasn't used.
 	ld a, $2
@@ -2646,7 +2646,7 @@ LooksBitterMessage:
 
 Ball_BoxIsFullMessage:
 	ld hl, BallBoxFullText
-	call PrintText
+	predef PrintText
 
 	; Item wasn't used.
 	ld a, $2

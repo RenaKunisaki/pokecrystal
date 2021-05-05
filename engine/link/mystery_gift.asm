@@ -135,7 +135,7 @@ DoMysteryGift:
 
 .CommunicationError:
 	ld hl, .MysteryGiftCommErrorText ; Communication error
-	call PrintText
+	predef PrintText
 	jp DoMysteryGift
 
 .GiftWaiting:
@@ -147,7 +147,7 @@ DoMysteryGift:
 	; fallthrough
 
 .PrintTextAndExit:
-	call PrintText
+	predef PrintText
 	ld a, LCDC_DEFAULT
 	ldh [rLCDC], a
 	ret
@@ -1598,7 +1598,7 @@ DoNameCardSwap:
 	predef DelayFrames
 	call .ClearScreen
 	ld hl, .NameCardReceivedCardText
-	call PrintText
+	predef PrintText
 	ld de, wNameCardData
 	farcall Function8ac70
 	ld a, c
@@ -1645,11 +1645,11 @@ endr
 .CommunicationError:
 	call .ClearScreen
 	ld hl, .NameCardCommErrorText
-	call PrintText
+	predef PrintText
 	jp DoNameCardSwap
 
 .PrintTextAndExit:
-	call PrintText
+	predef PrintText
 	ld a, LCDC_DEFAULT
 	ldh [rLCDC], a
 	ret

@@ -1540,11 +1540,11 @@ Function108bec:
 	ld a, $90
 	ldh [hWY], a
 	ld hl, .MobilePlayerWillTradeMonText
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ld hl, .MobileForPartnersMonText
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ret
@@ -1565,7 +1565,7 @@ Function108c16:
 	ld a, $90
 	ldh [hWY], a
 	ld hl, .MobileTakeGoodCareOfMonText
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ret
@@ -1578,7 +1578,7 @@ Function108c2b:
 	ld a, $90
 	ldh [hWY], a
 	ld hl, .MobilePlayersMonTrade2Text
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ret
@@ -1594,14 +1594,14 @@ Function108c40:
 	and %10000000
 	jr z, .Getmon
 	ld hl, .MobileTradeCameBackText
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ret
 
 .Getmon:
 	ld hl, .MobileTakeGoodCareOfText
-	call PrintText
+	predef PrintText
 	ld c, 80
 	predef DelayFrames
 	ret

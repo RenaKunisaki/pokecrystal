@@ -1783,7 +1783,7 @@ GivePoke::
 	and a
 	ret z
 	ld hl, WasSentToBillsPCText
-	call PrintText
+	predef PrintText
 	ld a, BANK(sBoxMonNicknames)
 	predef OpenSRAM
 	ld hl, wMonOrItemNameBuffer

@@ -268,7 +268,7 @@ PrintDayCareText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	predef PrintText
 	ret
 
 .TextTable:
@@ -379,7 +379,7 @@ DayCareManOutside:
 	bit DAYCAREMAN_HAS_EGG_F, [hl]
 	jr nz, .AskGiveEgg
 	ld hl, .NotYetText
-	call PrintText
+	predef PrintText
 	ret
 
 .NotYetText:
@@ -388,7 +388,7 @@ DayCareManOutside:
 
 .AskGiveEgg:
 	ld hl, .FoundAnEggText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .Declined
 	ld a, [wPartyCount]
@@ -399,7 +399,7 @@ DayCareManOutside:
 	res DAYCAREMAN_HAS_EGG_F, [hl]
 	call DayCare_InitBreeding
 	ld hl, .ReceivedEggText
-	call PrintText
+	predef PrintText
 	ld de, SFX_GET_EGG
 	predef PlaySFX
 	ld c, 120
@@ -411,14 +411,14 @@ DayCareManOutside:
 	ld hl, .IllKeepItThanksText
 
 .Load0:
-	call PrintText
+	predef PrintText
 	xor a ; FALSE
 	ld [wScriptVar], a
 	ret
 
 .PartyFull:
 	ld hl, .NoRoomForEggText
-	call PrintText
+	predef PrintText
 	ld a, TRUE
 	ld [wScriptVar], a
 	ret

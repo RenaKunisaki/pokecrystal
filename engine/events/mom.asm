@@ -49,11 +49,11 @@ BankOfMom:
 
 .InitializeBank:
 	ld hl, MomLeavingText1
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .DontSaveMoney
 	ld hl, MomLeavingText2
-	call PrintText
+	predef PrintText
 	ld a, (1 << MOM_ACTIVE_F) | (1 << MOM_SAVING_SOME_MONEY_F)
 	jr .done_1
 
@@ -63,14 +63,14 @@ BankOfMom:
 .done_1
 	ld [wMomSavingMoney], a
 	ld hl, MomLeavingText3
-	call PrintText
+	predef PrintText
 	ld a, $8
 	ld [wJumptableIndex], a
 	ret
 
 .IsThisAboutYourMoney:
 	ld hl, MomIsThisAboutYourMoneyText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .nope
 	ld a, $3
@@ -86,7 +86,7 @@ BankOfMom:
 
 .AccessBankOfMom:
 	ld hl, MomBankWhatDoYouWantToDoText
-	call PrintText
+	predef PrintText
 	call LoadStandardMenuHeader
 	ld hl, BankOfMom_MenuHeader
 	call CopyMenuHeader
@@ -122,7 +122,7 @@ BankOfMom:
 
 .StoreMoney:
 	ld hl, MomStoreMoneyText
-	call PrintText
+	predef PrintText
 	xor a
 	ld hl, wStringBuffer2
 	ld [hli], a
@@ -165,18 +165,18 @@ BankOfMom:
 	predef PlaySFX
 	predef WaitSFX
 	ld hl, MomStoredMoneyText
-	call PrintText
+	predef PrintText
 	ld a, $8
 	jr .done_4
 
 .InsufficientFundsInWallet:
 	ld hl, MomInsufficientFundsInWalletText
-	call PrintText
+	predef PrintText
 	ret
 
 .NotEnoughRoomInBank:
 	ld hl, MomNotEnoughRoomInBankText
-	call PrintText
+	predef PrintText
 	ret
 
 .CancelDeposit:
@@ -188,7 +188,7 @@ BankOfMom:
 
 .TakeMoney:
 	ld hl, MomTakeMoneyText
-	call PrintText
+	predef PrintText
 	xor a
 	ld hl, wStringBuffer2
 	ld [hli], a
@@ -231,18 +231,18 @@ BankOfMom:
 	predef PlaySFX
 	predef WaitSFX
 	ld hl, MomTakenMoneyText
-	call PrintText
+	predef PrintText
 	ld a, $8
 	jr .done_5
 
 .InsufficientFundsInBank:
 	ld hl, MomHaventSavedThatMuchText
-	call PrintText
+	predef PrintText
 	ret
 
 .NotEnoughRoomInWallet:
 	ld hl, MomNotEnoughRoomInWalletText
-	call PrintText
+	predef PrintText
 	ret
 
 .CancelWithdraw:
@@ -254,13 +254,13 @@ BankOfMom:
 
 .StopOrStartSavingMoney:
 	ld hl, MomSaveMoneyText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .StopSavingMoney
 	ld a, (1 << MOM_ACTIVE_F) | (1 << MOM_SAVING_SOME_MONEY_F)
 	ld [wMomSavingMoney], a
 	ld hl, MomStartSavingMoneyText
-	call PrintText
+	predef PrintText
 	ld a, $8
 	ld [wJumptableIndex], a
 	ret
@@ -274,7 +274,7 @@ BankOfMom:
 
 .JustDoWhatYouCan:
 	ld hl, MomJustDoWhatYouCanText
-	call PrintText
+	predef PrintText
 
 .AskDST:
 	ld hl, wJumptableIndex

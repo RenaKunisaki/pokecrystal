@@ -42,7 +42,7 @@ InitClock:
 	predef WaitBGMap
 	call RotateFourPalettesRight
 	ld hl, OakTimeWokeUpText
-	call PrintText
+	predef PrintText
 	ld hl, wTimeSetBuffer
 	ld bc, wTimeSetBufferEnd - wTimeSetBuffer
 	xor a
@@ -52,7 +52,7 @@ InitClock:
 
 .loop
 	ld hl, OakTimeWhatTimeIsItText
-	call PrintText
+	predef PrintText
 	hlcoord 3, 7
 	ld b, 2
 	ld c, 15
@@ -75,7 +75,7 @@ InitClock:
 	ld [wStringBuffer2 + 1], a
 	call .ClearScreen
 	ld hl, OakTimeWhatHoursText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr nc, .HourIsSet
 	call .ClearScreen
@@ -83,7 +83,7 @@ InitClock:
 
 .HourIsSet:
 	ld hl, OakTimeHowManyMinutesText
-	call PrintText
+	predef PrintText
 	hlcoord 11, 7
 	lb bc, 2, 7
 	call Textbox
@@ -105,7 +105,7 @@ InitClock:
 	ld [wStringBuffer2 + 2], a
 	call .ClearScreen
 	ld hl, OakTimeWhoaMinutesText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr nc, .MinutesAreSet
 	call .ClearScreen
@@ -114,7 +114,7 @@ InitClock:
 .MinutesAreSet:
 	call InitTimeOfDay
 	ld hl, OakText_ResponseToSetTime
-	call PrintText
+	predef PrintText
 	call WaitPressAorB_BlinkCursor
 	pop af
 	ldh [hInMenu], a
@@ -403,7 +403,7 @@ SetDayOfWeek:
 	call Textbox
 	call LoadStandardMenuHeader
 	ld hl, .OakTimeWhatDayIsItText
-	call PrintText
+	predef PrintText
 	hlcoord 9, 3
 	ld b, 2
 	ld c, 9
@@ -424,7 +424,7 @@ SetDayOfWeek:
 	predef ExitMenu
 	call UpdateSprites
 	ld hl, .ConfirmWeekdayText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .loop
 	ld a, [wTempDayOfWeek]

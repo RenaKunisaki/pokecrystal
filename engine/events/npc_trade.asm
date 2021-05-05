@@ -35,14 +35,14 @@ NPCTrade::
 	call TradeFlagAction
 
 	ld hl, NPCTradeCableText
-	call PrintText
+	predef PrintText
 
 	call DoNPCTrade
 	call .TradeAnimation
 	call GetTradeMonNames
 
 	ld hl, TradedForText
-	call PrintText
+	predef PrintText
 
 	call RestartMapMusic
 
@@ -400,7 +400,7 @@ PrintTradeText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	predef PrintText
 	ret
 
 TradeTexts:

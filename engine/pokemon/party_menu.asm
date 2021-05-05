@@ -845,7 +845,7 @@ PrintPartyMenuActionText:
 	push af
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
-	call PrintText
+	predef PrintText
 	pop af
 	ld [wOptions], a
 	ret

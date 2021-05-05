@@ -130,7 +130,7 @@ DoPoisonStep::
 	farcall ChangeHappiness
 	farcall GetPartyNickname
 	ld hl, .PoisonFaintText
-	call PrintText
+	predef PrintText
 
 .mon_not_fainted
 	pop de

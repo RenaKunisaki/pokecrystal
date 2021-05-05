@@ -573,7 +573,7 @@ Function117b14:
 
 Function117b28:
 	ld hl, MobileStadiumEntryText
-	call PrintText
+	predef PrintText
 	jp MobileStudium_JumptableIncrement
 
 Function117b31:
@@ -728,7 +728,7 @@ Function117c4a:
 	call MenuBoxCoord2Tile
 	farcall ReloadMapPart
 	ld hl, MobileStadiumSuccessText
-	call PrintText
+	predef PrintText
 	ldh a, [rSVBK]
 	push af
 	ld a, $5

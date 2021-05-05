@@ -836,7 +836,7 @@ OakSpeech:
 	call Intro_RotatePalettesLeftFrontpic
 
 	ld hl, OakText1
-	call PrintText
+	predef PrintText
 	call RotateThreePalettesRight
 	predef ClearTilemap
 
@@ -857,9 +857,9 @@ OakSpeech:
 	call Intro_WipeInFrontpic
 
 	ld hl, OakText2
-	call PrintText
+	predef PrintText
 	ld hl, OakText4
-	call PrintText
+	predef PrintText
 	call RotateThreePalettesRight
 	predef ClearTilemap
 
@@ -874,7 +874,7 @@ OakSpeech:
 	call Intro_RotatePalettesLeftFrontpic
 
 	ld hl, OakText5
-	call PrintText
+	predef PrintText
 	call RotateThreePalettesRight
 	predef ClearTilemap
 
@@ -887,10 +887,10 @@ OakSpeech:
 	call Intro_RotatePalettesLeftFrontpic
 
 	ld hl, OakText6
-	call PrintText
+	predef PrintText
 	call NamePlayer
 	ld hl, OakText7
-	call PrintText
+	predef PrintText
 	ret
 
 OakText1:

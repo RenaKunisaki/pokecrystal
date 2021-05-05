@@ -30,7 +30,7 @@ CheckMagikarpLength:
 	call PrintMagikarpLength
 	farcall StubbedTrainerRankings_MagikarpLength
 	ld hl, .MagikarpGuruMeasureText
-	call PrintText
+	predef PrintText
 
 	; Did we beat the record?
 	ld hl, wMagikarpLength
@@ -307,7 +307,7 @@ MagikarpHouseSign:
 	ld [wMagikarpLength + 1], a
 	call PrintMagikarpLength
 	ld hl, .KarpGuruRecordText
-	call PrintText
+	predef PrintText
 	ret
 
 .KarpGuruRecordText:

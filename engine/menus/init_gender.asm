@@ -27,7 +27,7 @@ InitGender:
 	call WaitBGMap2
 	call SetPalettes
 	ld hl, AreYouABoyOrAreYouAGirlText
-	call PrintText
+	predef PrintText
 	ld hl, .MenuHeader
 	call LoadMenuHeader
 	call WaitBGMap2

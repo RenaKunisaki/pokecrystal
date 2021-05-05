@@ -302,7 +302,7 @@ _CardFlip:
 	ldh [hBGMapMode], a
 	call CardFlip_ShuffleDeck
 	ld hl, .CardFlipShuffledText
-	call PrintText
+	predef PrintText
 	jr .LoopAround
 
 .KeepTheCurrentDeck:

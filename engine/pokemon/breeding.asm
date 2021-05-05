@@ -311,7 +311,7 @@ HatchEggs:
 	ld hl, wPlayerName
 	predef CopyBytes
 	ld hl, .Text_HatchEgg
-	call PrintText
+	predef PrintText
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
@@ -320,7 +320,7 @@ HatchEggs:
 	ld e, l
 	push de
 	ld hl, .BreedAskNicknameText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	pop de
 	jr c, .nonickname
@@ -367,7 +367,7 @@ HatchEggs:
 	push af
 	call EggHatch_AnimationSequence
 	ld hl, .BreedClearboxText
-	call PrintText
+	predef PrintText
 	pop af
 	ld [wCurPartySpecies], a
 	pop bc
@@ -863,7 +863,7 @@ Hatch_ShellFragmentLoop:
 
 DayCareMon1:
 	ld hl, LeftWithDayCareManText
-	call PrintText
+	predef PrintText
 	ld a, [wBreedMon1Species]
 	call PlayMonCry
 	ld a, [wDayCareLady]
@@ -876,7 +876,7 @@ DayCareMon1:
 
 DayCareMon2:
 	ld hl, LeftWithDayCareLadyText
-	call PrintText
+	predef PrintText
 	ld a, [wBreedMon2Species]
 	call PlayMonCry
 	ld a, [wDayCareMan]

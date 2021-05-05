@@ -2484,7 +2484,7 @@ Function89fce:
 
 Function89fed:
 	ld hl, MobileCardFolderIntro1Text
-	call PrintText
+	predef PrintText
 	jp Function89e36
 
 Function89ff6:
@@ -2516,13 +2516,13 @@ Function89ff6:
 Function8a03d:
 	ld hl, MobileCardFolderIntro2Text
 	call Mobile_EnableSpriteUpdates
-	call PrintText
+	predef PrintText
 	call Mobile_DisableSpriteUpdates
 	jp Function89e36
 
 Function8a04c:
 	ld hl, MobileCardFolderIntro3Text
-	call PrintText
+	predef PrintText
 	jp Function89e36
 
 Function8a055:
@@ -2623,7 +2623,7 @@ Function8a0e6:
 
 Function8a0ec:
 	ld hl, MobileCardFolderIntro4Text
-	call PrintText
+	predef PrintText
 	jp Function89e36
 
 Function8a0f5:
@@ -2758,19 +2758,19 @@ Strings_8a1cc:
 
 Function8a20d:
 	ld hl, MobileCardFolderAskDeleteText
-	call PrintText
+	predef PrintText
 	ld a, $2
 	call Function89259
 	ret c
 	ld hl, MobileCardFolderDeleteAreYouSureText
-	call PrintText
+	predef PrintText
 	ld a, $2
 	call Function89259
 	ret c
 	xor a
 	call Function8a2fe
 	ld hl, MobileCardFolderDeletedText
-	call PrintText
+	predef PrintText
 	xor a
 	and a
 	ret
@@ -2834,12 +2834,12 @@ Function8a2aa:
 	ld hl, MenuHeader_0x8a2ef
 	call LoadMenuHeader
 	ld hl, MobileCardFolderAskOpenOldText
-	call PrintText
+	predef PrintText
 	ld a, $1
 	call Function89259
 	jr nc, .asm_8a2cf
 	ld hl, MobileCardFolderAskDeleteOldText
-	call PrintText
+	predef PrintText
 	ld a, $2
 	call Function89259
 	jr c, .asm_8a2ea
@@ -4133,7 +4133,7 @@ Function8ac7c:
 
 .asm_8acf0
 	ld hl, MobileCardFolderFinishRegisteringCardsText
-	call PrintText
+	predef PrintText
 	ld a, $2
 	call Function89259
 	jp c, Function8ac7c

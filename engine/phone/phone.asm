@@ -536,7 +536,7 @@ HangUp_ShutDown: ; unreferenced
 
 HangUp_Beep:
 	ld hl, PhoneClickText
-	call PrintText
+	predef PrintText
 	ld de, SFX_HANG_UP
 	predef PlaySFX
 	ret
@@ -547,7 +547,7 @@ PhoneClickText:
 
 HangUp_BoopOn:
 	ld hl, PhoneEllipseText
-	call PrintText
+	predef PrintText
 	ret
 
 PhoneEllipseText:

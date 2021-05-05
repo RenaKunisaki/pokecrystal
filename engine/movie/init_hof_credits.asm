@@ -18,7 +18,7 @@ InitDisplayForHallOfFame:
 	ldh [hSCX], a
 	call EnableLCD
 	ld hl, .SavingRecordText
-	call PrintText
+	predef PrintText
 	call WaitBGMap2
 	call SetPalettes
 	ret

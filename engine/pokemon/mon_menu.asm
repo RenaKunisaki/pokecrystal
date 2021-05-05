@@ -729,7 +729,7 @@ MonMenu_Softboiled_MilkDrink:
 
 .NotEnoughHP:
 	ld hl, .PokemonNotEnoughHPText
-	call PrintText
+	predef PrintText
 
 .finish
 	xor a

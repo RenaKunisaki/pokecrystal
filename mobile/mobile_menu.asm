@@ -410,7 +410,7 @@ Function4a28a:
 .DeleteLoginPassword:
 	call PlaceHollowCursor
 	ld hl, DeleteSavedLoginPasswordText
-	call PrintText
+	predef PrintText
 	hlcoord 14, 7
 	ld b, 3
 	ld c, 4
@@ -432,7 +432,7 @@ Function4a28a:
 	predef ByteFill
 	predef CloseSRAM
 	ld hl, DeletedTheLoginPasswordText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 .dont_delete_password
 	predef ExitMenu

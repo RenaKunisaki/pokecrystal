@@ -155,7 +155,7 @@ GetMysteryGiftItem:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	ld hl, .ReceiveItemText
-	call PrintText
+	predef PrintText
 	ld a, TRUE
 	ld [wScriptVar], a
 	ret
@@ -249,7 +249,7 @@ CheckCoinsAndCoinCase:
 	ld hl, .NoCoinCaseText
 
 .print
-	call PrintText
+	predef PrintText
 	scf
 	ret
 

@@ -240,7 +240,7 @@ SavedTheGame:
 	ld [wOptions], a
 	; <PLAYER> saved the game!
 	ld hl, SavedTheGameText
-	call PrintText
+	predef PrintText
 	; restore the original text speed setting
 	pop af
 	ld [wOptions], a
@@ -337,7 +337,7 @@ SavingDontTurnOffThePower:
 	ld [wOptions], a
 	; SAVING... DON'T TURN OFF THE POWER.
 	ld hl, SavingDontTurnOffThePowerText
-	call PrintText
+	predef PrintText
 	; Restore the text speed setting
 	pop af
 	ld [wOptions], a
@@ -614,7 +614,7 @@ TryLoadSaveFile:
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
 	ld hl, SaveFileCorruptedText
-	call PrintText
+	predef PrintText
 	pop af
 	ld [wOptions], a
 	scf

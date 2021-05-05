@@ -163,7 +163,7 @@ StandardMart:
 .HowMayIHelpYou:
 	call LoadStandardMenuHeader
 	ld hl, MartWelcomeText
-	call PrintText
+	predef PrintText
 	ld a, STANDARDMART_TOPMENU
 	ret
 
@@ -211,7 +211,7 @@ StandardMart:
 .AnythingElse:
 	call LoadStandardMenuHeader
 	ld hl, MartAskMoreText
-	call PrintText
+	predef PrintText
 	ld a, STANDARDMART_TOPMENU
 	ret
 
@@ -364,7 +364,7 @@ LoadBuyMenuText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	predef PrintText
 	ret
 
 MartAskPurchaseQuantity:
@@ -758,13 +758,13 @@ SellMenu:
 	and a
 	jr z, .okay_to_sell
 	ld hl, MartCantBuyText
-	call PrintText
+	predef PrintText
 	and a
 	ret
 
 .okay_to_sell
 	ld hl, MartSellHowManyText
-	call PrintText
+	predef PrintText
 	farcall PlaceMoneyAtTopLeftOfTextbox
 	farcall SelectQuantityToSell
 	predef ExitMenu

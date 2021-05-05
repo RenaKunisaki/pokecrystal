@@ -1,12 +1,12 @@
 _NameRater:
 ; Introduce himself
 	ld hl, NameRaterHelloText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jp c, .cancel
 ; Select a Pokemon from your party
 	ld hl, NameRaterWhichMonText
-	call PrintText
+	predef PrintText
 	farcall SelectMonFromParty
 	jr c, .cancel
 ; He can't rename an egg...
@@ -19,12 +19,12 @@ _NameRater:
 	jr c, .traded
 ; This name is good, but we can do better.  How about it?
 	ld hl, NameRaterBetterNameText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .cancel
 ; What name shall I give it then?
 	ld hl, NameRaterWhatNameText
-	call PrintText
+	predef PrintText
 ; Load the new nickname into wStringBuffer2
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -59,7 +59,7 @@ _NameRater:
 	push hl
 	call GetCurNickname
 	ld hl, NameRaterNamedText
-	call PrintText
+	predef PrintText
 	pop hl
 	jr .done
 
@@ -75,7 +75,7 @@ _NameRater:
 	ld hl, NameRaterEggText
 
 .done
-	call PrintText
+	predef PrintText
 	ret
 
 CheckIfMonIsYourOT:

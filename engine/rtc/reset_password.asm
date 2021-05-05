@@ -7,7 +7,7 @@ _ResetClock:
 	ld de, MUSIC_MAIN_MENU
 	call PlayMusic
 	ld hl, .PasswordAskResetClockText
-	call PrintText
+	predef PrintText
 	ld hl, .NoYes_MenuHeader
 	call CopyMenuHeader
 	call VerticalMenu
@@ -23,12 +23,12 @@ _ResetClock:
 	ld [sRTCStatusFlags], a
 	predef CloseSRAM
 	ld hl, .PasswordAskResetText
-	call PrintText
+	predef PrintText
 	ret
 
 .wrongpassword
 	ld hl, .PasswordWrongText
-	call PrintText
+	predef PrintText
 	ret
 
 .PasswordAskResetText:
@@ -65,7 +65,7 @@ ClockResetPassword:
 	ld a, 4
 	ld [wStringBuffer2 + 5], a
 	ld hl, .PasswordAskEnterText
-	call PrintText
+	predef PrintText
 .loop
 	call .updateIDdisplay
 .loop2

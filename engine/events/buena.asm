@@ -69,7 +69,7 @@ BuenaPrize:
 	call Buena_PlacePrizeMenuBox
 	call Buena_DisplayBlueCardBalance
 	ld hl, .BuenaAskWhichPrizeText
-	call PrintText
+	predef PrintText
 	jr .okay
 
 .loop
@@ -139,7 +139,7 @@ BuenaPrize:
 	call CloseWindow
 	call CloseWindow
 	ld hl, .BuenaComeAgainText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	call PlayClickSFX
 	ret

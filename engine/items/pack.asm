@@ -582,7 +582,7 @@ GiveItem:
 	cp EGG
 	jr nz, .give
 	ld hl, .AnEggCantHoldAnItemText
-	call PrintText
+	predef PrintText
 	jr .loop
 
 .give
@@ -1200,7 +1200,7 @@ Pack_PrintTextNoScroll:
 	push af
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
-	call PrintText
+	predef PrintText
 	pop af
 	ld [wOptions], a
 	ret

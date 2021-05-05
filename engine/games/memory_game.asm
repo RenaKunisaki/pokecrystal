@@ -289,7 +289,7 @@ MemoryGame_CheckMatch:
 	add hl, de
 	call MemoryGame_PlaceCard
 	ld hl, .VictoryText
-	call PrintText
+	predef PrintText
 	ret
 
 .no_match
@@ -305,7 +305,7 @@ MemoryGame_CheckMatch:
 	call MemoryGame_PlaceCard
 
 	ld hl, MemoryGameDarnText
-	call PrintText
+	predef PrintText
 	ret
 
 .VictoryText:
@@ -457,7 +457,7 @@ MemoryGame_InitStrings:
 	ld de, .japstr2
 	predef PlaceString
 	ld hl, .dummy_text
-	call PrintText
+	predef PrintText
 	ret
 
 .dummy_text

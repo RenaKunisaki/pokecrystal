@@ -695,7 +695,7 @@ AI_Switch:
 
 	jr c, .skiptext
 	ld hl, EnemyWithdrewText
-	call PrintText
+	predef PrintText
 
 .skiptext
 	ld a, 1

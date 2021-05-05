@@ -38,7 +38,7 @@ ENDM
 RestartClock:
 ; If we're here, we had an RTC overflow.
 	ld hl, .ClockTimeMayBeWrongText
-	call PrintText
+	predef PrintText
 	ld hl, wOptions
 	ld a, [hl]
 	push af
@@ -46,7 +46,7 @@ RestartClock:
 	call LoadStandardMenuHeader
 	predef ClearTilemap
 	ld hl, .ClockSetWithControlPadText
-	call PrintText
+	predef PrintText
 	call .SetClock
 	predef ExitMenu
 	pop bc
@@ -84,7 +84,7 @@ RestartClock:
 	ret nz
 	call .PrintTime
 	ld hl, .ClockIsThisOKText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .cancel
 	ld a, [wRestartClockDay]
@@ -98,7 +98,7 @@ RestartClock:
 	call InitTime
 	call .PrintTime
 	ld hl, .ClockHasResetText
-	call PrintText
+	predef PrintText
 	call WaitPressAorB_BlinkCursor
 	xor a ; FALSE
 	ret

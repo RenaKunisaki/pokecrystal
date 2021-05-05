@@ -6,14 +6,14 @@ ProfOaksPC:
 	call ProfOaksPCBoot ; player chose "yes"?
 .shutdown
 	ld hl, OakPCText4
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	predef ExitMenu
 	ret
 
 ProfOaksPCBoot:
 	ld hl, OakPCText2
-	call PrintText
+	predef PrintText
 	call Rate
 	predef PlaySFX ; sfx loaded by previous Rate function call
 	call JoyWaitAorB
@@ -45,13 +45,13 @@ Rate:
 ; print appropriate rating
 	call .UpdateRatingBuffers
 	ld hl, OakPCText3
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	ld a, [wTempPokedexCaughtCount]
 	ld hl, OakRatings
 	call FindOakRating
 	push de
-	call PrintText
+	predef PrintText
 	pop de
 	ret
 

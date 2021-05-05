@@ -1170,11 +1170,11 @@ TradeAnim_SentToOTText:
 	cp LINK_TIMECAPSULE
 	jr z, .time_capsule
 	ld hl, .MonNameSentToText
-	call PrintText
+	predef PrintText
 	ld c, 189
 	predef DelayFrames
 	ld hl, .MonWasSentToText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 128
 	predef DelayFrames
@@ -1183,7 +1183,7 @@ TradeAnim_SentToOTText:
 
 .time_capsule
 	ld hl, .MonWasSentToText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	call TradeAnim_AdvanceScriptPointer
 	ret
@@ -1198,10 +1198,10 @@ TradeAnim_SentToOTText:
 
 TradeAnim_OTBidsFarewell:
 	ld hl, .BidsFarewellToMonText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld hl, .MonNameBidsFarewellText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	call TradeAnim_AdvanceScriptPointer
 	ret
@@ -1222,7 +1222,7 @@ TradeAnim_TakeCareOfText:
 	predef ByteFill
 	predef WaitBGMap
 	ld hl, .TakeGoodCareOfMonText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	call TradeAnim_AdvanceScriptPointer
 	ret
@@ -1233,10 +1233,10 @@ TradeAnim_TakeCareOfText:
 
 TradeAnim_OTSendsText1:
 	ld hl, .ForYourMonSendsText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld hl, .OTSendsText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 14
 	predef DelayFrames
@@ -1253,10 +1253,10 @@ TradeAnim_OTSendsText1:
 
 TradeAnim_OTSendsText2:
 	ld hl, .WillTradeText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld hl, .ForYourMonWillTradeText
-	call PrintText
+	predef PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 14
 	predef DelayFrames

@@ -452,7 +452,7 @@ PokegearJumptable:
 PokegearClock_Init:
 	call InitPokegearTilemap
 	ld hl, PokegearPressButtonText
-	call PrintText
+	predef PrintText
 	ld hl, wJumptableIndex
 	inc [hl]
 	call ExitPokegearRadio_HandleMusic
@@ -834,7 +834,7 @@ PokegearPhone_Init:
 	call InitPokegearTilemap
 	call ExitPokegearRadio_HandleMusic
 	ld hl, PokegearAskWhoCallText
-	call PrintText
+	predef PrintText
 	ret
 
 PokegearPhone_Joypad:
@@ -924,12 +924,12 @@ PokegearPhone_MakePhoneCall:
 	ld de, SFX_CALL
 	predef PlaySFX
 	ld hl, .GearEllipseText
-	call PrintText
+	predef PrintText
 	predef WaitSFX
 	ld de, SFX_CALL
 	predef PlaySFX
 	ld hl, .GearEllipseText
-	call PrintText
+	predef PrintText
 	predef WaitSFX
 	ld a, [wPokegearPhoneSelectedPerson]
 	ld b, a
@@ -948,11 +948,11 @@ PokegearPhone_MakePhoneCall:
 .no_service
 	farcall Phone_NoSignal
 	ld hl, .GearOutOfServiceText
-	call PrintText
+	predef PrintText
 	ld a, POKEGEARSTATE_PHONEJOYPAD
 	ld [wJumptableIndex], a
 	ld hl, PokegearAskWhoCallText
-	call PrintText
+	predef PrintText
 	ret
 
 .GearEllipseText:
@@ -971,7 +971,7 @@ PokegearPhone_FinishPhoneCall:
 	ld a, POKEGEARSTATE_PHONEJOYPAD
 	ld [wJumptableIndex], a
 	ld hl, PokegearAskWhoCallText
-	call PrintText
+	predef PrintText
 	ret
 
 PokegearPhone_GetDPad:
@@ -1222,7 +1222,7 @@ PokegearPhoneContactSubmenu:
 
 .Cancel:
 	ld hl, PokegearAskWhoCallText
-	call PrintText
+	predef PrintText
 	scf
 	ret
 
@@ -1237,7 +1237,7 @@ PokegearPhoneContactSubmenu:
 	ldh [hBGMapMode], a
 	call PokegearPhone_UpdateDisplayList
 	ld hl, PokegearAskWhoCallText
-	call PrintText
+	predef PrintText
 	predef WaitBGMap
 .CancelDelete:
 	scf

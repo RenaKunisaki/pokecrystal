@@ -52,7 +52,7 @@ LearnMove:
 
 	call GetMoveName
 	ld hl, Text_1_2_and_Poof ; 1, 2 and…
-	call PrintText
+	predef PrintText
 	pop de
 	pop hl
 
@@ -103,25 +103,25 @@ LearnMove:
 
 .cancel
 	ld hl, StopLearningMoveText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jp c, .loop
 
 	ld hl, DidNotLearnMoveText
-	call PrintText
+	predef PrintText
 	ld b, 0
 	ret
 
 .learned
 	ld hl, LearnedMoveText
-	call PrintText
+	predef PrintText
 	ld b, 1
 	ret
 
 ForgetMove:
 	push hl
 	ld hl, AskForgetMoveText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	pop hl
 	ret c
@@ -135,7 +135,7 @@ ForgetMove:
 .loop
 	push hl
 	ld hl, MoveAskForgetText
-	call PrintText
+	predef PrintText
 	hlcoord 5, 2
 	ld b, NUM_MOVES * 2
 	ld c, MOVE_NAME_LENGTH
@@ -192,7 +192,7 @@ ForgetMove:
 
 .hmmove
 	ld hl, MoveCantForgetHMText
-	call PrintText
+	predef PrintText
 	pop hl
 	jr .loop
 

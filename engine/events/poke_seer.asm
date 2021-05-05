@@ -283,7 +283,7 @@ PrintSeerText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	predef PrintText
 	ret
 
 SeerTexts:
@@ -351,7 +351,7 @@ SeerAdvice:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	predef PrintText
 	ret
 
 SeerAdviceTexts:

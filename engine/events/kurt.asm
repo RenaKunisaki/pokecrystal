@@ -1,6 +1,6 @@
 Kurt_PrintTextWhichApricorn:
 	ld hl, .WhichApricornText
-	call PrintText
+	predef PrintText
 	ret
 
 .WhichApricornText:
@@ -9,7 +9,7 @@ Kurt_PrintTextWhichApricorn:
 
 Kurt_PrintTextHowMany:
 	ld hl, .HowManyShouldIMakeText
-	call PrintText
+	predef PrintText
 	ret
 
 .HowManyShouldIMakeText:

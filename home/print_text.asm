@@ -113,7 +113,7 @@ FarPrintText::
 	ldh a, [hTempBank]
 	rst Bankswitch
 
-	call PrintText
+	predef PrintText
 
 	pop af
 	rst Bankswitch

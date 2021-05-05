@@ -60,9 +60,9 @@ AskTeachTMHM:
 	jr c, .TM
 	ld hl, BootedHMText ; Booted up an HM
 .TM:
-	call PrintText
+	predef PrintText
 	ld hl, ContainedMoveText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 .NotTMHM:
 	pop bc
@@ -133,7 +133,7 @@ TeachTMHM:
 	predef PlaySFX
 	pop de
 	ld hl, TMHMNotCompatibleText
-	call PrintText
+	predef PrintText
 	jr .nope
 
 .compatible

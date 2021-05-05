@@ -117,7 +117,7 @@ Elevator_GoToFloor:
 Elevator_AskWhichFloor:
 	call LoadStandardMenuHeader
 	ld hl, AskFloorElevatorText
-	call PrintText
+	predef PrintText
 	call Elevator_GetCurrentFloorText
 	ld hl, Elevator_MenuHeader
 	call CopyMenuHeader

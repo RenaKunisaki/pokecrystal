@@ -60,7 +60,7 @@ ExcuseMeYoureNotReadyText:
 
 BattleTower_PleaseReturnWhenReady:
 	ld hl, .BattleTowerReturnWhenReadyText
-	call PrintText
+	predef PrintText
 	ret
 
 .BattleTowerReturnWhenReadyText:
@@ -160,7 +160,7 @@ BattleTower_ExecuteJumptable:
 	push de
 	call .GetTextPointers
 	call .LoadTextPointer
-	call PrintText
+	predef PrintText
 	pop de
 	ret
 
@@ -173,7 +173,7 @@ BattleTower_ExecuteJumptable:
 	add hl, bc
 	add hl, bc
 	call .LoadTextPointer
-	call PrintText
+	predef PrintText
 	pop bc
 	ret
 

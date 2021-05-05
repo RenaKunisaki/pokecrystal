@@ -68,7 +68,7 @@ DisplayCaughtContestMonStats:
 	predef PrintNum
 
 	ld hl, ContestAskSwitchText
-	call PrintText
+	predef PrintText
 
 	pop af
 	ld [wOptions], a

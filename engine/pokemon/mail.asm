@@ -503,12 +503,12 @@ MailboxPC:
 	and a
 	jr z, .attach_mail
 	ld hl, .MailAlreadyHoldingItemText
-	call PrintText
+	predef PrintText
 	jr .try_again
 
 .egg
 	ld hl, .MailEggText
-	call PrintText
+	predef PrintText
 	jr .try_again
 
 .attach_mail
@@ -517,7 +517,7 @@ MailboxPC:
 	ld b, a
 	call MoveMailFromPCToParty
 	ld hl, .MailMovedFromBoxText
-	call PrintText
+	predef PrintText
 
 .exit2
 	jp CloseSubmenu

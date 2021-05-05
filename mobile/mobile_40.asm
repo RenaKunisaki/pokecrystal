@@ -4751,7 +4751,7 @@ Function102142:
 	call Function10218d
 	call Function102180
 	ld hl, CardWasListedText
-	call PrintText
+	predef PrintText
 
 .asm_10217c
 	call Function1013d6
@@ -7341,7 +7341,7 @@ Mobile_SelectThreeMons:
 	bit 7, c
 	jr z, .asm_10369b
 	ld hl, MobileBattleMustPickThreeMonText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .asm_103696
 	farcall CheckForMobileBattleRules
@@ -7365,7 +7365,7 @@ Mobile_SelectThreeMons:
 	set 7, [hl]
 	jr nz, .asm_1036b5
 	ld hl, MobileBattleMoreInfoText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .asm_1036b5
 	call Function1036f9
@@ -7411,7 +7411,7 @@ Mobile_SelectThreeMons:
 
 Function1036f9:
 	ld hl, MobileBattleRulesText
-	call PrintText
+	predef PrintText
 	ret
 
 Function103700:
@@ -7434,25 +7434,25 @@ Function103700:
 
 .five_or_more_mins
 	ld hl, WouldYouLikeToMobileBattleText
-	call PrintText
+	predef PrintText
 	and a
 	ret
 
 .two_to_five_mins
 	ld hl, WantAQuickMobileBattleText
-	call PrintText
+	predef PrintText
 	and a
 	ret
 
 .one_min
 	ld hl, WantToRushThroughAMobileBattleText
-	call PrintText
+	predef PrintText
 	and a
 	ret
 
 .times_up
 	ld hl, PleaseTryAgainTomorrowText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	scf
 	ret
@@ -7545,7 +7545,7 @@ Function1037c2:
 	and a
 	jr z, .nope
 	ld hl, TryAgainUsingSameSettingsText
-	call PrintText
+	predef PrintText
 	call YesNoBox
 	jr c, .nope
 	ld a, $01
@@ -7566,10 +7566,10 @@ Function1037eb:
 	call MobileCheckRemainingBattleTime
 	jr nc, .asm_103807
 	ld hl, MobileBattleLessThanOneMinuteLeftText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	ld hl, MobileBattleNoTimeLeftForLinkingText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	xor a
 	ld [wScriptVar], a
@@ -7623,7 +7623,7 @@ Function10383c:
 	ld [hli], a
 	ld [hl], a
 	ld hl, PickThreeMonForMobileBattleText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	farcall Script_reloadmappart
 	farcall Function4a94e
@@ -7653,7 +7653,7 @@ Function10387b:
 	ld a, c
 	ld [wStringBuffer2], a
 	ld hl, MobileBattleRemainingTimeText
-	call PrintText
+	predef PrintText
 	call JoyWaitAorB
 	ret
 
