@@ -1,5 +1,8 @@
 ; Predef routines can be used with the "predef" and "predef_jump" macros.
 ; This preserves registers bc, de, hl and f.
+; but since we changed it to ShortPredef macro it also preserves a!
+; XXX we can probably move this into HOME bank, pointers and all,
+; to cut down on the overhead of all the bank switching.
 
 add_predef: MACRO
 \1Predef::

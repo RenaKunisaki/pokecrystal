@@ -230,21 +230,6 @@ BattleTurn:
 
 Stubbed_Increments5_a89a:
 	ret
-	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
-	predef OpenSRAM
-	ld hl, s5_a89a + 1 ; address of MBC30 bank
-	inc [hl]
-	jr nz, .finish
-	dec hl
-	inc [hl]
-	jr nz, .finish
-	dec [hl]
-	inc hl
-	dec [hl]
-
-.finish
-	predef CloseSRAM
-	ret
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -4688,11 +4673,12 @@ PrintPlayerHUD:
 	hlcoord 14, 8
 	push af ; back up gender
 	push hl
+    hlcoord 10, 8
 	ld de, wBattleMonStatus
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	ret nz
+	;ret nz
 	ld a, b
 	cp " "
 	jr nz, .copy_level ; male or female
@@ -4766,10 +4752,11 @@ DrawEnemyHUD:
 	push af
 	push hl
 	ld de, wEnemyMonStatus
+    hlcoord 2, 1
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	jr nz, .skip_level
+	;jr nz, .skip_level
 	ld a, b
 	cp " "
 	jr nz, .print_level
