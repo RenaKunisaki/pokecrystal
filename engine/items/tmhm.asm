@@ -75,7 +75,7 @@ ChooseMonToLearnTMHM:
 	ld de, wTMHMMoveNameBackup
 	ld bc, MOVE_NAME_LENGTH - 1
 	call CopyBytes
-	call ClearBGPalettes
+	predef ClearBGPalettes
 ChooseMonToLearnTMHM_NoRefresh:
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel

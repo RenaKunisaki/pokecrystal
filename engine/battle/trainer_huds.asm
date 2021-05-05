@@ -233,7 +233,7 @@ LoadBallIconGFX:
 INCBIN "gfx/battle/balls.2bpp"
 
 _ShowLinkBattleParticipants:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call LoadFontsExtra
 	hlcoord 2, 3
 	ld b, 9

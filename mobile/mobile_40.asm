@@ -2903,7 +2903,7 @@ Function10138b:
 	ret
 
 Function1013aa:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
 	farcall Function106464

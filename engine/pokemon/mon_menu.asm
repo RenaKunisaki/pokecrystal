@@ -805,7 +805,7 @@ ChooseMoveToDelete:
 	ld a, b
 	ld [wOptions], a
 	push af
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	pop af
 	ret
 
@@ -866,7 +866,7 @@ ManagePokemonMoves:
 	call MoveScreenLoop
 	pop af
 	ld [wOptions], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 
 .egg
 	ld a, $0
@@ -1088,7 +1088,7 @@ String_MoveWhere:
 	db "Where?@"
 
 SetUpMoveScreenBG:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	xor a

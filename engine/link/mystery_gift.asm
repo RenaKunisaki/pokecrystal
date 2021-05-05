@@ -1429,7 +1429,7 @@ StagePartyDataForMysteryGift:
 	jp CloseSRAM
 
 InitMysteryGiftLayout:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	ld hl, MysteryGiftGFX
 	ld de, vTiles2 tile $00
@@ -1722,7 +1722,7 @@ StageDataForNameCard:
 	ret
 
 InitNameCardLayout:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	ld hl, CardTradeGFX
 	ld de, vTiles2 tile $00

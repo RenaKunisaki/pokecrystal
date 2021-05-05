@@ -65,7 +65,7 @@ InitGenderScreen:
 	ld [wMusicFadeID + 1], a
 	ld c, 8
 	predef DelayFrames
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call InitCrystalData
 	call LoadFontsExtra
 	hlcoord 0, 0

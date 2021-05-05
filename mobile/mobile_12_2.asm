@@ -298,7 +298,7 @@ MobileUseTheseThreeMonText:
 	text_end
 
 Function4aa22:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 
 Function4aa25:
 	farcall LoadPartyMenuGFX

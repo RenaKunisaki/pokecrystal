@@ -8,7 +8,7 @@ LinkMonStatsScreen:
 	inc a
 	ld [wMenuCursorY], a
 	call ClearScreen
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call MaxVolume
 	farcall LoadTradeScreenBorderGFX
 	farcall Link_WaitBGMap

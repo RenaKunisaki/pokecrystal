@@ -372,7 +372,7 @@ Continue:
 	ld [wMusicFadeID], a
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Continue_MobileAdapterMenu
 	call CloseWindow
 	call ClearTilemap
@@ -1174,7 +1174,7 @@ StartTitleScreen:
 	jr nc, .loop
 
 	call ClearSprites
-	call ClearBGPalettes
+	predef ClearBGPalettes
 
 	pop af
 	ldh [rSVBK], a
@@ -1534,7 +1534,7 @@ CopyrightString:
 GameInit::
 	farcall TryLoadSaveData
 	call ClearWindowData
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a

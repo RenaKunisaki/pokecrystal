@@ -38,13 +38,13 @@ StatsScreenInit_gotaddress:
 
 	push bc
 	push hl
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call UpdateSprites
 	farcall StatsScreen_LoadFont
 	pop hl
 	call _hl_
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	pop bc
 
@@ -149,7 +149,7 @@ StatsScreen_Exit:
 MonStatsInit:
 	ld hl, wStatsScreenFlags
 	res 6, [hl]
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	farcall HDMATransferTilemapToWRAMBank3
 	call StatsScreen_CopyToTempMon

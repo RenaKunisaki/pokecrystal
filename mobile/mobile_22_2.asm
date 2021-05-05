@@ -558,7 +558,7 @@ Function8b664:
 	ret
 
 Function8b677:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	call Function8b690
 	call Function8b6bb

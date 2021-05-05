@@ -16,7 +16,7 @@ Credits::
 	ld a, BANK(wGBCPalettes)
 	ldh [rSVBK], a
 
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 
@@ -98,7 +98,7 @@ Credits::
 	jr .execution_loop
 
 .exit_credits
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hBGMapAddress], a

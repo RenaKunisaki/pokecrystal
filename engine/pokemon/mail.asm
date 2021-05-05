@@ -482,7 +482,7 @@ MailboxPC:
 	call FadeToMenu
 	xor a
 	ld [wPartyMenuActionText], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 .try_again
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel

@@ -772,7 +772,7 @@ _MovePKMNWithoutMail:
 	ret
 
 BillsPC_InitRAM:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call BillsPC_InitGFX

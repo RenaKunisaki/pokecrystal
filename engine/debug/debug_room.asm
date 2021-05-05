@@ -580,7 +580,7 @@ DebugRoom_EditPagedValues:
 	ld a, [hl]
 	push af
 	ld [hl], TRUE
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	hlcoord 0, 0
 	ld b, SCREEN_HEIGHT - 2
 	ld c, SCREEN_WIDTH - 2

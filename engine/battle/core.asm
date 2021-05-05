@@ -2404,7 +2404,7 @@ WinTrainerBattle:
 	or [hl]
 	ret nz
 	call ClearTilemap
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 .give_money
@@ -2735,7 +2735,7 @@ ForcePlayerMonChoice:
 
 .enemy_fainted_mobile_error
 	call ClearSprites
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call _LoadHPBar
 	call ExitMenu
 	call LoadTilemapToTempTilemap
@@ -2814,7 +2814,7 @@ IsMobileBattle:
 	ret
 
 SetUpBattlePartyMenu:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 SetUpBattlePartyMenu_Loop: ; switch to fullscreen menu?
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel
@@ -2946,7 +2946,7 @@ LostBattle:
 	farcall BattleTowerText
 	call WaitPressAorB_BlinkCursor
 	call ClearTilemap
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 .not_canlose
@@ -5006,7 +5006,7 @@ BattleMenu_Pack:
 	ld a, [wItemAttributeValue]
 	cp BALL
 	jr z, .ball
-	call ClearBGPalettes
+	predef ClearBGPalettes
 
 .ball
 	xor a
@@ -5047,7 +5047,7 @@ BattleMenu_PKMN:
 BattleMenuPKMN_ReturnFromStats:
 	call ExitMenu
 	call LoadStandardMenuHeader
-	call ClearBGPalettes
+	predef ClearBGPalettes
 BattleMenuPKMN_Loop:
 	call SetUpBattlePartyMenu_Loop
 	xor a
@@ -8349,7 +8349,7 @@ CheckPayDay:
 	bit 0, a
 	ret z
 	call ClearTilemap
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 ShowLinkBattleParticipantsAfterEnd:

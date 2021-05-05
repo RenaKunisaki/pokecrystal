@@ -222,7 +222,7 @@ GetHallOfFameParty:
 
 AnimateHOFMonEntrance:
 	push hl
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	farcall ResetDisplayBetweenHallOfFameMons
 	pop hl
 	ld a, [hli]
@@ -360,7 +360,7 @@ _HallOfFamePC:
 
 .okay
 	push hl
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	pop hl
 	call DisplayHOFMon
 	ld a, [wHallOfFameTempWinCount]
@@ -517,7 +517,7 @@ DisplayHOFMon:
 	ret
 
 HOF_AnimatePlayerPic:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld hl, vTiles2 tile HALLOFFAME_COLON
 	ld de, FontExtra + 13 tiles ; "<COLON>"
 	lb bc, BANK(FontExtra), 1

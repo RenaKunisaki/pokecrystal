@@ -712,7 +712,7 @@ PokeBallEffect:
 	and a
 	jr z, .toss
 
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 
 .toss
@@ -1734,7 +1734,7 @@ UseItem_SelectMon:
 	push hl
 	push de
 	push bc
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ChooseMonToUseItemOn
 	pop bc
 	pop de

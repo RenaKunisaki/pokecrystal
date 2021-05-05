@@ -8,7 +8,7 @@ _UnownPuzzle:
 	push af
 	ld a, $1
 	ldh [hInMenu], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	xor a
@@ -82,7 +82,7 @@ _UnownPuzzle:
 .quit
 	pop af
 	ldh [hInMenu], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	ld a, LCDC_DEFAULT

@@ -1,5 +1,5 @@
 _TitleScreen:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 

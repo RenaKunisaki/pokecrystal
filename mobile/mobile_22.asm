@@ -1697,7 +1697,7 @@ Function89b07:
 	ret
 
 Function89b14: ; unreferenced
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function89b07
 	call Function89b00
 	ret
@@ -1709,7 +1709,7 @@ Function89b1e:
 
 Function89b28:
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893e2
 	call Call_ExitMenu
 	call Function891ab
@@ -2302,7 +2302,7 @@ Function89eb9:
 	jp Function89e36
 
 Function89ee1:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893e2
 	call Mobile22_SetBGMapMode0
 	farcall Function4a3a7
@@ -2489,7 +2489,7 @@ Function89fed:
 
 Function89ff6:
 	call Function891fe
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call Function89807
 	call Function89492
@@ -2798,14 +2798,14 @@ Function8a241:
 	ret
 .asm_8a254
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Call_ExitMenu
 	call Function891de
 	and a
 	ret
 
 Function8a262:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893e2
 	call Mobile22_SetBGMapMode0
 	farcall Function4a3a7
@@ -3340,7 +3340,7 @@ Jumptable_8a671:
 
 Function8a679:
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b
@@ -3384,7 +3384,7 @@ Function8a6c5:
 
 Function8a6cd:
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b
@@ -3432,7 +3432,7 @@ Function8a6cd:
 .asm_8a73f
 	predef CloseSRAM
 .asm_8a742
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function89448
 	call Function891d3
 	call Function8b677
@@ -3494,7 +3494,7 @@ Function8a78c:
 	call DelayFrame
 	call JoyTextDelay
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	pop bc
@@ -3524,7 +3524,7 @@ Function8a7cb:
 	pop af
 	ld [wMenuSelection], a
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b
@@ -3615,7 +3615,7 @@ Function8a8a1:
 
 Function8a8c3:
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b
@@ -3792,7 +3792,7 @@ Function8aa0a:
 	call Function89381
 	predef CloseSRAM
 	call Function891fe
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call Function89807
 	call Function89492
@@ -3849,7 +3849,7 @@ Function8aa73:
 	call Function89193
 .asm_8aa9d
 	call Function891fe
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call Function89807
 	call Function89492
@@ -3922,7 +3922,7 @@ Function8ab11:
 Function8ab3b:
 .pressed_start
 	call Function891fe
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call Function89807
 	call Function89492
@@ -3962,7 +3962,7 @@ Function8ab3b:
 	ret
 
 Function8ab93:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call LoadStandardMenuHeader
 	farcall DoNameCardSwap
 	call ClearSprites
@@ -4004,7 +4004,7 @@ Function8aba9:
 	call PlayClickSFX
 .asm_8abe5
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b
@@ -4047,7 +4047,7 @@ Function8ac4e:
 	ld [wMenuSelection], a
 	push de
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	pop bc
 	call Function89844
@@ -4152,7 +4152,7 @@ Function8ad0b:
 	ld a, [wMenuSelection]
 	ld [wd02f], a
 	call Function891de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function893cc
 	call OpenSRAMBank4
 	call Function8931b

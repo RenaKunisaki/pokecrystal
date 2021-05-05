@@ -131,7 +131,7 @@ GBPrinterString_PrinterError4:
 	db   "@"
 
 PrintPartyMonPage1:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	xor a
@@ -229,7 +229,7 @@ PrintPartyMonPage1:
 	ret
 
 PrintPartyMonPage2:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	xor a

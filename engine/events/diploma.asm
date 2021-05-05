@@ -4,7 +4,7 @@ _Diploma:
 	ret
 
 PlaceDiplomaOnScreen:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD

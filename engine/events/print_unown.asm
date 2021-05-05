@@ -14,7 +14,7 @@ _UnownPrinter:
 	push af
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 
 	ld de, UnownDexATile

@@ -26,7 +26,7 @@ CrystalIntro:
 	call PlayMusic
 
 .done
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -1054,7 +1054,7 @@ IntroScene25:
 
 IntroScene26:
 ; Load the final scene.
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -1143,7 +1143,7 @@ IntroScene28:
 	ret
 
 .clear
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 .done

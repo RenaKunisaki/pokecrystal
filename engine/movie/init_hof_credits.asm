@@ -1,5 +1,5 @@
 InitDisplayForHallOfFame:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD
@@ -28,7 +28,7 @@ InitDisplayForHallOfFame:
 	text_end
 
 InitDisplayForRedCredits:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD

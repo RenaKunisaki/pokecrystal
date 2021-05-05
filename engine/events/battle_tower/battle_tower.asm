@@ -599,7 +599,7 @@ Function1704e1:
 	ret
 
 .JumptableLoop:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
 .loop

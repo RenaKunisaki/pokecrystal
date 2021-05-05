@@ -21,7 +21,7 @@ ReadPartyMonMail:
 	ld e, l
 ReadAnyMail:
 	push de
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -56,7 +56,7 @@ ReadAnyMail:
 	xor a
 	ldh [hJoyPressed], a
 	call .loop
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	call LoadStandardFont
 	jp EnableLCD

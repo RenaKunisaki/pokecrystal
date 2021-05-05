@@ -39,7 +39,7 @@ TrainerCard:
 	ret
 
 .InitRAM:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD

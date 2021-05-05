@@ -147,7 +147,7 @@ RunMobileTradeAnim_NoFrontpics:
 Function1080b7:
 	xor a
 	ld [wJumptableIndex], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -222,7 +222,7 @@ Function1080b7:
 Function108157:
 	xor a
 	ld [wJumptableIndex], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -513,7 +513,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 	ret
 
 MobileTradeAnim_ShowOTMonFromTrade:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -646,7 +646,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	ret
 
 MobileTradeAnim_ShowOTMonFromGTS:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -714,7 +714,7 @@ MobileTradeAnim_ShowOTMonFromGTS:
 	ret
 
 MobileTradeAnim_GetOddEgg:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -782,7 +782,7 @@ MobileTradeAnim_GetOddEgg:
 
 MobileTradeAnim_02:
 	farcall DeinitializeAllSprites
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -817,7 +817,7 @@ MobileTradeAnim_02:
 
 MobileTradeAnim_10:
 	farcall DeinitializeAllSprites
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -861,7 +861,7 @@ MobileTradeAnim_10:
 	ret
 
 MobileTradeAnim_11:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -1147,7 +1147,7 @@ MobileTradeAnim_0f:
 	ld c, 40
 	call WaitMobileTradeSpriteAnims
 	farcall DeinitializeAllSprites
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD

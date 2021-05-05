@@ -1,5 +1,5 @@
 _ReturnToBattle_UseBall:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL

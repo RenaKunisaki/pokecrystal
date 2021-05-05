@@ -2,7 +2,7 @@ BlankScreen:
 	call DisableSpriteUpdates
 	xor a
 	ldh [hBGMapMode], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	hlcoord 0, 0
 	ld bc, wTilemapEnd - wTilemap

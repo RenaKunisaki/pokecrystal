@@ -77,7 +77,7 @@ Pokedex:
 	ret
 
 InitPokedex:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call Pokedex_LoadGFX
@@ -489,7 +489,7 @@ DexEntryScreen_MenuActionJumptable:
 	ld [wPrevDexEntryJumptableIndex], a
 	pop af
 	ld [wPrevDexEntryBackup], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	call Pokedex_LoadInvertedFont
 	call Pokedex_RedisplayDexEntry

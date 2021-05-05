@@ -2,7 +2,7 @@ SelectMonFromParty:
 	call DisableSpriteUpdates
 	xor a
 	ld [wPartyMenuActionText], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call InitPartyMenuLayout
 	call WaitBGMap
 	call SetPalettes
@@ -15,7 +15,7 @@ SelectTradeOrDayCareMon:
 	ld a, b
 	ld [wPartyMenuActionText], a
 	call DisableSpriteUpdates
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call InitPartyMenuLayout
 	call WaitBGMap
 	ld b, SCGB_PARTY_MENU

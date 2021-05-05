@@ -566,7 +566,7 @@ GiveItem:
 	ld [wOptions], a
 	ld a, PARTYMENUACTION_GIVE_ITEM
 	ld [wPartyMenuActionText], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel
 	farcall InitPartyMenuGFX
@@ -874,7 +874,7 @@ TMHMSubmenu:
 	ret
 
 .ReturnToBattle:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	jr .quit_run_script
 
 .BattleOnly:
@@ -1325,7 +1325,7 @@ Pack_InterpretJoypad:
 	ret
 
 Pack_InitGFX:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD

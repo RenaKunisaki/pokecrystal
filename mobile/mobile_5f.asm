@@ -600,7 +600,7 @@ Function17d370:
 	ld [wMobileCrashCheckPointer + 1], a
 	dec a
 	ld [wcd6c], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
 	farcall ReloadMapPart
@@ -645,7 +645,7 @@ Function17d370:
 	ret
 
 Function17d3f6:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
 	farcall ReloadMapPart
@@ -1186,7 +1186,7 @@ Function17d78d:
 	predef CloseSRAM
 	xor a
 	ld [wcd77], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 Function17d7b4:

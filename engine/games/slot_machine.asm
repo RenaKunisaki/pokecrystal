@@ -86,7 +86,7 @@ _SlotMachine:
 	ld de, SFX_QUIT_SLOTS
 	predef PlaySFX
 	call WaitSFX
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
@@ -95,7 +95,7 @@ _SlotMachine:
 	ret
 
 .InitGFX:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	ld de, MUSIC_NONE

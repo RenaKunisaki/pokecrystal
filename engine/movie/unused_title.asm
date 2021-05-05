@@ -1,5 +1,5 @@
 UnusedTitleScreen: ; unreferenced
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call DisableLCD
 

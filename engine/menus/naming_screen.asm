@@ -44,7 +44,7 @@ NamingScreen:
 	ret
 
 .SetUpNamingScreen:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call DisableLCD
@@ -917,7 +917,7 @@ _ComposeMailMessage:
 	ret
 
 .InitBlankMail:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DisableLCD
 	call LoadNamingScreenGFX
 	ld de, vTiles0 tile $00

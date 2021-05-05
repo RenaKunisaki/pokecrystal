@@ -14,7 +14,7 @@ UnusedCursor_InterpretJoypad_AnimateCursor:
 _CardFlip:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	ld de, MUSIC_NONE
@@ -70,7 +70,7 @@ _CardFlip:
 	ld de, SFX_QUIT_SLOTS
 	predef PlaySFX
 	call WaitSFX
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld hl, wOptions
 	res 4, [hl]
 	ret

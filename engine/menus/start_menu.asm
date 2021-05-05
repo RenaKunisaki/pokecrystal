@@ -144,7 +144,7 @@ StartMenu::
 	jp .Reopen
 
 .Clear:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
 	call .DrawMenuAccount
@@ -503,7 +503,7 @@ StartMenu_Pokemon:
 .choosemenu
 	xor a
 	ld [wPartyMenuActionText], a ; Choose a POKéMON.
-	call ClearBGPalettes
+	predef ClearBGPalettes
 
 .menu
 	farcall LoadPartyMenuGFX

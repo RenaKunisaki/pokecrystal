@@ -59,7 +59,7 @@ MagnetTrain:
 .done
 	pop af
 	ldh [hVBlank], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hLYOverrideStart], a
@@ -114,7 +114,7 @@ MagnetTrain_UpdateLYOverrides:
 	ret
 
 MagnetTrain_LoadGFX_PlayMusic:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call DisableLCD
 	callfar ClearSpriteAnims

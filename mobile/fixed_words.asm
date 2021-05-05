@@ -305,7 +305,7 @@ Function11c1b9:
 	ld a, [wMenuCursorY]
 	dec a
 	call Function11c254
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
 	call Function11d323

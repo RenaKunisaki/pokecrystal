@@ -20,7 +20,7 @@ TestMobileTradeBorderTilemap: ; unreferenced
 ; with a placeholder SCGB_DIPLOMA layout, and exits
 ; after pressing A or B. Possibly used for testing.
 	call LoadStandardMenuHeader
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	farcall __LoadTradeScreenBorderGFX ; useless to farcall

@@ -5381,7 +5381,7 @@ BattleTowerRoomMenu_SetMessage:
 	ret
 
 Function11a9ce:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ReloadTilesetAndPalettes
 	call Call_ExitMenu
 	farcall Stubbed_Function106462
@@ -5623,7 +5623,7 @@ Function11acb7:
 	ret
 
 Function11ad1b:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	farcall Function17c000

@@ -136,7 +136,7 @@ Function16c0dc:
 	ret
 
 Function16c0ec:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearScreen
 	push af
 	ld a, $ff

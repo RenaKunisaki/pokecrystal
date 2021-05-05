@@ -5,7 +5,7 @@ SplashScreen:
 ; Reinitialize everything
 	ld de, MUSIC_NONE
 	call PlayMusic
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a

@@ -60,7 +60,7 @@ PokeGear:
 	ldh [hInMenu], a
 	pop af
 	ld [wOptions], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	xor a ; LOW(vBGMap0)
 	ldh [hBGMapAddress], a
 	ld a, HIGH(vBGMap0)
@@ -71,7 +71,7 @@ PokeGear:
 	ret
 
 .InitTilemap:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD
@@ -1797,7 +1797,7 @@ _TownMap:
 	xor a
 	ld [wVramState], a
 
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD
@@ -1852,7 +1852,7 @@ _TownMap:
 	ldh [hInMenu], a
 	pop af
 	ld [wOptions], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ret
 
 .loop
@@ -2051,7 +2051,7 @@ PokegearMap:
 	ret
 
 _FlyMap:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	ld hl, hInMenu
@@ -2102,7 +2102,7 @@ _FlyMap:
 	ld [wTownMapPlayerIconLandmark], a
 	pop af
 	ldh [hInMenu], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	xor a ; LOW(vBGMap0)
@@ -2823,7 +2823,7 @@ EntireFlyMap: ; unreferenced
 ; Flypoints data of both regions. A debug function?
 	xor a
 	ld [wTownMapPlayerIconLandmark], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	ld hl, hInMenu
@@ -2887,7 +2887,7 @@ EntireFlyMap: ; unreferenced
 	ld [wTownMapPlayerIconLandmark], a
 	pop af
 	ldh [hInMenu], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	xor a ; LOW(vBGMap0)

@@ -323,7 +323,7 @@ Function1719ed:
 	ld [wcd4a], a
 	dec a
 	ld [wcd4b], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	farcall Function171d2b
 	farcall ReloadMapPart
@@ -610,7 +610,7 @@ Function171c2c:
 	dec [hl]
 	ret nz
 	call ExitMenu
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	jr asm_171c60
 
 Function171c39:
@@ -622,7 +622,7 @@ Function171c41:
 	ld hl, wcd4c
 	dec [hl]
 	ret nz
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	farcall Stubbed_Function106462
 	farcall Function106464
 	ld a, $2

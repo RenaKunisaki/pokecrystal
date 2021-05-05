@@ -7,7 +7,7 @@ InitMobileProfile:
 	ld a, c
 	and a
 	call z, InitCrystalData
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function48d3d
 	ld a, [wd479]
 	bit 1, a
@@ -30,7 +30,7 @@ InitMobileProfile:
 	lb bc, BANK(MobileDownArrowGFX), 1
 	call Request1bpp
 	call Function4a3a7
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld a, [wd002]
 	bit 6, a
 	jr z, .asm_4808a
@@ -47,7 +47,7 @@ InitMobileProfile:
 	predef DelayFrames
 	ld b, CRYSTAL_CGB_MOBILE_1
 	call GetCrystalCGBLayout
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	hlcoord 0, 0
 	ld b,  2
 	ld c, 20
@@ -141,7 +141,7 @@ asm_4815f:
 	jp Function48272
 
 .b_button
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function48d30
 	pop bc
 	call ClearTilemap
@@ -251,7 +251,7 @@ Function4820d:
 	predef DelayFrames
 
 .asm_4825c
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function48d30
 	pop bc
 	call ClearTilemap
@@ -652,7 +652,7 @@ Function48689:
 	predef DelayFrames
 	ld b, CRYSTAL_CGB_MOBILE_1
 	call GetCrystalCGBLayout
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	hlcoord 0, 0
 	ld b, 4
 	ld c, SCREEN_WIDTH

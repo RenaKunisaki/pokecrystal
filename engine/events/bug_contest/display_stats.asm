@@ -1,5 +1,5 @@
 DisplayCaughtContestMonStats:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call LoadFontsBattleExtra

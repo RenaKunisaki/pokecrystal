@@ -1,14 +1,14 @@
 MainMenu_Mobile:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld a, MUSIC_MOBILE_ADAPTER_MENU
 	ld [wMapMusic], a
 	ld de, MUSIC_MOBILE_ADAPTER_MENU
 	call Function4a6c5
 Function49f0a:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function4a3a7
 	call Function4a492
-	call ClearBGPalettes
+	predef ClearBGPalettes
 Function49f16:
 	call MobileMenu_InitMenuBuffers
 	ld c, 12
@@ -64,7 +64,7 @@ Function49f16:
 	call MenuClickSound
 .b_button
 	pop bc
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	ld a, MUSIC_MAIN_MENU
 	ld [wMapMusic], a
@@ -188,7 +188,7 @@ Function4a0c2:
 	ld c, $1
 	call InitMobileProfile
 	push af
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	pop af
 	and a
 	jr nz, .skip_save
@@ -201,9 +201,9 @@ Function4a0c2:
 Function4a100:
 	ld a, 2
 	call MenuClickSound
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function4a13b
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 
 asm_4a111:
@@ -333,7 +333,7 @@ Function4a20e:
 	ld a, $1
 	call MenuClickSound
 	farcall Function1719c8
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call DelayFrame
 	jr Function4a239
 
@@ -401,7 +401,7 @@ Function4a28a:
 	jr z, .quit
 .asm_4a2df
 	farcall Function11765d
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Call_ExitMenu
 	call LoadFontsExtra
 	scf
@@ -618,7 +618,7 @@ MainMenu_MobileStudium:
 	push bc
 	push de
 	farcall MobileStudium
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	pop de
 	pop bc
 	ld a, b
@@ -632,11 +632,11 @@ MainMenu_MobileStudium:
 	ret
 
 Function4a4c4:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Function4a3a7
 	call Function4a492
 	call Function4a680
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld c, 20
 	predef DelayFrames
 	hlcoord 2, 0
@@ -710,7 +710,7 @@ asm_4a54d:
 	call MenuClickSound
 .asm_4a574
 	pop bc
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	jp Function49f0a
 .asm_4a57e
@@ -807,7 +807,7 @@ Function4a680:
 Function4a6ab:
 	ld a, $2
 	call MenuClickSound
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	farcall Function11c1ab

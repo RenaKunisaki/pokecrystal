@@ -156,7 +156,7 @@ RunTradeAnimScript:
 .TradeAnimLayout:
 	xor a
 	ld [wJumptableIndex], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ClearTilemap
 	call DisableLCD
@@ -464,7 +464,7 @@ TradeAnim_TubeToPlayer6:
 
 TradeAnim_TubeToOT8:
 TradeAnim_TubeToPlayer8:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call ClearSprites
 	call DisableLCD
@@ -588,7 +588,7 @@ TradeAnim_CopyTradeGameBoyTilemap:
 
 TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	push af
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call WaitTop
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a

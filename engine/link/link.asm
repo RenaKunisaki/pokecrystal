@@ -1,5 +1,5 @@
 LinkCommunications:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld c, 80
 	predef DelayFrames
 	call ClearScreen

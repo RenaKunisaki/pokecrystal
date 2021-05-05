@@ -262,7 +262,7 @@ CheckCoinsAndCoinCase:
 	text_end
 
 ClearBGPalettesBufferScreen:
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call BufferScreen
 	ret
 

@@ -1951,7 +1951,7 @@ FadeToMenu::
 	ret
 
 CloseSubmenu::
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
 	call Call_ExitMenu
@@ -1959,7 +1959,7 @@ CloseSubmenu::
 	jr FinishExitMenu
 
 ExitAllMenus::
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
@@ -1977,7 +1977,7 @@ ReturnToMapWithSpeechTextbox::
 	push af
 	ld a, $1
 	ld [wSpriteUpdatesEnabled], a
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearSprites
 	call ReloadTilesetAndPalettes
 	hlcoord 0, 12

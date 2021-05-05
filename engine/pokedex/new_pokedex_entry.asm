@@ -4,7 +4,7 @@ NewPokedexEntry:
 	xor a
 	ldh [hMapAnims], a
 	call LowVolume
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	call ClearTilemap
 	call UpdateSprites
 	call ClearSprites

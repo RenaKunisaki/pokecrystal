@@ -220,7 +220,7 @@ _PlayersHousePC:
 	ret
 
 .changed_deco_tiles
-	call ClearBGPalettes
+	predef ClearBGPalettes
 	ld c, TRUE
 	ret
 
