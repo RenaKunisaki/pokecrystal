@@ -158,6 +158,11 @@ AI_TryItem:
 	and a
 	ret nz
 
+    ; items can be turned off
+    ld a, [wOptions2]
+    bit NO_AI_ITEMS,a
+    ret nz
+
 	ld a, [wEnemyTrainerItem1]
 	ld b, a
 	ld a, [wEnemyTrainerItem2]
