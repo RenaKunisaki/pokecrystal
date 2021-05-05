@@ -26,7 +26,7 @@ NAME_CARD_PREFIX EQU $3c
 
 DoMysteryGift:
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call WaitBGMap
 	call InitMysteryGiftLayout
 	hlcoord 3, 8
@@ -1569,7 +1569,7 @@ INCBIN "gfx/mystery_gift/mystery_gift.2bpp"
 
 DoNameCardSwap:
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call WaitBGMap
 	call InitNameCardLayout
 	hlcoord 3, 8
@@ -1682,7 +1682,7 @@ endr
 	text_end
 
 .ClearScreen:
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call EnableLCD
 	call WaitBGMap

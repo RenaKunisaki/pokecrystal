@@ -25,7 +25,7 @@ BattleCommand_BatonPass:
 	call ClearPalettes
 	farcall _LoadBattleFontsHPBar
 	call CloseWindow
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox

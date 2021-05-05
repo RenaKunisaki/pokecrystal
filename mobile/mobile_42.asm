@@ -148,7 +148,7 @@ Function1080b7:
 	xor a
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
@@ -223,7 +223,7 @@ Function108157:
 	xor a
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
@@ -514,7 +514,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 
 MobileTradeAnim_ShowOTMonFromTrade:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
@@ -647,7 +647,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 
 MobileTradeAnim_ShowOTMonFromGTS:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
@@ -715,7 +715,7 @@ MobileTradeAnim_ShowOTMonFromGTS:
 
 MobileTradeAnim_GetOddEgg:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearBGMap
@@ -783,7 +783,7 @@ MobileTradeAnim_GetOddEgg:
 MobileTradeAnim_02:
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -818,7 +818,7 @@ MobileTradeAnim_02:
 MobileTradeAnim_10:
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -862,7 +862,7 @@ MobileTradeAnim_10:
 
 MobileTradeAnim_11:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -1148,7 +1148,7 @@ MobileTradeAnim_0f:
 	call WaitMobileTradeSpriteAnims
 	farcall DeinitializeAllSprites
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call MobileTradeAnim_ClearTiles
@@ -1506,7 +1506,7 @@ Function108b98:
 
 MobileTradeAnim_DeleteSprites:
 	farcall DeinitializeAllSprites
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 MobileTradeAnim_AnimateSentPulse:

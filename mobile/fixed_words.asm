@@ -306,7 +306,7 @@ Function11c1b9:
 	dec a
 	call Function11c254
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearScreen
 	call Function11d323
 	call SetPalettes
@@ -379,7 +379,7 @@ EZChat_MasterLoop:
 
 .exit
 	farcall ClearSpriteAnims
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 .DoJumptableFunction:

@@ -7,7 +7,7 @@ NewPokedexEntry:
 	predef ClearBGPalettes
 	call ClearTilemap
 	call UpdateSprites
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wPokedexStatus]
 	push af
 	ldh a, [hSCX]

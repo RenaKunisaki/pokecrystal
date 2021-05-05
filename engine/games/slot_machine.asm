@@ -97,7 +97,7 @@ _SlotMachine:
 .InitGFX:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic
 	call DelayFrame

@@ -1,6 +1,6 @@
 _TitleScreen:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 
 ; Turn BG Map update off

@@ -40,7 +40,7 @@ TrainerCard:
 
 .InitRAM:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 
@@ -102,7 +102,7 @@ TrainerCard_Quit:
 	ret
 
 TrainerCard_Page1_LoadGFX:
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder
@@ -137,7 +137,7 @@ TrainerCard_Page1_Joypad:
 	ret
 
 TrainerCard_Page2_LoadGFX:
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder
@@ -185,7 +185,7 @@ TrainerCard_Page2_Joypad:
 	ret
 
 TrainerCard_Page3_LoadGFX:
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 8
 	ld d, 6
 	call TrainerCard_InitBorder

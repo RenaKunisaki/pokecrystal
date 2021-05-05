@@ -601,7 +601,7 @@ Function17d370:
 	dec a
 	ld [wcd6c], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearScreen
 	farcall ReloadMapPart
 	call DisableLCD
@@ -646,7 +646,7 @@ Function17d370:
 
 Function17d3f6:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearScreen
 	farcall ReloadMapPart
 

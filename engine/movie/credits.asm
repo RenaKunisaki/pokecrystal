@@ -18,7 +18,7 @@ Credits::
 
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 
 	ld hl, wCreditsBlankFrame2bpp
 	ld c, (wCreditsBlankFrame2bppEnd - wCreditsBlankFrame2bpp) / 2

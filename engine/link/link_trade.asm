@@ -22,7 +22,7 @@ TestMobileTradeBorderTilemap: ; unreferenced
 	call LoadStandardMenuHeader
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	farcall __LoadTradeScreenBorderGFX ; useless to farcall
 	farcall LoadMobileTradeBorderTilemap ; useless to farcall
 	ld b, SCGB_DIPLOMA

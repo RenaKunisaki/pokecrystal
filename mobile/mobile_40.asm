@@ -3735,7 +3735,7 @@ Function101913:
 
 Function10194b:
 	call DisableSpriteUpdates
-	call ClearSprites
+	predef ClearSprites
 	farcall Function1021f9
 	ld hl, wcd29
 	bit 3, [hl]
@@ -4423,7 +4423,7 @@ Function101e8d: ; unreferenced
 	ret
 
 Function101e98:
-	call ClearSprites
+	predef ClearSprites
 	farcall Function8adb3
 	ret c
 	ld hl, wGameTimerPaused
@@ -4648,7 +4648,7 @@ Function1020a8:
 	ret
 
 Function1020bf:
-	call ClearSprites
+	predef ClearSprites
 	farcall Function8aba9
 	ld a, c
 	and a
@@ -6172,7 +6172,7 @@ Function102bac:
 	dec a
 	ld [wCurPartyMon], a
 	call LowVolume
-	call ClearSprites
+	predef ClearSprites
 	farcall _MobileStatsScreenInit
 	ld a, [wCurPartyMon]
 	inc a
@@ -6712,7 +6712,7 @@ Function10305d:
 Function10306e:
 	ld a, $01
 	ldh [hOAMUpdate], a
-	call ClearSprites
+	predef ClearSprites
 	ld de, wVirtualOAM
 	call Function1030cd
 	xor a

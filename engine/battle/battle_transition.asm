@@ -245,7 +245,7 @@ StartTrainerBattle_DetermineWhichAnimation:
 	db BATTLETRANSITION_NO_CAVE_STRONGER
 
 StartTrainerBattle_Finish:
-	call ClearSprites
+	predef ClearSprites
 	ld a, BATTLETRANSITION_END
 	ld [wJumptableIndex], a
 	ret

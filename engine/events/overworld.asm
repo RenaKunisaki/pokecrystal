@@ -570,7 +570,7 @@ FlyFunction:
 	xor a
 	ldh [hMapAnims], a
 	call LoadStandardMenuHeader
-	call ClearSprites
+	predef ClearSprites
 	farcall _FlyMap
 	ld a, e
 	cp -1

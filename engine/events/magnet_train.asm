@@ -115,7 +115,7 @@ MagnetTrain_UpdateLYOverrides:
 
 MagnetTrain_LoadGFX_PlayMusic:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call DisableLCD
 	callfar ClearSpriteAnims
 	call SetMagnetTrainPals

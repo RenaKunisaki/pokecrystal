@@ -2067,7 +2067,7 @@ DoubleSwitch:
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
@@ -2081,7 +2081,7 @@ DoubleSwitch:
 	push af
 	ld a, $1
 	call EnemyPartyMonEntrance
-	call ClearSprites
+	predef ClearSprites
 	call LoadTilemapToTempTilemap
 	pop af
 	ld [wCurPartyMon], a
@@ -2734,7 +2734,7 @@ ForcePlayerMonChoice:
 	jr nz, .send_out_pokemon
 
 .enemy_fainted_mobile_error
-	call ClearSprites
+	predef ClearSprites
 	predef ClearBGPalettes
 	call _LoadHPBar
 	call ExitMenu
@@ -2747,7 +2747,7 @@ ForcePlayerMonChoice:
 	ret
 
 .send_out_pokemon
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wCurBattleMon]
 	ld [wLastPlayerMon], a
 	ld a, [wCurPartyMon]
@@ -3524,7 +3524,7 @@ ClearEnemyMonBox:
 	xor a
 	ldh [hBGMapMode], a
 	call ExitMenu
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
@@ -3994,7 +3994,7 @@ InitEnemyMon:
 	ret
 
 SwitchPlayerMon:
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wCurBattleMon]
 	ld [wLastPlayerMon], a
 	ld a, [wCurPartyMon]
@@ -5012,7 +5012,7 @@ BattleMenu_Pack:
 	xor a
 	ldh [hBGMapMode], a
 	call _LoadBattleFontsHPBar
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jr z, .tutorial2
@@ -5081,7 +5081,7 @@ BattleMenuPKMN_Loop:
 	jp BattleMenuPKMN_ReturnFromStats
 
 .Cancel:
-	call ClearSprites
+	predef ClearSprites
 	call ClearPalettes
 	call DelayFrame
 	call _LoadHPBar
@@ -5116,7 +5116,7 @@ Battle_StatsScreen:
 
 	call EnableLCD
 
-	call ClearSprites
+	predef ClearSprites
 	call LowVolume
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -5170,7 +5170,7 @@ TryPlayerSwitch:
 	ld [wBattlePlayerAction], a
 	call ClearPalettes
 	call DelayFrame
-	call ClearSprites
+	predef ClearSprites
 	call _LoadHPBar
 	call CloseWindow
 	call GetMemSGBLayout
@@ -8071,7 +8071,7 @@ BattleIntro:
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
 	call z, UpdateEnemyHUD
@@ -8470,7 +8470,7 @@ _DisplayLinkRecord:
 
 ReadAndPrintLinkBattleRecord:
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call .PrintBattleRecord
 	hlcoord 0, 8
 	ld b, NUM_LINK_BATTLE_RECORDS

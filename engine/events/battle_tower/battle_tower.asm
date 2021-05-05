@@ -600,7 +600,7 @@ Function1704e1:
 
 .JumptableLoop:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearScreen
 .loop
 	call JoyTextDelay

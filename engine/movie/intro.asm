@@ -27,7 +27,7 @@ CrystalIntro:
 
 .done
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hSCX], a
@@ -95,7 +95,7 @@ NextIntroScene:
 IntroScene1:
 ; Setup the next scene.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -171,7 +171,7 @@ IntroScene2:
 IntroScene3:
 ; More setup. Transition to the outdoor scene.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -233,7 +233,7 @@ IntroScene4:
 IntroScene5:
 ; Go back to the Unown.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -331,7 +331,7 @@ IntroScene6:
 IntroScene7:
 ; Back to the outdoor scene.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -432,7 +432,7 @@ IntroScene9:
 ; Set up the next scene (same bg).
 	xor a
 	ldh [hLCDCPointer], a
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 0, wAttrmap
 	; first 12 rows have palette 1
 	ld bc, 12 * SCREEN_WIDTH
@@ -501,7 +501,7 @@ IntroScene10:
 IntroScene11:
 ; Back to Unown again.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -625,7 +625,7 @@ IntroScene12:
 IntroScene13:
 ; Switch scenes again.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -729,7 +729,7 @@ IntroScene14:
 IntroScene15:
 ; Transition to a new scene.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -811,7 +811,7 @@ IntroScene16:
 IntroScene17:
 ; ...
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -877,7 +877,7 @@ IntroScene18:
 IntroScene19:
 ; More setup.
 	call Intro_ClearBGPals
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a
@@ -1055,7 +1055,7 @@ IntroScene25:
 IntroScene26:
 ; Load the final scene.
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	xor a
 	ldh [hBGMapMode], a

@@ -57,7 +57,7 @@ Pokedex:
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
 	call WaitSFX
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wCurDexMode]
 	ld [wLastDexMode], a
 
@@ -78,7 +78,7 @@ Pokedex:
 
 InitPokedex:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call Pokedex_LoadGFX
 
@@ -217,7 +217,7 @@ Pokedex_Exit:
 Pokedex_InitMainScreen:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
@@ -329,7 +329,7 @@ Pokedex_InitDexEntryScreen:
 	ld [wPokedexStatus], a
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call Pokedex_LoadCurrentFootprint
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_InitArrowCursor
@@ -510,7 +510,7 @@ Pokedex_RedisplayDexEntry:
 Pokedex_InitOptionScreen:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call Pokedex_DrawOptionScreenBG
 	call Pokedex_InitArrowCursor
 	; point cursor to the current dex mode (modes == menu item indexes)
@@ -614,7 +614,7 @@ Pokedex_UpdateOptionScreen:
 Pokedex_InitSearchScreen:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call Pokedex_DrawSearchScreenBG
 	call Pokedex_InitArrowCursor
 	ld a, NORMAL + 1
@@ -786,7 +786,7 @@ Pokedex_UpdateSearchResultsScreen:
 	ld a, [wPrevDexEntryBackup]
 	ld [wPrevDexEntry], a
 	call Pokedex_BlackOutBG
-	call ClearSprites
+	predef ClearSprites
 	call Pokedex_OrderMonsByMode
 	ld a, DEXSTATE_SEARCH_SCR
 	ld [wJumptableIndex], a

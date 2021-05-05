@@ -26,7 +26,7 @@ _DepositPKMN:
 	call DelayFrame
 	jr .loop
 .done
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -51,7 +51,7 @@ _DepositPKMN:
 .Init:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call CopyBoxmonSpecies
 	call BillsPC_BoxName
 	ld de, PCString_ChooseaPKMN
@@ -114,7 +114,7 @@ _DepositPKMN:
 .WhatsUp:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
@@ -282,7 +282,7 @@ _WithdrawPKMN:
 	call DelayFrame
 	jr .loop
 .done
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -309,7 +309,7 @@ _WithdrawPKMN:
 	ld [wBillsPC_LoadedBox], a
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call CopyBoxmonSpecies
 	call BillsPC_BoxName
 	ld de, PCString_ChooseaPKMN
@@ -371,7 +371,7 @@ _WithdrawPKMN:
 .PrepSubmenu:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
@@ -523,7 +523,7 @@ _MovePKMNWithoutMail:
 	jr .loop
 
 .done
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -550,7 +550,7 @@ _MovePKMNWithoutMail:
 .Init:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call CopyBoxmonSpecies
 	ld de, PCString_ChooseaPKMN
 	call BillsPC_PlaceString
@@ -622,7 +622,7 @@ _MovePKMNWithoutMail:
 .PrepSubmenu:
 	xor a
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
@@ -711,7 +711,7 @@ _MovePKMNWithoutMail:
 	ld [wBillsPC_NumMonsOnScreen], a
 	call BillsPC_RefreshTextboxes
 	call BillsPC_MoveMonWOMail_BoxNameAndArrows
-	call ClearSprites
+	predef ClearSprites
 	call BillsPC_UpdateInsertCursor
 	call WaitBGMap
 	call BillsPC_IncrementJumptableIndex
@@ -773,7 +773,7 @@ _MovePKMNWithoutMail:
 
 BillsPC_InitRAM:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call BillsPC_InitGFX
 	ld hl, wBillsPCData
@@ -1455,7 +1455,7 @@ BillsPC_UpdateSelectionCursor:
 	ld a, [wBillsPC_NumMonsInBox]
 	and a
 	jr nz, .place_cursor
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 .place_cursor

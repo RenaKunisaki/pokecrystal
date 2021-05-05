@@ -218,12 +218,12 @@ EvolveAfterBattle_MasterLoop:
 
 	ld a, $1
 	ldh [hBGMapMode], a
-	call ClearSprites
+	predef ClearSprites
 
 	farcall EvolutionAnimation
 
 	push af
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	jp c, CancelEvolution
 

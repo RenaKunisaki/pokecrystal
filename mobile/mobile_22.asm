@@ -473,7 +473,7 @@ Function8939a:
 
 Function893b3:
 	call DisableLCD
-	call ClearSprites
+	predef ClearSprites
 	call LoadStandardFont
 	call LoadFontsExtra
 	call Function893ef
@@ -484,7 +484,7 @@ Function893b3:
 
 Function893cc:
 	call DisableLCD
-	call ClearSprites
+	predef ClearSprites
 	call LoadStandardFont
 	call LoadFontsExtra
 	call Function893ef
@@ -2159,7 +2159,7 @@ Function89dab:
 	ret
 
 Function89de0:
-	call ClearSprites
+	predef ClearSprites
 	call Function89e0a
 	jr c, .asm_89e00
 	ld c, $1
@@ -3965,7 +3965,7 @@ Function8ab93:
 	predef ClearBGPalettes
 	call LoadStandardMenuHeader
 	farcall DoNameCardSwap
-	call ClearSprites
+	predef ClearSprites
 	call Function891fe
 	call Function89b28
 	ret

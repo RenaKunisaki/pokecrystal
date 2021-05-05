@@ -3,7 +3,7 @@ BlankScreen:
 	xor a
 	ldh [hBGMapMode], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 0
 	ld bc, wTilemapEnd - wTilemap
 	ld a, " "

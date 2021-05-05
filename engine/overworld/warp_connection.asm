@@ -313,7 +313,7 @@ LoadMapPalettes:
 	jp GetSGBLayout
 
 RefreshMapSprites:
-	call ClearSprites
+	predef ClearSprites
 	farcall InitMapNameSign
 	call GetMovementPermissions
 	farcall RefreshPlayerSprite

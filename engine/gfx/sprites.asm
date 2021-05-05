@@ -565,7 +565,7 @@ AnimateEndOfExpBar:
 	inc d
 	dec c
 	jr nz, .loop
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 .AnimateFrame:

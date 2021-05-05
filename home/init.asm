@@ -95,7 +95,7 @@ Init::
 	ld a, 1
 	ldh [rSVBK], a
 	call ClearVRAM
-	call ClearSprites
+	predef ClearSprites
 	call ClearsScratch
 
     ;ld a, $C3 ; a jump instruction

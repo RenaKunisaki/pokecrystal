@@ -22,7 +22,7 @@ ReadPartyMonMail:
 ReadAnyMail:
 	push de
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call LoadFontsExtra

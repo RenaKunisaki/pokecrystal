@@ -157,7 +157,7 @@ RunTradeAnimScript:
 	xor a
 	ld [wJumptableIndex], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	call DisableLCD
 	call LoadFontsBattleExtra
@@ -466,7 +466,7 @@ TradeAnim_TubeToOT8:
 TradeAnim_TubeToPlayer8:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call DisableLCD
 	callfar ClearSpriteAnims
 	hlbgcoord 0, 0

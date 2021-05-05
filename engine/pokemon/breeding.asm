@@ -743,7 +743,7 @@ EggHatch_AnimationSequence:
 	xor a
 	ldh [hSCX], a
 	ld [wGlobalAnimXOffset], a
-	call ClearSprites
+	predef ClearSprites
 	call Hatch_InitShellFragments
 	hlcoord 6, 3
 	ld b, HIGH(vBGMap0)

@@ -1173,7 +1173,7 @@ StartTitleScreen:
 	call RunTitleScreen
 	jr nc, .loop
 
-	call ClearSprites
+	predef ClearSprites
 	predef ClearBGPalettes
 
 	pop af

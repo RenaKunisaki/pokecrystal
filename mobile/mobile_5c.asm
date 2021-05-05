@@ -324,7 +324,7 @@ Function1719ed:
 	dec a
 	ld [wcd4b], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	farcall Function171d2b
 	farcall ReloadMapPart
 	farcall ClearSpriteAnims
@@ -342,7 +342,7 @@ Function171a11:
 	jr .loop
 .done
 	farcall ClearSpriteAnims
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 Function171a36:

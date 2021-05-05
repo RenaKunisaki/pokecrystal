@@ -73,7 +73,7 @@ PokeGear:
 .InitTilemap:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call DisableLCD
 	xor a
 	ldh [hSCY], a
@@ -1799,7 +1799,7 @@ _TownMap:
 
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call DisableLCD
 	call Pokegear_LoadGFX
 	farcall ClearSpriteAnims
@@ -2053,7 +2053,7 @@ PokegearMap:
 _FlyMap:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld hl, hInMenu
 	ld a, [hl]
 	push af
@@ -2365,7 +2365,7 @@ Pokedex_GetArea:
 	push af
 	ld a, e
 	ld [wTownMapPlayerIconLandmark], a
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a
 	ld a, $1
@@ -2416,7 +2416,7 @@ Pokedex_GetArea:
 	jr .loop
 
 .a_b
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	ld [wTownMapCursorLandmark], a
 	pop af
@@ -2436,7 +2436,7 @@ Pokedex_GetArea:
 	ldh a, [hWY]
 	cp SCREEN_HEIGHT_PX
 	ret z
-	call ClearSprites
+	predef ClearSprites
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	xor a ; JOHTO_REGION
@@ -2450,7 +2450,7 @@ Pokedex_GetArea:
 	ldh a, [hWY]
 	and a
 	ret z
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hWY], a
 	ld a, KANTO_REGION
@@ -2465,7 +2465,7 @@ Pokedex_GetArea:
 	ld a, e
 	and $10
 	jr nz, .copy_sprites
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 .copy_sprites
@@ -2825,7 +2825,7 @@ EntireFlyMap: ; unreferenced
 	ld [wTownMapPlayerIconLandmark], a
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld hl, hInMenu
 	ld a, [hl]
 	push af

@@ -1,7 +1,7 @@
 DisplayCaughtContestMonStats:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call LoadFontsBattleExtra
 
 	ld hl, wOptions

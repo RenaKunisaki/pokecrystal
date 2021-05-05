@@ -333,7 +333,7 @@ NamingScreenJoypadLoop:
 
 .quit
 	callfar ClearSpriteAnims
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hSCX], a
 	ldh [hSCY], a
@@ -829,7 +829,7 @@ NamingScreen_GetLastCharacter:
 	ret
 
 LoadNamingScreenGFX:
-	call ClearSprites
+	predef ClearSprites
 	callfar ClearSpriteAnims
 	call LoadStandardFont
 	call LoadFontsExtra
@@ -1019,7 +1019,7 @@ INCBIN "gfx/icons/mail_big.2bpp"
 
 .exit_mail
 	callfar ClearSpriteAnims
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hSCX], a
 	ldh [hSCY], a

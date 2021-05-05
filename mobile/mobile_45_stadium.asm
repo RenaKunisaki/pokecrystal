@@ -56,7 +56,7 @@ Function117699:
 	ld bc, $11
 	predef ByteFill
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	farcall Function171c87
 	farcall ReloadMapPart
 	farcall ClearSpriteAnims
@@ -77,7 +77,7 @@ Function1176ee:
 	farcall ClearSpriteAnims
 	predef ClearBGPalettes
 	call ClearScreen
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 Function117719:
@@ -516,14 +516,14 @@ Function117a94:
 	ld [wcf65], a
 	ld [wcf66], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	farcall Function172e78
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	ret
 
 Function117ab4:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	farcall Function172e78
 	farcall Function172eb9
 	farcall ReloadMapPart
@@ -540,7 +540,7 @@ Function117acd:
 
 .asm_117ae2
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 Function117ae9:
@@ -649,7 +649,7 @@ Function117bb6:
 	ld a, $1
 	ldh [hBGMapMode], a
 	farcall Function118284
-	call ClearSprites
+	predef ClearSprites
 	ld a, [wMobileErrorCodeBuffer]
 	and a
 	jr z, .asm_117be7

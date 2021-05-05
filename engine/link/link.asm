@@ -3,7 +3,7 @@ LinkCommunications:
 	ld c, 80
 	predef DelayFrames
 	call ClearScreen
-	call ClearSprites
+	predef ClearSprites
 	call UpdateSprites
 	xor a
 	ldh [hSCX], a

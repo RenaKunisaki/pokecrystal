@@ -5561,7 +5561,7 @@ Function11ac51:
 	jr .loop
 
 .asm_11aca8
-	call ClearSprites
+	predef ClearSprites
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -5624,7 +5624,7 @@ Function11acb7:
 
 Function11ad1b:
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	farcall Function17c000
 	ld a, [wMenuCursorY]

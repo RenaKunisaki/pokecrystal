@@ -16,7 +16,7 @@ _CardFlip:
 	set NO_TEXT_SCROLL, [hl]
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld de, MUSIC_NONE
 	call PlayMusic
 	call DelayFrame
@@ -203,7 +203,7 @@ _CardFlip:
 	call PlaceOAMCardBorder
 	ld c, 4
 	predef DelayFrames
-	call ClearSprites
+	predef ClearSprites
 	ld c, 4
 	predef DelayFrames
 	pop af
@@ -283,7 +283,7 @@ _CardFlip:
 	ret
 
 .PlayAgain:
-	call ClearSprites
+	predef ClearSprites
 	ld hl, .CardFlipPlayAgainText
 	call CardFlip_UpdateCoinBalanceDisplay
 	call YesNoBox
@@ -1312,7 +1312,7 @@ ChooseCard_HandleJoypad:
 	ret
 
 CardFlip_UpdateCursorOAM:
-	call ClearSprites
+	predef ClearSprites
 	ldh a, [hCGB]
 	and a
 	jr nz, .skip

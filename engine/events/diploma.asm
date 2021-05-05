@@ -6,7 +6,7 @@ _Diploma:
 PlaceDiplomaOnScreen:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	call DisableLCD
 	ld hl, DiplomaGFX
 	ld de, vTiles2

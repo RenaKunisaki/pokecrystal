@@ -10,7 +10,7 @@ _UnownPuzzle:
 	ldh [hInMenu], a
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a
 	call DisableLCD
@@ -74,7 +74,7 @@ _UnownPuzzle:
 	jr .next
 
 .clear
-	call ClearSprites
+	predef ClearSprites
 .next
 	call DelayFrame
 	jr .loop
@@ -84,7 +84,7 @@ _UnownPuzzle:
 	ldh [hInMenu], a
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld a, LCDC_DEFAULT
 	ldh [rLCDC], a
 	ret
@@ -323,7 +323,7 @@ UnownPuzzle_A:
 
 ; You solved the puzzle!
 	call PlaceStartCancelBoxBorder
-	call ClearSprites
+	predef ClearSprites
 	ld de, SFX_1ST_PLACE
 	predef PlaySFX
 	call WaitSFX

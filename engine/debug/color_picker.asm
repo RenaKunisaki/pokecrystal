@@ -151,7 +151,7 @@ DebugColor_InitVRAM:
 	xor a
 	predef ByteFill
 
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 DebugColor_LoadGFX:
@@ -1054,7 +1054,7 @@ DebugColor_PlaceCursor:
 	ret
 
 .clearsprites:
-	call ClearSprites
+	predef ClearSprites
 	ret
 
 DebugColor_AreYouFinishedString:
@@ -1080,7 +1080,7 @@ TilesetColorPicker: ; unreferenced
 	ld [wDebugTilesetRGBJumptableIndex], a
 	ld [wDebugTilesetCurColor], a
 	ldh [hMapAnims], a
-	call ClearSprites
+	predef ClearSprites
 	call OverworldTextModeSwitch
 	call WaitBGMap2
 	xor a
@@ -1240,7 +1240,7 @@ DebugColorMain2: ; unreferenced
 	ret
 
 .cancel
-	call ClearSprites
+	predef ClearSprites
 	ldh a, [hWY]
 	xor %11010000
 	ldh [hWY], a

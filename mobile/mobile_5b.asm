@@ -98,7 +98,7 @@ Function16c0a8:
 	xor a
 	ld [wd1eb], a
 	ld [wd1f1], a
-	call ClearSprites
+	predef ClearSprites
 	ld a, $90
 	ldh [hWY], a
 	call Function16c0fa

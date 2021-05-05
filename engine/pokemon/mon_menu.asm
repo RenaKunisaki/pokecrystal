@@ -582,7 +582,7 @@ MonMailAction:
 
 OpenPartyStats:
 	call LoadStandardMenuHeader
-	call ClearSprites
+	predef ClearSprites
 ; PartyMon
 	xor a
 	ld [wMonType], a
@@ -843,7 +843,7 @@ ChooseMoveToDelete:
 	ld [wSwitchMon], a
 	ld hl, w2DMenuFlags1
 	res 6, [hl]
-	call ClearSprites
+	predef ClearSprites
 	call ClearTilemap
 	pop af
 	ret
@@ -1074,7 +1074,7 @@ MoveScreenLoop:
 	ld [wSwappingMove], a
 	ld hl, w2DMenuFlags1
 	res 6, [hl]
-	call ClearSprites
+	predef ClearSprites
 	jp ClearTilemap
 
 MoveScreen2DMenuData:
@@ -1090,7 +1090,7 @@ String_MoveWhere:
 SetUpMoveScreenBG:
 	predef ClearBGPalettes
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	xor a
 	ldh [hBGMapMode], a
 	farcall LoadStatsScreenPageTilesGFX

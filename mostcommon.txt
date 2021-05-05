@@ -13,7 +13,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     162 	call Random
     159 	predef PlaySFX
     158 	predef ClearBGPalettes
-    154 	call ClearSprites
+    154 	predef ClearSprites
     129 	call GetBattleVar
     123 	call ExitMenu
     122 	call PrintNum

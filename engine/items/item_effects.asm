@@ -515,7 +515,7 @@ PokeBallEffect:
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText
 
-	call ClearSprites
+	predef ClearSprites
 
 	ld a, [wTempSpecies]
 	dec a
@@ -536,7 +536,7 @@ PokeBallEffect:
 	ld hl, NewDexDataText
 	call PrintText
 
-	call ClearSprites
+	predef ClearSprites
 
 	ld a, [wEnemyMonSpecies]
 	ld [wTempSpecies], a
@@ -558,7 +558,7 @@ PokeBallEffect:
 
 	xor a ; PARTYMON
 	ld [wMonType], a
-	call ClearSprites
+	predef ClearSprites
 
 	predef TryAddMonToParty
 
@@ -614,7 +614,7 @@ PokeBallEffect:
 	jp .return_from_capture
 
 .SendToPC:
-	call ClearSprites
+	predef ClearSprites
 
 	predef SendMonIntoBox
 
@@ -697,7 +697,7 @@ PokeBallEffect:
 
 .shake_and_break_free
 	call PrintText
-	call ClearSprites
+	predef ClearSprites
 
 .return_from_capture
 	ld a, [wBattleType]

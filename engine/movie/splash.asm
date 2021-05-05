@@ -117,7 +117,7 @@ GameFreakPresentsInit:
 GameFreakPresentsEnd:
 	farcall ClearSpriteAnims
 	call ClearTilemap
-	call ClearSprites
+	predef ClearSprites
 	ld c, 16
 	predef DelayFrames
 	ret

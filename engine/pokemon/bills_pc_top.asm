@@ -233,7 +233,7 @@ ClearPCItemScreen:
 	xor a
 	ldh [hBGMapMode], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "

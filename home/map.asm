@@ -1946,7 +1946,7 @@ FadeToMenu::
 	ldh [hBGMapMode], a
 	call LoadStandardMenuHeader
 	farcall FadeOutPalettes
-	call ClearSprites
+	predef ClearSprites
 	call DisableSpriteUpdates
 	ret
 
@@ -1978,7 +1978,7 @@ ReturnToMapWithSpeechTextbox::
 	ld a, $1
 	ld [wSpriteUpdatesEnabled], a
 	predef ClearBGPalettes
-	call ClearSprites
+	predef ClearSprites
 	call ReloadTilesetAndPalettes
 	hlcoord 0, 12
 	lb bc, 4, 18
@@ -1999,7 +1999,7 @@ ReturnToMapWithSpeechTextbox::
 
 ReloadTilesetAndPalettes::
 	call DisableLCD
-	call ClearSprites
+	predef ClearSprites
 	farcall RefreshSprites
 	call LoadStandardFont
 	call LoadFontsExtra
