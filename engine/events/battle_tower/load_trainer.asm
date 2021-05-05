@@ -22,7 +22,7 @@ LoadOpponentTrainerAndPokemon:
 	ldh a, [hRandomAdd]
 	ld b, a
 .resample ; loop to find a random trainer
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	add b
 	ld b, a ; b contains the nr of the trainer
@@ -110,7 +110,7 @@ LoadRandomBattleTowerMon:
 	ldh a, [hRandomAdd]
 	ld b, a
 .resample
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	add b
 	ld b, a

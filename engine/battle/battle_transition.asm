@@ -548,13 +548,13 @@ StartTrainerBattle_SpeckleToBlack:
 
 .BlackOutRandomTile:
 .y_loop
-	call Random
+	predef Random
 	cp SCREEN_HEIGHT
 	jr nc, .y_loop
 	ld b, a
 
 .x_loop
-	call Random
+	predef Random
 	cp SCREEN_WIDTH
 	jr nc, .x_loop
 	ld c, a

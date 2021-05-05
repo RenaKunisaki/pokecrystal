@@ -156,7 +156,7 @@ _SlotMachine:
 	call PlayMusic
 	xor a
 	ld [wKeepSevenBiasChance], a ; 87.5% chance
-	call Random
+	predef Random
 	and %00101010
 	ret nz
 	ld a, TRUE
@@ -584,7 +584,7 @@ Slots_StopReel2:
 .skip
 	call .CheckReel1ForASeven
 	jr nz, .dont_jump
-	call Random
+	predef Random
 	cp 31 percent + 1
 	jr nc, .dont_jump
 	ld a, REEL_ACTION_SET_UP_REEL2_SKIP_TO_7
@@ -630,7 +630,7 @@ Slots_StopReel3:
 	ld a, [wSlotBias]
 	and a
 	jr nz, .biased
-	call Random
+	predef Random
 	cp 71 percent - 1
 	jr nc, .stop
 	cp 47 percent + 1
@@ -641,7 +641,7 @@ Slots_StopReel3:
 	ret
 
 .biased
-	call Random
+	predef Random
 	cp 63 percent
 	jr nc, .stop
 	cp 31 percent + 1
@@ -1612,7 +1612,7 @@ Slots_GetNumberOfGolems:
 	ret
 
 .not_biased_to_seven
-	call Random
+	predef Random
 	and $7
 	cp $8 / 2 ; 50%
 	jr c, .not_biased_to_seven
@@ -1640,7 +1640,7 @@ Slots_InitBias:
 	jr z, .okay
 	ld hl, .Lucky
 .okay
-	call Random
+	predef Random
 	ld c, a
 .loop
 	ld a, [hli]
@@ -1928,7 +1928,7 @@ endr
 	ld a, [wKeepSevenBiasChance]
 	and a
 	jr nz, .lower_seven_streak_odds
-	call Random
+	predef Random
 	and %0010100
 	ret z ; 25% chance to stick with seven symbol bias
 	ld a, SLOTS_NO_BIAS
@@ -1936,7 +1936,7 @@ endr
 	ret
 
 .lower_seven_streak_odds
-	call Random
+	predef Random
 	and %0011100
 	ret z ; 12.5% chance to stick with seven symbol bias
 	ld a, SLOTS_NO_BIAS

@@ -377,7 +377,7 @@ PokeBallEffect:
 .skip_hp_calc
 	ld b, a
 	ld [wFinalCatchRate], a
-	call Random
+	predef Random
 
 	cp b
 	ld a, 0

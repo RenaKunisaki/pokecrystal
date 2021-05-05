@@ -21,7 +21,7 @@ GivePokerusAndConvertBerries:
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
 	ret z
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and a
 	ret nz
@@ -31,7 +31,7 @@ GivePokerusAndConvertBerries:
 	ld a, [wPartyCount]
 	ld b, a
 .randomMonSelectLoop
-	call Random
+	predef Random
 	and $7
 	cp b
 	jr nc, .randomMonSelectLoop
@@ -41,7 +41,7 @@ GivePokerusAndConvertBerries:
 	and $f0
 	ret nz ; if it already has pokerus, do nothing
 .randomPokerusLoop ; Simultaneously sample the strain and duration
-	call Random
+	predef Random
 	and a
 	jr z, .randomPokerusLoop
 	ld b, a
@@ -60,7 +60,7 @@ GivePokerusAndConvertBerries:
 	ret
 
 .TrySpreadPokerus:
-	call Random
+	predef Random
 	cp 33 percent + 1
 	ret nc ; 1/3 chance
 
@@ -73,7 +73,7 @@ GivePokerusAndConvertBerries:
 	cp 2
 	jr c, .checkPreviousMonsLoop ; no more mons after this one, go backwards
 
-	call Random
+	predef Random
 	cp 50 percent + 1
 	jr c, .checkPreviousMonsLoop ; 1/2 chance, go backwards
 .checkFollowingMonsLoop
@@ -127,7 +127,7 @@ ConvertBerriesToBerryJuice:
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
 	ret z
-	call Random
+	predef Random
 	cp 1 out_of 16 ; 6.25% chance
 	ret nc
 	ld hl, wPartyMons

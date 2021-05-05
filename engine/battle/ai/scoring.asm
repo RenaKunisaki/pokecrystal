@@ -133,7 +133,7 @@ AI_Setup:
 	jr .checkmove
 
 .discourage
-	call Random
+	predef Random
 	cp 12 percent
 	jr c, .checkmove
 	inc [hl]
@@ -435,7 +435,7 @@ AI_Smart_LeechHit:
 	ret
 
 .discourage
-	call Random
+	predef Random
 	cp 39 percent + 1
 	ret c
 
@@ -572,7 +572,7 @@ AI_Smart_Selfdestruct:
 
 ; If enemy's HP is between 25% and 50%,
 ; over 90% chance to greatly discourage this move.
-	call Random
+	predef Random
 	cp 8 percent
 	ret c
 
@@ -586,7 +586,7 @@ AI_Smart_DreamEater:
 ; 90% chance to greatly encourage this move.
 ; The AI_Basic layer will make sure that
 ; Dream Eater is only used against sleeping targets.
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 	dec [hl]
@@ -610,7 +610,7 @@ AI_Smart_EvasionUp:
 	jr nz, .greatly_encourage
 
 ; ...70% chance to greatly encourage this move if player is not badly poisoned.
-	call Random
+	predef Random
 	cp 70 percent
 	jr nc, .not_encouraged
 
@@ -626,7 +626,7 @@ AI_Smart_EvasionUp:
 	jr nc, .hp_mismatch_2
 
 ; If enemy's HP is above 25% but not full, 4% chance to greatly encourage this move.
-	call Random
+	predef Random
 	cp 4 percent
 	jr c, .greatly_encourage
 
@@ -686,7 +686,7 @@ AI_Smart_EvasionUp:
 ; 70% chance to greatly encourage this move.
 ; This would counter any previous discouragement.
 .maybe_greatly_encourage
-	call Random
+	predef Random
 	cp 31 percent + 1
 	ret c
 
@@ -759,7 +759,7 @@ AI_Smart_MirrorMove:
 	call AICompareSpeed
 	ret nc
 
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 
@@ -781,7 +781,7 @@ AI_Smart_AccuracyDown:
 	jr nz, .greatly_encourage
 
 ; ...70% chance to greatly encourage this move if player is not badly poisoned.
-	call Random
+	predef Random
 	cp 70 percent
 	jr nc, .not_encouraged
 
@@ -797,7 +797,7 @@ AI_Smart_AccuracyDown:
 	jr nc, .hp_mismatch_2
 
 ; If player's HP is above 25% but not full, 4% chance to greatly encourage this move.
-	call Random
+	predef Random
 	cp 4 percent
 	jr c, .greatly_encourage
 
@@ -853,7 +853,7 @@ AI_Smart_AccuracyDown:
 ; 70% chance to greatly encourage this move.
 ; This would counter any previous discouragement.
 .maybe_greatly_encourage
-	call Random
+	predef Random
 	cp 31 percent + 1
 	ret c
 
@@ -897,7 +897,7 @@ AI_Smart_ResetStats:
 
 .encourage
 	pop hl
-	call Random
+	predef Random
 	cp 16 percent
 	ret c
 	dec [hl]
@@ -916,7 +916,7 @@ AI_Smart_Bide:
 
 	call AICheckEnemyMaxHP
 	ret c
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 	inc [hl]
@@ -954,7 +954,7 @@ AI_Smart_Moonlight:
 	ret
 
 .encourage
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 	dec [hl]
@@ -976,7 +976,7 @@ AI_Smart_Reflect:
 
 	call AICheckEnemyMaxHP
 	ret c
-	call Random
+	predef Random
 	cp 8 percent
 	ret c
 	inc [hl]
@@ -1073,7 +1073,7 @@ AI_Smart_Unused2B:
 	ret c
 
 .maybe_discourage
-	call Random
+	predef Random
 	cp 79 percent - 1
 	ret c
 
@@ -1092,7 +1092,7 @@ AI_Smart_Confuse:
 ; 90% chance to discourage this move if player's HP is between 25% and 50%.
 	call AICheckPlayerHalfHP
 	ret c
-	call Random
+	predef Random
 	cp 10 percent
 	jr c, .skipdiscourage
 	inc [hl]
@@ -1204,7 +1204,7 @@ AI_Smart_SpeedDownHit:
 	ret nz
 	call AICompareSpeed
 	ret c
-	call Random
+	predef Random
 	cp 12 percent
 	ret c
 	dec [hl]
@@ -1232,7 +1232,7 @@ AI_Smart_HyperBeam:
 
 .discourage
 ; If enemy's HP is above 50%, discourage this move at random
-	call Random
+	predef Random
 	cp 16 percent
 	ret c
 	inc [hl]
@@ -1380,7 +1380,7 @@ AI_Smart_Counter:
 	jr nc, .done
 
 .encourage
-	call Random
+	predef Random
 	cp 39 percent + 1
 	jr c, .done
 
@@ -1431,7 +1431,7 @@ AI_Smart_Encore:
 	jr nc, .discourage
 
 .encourage
-	call Random
+	predef Random
 	cp 28 percent - 1
 	ret c
 	dec [hl]
@@ -1539,7 +1539,7 @@ AI_Smart_Spite:
 	cp 15
 	jr nc, .discourage
 
-	call Random
+	predef Random
 	cp 39 percent + 1
 	ret nc
 
@@ -1548,7 +1548,7 @@ AI_Smart_Spite:
 	ret
 
 .encourage
-	call Random
+	predef Random
 	cp 39 percent + 1
 	ret c
 	dec [hl]
@@ -1697,7 +1697,7 @@ AI_Smart_Conversion2:
 	ret
 
 .discourage
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 	inc [hl]
@@ -1716,7 +1716,7 @@ AI_Smart_Disable:
 	pop hl
 	jr nc, .notencourage
 
-	call Random
+	predef Random
 	cp 39 percent + 1
 	ret c
 	dec [hl]
@@ -1728,7 +1728,7 @@ AI_Smart_Disable:
 	ret nz
 
 .discourage
-	call Random
+	predef Random
 	cp 8 percent
 	ret c
 	inc [hl]
@@ -1957,7 +1957,7 @@ AI_Smart_Protect:
 	inc [hl]
 
 .discourage
-	call Random
+	predef Random
 	cp 8 percent
 	ret c
 
@@ -1985,7 +1985,7 @@ AI_Smart_Foresight:
 	jr z, .encourage
 
 ; 92% chance to discourage this move otherwise.
-	call Random
+	predef Random
 	cp 8 percent
 	ret c
 
@@ -1993,7 +1993,7 @@ AI_Smart_Foresight:
 	ret
 
 .encourage
-	call Random
+	predef Random
 	cp 39 percent + 1
 	ret c
 
@@ -2176,7 +2176,7 @@ AI_Smart_Rollout:
 	jr nc, .maybe_discourage
 
 ; 80% chance to greatly encourage this move otherwise.
-	call Random
+	predef Random
 	cp 79 percent - 1
 	ret nc
 	dec [hl]
@@ -2204,7 +2204,7 @@ AI_Smart_Attract:
 	ret
 
 .first_turn
-	call Random
+	predef Random
 	cp 79 percent - 1
 	ret nc
 	dec [hl]
@@ -2564,7 +2564,7 @@ AI_Smart_MirrorCoat:
 	jr c, .done
 
 .encourage
-	call Random
+	predef Random
 	cp 39 percent + 1
 	jr c, .done
 	dec [hl]
@@ -2644,7 +2644,7 @@ AI_Smart_Solarbeam:
 	cp WEATHER_RAIN
 	ret nz
 
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 
@@ -2667,7 +2667,7 @@ AI_Smart_Thunder:
 	cp WEATHER_SUN
 	ret nz
 
-	call Random
+	predef Random
 	cp 10 percent
 	ret c
 
@@ -3085,7 +3085,7 @@ AI_Cautious:
 	pop hl
 	jr nc, .loop
 
-	call Random
+	predef Random
 	cp 90 percent + 1
 	ret nc
 
@@ -3194,7 +3194,7 @@ AI_Risky:
 	jr c, .nextmove
 
 ; Else, 80% chance to exclude them.
-	call Random
+	predef Random
 	cp 79 percent - 1
 	jr c, .nextmove
 
@@ -3256,11 +3256,11 @@ AIGetEnemyMove:
 	ret
 
 AI_80_20:
-	call Random
+	predef Random
 	cp 20 percent - 1
 	ret
 
 AI_50_50:
-	call Random
+	predef Random
 	cp 50 percent + 1
 	ret

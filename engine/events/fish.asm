@@ -25,7 +25,7 @@ endr
 ; Fish for monsters with rod b from encounter data in FishGroup at hl.
 ; Return monster d at level e.
 
-	call Random
+	predef Random
 	cp [hl]
 	jr nc, .no_bite
 
@@ -43,7 +43,7 @@ endr
 	ld l, a
 
 	; Compare the encounter chance to select a Pokemon.
-	call Random
+	predef Random
 .loop
 	cp [hl]
 	jr z, .ok

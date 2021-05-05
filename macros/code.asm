@@ -113,7 +113,7 @@ maskbits: MACRO
 ; and "maskbits 3, 2" becomes "and %00001100" (since "maskbits 3" becomes %00000011)
 ; example usage in rejection sampling:
 ; .loop
-; 	call Random
+; 	predef Random
 ; 	maskbits 26
 ; 	cp 26
 ; 	jr nc, .loop

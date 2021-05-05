@@ -539,7 +539,7 @@ DayCare_InitBreeding:
 	ld hl, wDayCareMan
 	set DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
 .loop
-	call Random
+	predef Random
 	cp 150
 	jr c, .loop
 	ld [wStepsToEgg], a
@@ -595,7 +595,7 @@ DayCare_InitBreeding:
 	ld a, [wCurPartySpecies]
 	cp NIDORAN_F
 	jr nz, .GotEggSpecies
-	call Random
+	predef Random
 	cp 50 percent + 1
 	ld a, NIDORAN_F
 	jr c, .GotEggSpecies
@@ -643,10 +643,10 @@ DayCare_InitBreeding:
 	dec b
 	jr nz, .loop2
 	ld hl, wEggMonDVs
-	call Random
+	predef Random
 	ld [hli], a
 	ld [wTempMonDVs], a
-	call Random
+	predef Random
 	ld [hld], a
 	ld [wTempMonDVs + 1], a
 	ld de, wBreedMon1DVs

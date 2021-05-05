@@ -116,7 +116,7 @@ CheckPhoneCall::
 	nop
 	jr nc, .no_call
 
-	call Random
+	predef Random
 	ld b, a
 	and 50 percent
 	cp b
@@ -171,7 +171,7 @@ ChooseRandomCaller:
 ; Store the number of available callers in c.
 	ld c, a
 ; Sample a random number between 0 and 31.
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	swap a
 	and $1f

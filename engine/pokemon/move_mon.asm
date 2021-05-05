@@ -202,9 +202,9 @@ endr
 	and a
 	jr nz, .copywildmonDVs
 
-	call Random
+	predef Random
 	ld b, a
-	call Random
+	predef Random
 	ld c, a
 .initializeDVs
 	ld a, b
@@ -1749,9 +1749,9 @@ GivePoke::
 	call GetFarByte
 	ld b, a
 	ld hl, sBoxMon1ID
-	call Random
+	predef Random
 	ld [hli], a
-	call Random
+	predef Random
 	ld [hl], a
 	predef CloseSRAM
 	farcall SetGiftBoxMonCaughtData

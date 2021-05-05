@@ -66,7 +66,7 @@ RandomRange::
 	; from 0 to $ff - b.
 	push bc
 .loop
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	ld c, a
 	add b

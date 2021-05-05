@@ -872,7 +872,7 @@ ReceiveIRHelloMessage:
 
 SendIRHelloMessageAfterDelay:
 	; Wait a random amount of time
-	call Random
+	predef Random
 	ld e, a
 	and $f
 	ld d, a

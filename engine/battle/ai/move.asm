@@ -183,7 +183,7 @@ AIChooseMove:
 ; Randomly choose one of the moves with a score of 1
 .ChooseMove:
 	ld hl, wEnemyAIMoveScores
-	call Random
+	predef Random
 	maskbits NUM_MOVES
 	ld c, a
 	ld b, 0

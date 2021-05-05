@@ -36,7 +36,7 @@ GetPokeBallWobble:
 
 .checkwobble
 	ld b, [hl]
-	call Random
+	predef Random
 	cp b
 	ld c, 0 ; next
 	jr c, .done

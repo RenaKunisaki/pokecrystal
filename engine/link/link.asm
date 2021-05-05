@@ -599,7 +599,7 @@ FixDataForLinkTransfer:
 	assert wLinkBattleRNPreamble + SERIAL_RN_PREAMBLE_LENGTH == wLinkBattleRNs
 	ld b, SERIAL_RNS_LENGTH
 .rn_loop
-	call Random
+	predef Random
 	cp SERIAL_PREAMBLE_BYTE
 	jr nc, .rn_loop
 	ld [hli], a

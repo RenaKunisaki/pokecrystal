@@ -1212,7 +1212,7 @@ ChooseWildEncounter_BugContest::
 ; Pick a random mon out of ContestMons.
 
 .loop
-	call Random
+	predef Random
 	cp 100 << 1
 	jr nc, .loop
 	srl a
@@ -1250,7 +1250,7 @@ ChooseWildEncounter_BugContest::
 ; Get a random level between the min and max.
 	ld c, a
 	inc c
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	call SimpleDivide
 	add d
@@ -1271,7 +1271,7 @@ TryWildEncounter_BugContest:
 .ok
 	farcall ApplyMusicEffectOnEncounterRate
 	farcall ApplyCleanseTagEffectOnEncounterRate
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	cp b
 	ret c

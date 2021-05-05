@@ -25,7 +25,7 @@ SelectRandomBugContestContestants:
 	push bc
 .next
 ; Choose a flag at uniform random to be set.
-	call Random
+	predef Random
 	cp $ff / NUM_BUG_CONTESTANTS * NUM_BUG_CONTESTANTS
 	jr nc, .next
 	ld c, $ff / NUM_BUG_CONTESTANTS

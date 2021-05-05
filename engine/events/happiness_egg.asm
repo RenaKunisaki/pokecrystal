@@ -193,7 +193,7 @@ DayCareStep::
 	dec [hl]
 	ret nz
 
-	call Random
+	predef Random
 	ld [hl], a
 	callfar CheckBreedmonCompatibility
 	ld a, [wBreedingCompatibility]
@@ -211,7 +211,7 @@ DayCareStep::
 	ld b, 4 percent
 
 .okay
-	call Random
+	predef Random
 	cp b
 	ret nc
 	ld hl, wDayCareMan

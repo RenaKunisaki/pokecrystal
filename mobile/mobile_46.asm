@@ -2994,7 +2994,7 @@ Function1196f2:
 	jp SetMobileErrorCode
 
 .asm_119722
-	call Random
+	predef Random
 	ld c, $0
 	ld b, c
 .asm_119728

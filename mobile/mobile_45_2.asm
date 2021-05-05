@@ -176,7 +176,7 @@ Function11665c:
 
 .asm_116675
 	ld [wc30f], a
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and $7
 	sla a
@@ -252,7 +252,7 @@ Function1166f4:
 	ld [wc314 + 3], a
 	ld hl, wc30f
 .asm_116702
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and $7
 	jr z, .asm_11670c
@@ -278,7 +278,7 @@ Function11671f:
 	ld [wc314 + 2], a
 	ld hl, wc30e
 .asm_11672d
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and $7
 	sla a

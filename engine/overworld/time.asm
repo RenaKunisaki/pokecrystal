@@ -135,7 +135,7 @@ endr
 
 SampleKenjiBreakCountdown:
 ; Generate a random number between 3 and 6
-	call Random
+	predef Random
 	and %11
 	add 3
 	ld [wKenjiBreakTimer], a

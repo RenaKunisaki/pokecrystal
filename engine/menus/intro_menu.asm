@@ -136,10 +136,10 @@ _ResetWRAM:
 	ldh a, [hRandomAdd]
 	ld [wPlayerID + 1], a
 
-	call Random
+	predef Random
 	ld [wSecretID], a
 	call DelayFrame
-	call Random
+	predef Random
 	ld [wSecretID + 1], a
 
 	ld hl, wPartyCount
@@ -332,9 +332,9 @@ LoadOrRegenerateLuckyIDNumber:
 	jr z, .skip
 	ld a, b
 	ld [sLuckyNumberDay], a
-	call Random
+	predef Random
 	ld c, a
-	call Random
+	predef Random
 
 .skip
 	ld [wLuckyIDNumber], a

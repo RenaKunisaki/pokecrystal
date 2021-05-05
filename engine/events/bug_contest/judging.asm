@@ -246,7 +246,7 @@ ComputeAIContestantScores:
 	inc hl
 .loop2
 	; 0, 1, or 2 for 1st, 2nd, or 3rd
-	call Random
+	predef Random
 	and 3
 	cp 3
 	jr z, .loop2
@@ -261,7 +261,7 @@ ComputeAIContestantScores:
 	ld h, [hl]
 	ld l, a
 	; randomly perturb score
-	call Random
+	predef Random
 	and %111
 	ld c, a
 	ld b, 0

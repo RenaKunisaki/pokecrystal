@@ -559,26 +559,26 @@ MovementFunction_Null:
 	ret
 
 MovementFunction_RandomWalkY:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00000001
 	jp _RandomWalkContinue
 
 MovementFunction_RandomWalkX:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00000001
 	or  %00000010
 	jp _RandomWalkContinue
 
 MovementFunction_RandomWalkXY:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00000011
 	jp _RandomWalkContinue
 
 MovementFunction_RandomSpinSlow:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00001100
 	ld hl, OBJECT_FACING
@@ -592,7 +592,7 @@ MovementFunction_RandomSpinFast:
 	ld a, [hl]
 	and %00001100
 	ld d, a
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00001100
 	cp d
@@ -1062,13 +1062,13 @@ _RandomWalkContinue:
 	; fallthrough
 
 RandomStepDuration_Slow:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %01111111
 	jr _SetRandomStepDuration
 
 RandomStepDuration_Fast:
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and %00011111
 _SetRandomStepDuration:

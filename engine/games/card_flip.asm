@@ -334,7 +334,7 @@ CardFlip_ShuffleDeck:
 	ld de, wDeck
 	ld c, CARDFLIP_DECK_SIZE - 1
 .loop
-	call Random
+	predef Random
 	and $1f
 	cp CARDFLIP_DECK_SIZE
 	jr nc, .loop

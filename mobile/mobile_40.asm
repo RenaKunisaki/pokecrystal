@@ -3679,7 +3679,7 @@ Function1018ec:
 	ld [hli], a
 	ld c, a
 .asm_1018f3
-	call Random
+	predef Random
 	ld [hli], a
 	dec c
 	jr nz, .asm_1018f3

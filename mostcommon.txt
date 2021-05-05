@@ -10,7 +10,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     218 	call GetScriptByte
     218 	predef DelayFrames
     163 	predef WaitBGMap
-    162 	call Random
+    162 	predef Random
     159 	predef PlaySFX
     158 	predef ClearBGPalettes
     154 	predef ClearSprites
@@ -1345,7 +1345,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       2 	call Rate
       2 	call RareCandy_StatBooster_GetParameters
       2 	call .RandomSample
-      2  	call Random
+      2  	predef Random
       2 	call RadioTerminator
       2 	call _QueueBattleAnimation
       2 	call QueryWhichSide
@@ -2418,7 +2418,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call ReadBTTrainerParty
       1 	call ReadBGEvents
       1 	call RandomEncounter
-      1 ; 	call Random
+      1 ; 	predef Random
       1 	call .Rampage
       1 	call RaiseStat
       1 	call .QueueFirstStep

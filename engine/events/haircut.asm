@@ -36,7 +36,7 @@ HaircutOrGrooming:
 	call GetCurNickname
 	call CopyPokemonName_Buffer1_Buffer3
 	pop hl
-	call Random
+	predef Random
 ; Bug: Subtracting $ff from $ff fails to set c.
 ; This can result in overflow into the next data array.
 ; In the case of getting a grooming from Daisy, we bleed

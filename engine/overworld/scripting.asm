@@ -1520,7 +1520,7 @@ Script_random:
 	ld b, a
 .loop
 	push bc
-	call Random
+	predef Random
 	pop bc
 	ldh a, [hRandomAdd]
 	cp b
@@ -1529,7 +1529,7 @@ Script_random:
 
 .no_restriction
 	push bc
-	call Random
+	predef Random
 	pop bc
 	ldh a, [hRandomAdd]
 

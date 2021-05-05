@@ -381,7 +381,7 @@ MemoryGame_SampleTilePlacement:
 	push hl
 	ld de, wMemoryGameCards
 .loop
-	call Random
+	predef Random
 	and %00111111
 	cp 45
 	jr nc, .loop

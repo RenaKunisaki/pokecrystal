@@ -955,7 +955,7 @@ BattleTower_SaveOptions:
 BattleTower_RandomlyChooseReward:
 ; Generate a random stat boosting item.
 .loop
-	call Random
+	predef Random
 	ldh a, [hRandomAdd]
 	and $7
 	cp 6

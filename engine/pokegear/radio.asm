@@ -195,7 +195,7 @@ OaksPKMNTalk3:
 OaksPKMNTalk4:
 ; Choose a random route, and a random Pokemon from that route.
 .sample
-	call Random
+	predef Random
 	and %11111
 	cp (OaksPKMNTalkRoutes.End - OaksPKMNTalkRoutes) / 2
 	jr nc, .sample
@@ -237,7 +237,7 @@ rept 4
 endr
 	; Generate a number, either 0, 1, or 2, to choose a time of day.
 .loop2
-	call Random
+	predef Random
 	maskbits NUM_DAYTIMES
 	cp DARKNESS_F
 	jr z, .loop2
@@ -246,7 +246,7 @@ endr
 	predef AddNTimes
 .loop3
 	; Choose one of the middle three Pokemon.
-	call Random
+	predef Random
 	maskbits NUM_GRASSMON
 	cp 2
 	jr c, .loop3
@@ -334,7 +334,7 @@ OPT_MaryText1:
 OaksPKMNTalk8:
 	; 0-15 are all valid indexes into .Adverbs,
 	; so no need for a retry loop
-	call Random
+	predef Random
 	maskbits NUM_OAKS_POKEMON_TALK_ADVERBS
 	assert_power_of_2 NUM_OAKS_POKEMON_TALK_ADVERBS
 	ld e, a
@@ -435,7 +435,7 @@ OaksPKMNTalk8:
 OaksPKMNTalk9:
 	; 0-15 are all valid indexes into .Adjectives,
 	; so no need for a retry loop
-	call Random
+	predef Random
 	maskbits NUM_OAKS_POKEMON_TALK_ADJECTIVES
 	assert_power_of_2 NUM_OAKS_POKEMON_TALK_ADJECTIVES
 	ld e, a
@@ -666,7 +666,7 @@ PokedexShow_GetDexEntryBank:
 PokedexShow1:
 	call StartRadioStation
 .loop
-	call Random
+	predef Random
 	cp NUM_POKEMON
 	jr nc, .loop
 	ld c, a
@@ -987,7 +987,7 @@ LuckyNumberShow12:
 
 LuckyNumberShow13:
 	ld hl, LC_Text11
-	call Random
+	predef Random
 	and a
 	ld a, LUCKY_CHANNEL
 	jr nz, .okay
@@ -1070,7 +1070,7 @@ PeoplePlaces2:
 
 PeoplePlaces3:
 	ld hl, PnP_Text3
-	call Random
+	predef Random
 	cp 49 percent - 1
 	ld a, PLACES_AND_PEOPLE_4 ; People
 	jr c, .ok
@@ -1091,7 +1091,7 @@ PnP_Text3:
 	text_end
 
 PeoplePlaces4: ; People
-	call Random
+	predef Random
 	maskbits NUM_TRAINER_CLASSES
 	inc a
 	cp NUM_TRAINER_CLASSES ; exclude MYSTICALMAN
@@ -1134,7 +1134,7 @@ PnP_Text4:
 PeoplePlaces5:
 	; 0-15 are all valid indexes into .Adjectives,
 	; so no need for a retry loop
-	call Random
+	predef Random
 	maskbits NUM_PNP_PEOPLE_ADJECTIVES
 	assert_power_of_2 NUM_PNP_PEOPLE_ADJECTIVES
 	ld e, a
@@ -1145,11 +1145,11 @@ PeoplePlaces5:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call Random
+	predef Random
 	cp 4 percent
 	ld a, PLACES_AND_PEOPLE
 	jr c, .ok
-	call Random
+	predef Random
 	cp 49 percent - 1
 	ld a, PLACES_AND_PEOPLE_4 ; People
 	jr c, .ok
@@ -1242,7 +1242,7 @@ PnP_OddText:
 	text_end
 
 PeoplePlaces6: ; Places
-	call Random
+	predef Random
 	cp (PnP_Places.End - PnP_Places) / 2
 	jr nc, PeoplePlaces6
 	ld hl, PnP_Places
@@ -1269,7 +1269,7 @@ PnP_Text5:
 PeoplePlaces7:
 	; 0-15 are all valid indexes into .Adjectives,
 	; so no need for a retry loop
-	call Random
+	predef Random
 	maskbits NUM_PNP_PLACES_ADJECTIVES
 	assert_power_of_2 NUM_PNP_PLACES_ADJECTIVES
 	ld e, a
@@ -1281,11 +1281,11 @@ PeoplePlaces7:
 	ld h, [hl]
 	ld l, a
 	call CopyRadioTextToRAM
-	call Random
+	predef Random
 	cp 4 percent
 	ld a, PLACES_AND_PEOPLE
 	jr c, .ok
-	call Random
+	predef Random
 	cp 49 percent - 1
 	ld a, PLACES_AND_PEOPLE_4 ; People
 	jr c, .ok
@@ -1468,7 +1468,7 @@ BuenasPassword4:
 	jr nz, .AlreadyGotIt
 ; There are only 11 groups to choose from.
 .greater_than_11
-	call Random
+	predef Random
 	maskbits NUM_PASSWORD_CATEGORIES
 	cp NUM_PASSWORD_CATEGORIES
 	jr nc, .greater_than_11
@@ -1477,7 +1477,7 @@ BuenasPassword4:
 	ld e, a
 ; For each group, choose one of the three passwords.
 .greater_than_three
-	call Random
+	predef Random
 	maskbits NUM_PASSWORDS_PER_CATEGORY
 	cp NUM_PASSWORDS_PER_CATEGORY
 	jr nc, .greater_than_three

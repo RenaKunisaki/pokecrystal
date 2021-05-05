@@ -196,7 +196,7 @@ TryWildEncounter::
 	call GetMapEncounterRate
 	call ApplyMusicEffectOnEncounterRate
 	call ApplyCleanseTagEffectOnEncounterRate
-	call Random
+	predef Random
 	cp b
 	ret
 
@@ -272,7 +272,7 @@ ChooseWildEncounter:
 ; hl contains the pointer to the wild mon data, let's save that to the stack
 	push hl
 .randomloop
-	call Random
+	predef Random
 	cp 100
 	jr nc, .randomloop
 	inc a ; 1 <= a <= 100
@@ -298,7 +298,7 @@ ChooseWildEncounter:
 	call CheckOnWater
 	jr nz, .ok
 ; Check if we buff the wild mon, and by how much.
-	call Random
+	predef Random
 	cp 35 percent
 	jr c, .ok
 	inc b
@@ -531,7 +531,7 @@ CheckEncounterRoamMon:
 ; Load the current map group and number to de
 	call CopyCurrMapDE
 ; Randomly select a beast.
-	call Random
+	predef Random
 	cp 100 ; 25/64 chance
 	jr nc, .DontEncounterRoamMon
 	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
@@ -643,7 +643,7 @@ UpdateRoamMons:
 	ld h, d
 	ld l, e
 ; Choose which map to warp to.
-	call Random
+	predef Random
 	and %00011111 ; 1/8n chance it moves to a completely random map, where n is the number of roaming connections from the current map.
 	jr z, JumpRoamMon
 	and %11
@@ -709,7 +709,7 @@ JumpRoamMon:
 	; 0-15 are all valid indexes into RoamMaps,
 	; so this retry loop is unnecessary
 	; since NUM_ROAMMON_MAPS happens to be 16
-	call Random
+	predef Random
 	maskbits NUM_ROAMMON_MAPS
 	cp NUM_ROAMMON_MAPS
 	jr nc, .innerloop1
@@ -788,7 +788,7 @@ RandomUnseenWildMon:
 	ld bc, NUM_GRASSMON * 2
 	predef AddNTimes
 .randloop1
-	call Random
+	predef Random
 	and %11
 	jr z, .randloop1
 	dec a
@@ -863,7 +863,7 @@ RandomPhoneWildMon:
 	jr .loop
 
 .done
-	call Random
+	predef Random
 	and %11
 	ld c, a
 	ld b, 0
@@ -938,7 +938,7 @@ RandomPhoneMon:
 	pop hl
 
 .rand
-	call Random
+	predef Random
 	maskbits PARTY_LENGTH
 	cp e
 	jr nc, .rand

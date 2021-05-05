@@ -28,7 +28,7 @@ StageDataForMysteryGift:
 	ld [de], a
 	inc de ; wMysteryGiftStaging+15
 	predef CloseSRAM
-	call Random
+	predef Random
 	and 1
 	ld [de], a
 	inc de ; wMysteryGiftStaging+16
@@ -58,10 +58,10 @@ StageDataForMysteryGift:
 
 .RandomSample:
 	push de
-	call Random
+	predef Random
 	cp 10 percent
 	jr c, .tenpercent
-	call Random
+	predef Random
 	and %111
 	ld d, a
 	rl d
@@ -79,10 +79,10 @@ StageDataForMysteryGift:
 	jr .done
 
 .tenpercent
-	call Random
+	predef Random
 	cp 20 percent - 1
 	jr c, .twopercent
-	call Random
+	predef Random
 	and %011
 	ld d, a
 	rl d
@@ -101,7 +101,7 @@ StageDataForMysteryGift:
 	jr .done
 
 .twopercent
-	call Random
+	predef Random
 	cp 20 percent - 1
 	jr c, .pointfourpercent
 	ld a, b

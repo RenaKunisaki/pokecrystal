@@ -3,7 +3,7 @@ _GiveOddEgg:
 
 	; Compare a random word to
 	; probabilities out of 0xffff.
-	call Random
+	predef Random
 	ld hl, OddEggProbabilities
 	ld c, 0
 	ld b, c

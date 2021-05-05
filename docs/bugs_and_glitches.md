@@ -1985,7 +1985,7 @@ CopyPokemonName_Buffer1_Buffer3:
  	jr nz, .CheckMagikarpArea
 
  ; 5% chance of skipping both size checks
- 	call Random
+ 	predef Random
  	cp 5 percent
  	jr c, .CheckMagikarpArea
  ; Try again if length >= 1616 mm (i.e. if LOW(length) >= 4 inches)
@@ -1995,7 +1995,7 @@ CopyPokemonName_Buffer1_Buffer3:
  	jr nc, .GenerateDVs
 
  ; 20% chance of skipping this check
- 	call Random
+ 	predef Random
  	cp 20 percent - 1
  	jr c, .CheckMagikarpArea
  ; Try again if length >= 1600 mm (i.e. if LOW(length) >= 3 inches)
