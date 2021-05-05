@@ -26,7 +26,7 @@ _MemoryGame:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a
-	call ByteFill
+	predef ByteFill
 	xor a
 	ldh [hSCY], a
 	ldh [hSCX], a
@@ -332,7 +332,7 @@ MemoryGame_InitBoard:
 	ld hl, wMemoryGameCards
 	ld bc, wMemoryGameCardsEnd - wMemoryGameCards
 	xor a
-	call ByteFill
+	predef ByteFill
 	call MemoryGame_GetDistributionOfTiles
 
 	ld c, 2
@@ -449,7 +449,7 @@ MemoryGame_InitStrings:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, $1
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	ld de, .japstr1
 	call PlaceString

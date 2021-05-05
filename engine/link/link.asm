@@ -1615,12 +1615,12 @@ GSPlaceTradeScreenFooter: ; unreferenced
 	hlcoord 0, 16
 	ld a, $7e
 	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 ; Clear out area for cancel string
 	hlcoord 1, 16
 	ld a, " "
 	ld bc, SCREEN_WIDTH - 2
-	call ByteFill
+	predef ByteFill
 ; Place the string
 	hlcoord 2, 16
 	ld de, .CancelString

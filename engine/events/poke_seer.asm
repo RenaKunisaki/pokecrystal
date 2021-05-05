@@ -149,7 +149,7 @@ GetCaughtLevel:
 	ld a, "@"
 	ld hl, wSeerCaughtLevelString
 	ld bc, 4
-	call ByteFill
+	predef ByteFill
 
 	; caught level
 	; Limited to between 1 and 63 since it's a 6-bit quantity.

@@ -779,7 +779,7 @@ BillsPC_InitRAM:
 	ld hl, wBillsPCData
 	ld bc, wBillsPCDataEnd - wBillsPCData
 	xor a
-	call ByteFill
+	predef ByteFill
 	xor a
 	ld [wJumptableIndex], a
 	ld [wUnusedBillsPCData], a
@@ -1408,7 +1408,7 @@ CopyBoxmonSpecies:
 	xor a
 	ld hl, wBillsPCPokemonList
 	ld bc, 3 * 30
-	call ByteFill
+	predef ByteFill
 	ld de, wBillsPCPokemonList
 	xor a
 	ld [wBillsPCTempListIndex], a
@@ -2193,7 +2193,7 @@ BillsPC_InitGFX:
 	ld hl, vTiles2 tile $00
 	ld bc, $31 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	call LoadStandardFont
 	call LoadFontsBattleExtra
 	ld hl, PCMailGFX
@@ -2260,7 +2260,7 @@ BillsPC_ClearTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ret
 
 _ChangeBox_MenuHeader:

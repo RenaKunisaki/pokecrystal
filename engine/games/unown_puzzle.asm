@@ -17,7 +17,7 @@ _UnownPuzzle:
 	ld hl, wUnownPuzzle ; includes wPuzzlePieces
 	ld bc, wUnownPuzzleEnd - wUnownPuzzle
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, UnownPuzzleCursorGFX
 	ld de, vTiles0 tile $e0
 	ld bc, 4 tiles
@@ -29,7 +29,7 @@ _UnownPuzzle:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, PUZZLE_BORDER
-	call ByteFill
+	predef ByteFill
 	hlcoord 4, 3
 	lb bc, 12, 12
 	ld a, PUZZLE_VOID
@@ -144,7 +144,7 @@ PlaceStartCancelBoxBorder:
 	ld [hli], a
 	ld bc, 10
 	ld a, $f1
-	call ByteFill
+	predef ByteFill
 	hlcoord 15, 15
 	ld a, $f2
 	ld [hli], a
@@ -153,7 +153,7 @@ PlaceStartCancelBoxBorder:
 	ld [hli], a
 	ld bc, 10
 	ld a, PUZZLE_VOID
-	call ByteFill
+	predef ByteFill
 	hlcoord 15, 16
 	ld a, $f3
 	ld [hli], a
@@ -162,7 +162,7 @@ PlaceStartCancelBoxBorder:
 	ld [hli], a
 	ld bc, 10
 	ld a, $f1
-	call ByteFill
+	predef ByteFill
 	hlcoord 15, 17
 	ld a, $f5
 	ld [hl], a

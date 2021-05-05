@@ -184,7 +184,7 @@ Function4a94e:
 	ld a, -1
 	ld hl, wd002
 	ld bc, 3
-	call ByteFill
+	predef ByteFill
 	xor a
 	ld [wd018], a
 	ld [wd019], a
@@ -219,7 +219,7 @@ Function4a94e:
 	ld hl, wd002
 	ld a, -1
 	ld bc, 3
-	call ByteFill
+	predef ByteFill
 	scf
 	jr .asm_4a9af
 

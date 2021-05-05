@@ -55,7 +55,7 @@ PrintPage2:
 	hlcoord 0, 0, wPrinterTilemapBuffer
 	ld bc, 8 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0, wPrinterTilemapBuffer
 	ld a, $36
 	ld b, 6
@@ -69,12 +69,12 @@ PrintPage2:
 	inc hl
 	ld a, $39
 	ld bc, SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ld [hl], $3a
 	hlcoord 0, 7, wPrinterTilemapBuffer
 	ld bc, SCREEN_WIDTH
 	ld a, $32
-	call ByteFill
+	predef ByteFill
 	ld a, [wTempSpecies]
 	dec a
 	call CheckCaughtMon

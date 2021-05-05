@@ -894,7 +894,7 @@ ResetBattleTowerTrainersSRAM:
 	ld a, $ff
 	ld hl, sBTTrainers
 	ld bc, BATTLETOWER_STREAK_LENGTH
-	call ByteFill
+	predef ByteFill
 
 	xor a
 	ld [sNrOfBeatenBattleTowerTrainers], a
@@ -1235,7 +1235,7 @@ Function170923:
 	ld [s5_aa47], a
 	ld hl, s5_aa5d
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 

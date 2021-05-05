@@ -636,13 +636,13 @@ PrintPCBox_Page1:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call Printer_PlaceEmptyBoxSlotString
 
 	hlcoord 0, 0
 	ld bc, 9 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 
 	call Printer_PlaceSideBorders
 	call Printer_PlaceTopBorder
@@ -673,7 +673,7 @@ PrintPCBox_Page2:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call Printer_PlaceEmptyBoxSlotString
 	call Printer_PlaceSideBorders
 	ld a, [wFinishedPrintingBox]
@@ -690,7 +690,7 @@ PrintPCBox_Page3:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call Printer_PlaceEmptyBoxSlotString
 	call Printer_PlaceSideBorders
 	ld a, [wFinishedPrintingBox]
@@ -707,7 +707,7 @@ PrintPCBox_Page4:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call Printer_PlaceEmptyBoxSlotString
 	hlcoord 1, 15
 	lb bc, 2, 18
@@ -745,7 +745,7 @@ Printer_PrintBoxListSegment:
 	push hl
 	ld bc, 16
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	pop hl
 
 	push hl
@@ -770,7 +770,7 @@ Printer_PrintBoxListSegment:
 	push hl
 	ld bc, 14
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	pop hl
 
 	push hl

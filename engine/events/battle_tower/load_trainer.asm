@@ -8,7 +8,7 @@ LoadOpponentTrainerAndPokemon:
 	xor a
 	ld hl, wBT_OTTrainer
 	ld bc, BATTLE_TOWER_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 
 	; Write $ff into the Item-Slots
 	ld a, $ff

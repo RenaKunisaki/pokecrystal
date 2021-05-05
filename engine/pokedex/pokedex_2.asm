@@ -167,7 +167,7 @@ DisplayDexEntry:
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
 	ld a, $61 ; horizontal divider
-	call ByteFill
+	predef ByteFill
 	; page number
 	hlcoord 1, 9
 	ld [hl], $55
@@ -197,7 +197,7 @@ DisplayDexEntry:
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
 	ld a, $61
-	call ByteFill
+	predef ByteFill
 	; page number
 	hlcoord 1, 9
 	ld [hl], $55

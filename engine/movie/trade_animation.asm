@@ -170,7 +170,7 @@ RunTradeAnimScript:
 	ld hl, vTiles0
 	ld bc, sScratch - vTiles0
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, $0
 	ldh [rVBK], a
 
@@ -178,7 +178,7 @@ RunTradeAnimScript:
 	hlbgcoord 0, 0
 	ld bc, sScratch - vBGMap0
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld hl, TradeGameBoyLZ
 	ld de, vTiles2 tile $31
 	call Decompress
@@ -342,7 +342,7 @@ TradeAnim_InitTubeAnim:
 	hlbgcoord 20, 3
 	ld bc, 12
 	ld a, $60
-	call ByteFill
+	predef ByteFill
 	pop af
 
 	call TradeAnim_TubeAnimJumptable
@@ -472,7 +472,7 @@ TradeAnim_TubeToPlayer8:
 	hlbgcoord 0, 0
 	ld bc, sScratch - vBGMap0
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	xor a
 	ldh [hSCX], a
 	ld a, $90
@@ -539,7 +539,7 @@ TradeAnim_TubeAnimJumptable:
 	inc hl
 	ld bc, 10
 	ld a, $60
-	call ByteFill
+	predef ByteFill
 	hlcoord 3, 2
 	call TradeAnim_CopyTradeGameBoyTilemap
 	ret
@@ -549,7 +549,7 @@ TradeAnim_TubeAnimJumptable:
 	hlcoord 0, 3
 	ld bc, SCREEN_WIDTH
 	ld a, $60
-	call ByteFill
+	predef ByteFill
 	ret
 
 .Two:
@@ -557,7 +557,7 @@ TradeAnim_TubeAnimJumptable:
 	hlcoord 0, 3
 	ld bc, $11
 	ld a, $60
-	call ByteFill
+	predef ByteFill
 	hlcoord 17, 3
 	ld a, $5d
 	ld [hl], a
@@ -596,7 +596,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH
 	ld a, "─"
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 1
 	ld de, wLinkPlayer1Name
 	call PlaceString
@@ -617,7 +617,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	hlcoord 7, 2
 	ld bc, 6
 	pop af
-	call ByteFill
+	predef ByteFill
 	call WaitBGMap
 	call WaitTop
 	ld a, HIGH(vBGMap0)
@@ -1219,7 +1219,7 @@ TradeAnim_TakeCareOfText:
 	hlcoord 0, 10
 	ld bc, 8 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call WaitBGMap
 	ld hl, .TakeGoodCareOfMonText
 	call PrintText
@@ -1280,7 +1280,7 @@ TradeAnim_BlankTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ret
 
 TradeAnim_CopyBoxFromDEtoHL:

@@ -16,7 +16,7 @@ ReadTrainerParty:
 	ld hl, wOTPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH * PARTY_LENGTH
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld a, [wOtherTrainerClass]
 	cp CAL

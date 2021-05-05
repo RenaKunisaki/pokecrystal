@@ -296,7 +296,7 @@ ClearVBank1::
 	ld hl, VRAM_Begin
 	ld bc, VRAM_End - VRAM_Begin
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld a, 0
 	ldh [rVBK], a
@@ -316,7 +316,7 @@ ReloadSpritesNoPalettes::
 	ld hl, wBGPals2
 	ld bc, (8 palettes) + (2 palettes)
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop af
 	ldh [rSVBK], a
 	ld a, TRUE

@@ -88,7 +88,7 @@ _PlayerDecorationMenu:
 	ld [hli], a
 	ld bc, ITEM_NAME_LENGTH - 1
 	ld a, -1
-	call ByteFill
+	predef ByteFill
 	ret
 
 .AppendToStringBuffer2:
@@ -142,7 +142,7 @@ Deco_FillTempWithMinusOne:
 	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld a, -1
 	ld bc, 16
-	call ByteFill
+	predef ByteFill
 	ret
 
 CheckAllDecorationFlags:

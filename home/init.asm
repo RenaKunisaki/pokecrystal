@@ -85,7 +85,7 @@ Init::
 	xor a
 	ld hl, HRAM_Begin
 	ld bc, HRAM_End - HRAM_Begin
-	call ByteFill
+	predef ByteFill
 	pop af
 	ldh [hSystemBooted], a
 	pop af

@@ -1695,7 +1695,7 @@ ResetStringBuffer1:
 	ld hl, wStringBuffer1
 	ld bc, NAME_LENGTH
 	ld a, "@"
-	call ByteFill
+	predef ByteFill
 	ret
 
 Script_getstring:

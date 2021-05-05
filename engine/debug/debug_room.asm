@@ -42,7 +42,7 @@ _DebugRoom:
 	ld hl, wTilemap
 	ld bc, wTilemapEnd - wTilemap
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	call DebugRoom_PrintStackBottomTop
 	call DebugRoom_PrintWindowStackBottomTop
 	call DebugRoom_PrintRTCHaltChk
@@ -267,7 +267,7 @@ DebugRoomMenu_WinWorkClr:
 	ld c, l
 	ld hl, wWindowStack
 	xor a
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 
@@ -357,11 +357,11 @@ DebugRoomMenu_PokedexClr:
 	ld hl, sPlayerData + (wPokedexCaught - wPlayerData)
 	ld bc, wEndPokedexSeen - wPokedexCaught
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, sGameData + (wUnownDex - wGameData)
 	ld bc, NUM_UNOWN
 	xor a
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
@@ -1569,7 +1569,7 @@ DebugRoomMenu_BtlRecClr:
 	xor a
 	ld hl, sLinkBattleStats
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 
@@ -1583,7 +1583,7 @@ DebugRoomMenu_HOFClear:
 	xor a
 	ld hl, sHallOfFame
 	ld bc, sHallOfFameEnd - sHallOfFame
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret

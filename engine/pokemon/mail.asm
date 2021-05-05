@@ -24,7 +24,7 @@ SendMailToPC:
 	pop hl
 	xor a
 	ld bc, MAIL_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	ld [hl], 0
@@ -66,7 +66,7 @@ DeleteMailFromPC:
 	ld l, e
 	xor a
 	ld bc, MAIL_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld hl, sMailboxCount
 	dec [hl]
 	jp CloseSRAM
@@ -268,11 +268,11 @@ DeletePartyMonMail:
 	xor a
 	ld hl, sPartyMail
 	ld bc, PARTY_LENGTH * MAIL_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	xor a
 	ld hl, sMailboxCount
 	ld bc, 1 + MAILBOX_CAPACITY * MAIL_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	jp CloseSRAM
 
 IsAnyMonHoldingMail:

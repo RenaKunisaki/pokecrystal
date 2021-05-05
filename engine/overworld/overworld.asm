@@ -46,7 +46,7 @@ RefreshSprites::
 	xor a
 	ld bc, wUsedSpritesEnd - wUsedSprites
 	ld hl, wUsedSprites
-	call ByteFill
+	predef ByteFill
 	call GetPlayerSprite
 	call AddMapSprites
 	call LoadAndSortSprites

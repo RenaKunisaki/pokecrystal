@@ -40,11 +40,11 @@ Function17a6a8:
 	ld hl, wStringBuffer2
 	ld bc, $a
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, wd1ea
 	ld bc, $10
 	ld a, $ff
-	call ByteFill
+	predef ByteFill
 	pop bc
 	ld a, c
 	and a
@@ -105,7 +105,7 @@ Function17a721:
 	ld l, e
 	ld bc, $8
 	ld a, $ff
-	call ByteFill
+	predef ByteFill
 	pop de
 	ld hl, wd1ea
 	ld b, $8

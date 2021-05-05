@@ -1338,7 +1338,7 @@ Pack_InitGFX:
 	hlcoord 0, 1
 	ld bc, 11 * SCREEN_WIDTH
 	ld a, $24
-	call ByteFill
+	predef ByteFill
 ; This is where the items themselves will be listed.
 	hlcoord 5, 1
 	lb bc, 11, 15
@@ -1424,7 +1424,7 @@ Pack_ClearTilemap: ; unreferenced
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ret
 
 ClearPocketList:

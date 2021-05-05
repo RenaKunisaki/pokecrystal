@@ -12,7 +12,7 @@ DeleteMapObject::
 	ld l, c
 	ld bc, OBJECT_LENGTH
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop af
 	cp -1
 	jr z, .ok
@@ -2112,7 +2112,7 @@ DespawnEmote:
 	push bc
 	xor a
 	ld bc, OBJECT_LENGTH
-	call ByteFill
+	predef ByteFill
 	pop bc
 .next
 	ld hl, OBJECT_LENGTH
@@ -2823,7 +2823,7 @@ InitSprites:
 	xor a
 	ld hl, wObjectPriorities
 	ld bc, NUM_OBJECT_STRUCTS
-	call ByteFill
+	predef ByteFill
 	ld d, 0
 	ld bc, wObjectStructs
 	ld hl, wObjectPriorities

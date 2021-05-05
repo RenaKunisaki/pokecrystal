@@ -262,7 +262,7 @@ NamingScreen_InitText:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, NAMINGSCREEN_BORDER
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 1
 	lb bc, 6, 18
 	call NamingScreen_IsTargetBox
@@ -976,11 +976,11 @@ INCBIN "gfx/icons/mail_big.2bpp"
 	hlcoord 0, 0
 	ld bc, 6 * SCREEN_WIDTH
 	ld a, NAMINGSCREEN_BORDER
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 6
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 1
 	lb bc, 4, SCREEN_WIDTH - 2
 	call ClearBox

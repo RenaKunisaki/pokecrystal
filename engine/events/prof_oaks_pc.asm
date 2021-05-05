@@ -68,7 +68,7 @@ Rate:
 	push hl
 	ld a, "@"
 	ld bc, ITEM_NAME_LENGTH
-	call ByteFill
+	predef ByteFill
 	pop hl
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
 	call PrintNum

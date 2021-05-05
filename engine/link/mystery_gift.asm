@@ -1439,7 +1439,7 @@ InitMysteryGiftLayout:
 	hlcoord 0, 0
 	ld a, $42
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	hlcoord 3, 7
 	lb bc, 9, 15
 	call ClearBox
@@ -1737,7 +1737,7 @@ InitNameCardLayout:
 	hlcoord 0, 0
 	ld a, $3f
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	hlcoord 3, 7
 	lb bc, 9, 15
 	call ClearBox

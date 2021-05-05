@@ -55,11 +55,11 @@ SetRAMStateForMobile:
 	xor a
 	ld hl, wBGMapBuffer
 	ld bc, $65
-	call ByteFill
+	predef ByteFill
 	xor a
 	ld hl, wMobileWRAM
 	ld bc, wMobileWRAMEnd - wMobileWRAM
-	call ByteFill
+	predef ByteFill
 	ldh a, [rIE]
 	ld [wBGMapBuffer], a
 	xor a
@@ -71,7 +71,7 @@ EnableMobile:
 	xor a
 	ld hl, wOverworldMapBlocks
 	ld bc, wOverworldMapBlocksEnd - wOverworldMapBlocks
-	call ByteFill
+	predef ByteFill
 
 	di
 	call DoubleSpeed
@@ -2441,7 +2441,7 @@ Function10107d:
 	xor a
 	ld hl, wc608
 	ld bc, wc7bd - wc608
-	call ByteFill
+	predef ByteFill
 	ld hl, wOTPlayerName
 	ld de, wc608
 	ld bc, NAME_LENGTH
@@ -2503,7 +2503,7 @@ LoadSelectedPartiesForColosseum:
 	xor a
 	ld hl, wStringBuffer2
 	ld bc, 9
-	call ByteFill
+	predef ByteFill
 	ld hl, wPlayerMonSelection
 	ld de, wPartyCount
 	call .CopyThreeSpecies
@@ -3467,7 +3467,7 @@ Function10176f:
 	ld hl, wccb4
 	ld bc, $54
 	ld a, $11
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function10177b:
@@ -4633,7 +4633,7 @@ Function10209c:
 	ld a, $ff
 	ld hl, wdc42
 	ld bc, 8
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function1020a8:
@@ -4862,7 +4862,7 @@ Function102233:
 	ld hl, wcd49
 	ld bc, 10
 	xor a
-	call ByteFill
+	predef ByteFill
 	call Function10304f
 	ret
 
@@ -6128,7 +6128,7 @@ Function102b68: ; unreferenced
 	xor a
 	ld hl, wWindowStackPointer
 	ld bc, $10
-	call ByteFill
+	predef ByteFill
 	ret
 
 MenuData_102b73:
@@ -6414,11 +6414,11 @@ Function102d9a:
 	ld a, " "
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ld a, $07
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	ret
 
@@ -6908,7 +6908,7 @@ Function103309:
 	ld hl, wd1ea
 	ld bc, 10
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, BANK(s4_a60c)
 	call OpenSRAM
 	ld a, [wdc41]

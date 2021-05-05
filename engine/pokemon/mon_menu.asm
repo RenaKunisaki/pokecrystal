@@ -909,7 +909,7 @@ MoveScreenLoop:
 	ld a, " "
 	hlcoord 1, 11
 	ld bc, 5
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 12
 	lb bc, 5, SCREEN_WIDTH - 2
 	call ClearBox

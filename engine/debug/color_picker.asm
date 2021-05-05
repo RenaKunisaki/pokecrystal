@@ -132,24 +132,24 @@ DebugColor_InitVRAM:
 	ld hl, vTiles3
 	ld bc, sScratch - vTiles3
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld a, BANK(vTiles0)
 	ldh [rVBK], a
 	ld hl, vTiles0
 	ld bc, sScratch - vTiles0
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	call ClearSprites
 	ret
@@ -302,7 +302,7 @@ DebugColor_InitScreen:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, DEBUGTEST_BLACK
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 3
 	lb bc, 7, 18
 	ld a, DEBUGTEST_WHITE
@@ -411,12 +411,12 @@ DebugColor_LoadRGBMeter:
 	ld [hli], a
 	ld bc, 15
 	ld a, DEBUGTEST_TICKS_2
-	call ByteFill
+	predef ByteFill
 	ld l, e
 	ld h, d
 	pop af
 	ld bc, 20 * 2
-	call ByteFill
+	predef ByteFill
 	ret
 
 DebugColor_SetRGBMeter:
@@ -694,7 +694,7 @@ DebugColor_InitTMHM:
 	hlcoord 0, 10
 	ld bc, SCREEN_WIDTH * 8
 	ld a, DEBUGTEST_BLACK
-	call ByteFill
+	predef ByteFill
 	hlcoord 2, 12
 	ld de, DebugColor_AreYouFinishedString
 	call PlaceString
@@ -812,7 +812,7 @@ DebugColor_PrintTMHMMove:
 .ClearRow:
 	ld bc, 10
 	ld a, DEBUGTEST_BLACK
-	call ByteFill
+	predef ByteFill
 	ret
 
 DebugColor_CalculatePalette:
@@ -1098,11 +1098,11 @@ TilesetColorPicker: ; unreferenced
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, DEBUGTEST_BLACK
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, PAL_BG_TEXT
-	call ByteFill
+	predef ByteFill
 	decoord 1, 1, 0
 	ld a, DEBUGTEST_WHITE
 	call DebugTileset_DrawColorSwatch
@@ -1158,7 +1158,7 @@ DebugTileset_LoadRGBMeter:
 	ld [hli], a
 	ld bc, 15
 	ld a, DEBUGTEST_TICKS_2
-	call ByteFill
+	predef ByteFill
 	ret
 
 DebugTileset_LoadPalettes:

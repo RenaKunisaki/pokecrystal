@@ -261,13 +261,13 @@ MobileTradeAnim_ClearTiles:
 	ld hl, vTiles0
 	ld bc, 3 * $80 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, $0
 	ldh [rVBK], a
 	ld hl, vTiles0
 	ld bc, 3 * $80 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 MobileTradeAnim_ClearBGMap:
@@ -276,13 +276,13 @@ MobileTradeAnim_ClearBGMap:
 	hlbgcoord 0, 0
 	ld bc, 2 * BG_MAP_HEIGHT * BG_MAP_WIDTH
 	ld a, $0
-	call ByteFill
+	predef ByteFill
 	ld a, $0
 	ldh [rVBK], a
 	hlbgcoord 0, 0
 	ld bc, 2 * BG_MAP_HEIGHT * BG_MAP_WIDTH
 	ld a, $7f
-	call ByteFill
+	predef ByteFill
 	ret
 
 MobileTradeAnim_GetFrontpic:
@@ -506,7 +506,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 	hlcoord 0, 0
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld c, 80
 	call WaitMobileTradeSpriteAnims
 	call GetMobileTradeAnimByte
@@ -639,7 +639,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	hlcoord 0, 0
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld c, 80
 	call WaitMobileTradeSpriteAnims
 	call GetMobileTradeAnimByte
@@ -1358,7 +1358,7 @@ MobileTradeAnim_ClearTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function108ad4:

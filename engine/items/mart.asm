@@ -105,7 +105,7 @@ LoadMartPointer:
 	assert wCurMartCount + 1 == wCurMartItems
 	xor a
 	ld bc, 16
-	call ByteFill
+	predef ByteFill
 	xor a ; STANDARDMART_HOWMAYIHELPYOU
 	ld [wMartJumptableIndex], a
 	ld [wBargainShopFlags], a

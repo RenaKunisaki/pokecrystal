@@ -242,7 +242,7 @@ InitPokegearTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, $4f
-	call ByteFill
+	predef ByteFill
 	ld a, [wPokegearCard]
 	maskbits NUM_POKEGEAR_CARDS
 	add a
@@ -338,7 +338,7 @@ InitPokegearTilemap:
 	ld a, $07
 	ld bc, SCREEN_WIDTH - 2
 	hlcoord 1, 2
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 2
 	ld [hl], $06
 	hlcoord 19, 2
@@ -385,11 +385,11 @@ Pokegear_FinishTilemap:
 	hlcoord 0, 0
 	ld bc, $8
 	ld a, $4f
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 1
 	ld bc, $8
 	ld a, $4f
-	call ByteFill
+	predef ByteFill
 	ld de, wPokegearFlags
 	ld a, [de]
 	bit POKEGEAR_MAP_CARD_F, a
@@ -1341,7 +1341,7 @@ DeleteSpriteAnimStruct2ToEnd:
 	ld hl, wSpriteAnim2
 	ld bc, wSpriteAnimationStructsEnd - wSpriteAnim2
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, 2
 	ld [wSpriteAnimCount], a
 	ret
@@ -1929,7 +1929,7 @@ _TownMap:
 	ld a, $07
 	ld bc, 6
 	hlcoord 1, 0
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	ld [hl], $06
 	hlcoord 7, 0
@@ -1941,7 +1941,7 @@ _TownMap:
 	ld a, $07
 	ld bc, NAME_LENGTH
 	hlcoord 8, 2
-	call ByteFill
+	predef ByteFill
 	hlcoord 19, 2
 	ld [hl], $17
 	ld a, [wTownMapCursorLandmark]
@@ -2170,7 +2170,7 @@ TownMapBubble:
 ; Top row
 	ld bc, 16
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 ; Top-right corner
 	ld a, $31
 	ld [hl], a
@@ -2179,7 +2179,7 @@ TownMapBubble:
 ; Middle row
 	ld bc, SCREEN_WIDTH - 2
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 
 ; Bottom-left corner
 	hlcoord 1, 2
@@ -2188,7 +2188,7 @@ TownMapBubble:
 ; Bottom row
 	ld bc, 16
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 ; Bottom-right corner
 	ld a, $33
 	ld [hl], a
@@ -2479,13 +2479,13 @@ Pokedex_GetArea:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 1
 	ld a, $06
 	ld [hli], a
 	ld bc, SCREEN_WIDTH - 2
 	ld a, $07
-	call ByteFill
+	predef ByteFill
 	ld [hl], $17
 	call GetPokemonName
 	hlcoord 2, 0
@@ -2578,7 +2578,7 @@ Pokedex_GetArea:
 	ld hl, wVirtualOAMSprite04
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 .PlayerOAM:
@@ -2616,7 +2616,7 @@ Pokedex_GetArea:
 	ld hl, wVirtualOAM
 	ld bc, wVirtualOAMEnd - wVirtualOAM
 	xor a
-	call ByteFill
+	predef ByteFill
 	scf
 	ret
 

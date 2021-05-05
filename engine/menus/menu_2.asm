@@ -212,7 +212,7 @@ FindApricornsInBag:
 	assert wKurtApricornCount + 1 == wKurtApricornItems
 	dec a
 	ld bc, 10
-	call ByteFill
+	predef ByteFill
 
 	ld hl, ApricornBalls
 .loop

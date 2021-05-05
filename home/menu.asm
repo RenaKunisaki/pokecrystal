@@ -785,7 +785,7 @@ ClearWindowData::
 .bytefill
 	ld bc, $10
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 MenuClickSound::

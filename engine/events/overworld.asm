@@ -2,7 +2,7 @@ FieldMoveJumptableReset:
 	xor a
 	ld hl, wFieldMoveData
 	ld bc, wFieldMoveDataEnd - wFieldMoveData
-	call ByteFill
+	predef ByteFill
 	ret
 
 FieldMoveJumptable:

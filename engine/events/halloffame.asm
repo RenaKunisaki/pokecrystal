@@ -138,7 +138,7 @@ GetHallOfFameParty:
 	ld hl, wHallOfFamePokemonList
 	ld bc, wHallOfFamePokemonListEnd - wHallOfFamePokemonList + 1
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, [wHallOfFameCount]
 	ld de, wHallOfFamePokemonList
 	ld [de], a
@@ -239,7 +239,7 @@ AnimateHOFMonEntrance:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld de, vTiles2 tile $31
 	predef GetMonBackpic
 	ld a, $31
@@ -263,7 +263,7 @@ AnimateHOFMonEntrance:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 6, 5
 	call _PrepMonFrontpic
 	call WaitBGMap
@@ -453,7 +453,7 @@ DisplayHOFMon:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	lb bc, 3, SCREEN_WIDTH - 2
 	call Textbox
@@ -525,7 +525,7 @@ HOF_AnimatePlayerPic:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	farcall GetPlayerBackpic
 	ld a, $31
 	ldh [hGraphicStartTile], a
@@ -549,7 +549,7 @@ HOF_AnimatePlayerPic:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	farcall HOF_LoadTrainerFrontpic
 	xor a
 	ldh [hGraphicStartTile], a

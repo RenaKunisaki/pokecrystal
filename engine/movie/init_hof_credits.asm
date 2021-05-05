@@ -8,11 +8,11 @@ InitDisplayForHallOfFame:
 	hlbgcoord 0, 0
 	ld bc, vBGMap1 - vBGMap0
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 	xor a
 	ldh [hSCY], a
 	ldh [hSCX], a
@@ -37,11 +37,11 @@ InitDisplayForRedCredits:
 	hlbgcoord 0, 0
 	ld bc, vBGMap1 - vBGMap0
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, wBGPals1
 	ld c, 4 tiles
 .load_white_palettes
@@ -67,7 +67,7 @@ ResetDisplayBetweenHallOfFameMons:
 	ld hl, wDecompressScratch
 	ld bc, wScratchAttrmap - wDecompressScratch
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlbgcoord 0, 0
 	ld de, wDecompressScratch
 	ld b, 0

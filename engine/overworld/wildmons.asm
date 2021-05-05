@@ -32,7 +32,7 @@ FindNest:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, e
 	and a
 	jr nz, .kanto

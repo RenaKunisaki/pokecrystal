@@ -22,7 +22,7 @@ Function115dc3:
 	ld a, $a0
 	ld hl, wVirtualOAMSprite31
 	ld bc, 8 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function115dd3:
@@ -32,7 +32,7 @@ Function115dd3:
 	ld a, $a0
 	ld hl, wVirtualOAMSprite31
 	ld bc, 8 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	call Function115e22
 	ld a, [wc309]
 	sla a
@@ -347,7 +347,7 @@ Function11619d:
 	ld a, $a0
 	ld hl, wVirtualOAM
 	ld bc, 25 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 
 .asm_1161b4
 	call Function1161b8
@@ -631,7 +631,7 @@ Function11636e:
 	ld a, $a0
 	ld hl, wVirtualOAM
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld a, $90
 	ldh [hWY], a
 	call UpdateSprites
@@ -657,7 +657,7 @@ Function1163c0:
 	ld a, $a0
 	ld hl, wVirtualOAM
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	call DelayFrame
 	farcall _RefreshSprites
 	ld b, SCGB_MAPPALS

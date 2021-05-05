@@ -288,7 +288,7 @@ ClearVRAM_far::
 	ld hl, VRAM_Begin
 	ld bc, VRAM_End - VRAM_Begin
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 ClearWRAM_far::
@@ -299,7 +299,7 @@ ClearWRAM_far::
 	xor a
 	ld hl, WRAM1_Begin
 	ld bc, WRAM1_End - WRAM1_Begin
-	call ByteFill
+	predef ByteFill
 	pop af
 	inc a
 	cp 8
@@ -315,7 +315,7 @@ ClearsScratch_far::
 	ld hl, sScratch
 	ld bc, $20
 	xor a
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 

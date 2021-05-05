@@ -79,7 +79,7 @@ Function170be4:
 	xor a
 	ld hl, s5_a894
 	ld bc, 6 + 2
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 
@@ -415,7 +415,7 @@ Function171ad7:
 	xor a
 	ld hl, $c608
 	ld bc, $66
-	call ByteFill
+	predef ByteFill
 	ld de, $c608
 	ld a, $c
 	call Function3e32
@@ -436,7 +436,7 @@ Function171aec:
 	push hl
 	xor a
 	ld bc, $10
-	call ByteFill
+	predef ByteFill
 	pop hl
 	ld de, $14
 	add hl, de
@@ -789,11 +789,11 @@ Function172e78:
 	ld a, $7f
 	hlcoord 0, 0
 	ld bc, $168
-	call ByteFill
+	predef ByteFill
 	ld a, $7
 	hlcoord 0, 0, wAttrmap
 	ld bc, $168
-	call ByteFill
+	predef ByteFill
 	call DisableLCD
 	ld hl, Stadium2N64GFX
 	ld de, vTiles2 tile $00

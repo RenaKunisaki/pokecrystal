@@ -437,15 +437,15 @@ IntroScene9:
 	; first 12 rows have palette 1
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, $1
-	call ByteFill
+	predef ByteFill
 	; middle 3 rows have palette 2
 	ld bc, 3 * SCREEN_WIDTH
 	ld a, $2
-	call ByteFill
+	predef ByteFill
 	; last three rows have palette 3
 	ld bc, 3 * SCREEN_WIDTH
 	ld a, $3
-	call ByteFill
+	predef ByteFill
 	ld a, $2
 	ldh [hBGMapMode], a
 	call DelayFrame
@@ -1259,7 +1259,7 @@ CrystalIntro_UnownFade:
 	ld hl, wBGPals2
 	ld bc, 8 palettes
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop bc
 	pop hl
 
@@ -1559,7 +1559,7 @@ Intro_ClearBGPals:
 	ld hl, wBGPals2
 	ld bc, 16 palettes
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	pop af
 	ldh [rSVBK], a
@@ -1635,7 +1635,7 @@ Intro_ResetLYOverrides:
 	ld hl, wLYOverrides
 	ld bc, wLYOverridesEnd - wLYOverrides
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	pop af
 	ldh [rSVBK], a
@@ -1659,7 +1659,7 @@ Intro_PerspectiveScrollBG:
 	ld a, [hl]
 	inc a
 	ld bc, $5f
-	call ByteFill
+	predef ByteFill
 .skip
 	; grass in the front
 	ld hl, wLYOverrides + $5f
@@ -1667,7 +1667,7 @@ Intro_PerspectiveScrollBG:
 	inc a
 	inc a
 	ld bc, $31
-	call ByteFill
+	predef ByteFill
 	ld a, [wLYOverrides + 0]
 	ldh [hSCX], a
 	pop af

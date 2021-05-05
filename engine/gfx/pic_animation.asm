@@ -291,7 +291,7 @@ PokeAnim_InitPicAttributes:
 	ld hl, wPokeAnimStruct
 	ld bc, wPokeAnimStructEnd - wPokeAnimStruct
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop hl
 	pop de
 	pop bc
@@ -340,7 +340,7 @@ PokeAnim_InitAnim:
 	ld hl, wPokeAnimIdleFlag
 	ld bc, wPokeAnimStructEnd - wPokeAnimIdleFlag
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop bc
 	ld a, b
 	ld [wPokeAnimSpeed], a

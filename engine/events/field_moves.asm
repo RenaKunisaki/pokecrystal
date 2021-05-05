@@ -67,7 +67,7 @@ ShakeHeadbuttTree:
 	ld hl, wVirtualOAMSprite36
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite36
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld de, Font
 	ld hl, vTiles1
 	lb bc, BANK(Font), 12
@@ -383,7 +383,7 @@ endr
 	ld hl, wVirtualOAMSprite04
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 FlyFunction_InitGFX:

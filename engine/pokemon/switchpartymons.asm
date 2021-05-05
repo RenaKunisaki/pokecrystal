@@ -23,7 +23,7 @@ _SwitchPartyMons:
 	call AddNTimes
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	pop af
 	ld hl, wVirtualOAMSprite00
 	ld bc, 4 * SPRITEOAMSTRUCT_LENGTH

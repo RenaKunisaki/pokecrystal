@@ -415,7 +415,7 @@ LoadBlueSkyMailGFX:
 	call LoadMailGFX_Color2
 	ld a, $ff
 	ld bc, 1 tiles
-	call ByteFill
+	predef ByteFill
 	ld de, BlueSkyMailGrassGFX
 	ld c, 1 * LEN_1BPP_TILE
 	call LoadMailGFX_Color3
@@ -591,7 +591,7 @@ LoadMusicMailGFX:
 	call LoadMailGFX_Color3
 	xor a
 	ld bc, 1 tiles
-	call ByteFill
+	predef ByteFill
 	ld de, MusicMailLargeNoteGFX
 	ld c, 3 * LEN_1BPP_TILE
 	call LoadMailGFX_Color1

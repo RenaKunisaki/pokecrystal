@@ -48,7 +48,7 @@ Crystal_WipeAttrmap:
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 MG_Mobile_Layout_LoadPals:
@@ -106,7 +106,7 @@ MG_Mobile_Layout_CreatePalBoxes:
 	hlcoord 0, 12, wAttrmap
 	ld bc, 6 * SCREEN_WIDTH
 	ld a, $7
-	call ByteFill
+	predef ByteFill
 	ret
 
 Palette_MysteryGiftMobile:
@@ -142,11 +142,11 @@ _CrystalCGB_MobileLayout1:
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 14, wAttrmap
 	ld bc, 4 * SCREEN_WIDTH
 	ld a, $7
-	call ByteFill
+	predef ByteFill
 	ld a, [wd002]
 	bit 6, a
 	jr z, .asm_49464
@@ -273,7 +273,7 @@ _InitMG_Mobile_LinkTradePalMap:
 	hlcoord 2, 17, wAttrmap
 	ld a, $3
 	ld bc, 6
-	call ByteFill
+	predef ByteFill
 	ret
 
 _LoadTradeRoomBGPals:

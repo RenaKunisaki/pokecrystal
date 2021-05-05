@@ -53,7 +53,7 @@ Function8b36c:
 	ld l, c
 	ld bc, 4
 	ld a, -1
-	call ByteFill
+	predef ByteFill
 	pop bc
 	ret
 
@@ -618,11 +618,11 @@ Function8b6ed:
 	hlcoord 0, 0, wAttrmap
 	ld bc, $012c
 	xor a
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 14, wAttrmap
 	ld bc, $0050
 	ld a, $7
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function8b703:
@@ -702,7 +702,7 @@ Function8b75d:
 	hlcoord 0, 0
 	ld a, $1
 	ld bc, SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 1
 	ld a, $2
 	ld [hl], a

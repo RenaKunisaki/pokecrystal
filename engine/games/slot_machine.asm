@@ -105,14 +105,14 @@ _SlotMachine:
 	hlbgcoord 0, 0
 	ld bc, vBGMap1 - vBGMap0
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld b, SCGB_SLOT_MACHINE
 	call GetSGBLayout
 	callfar ClearSpriteAnims
 	ld hl, wSlots
 	ld bc, wSlotsDataEnd - wSlots
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld hl, Slots2LZ
 	ld de, vTiles0 tile $00
@@ -141,7 +141,7 @@ _SlotMachine:
 	ld hl, wSlots
 	ld bc, wSlotsEnd - wSlots
 	xor a
-	call ByteFill
+	predef ByteFill
 	call Slots_InitReelTiles
 	call Slots_GetPals
 	ld a, SPRITE_ANIM_DICT_SLOTS

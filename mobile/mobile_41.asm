@@ -560,7 +560,7 @@ InitializeTrainerRankings: ; unreferenced
 	ld hl, sTrainerRankings
 	ld bc, sTrainerRankingsEnd - sTrainerRankings
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	; Initialize the shortest Magikarp to 100.0 cm
 	ld hl, sTrainerRankingShortestMagikarp

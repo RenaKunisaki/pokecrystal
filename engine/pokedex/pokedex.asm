@@ -85,7 +85,7 @@ InitPokedex:
 	ld hl, wPokedexDataStart
 	ld bc, wPokedexDataEnd - wPokedexDataStart
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	xor a
 	ld [wJumptableIndex], a
@@ -221,7 +221,7 @@ Pokedex_InitMainScreen:
 	xor a
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	farcall DrawPokedexListWindow
 	hlcoord 0, 17
 	ld de, String_START_SEARCH
@@ -721,7 +721,7 @@ Pokedex_InitSearchResultsScreen:
 	xor a
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	call Pokedex_SetBGMapMode4
 	call Pokedex_ResetBGMapMode
 	farcall DrawPokedexSearchResultsWindow
@@ -1076,7 +1076,7 @@ Pokedex_DrawMainScreenBG:
 	ld a, $32
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	lb bc, 7, 7
 	call Pokedex_PlaceBorder
@@ -1150,11 +1150,11 @@ Pokedex_DrawDexEntryScreenBG:
 	hlcoord 1, 10
 	ld bc, 19
 	ld a, $61
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 17
 	ld bc, 18
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 9, 7
 	ld de, .Height
 	call Pokedex_PlaceString
@@ -1379,7 +1379,7 @@ Pokedex_FillBackgroundColor2:
 	hlcoord 0, 0
 	ld a, $32
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ret
 
 Pokedex_PlaceFrontpicTopLeftCorner:
@@ -1614,7 +1614,7 @@ Pokedex_OrderMonsByMode:
 	ld hl, wPokedexOrder
 	ld bc, wPokedexOrderEnd - wPokedexOrder
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, [wCurDexMode]
 	ld hl, .Jumptable
 	call Pokedex_LoadPointer
@@ -2314,7 +2314,7 @@ Pokedex_BlackOutBG:
 	ld hl, wBGPals1
 	ld bc, 8 palettes
 	xor a
-	call ByteFill
+	predef ByteFill
 	pop af
 	ldh [rSVBK], a
 
@@ -2423,7 +2423,7 @@ Pokedex_LoadGFX:
 	ld hl, vTiles2
 	ld bc, $31 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	call Pokedex_LoadInvertedFont
 	call LoadFontsExtra
 	ld hl, vTiles2 tile $60
@@ -2535,7 +2535,7 @@ _NewPokedexEntry:
 	inc hl
 	ld bc, 19
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	farcall DisplayDexEntry
 	call EnableLCD
 	call WaitBGMap

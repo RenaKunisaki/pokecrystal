@@ -50,7 +50,7 @@ WritePartyMenuTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill ; blank the tilemap
+	predef ByteFill ; blank the tilemap
 	call GetPartyMenuQualityIndexes
 .loop
 	ld a, [hli]

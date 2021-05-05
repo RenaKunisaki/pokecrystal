@@ -61,7 +61,7 @@ ClockResetPassword:
 	ld hl, wStringBuffer2
 	ld bc, 5
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, 4
 	ld [wStringBuffer2 + 5], a
 	ld hl, .PasswordAskEnterText
@@ -116,7 +116,7 @@ ClockResetPassword:
 	hlcoord 14, 16
 	ld bc, 5
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 14, 16
 	ld a, [wStringBuffer2 + 5]
 	ld e, a

@@ -1245,7 +1245,7 @@ Function48a3a:
 	xor a
 	ld bc, $4
 	ld hl, wd475
-	call ByteFill
+	predef ByteFill
 	jr Function48a9a
 .asm_48a98
 	and a

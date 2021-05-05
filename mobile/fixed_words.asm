@@ -225,7 +225,7 @@ CopyMobileEZChatToC608:
 	ld a, "@"
 	ld hl, wc608
 	ld bc, NAME_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld a, d
 	and a
 	jr z, .get_name
@@ -361,7 +361,7 @@ EZChat_ClearBottom12Rows:
 	ld a, "　"
 	hlcoord 0, 6
 	ld bc, (SCREEN_HEIGHT - 6) * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	ret
 
 EZChat_MasterLoop:
@@ -698,11 +698,11 @@ Function11c4be:
 	ld a, $1
 	hlcoord 0, 6, wAttrmap
 	ld bc, $a0
-	call ByteFill
+	predef ByteFill
 	ld a, $7
 	hlcoord 0, 14, wAttrmap
 	ld bc, $28
-	call ByteFill
+	predef ByteFill
 	farcall ReloadMapPart
 	ret
 
@@ -897,7 +897,7 @@ Function11c618:
 	ld a, $2
 	hlcoord 0, 6, wAttrmap
 	ld bc, $c8
-	call ByteFill
+	predef ByteFill
 	farcall ReloadMapPart
 	ret
 
@@ -1484,7 +1484,7 @@ Function11c992:
 	ld a, $7f
 	push hl
 	ld bc, $11
-	call ByteFill
+	predef ByteFill
 	pop hl
 	ld bc, $14
 	add hl, bc
@@ -1497,7 +1497,7 @@ Function11c9ab:
 	ld a, $7
 	hlcoord 0, 6, wAttrmap
 	ld bc, $c8
-	call ByteFill
+	predef ByteFill
 	farcall ReloadMapPart
 	ret
 
@@ -1995,11 +1995,11 @@ Function11cdaa:
 	ld a, $2
 	hlcoord 0, 6, wAttrmap
 	ld bc, 6 * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	ld a, $7
 	hlcoord 0, 12, wAttrmap
 	ld bc, 4 * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	farcall ReloadMapPart
 	ret
 

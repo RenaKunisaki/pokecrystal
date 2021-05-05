@@ -330,7 +330,7 @@ CardFlip_ShuffleDeck:
 	ld hl, wDeck
 	ld bc, CARDFLIP_DECK_SIZE
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld de, wDeck
 	ld c, CARDFLIP_DECK_SIZE - 1
 .loop
@@ -351,7 +351,7 @@ CardFlip_ShuffleDeck:
 	ld [wCardFlipNumCardsPlayed], a
 	ld hl, wDiscardPile
 	ld bc, CARDFLIP_DECK_SIZE
-	call ByteFill
+	predef ByteFill
 	ret
 
 CollapseCursorPosition:
@@ -509,7 +509,7 @@ CardFlip_InitTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, $29
-	call ByteFill
+	predef ByteFill
 	hlcoord 9, 0
 	ld de, CardFlipTilemap
 	lb bc, 12, 11
@@ -1553,7 +1553,7 @@ CardFlip_InitAttrPals:
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	hlcoord 12, 1, wAttrmap
 	lb bc, 2, 2

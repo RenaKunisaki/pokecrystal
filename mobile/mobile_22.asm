@@ -38,7 +38,7 @@ Function8917a:
 	ld hl, wd002
 	ld bc, $32
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function89185:
@@ -101,7 +101,7 @@ Function891b8:
 	hlcoord 0, 0
 	ld a, " "
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	call DelayFrame
 	ret
 
@@ -126,11 +126,11 @@ Function891de:
 	hlcoord 0, 0, wAttrmap
 	ld a, $7
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	ld a, " "
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	call Function891ab
 	ret
 
@@ -278,14 +278,14 @@ Function892b7:
 	add hl, bc
 	ld a, "@"
 	ld bc, 6
-	call ByteFill
+	predef ByteFill
 	ld b, d
 	ld c, e
 	ld hl, 6
 	add hl, bc
 	ld a, "@"
 	ld bc, 6
-	call ByteFill
+	predef ByteFill
 	ld b, d
 	ld c, e
 	ld hl, 12
@@ -304,7 +304,7 @@ Function892b7:
 	add hl, bc
 	ld a, -1
 	ld bc, 8
-	call ByteFill
+	predef ByteFill
 	ld b, d
 	ld c, e
 	ld e, 6
@@ -447,7 +447,7 @@ Function89381:
 	push hl
 	ld a, -1
 	ld bc, 8
-	call ByteFill
+	predef ByteFill
 	pop hl
 
 .ok
@@ -796,7 +796,7 @@ Function895e6: ; unreferenced
 	ld a, 7
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function895f2:
@@ -804,7 +804,7 @@ Function895f2:
 	xor a
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	call Function89605
 	call Function89655
 	pop bc
@@ -841,10 +841,10 @@ Function89605:
 	hlcoord 1, 11, wAttrmap
 	ld a, 4
 	ld bc, 4
-	call ByteFill
+	predef ByteFill
 	ld a, 5
 	ld bc, 14
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function8963d:
@@ -2498,7 +2498,7 @@ Function89ff6:
 	ld hl, $a603
 	ld a, -1
 	ld bc, 8
-	call ByteFill
+	predef ByteFill
 	ld hl, $a603
 	ld de, wd008
 	call Function89381
@@ -2881,7 +2881,7 @@ Function8a2fe:
 	ld hl, $a603
 	ld bc, $8
 	ld a, -1
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ret
 
@@ -3135,7 +3135,7 @@ asm_8a529:
 	ld hl, wVirtualOAM
 	xor a
 	ld bc, 8 * SPRITEOAMSTRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function8a53d:
@@ -3514,7 +3514,7 @@ Function8a7cb:
 	ld hl, wd008
 	ld a, $ff
 	ld bc, $8
-	call ByteFill
+	predef ByteFill
 	ld h, d
 	ld l, e
 	ld de, wd008
@@ -3841,7 +3841,7 @@ Function8aa73:
 	ld hl, wd008
 	ld a, $ff
 	ld bc, $8
-	call ByteFill
+	predef ByteFill
 	ld h, d
 	ld l, e
 	ld de, wd008

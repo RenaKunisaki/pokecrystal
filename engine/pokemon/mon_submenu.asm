@@ -215,7 +215,7 @@ ResetMonSubmenu:
 	ld [wMonSubmenuCount], a
 	ld hl, wMonSubmenuItems
 	ld bc, NUM_MONMENU_ITEMS + 1
-	call ByteFill
+	predef ByteFill
 	ret
 
 TerminateMonSubmenu:

@@ -184,7 +184,7 @@ _UnownPrinter:
 	ld hl, sScratch
 	ld bc, $31 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, vTiles2 tile $31
 	ld de, sScratch
 	ld c, $31
@@ -221,7 +221,7 @@ PlaceUnownPrinterFrontpic:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 7, 11
 	ld a, $31
 	ldh [hGraphicStartTile], a

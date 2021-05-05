@@ -372,7 +372,7 @@ CopyPlayerObjectTemplate::
 ;	inc hl
 ;	ld bc, MAPOBJECT_LENGTH - 1
 ;	xor a
-;	call ByteFill
+;	predef ByteFill
 ;	pop af
 ;	cp -1
 ;	ret z

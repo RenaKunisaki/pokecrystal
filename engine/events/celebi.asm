@@ -69,7 +69,7 @@ endr
 	ld hl, wVirtualOAMSprite04
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 LoadCelebiGFX:

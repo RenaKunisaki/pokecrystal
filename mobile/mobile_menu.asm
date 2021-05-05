@@ -429,7 +429,7 @@ Function4a28a:
 	ld hl, sMobileLoginPassword
 	xor a
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ld hl, DeletedTheLoginPasswordText
 	call PrintText
@@ -574,25 +574,25 @@ Function4a449: ; unreferenced
 	ld bc, 3 * SCREEN_WIDTH
 	ld a, $0
 	hlcoord 0, 0
-	call ByteFill
+	predef ByteFill
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, $1
-	call ByteFill
+	predef ByteFill
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, $0
-	call ByteFill
+	predef ByteFill
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, $1
-	call ByteFill
+	predef ByteFill
 	ld bc, SCREEN_WIDTH
 	ld a, $2
-	call ByteFill
+	predef ByteFill
 	ld bc, SCREEN_WIDTH
 	ld a, $3
-	call ByteFill
+	predef ByteFill
 	ld bc, SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function4a485:

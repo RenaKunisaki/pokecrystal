@@ -369,7 +369,7 @@ EraseLinkBattleStats:
 	ld hl, sLinkBattleStats
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
 	xor a
-	call ByteFill
+	predef ByteFill
 	jp CloseSRAM
 
 EraseMysteryGift:
@@ -378,7 +378,7 @@ EraseMysteryGift:
 	ld hl, sBackupMysteryGiftItem
 	ld bc, sBackupMysteryGiftItemEnd - sBackupMysteryGiftItem
 	xor a
-	call ByteFill
+	predef ByteFill
 	jp CloseSRAM
 
 EraseHallOfFame:
@@ -387,7 +387,7 @@ EraseHallOfFame:
 	ld hl, sHallOfFame
 	ld bc, sHallOfFameEnd - sHallOfFame
 	xor a
-	call ByteFill
+	predef ByteFill
 	jp CloseSRAM
 
 Function14d18: ; unreferenced

@@ -254,7 +254,7 @@ LoadMapTimeOfDay:
 	xor a
 	ld bc, vBGMap1 - vBGMap0
 	hlbgcoord 0, 0
-	call ByteFill
+	predef ByteFill
 
 	pop af
 	ldh [rVBK], a
@@ -262,7 +262,7 @@ LoadMapTimeOfDay:
 	ld a, "■"
 	ld bc, vBGMap1 - vBGMap0
 	hlbgcoord 0, 0
-	call ByteFill
+	predef ByteFill
 	ret
 
 .PushAttrmap:

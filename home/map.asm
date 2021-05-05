@@ -4,7 +4,7 @@ ClearUnusedMapBuffer::
 	ld hl, wUnusedMapBuffer
 	ld bc, wUnusedMapBufferEnd - wUnusedMapBuffer
 	ld a, 0
-	call ByteFill
+	predef ByteFill
 	ret
 
 CheckScenes::
@@ -107,7 +107,7 @@ LoadMapPart::
 	ld a, "■"
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 
 	ld a, BANK(_LoadMapPart)
 	rst Bankswitch
@@ -667,7 +667,7 @@ ClearObjectStructs::
 	ld hl, wObject1Struct
 	ld bc, OBJECT_LENGTH * (NUM_OBJECT_STRUCTS - 1)
 	xor a
-	call ByteFill
+	predef ByteFill
 
 ; Just to make sure (this is rather pointless)
 	ld hl, wObject1Struct
@@ -725,7 +725,7 @@ LoadBlockData::
 	ld hl, wOverworldMapBlocks
 	ld bc, wOverworldMapBlocksEnd - wOverworldMapBlocks
 	ld a, 0
-	call ByteFill
+	predef ByteFill
 	call ChangeMap
 	call FillMapConnections
 	ld a, MAPCALLBACK_TILES
@@ -1368,7 +1368,7 @@ ClearBGMapBuffer:: ; unreferenced
 	ld hl, wBGMapBuffer
 	ld bc, wBGMapBufferEnd - wBGMapBuffer
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 LoadTilesetGFX::

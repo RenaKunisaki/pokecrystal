@@ -572,7 +572,7 @@ WipeAttrmap:
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 ApplyPals:
@@ -877,7 +877,7 @@ InitCGBPals::
 	ld hl, vTiles3
 	ld bc, $200 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld a, BANK(vTiles0)
 	ldh [rVBK], a
 	ld a, 1 << rBGPI_AUTO_INCREMENT
@@ -982,7 +982,7 @@ SGB_ClearVRAM:
 	ld hl, VRAM_Begin
 	ld bc, VRAM_End - VRAM_Begin
 	xor a
-	call ByteFill
+	predef ByteFill
 	ret
 
 PushSGBBorderPalsAndWait:

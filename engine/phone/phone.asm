@@ -197,7 +197,7 @@ GetAvailableCallers:
 	ld hl, wNumAvailableCallers
 	ld bc, CONTACT_LIST_SIZE + 1
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld de, wPhoneList
 	ld a, CONTACT_LIST_SIZE
 

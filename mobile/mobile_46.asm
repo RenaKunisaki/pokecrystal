@@ -5269,7 +5269,7 @@ Function11a90f:
 	ld a, $50
 	ld hl, wc320
 	ld bc, $008c
-	call ByteFill
+	predef ByteFill
 	ld a, [wc31b]
 	ld l, a
 	ld a, [wc31c]
@@ -5644,7 +5644,7 @@ Function11ad1b:
 	ld hl, wPokedexOrder
 	ld bc, $0115
 	xor a
-	call ByteFill
+	predef ByteFill
 	xor a
 	ld [wJumptableIndex], a
 	ld [wcf64], a
@@ -6377,7 +6377,7 @@ FillScreenWithTile32: ; unreferenced
 	hlcoord 0, 0
 	ld a, $32
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ret
 
 CopyDataUntilFF: ; unreferenced

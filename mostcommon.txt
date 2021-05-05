@@ -3,7 +3,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     486 	call PlaceString
     384 	predef CloseSRAM
     351 	call OpenSRAM
-    345 	call ByteFill
+    345 	predef ByteFill
     297 	call DelayFrame
     296 	call AddNTimes
     242 	call PrintText
@@ -4000,9 +4000,9 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call CalcMagikarpLength
       1 	call .CalcExpToNextLevel
       1 	call CalcExpAtLevel
-      1 	call ByteFill ; blank the tilemap
-      1 ;	call ByteFill
-      1  	call ByteFill
+      1 	predef ByteFill ; blank the tilemap
+      1 ;	predef ByteFill
+      1  	predef ByteFill
       1 	call BuySellToss_UpdateQuantityDisplay ; update display
       1 	call BuySellToss_InterpretJoypad       ; joy action
       1 	call BuySellToss_InterpretJoypad

@@ -25,7 +25,7 @@ ClearTilemap::
 	hlcoord 0, 0
 	ld a, " "
 	ld bc, wTilemapEnd - wTilemap
-	call ByteFill
+	predef ByteFill
 
 	; Update the BG Map.
 	ldh a, [rLCDC]
@@ -37,7 +37,7 @@ ClearScreen::
 	ld a, PAL_BG_TEXT
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	jr ClearTilemap
 
 Textbox::
@@ -608,7 +608,7 @@ TextScroll::
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	ld a, " "
 	ld bc, TEXTBOX_INNERW
-	call ByteFill
+	predef ByteFill
 	ld c, 5
 	call DelayFrames
 	ret

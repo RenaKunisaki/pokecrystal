@@ -112,17 +112,17 @@ _ResetWRAM:
 	ld hl, wVirtualOAM
 	ld bc, wOptions - wVirtualOAM
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld hl, WRAM1_Begin
 	ld bc, wGameData - WRAM1_Begin
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ld hl, wGameData
 	ld bc, wGameDataEnd - wGameData
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	ldh a, [rLY]
 	ldh [hUnusedBackup], a
@@ -984,7 +984,7 @@ StorePlayerName:
 	ld a, "@"
 	ld bc, NAME_LENGTH
 	ld hl, wPlayerName
-	call ByteFill
+	predef ByteFill
 	ld hl, wPlayerName
 	ld de, wStringBuffer2
 	call CopyName2
@@ -1243,7 +1243,7 @@ UnusedTitlePerspectiveScroll: ; unreferenced
 	ld a, [hl]
 	dec a
 	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
+	predef ByteFill
 	ret
 
 TitleScreenScene:
@@ -1281,7 +1281,7 @@ TitleScreenEntrance:
 	ld e, a
 	ld hl, wLYOverrides
 	ld bc, 8 * 10 ; logo height
-	call ByteFill
+	predef ByteFill
 
 ; Reversed signage for every other line's position.
 ; This is responsible for the interlaced effect.

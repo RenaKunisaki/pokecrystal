@@ -107,7 +107,7 @@ StartMap:
 	ld [wScriptRunning], a
 	ld hl, wMapStatus
 	ld bc, wMapStatusEnd - wMapStatus
-	call ByteFill
+	predef ByteFill
 	farcall InitCallReceiveDelay
 	call ClearJoypad
 EnterMap:
@@ -1062,7 +1062,7 @@ RunMemScript::
 	xor a
 	ld hl, wMapReentryScriptQueueFlag
 	ld bc, 8
-	call ByteFill
+	predef ByteFill
 	pop af
 	ret
 

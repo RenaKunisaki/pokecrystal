@@ -5956,7 +5956,7 @@ LoadEnemyMon:
 	xor a
 	ld hl, wEnemyMonSpecies
 	ld bc, wEnemyMonEnd - wEnemyMon
-	call ByteFill
+	predef ByteFill
 
 ; We don't need to be here if we're in a link battle
 	ld a, [wLinkMode]
@@ -8104,7 +8104,7 @@ BackUpBGMap2:
 	ld hl, wDecompressScratch
 	ld bc, $40 tiles ; vBGMap3 - vBGMap2
 	ld a, $2
-	call ByteFill
+	predef ByteFill
 	ldh a, [rVBK]
 	push af
 	ld a, $1
@@ -8458,7 +8458,7 @@ _DisplayLinkRecord:
 	hlcoord 0, 0, wAttrmap
 	xor a
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	call WaitBGMap2
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
@@ -8958,7 +8958,7 @@ InitBattleDisplay:
 	ld hl, wDecompressScratch
 	ld bc, BG_MAP_WIDTH * BG_MAP_HEIGHT
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 
 	ld de, wDecompressScratch
 	hlbgcoord 0, 0

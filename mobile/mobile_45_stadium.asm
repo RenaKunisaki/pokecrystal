@@ -54,7 +54,7 @@ Function117699:
 	ld [wcd4f], a
 	ld hl, $c708
 	ld bc, $11
-	call ByteFill
+	predef ByteFill
 	call ClearBGPalettes
 	call ClearSprites
 	farcall Function171c87

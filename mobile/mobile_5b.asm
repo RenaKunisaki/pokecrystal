@@ -184,7 +184,7 @@ MobileSystemSplashScreen_InitGFX:
 	hlcoord 0, 0
 	ld bc, 20
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, .Tilemap
 	decoord 0, 1
 	ld bc, $0154
@@ -195,7 +195,7 @@ MobileSystemSplashScreen_InitGFX:
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH
 	xor a
-	call ByteFill
+	predef ByteFill
 	ld hl, .Attrmap
 	decoord 0, 1, wAttrmap
 	ld bc, 17 * SCREEN_WIDTH
@@ -225,7 +225,7 @@ Function16c943:
 	ld a, $ff
 	ld bc, 1 palettes
 	ld hl, wBGPals1
-	call ByteFill
+	predef ByteFill
 	pop af
 	ldh [rSVBK], a
 
@@ -713,7 +713,7 @@ Function16cc62:
 	hlcoord 0, 15, wAttrmap
 	ld bc, $0028
 	ld a, $1
-	call ByteFill
+	predef ByteFill
 	ret
 
 Function16cc6e:

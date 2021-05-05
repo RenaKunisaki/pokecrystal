@@ -237,7 +237,7 @@ ClearPCItemScreen:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 0, 0
 	lb bc, 10, 18
 	call Textbox

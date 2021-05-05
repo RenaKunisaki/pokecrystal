@@ -462,7 +462,7 @@ Mom_WithdrawDepositMenuJoypad:
 	hlcoord 12, 6
 	ld bc, 7
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 12, 6
 	ld de, wStringBuffer2
 	lb bc, PRINTNUM_MONEY | PRINTNUM_LEADINGZEROS | 3, 6

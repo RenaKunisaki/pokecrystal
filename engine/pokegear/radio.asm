@@ -634,7 +634,7 @@ ClearBottomLine:
 	hlcoord 1, 15
 	ld bc, SCREEN_WIDTH - 2
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	hlcoord 1, 16
 	ld bc, SCREEN_WIDTH - 2
 	ld a, " "

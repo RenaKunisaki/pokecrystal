@@ -2292,7 +2292,7 @@ This does not have a simple and accurate fix. It would involve redesigning parts
  	xor a
  	ld hl, WRAM1_Begin
  	ld bc, WRAM1_End - WRAM1_Begin
- 	call ByteFill
+ 	predef ByteFill
  	pop af
  	inc a
  	cp 8

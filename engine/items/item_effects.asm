@@ -1782,7 +1782,7 @@ ItemActionTextWaitButton:
 	hlcoord 0, 0
 	ld bc, wTilemapEnd - wTilemap
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	ld a, [wPartyMenuActionText]
 	call ItemActionText
 	ld a, $1

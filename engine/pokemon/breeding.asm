@@ -647,7 +647,7 @@ Hatch_UpdateFrontpicBGMapCenter:
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	ld a, " "
-	call ByteFill
+	predef ByteFill
 	pop bc
 	pop hl
 	ld a, b

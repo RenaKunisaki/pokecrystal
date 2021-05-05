@@ -549,13 +549,13 @@ DayCare_InitBreeding:
 	xor a
 	ld hl, wEggMon
 	ld bc, BOXMON_STRUCT_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld hl, wEggMonNickname
 	ld bc, MON_NAME_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld hl, wEggMonOT
 	ld bc, NAME_LENGTH
-	call ByteFill
+	predef ByteFill
 	ld a, [wBreedMon1DVs]
 	ld [wTempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]

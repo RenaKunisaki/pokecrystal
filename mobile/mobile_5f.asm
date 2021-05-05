@@ -4,7 +4,7 @@ Function17c000:
 	ld hl, vTiles2
 	ld bc, $31 tiles
 	xor a
-	call ByteFill
+	predef ByteFill
 
 	call LoadStandardFont
 	call LoadFontsExtra
@@ -346,7 +346,7 @@ Mobile_CopyDefaultMail:
 	ld a, "@"
 	ld hl, wc647
 	ld bc, MAIL_MSG_LENGTH + 1
-	call ByteFill
+	predef ByteFill
 	ld hl, .DefaultMessage
 	ld de, wc647
 	ld bc, 6
@@ -360,7 +360,7 @@ Mobile_CopyDefaultMailAuthor:
 	ld a, "@"
 	ld de, wc668
 	ld bc, 5
-	call ByteFill
+	predef ByteFill
 	ld hl, Mobile5F_PlayersName
 	ld de, wc668
 	ld bc, 5
@@ -586,7 +586,7 @@ Function17d314:
 	xor a
 	ld hl, $aa73
 	ld bc, $c
-	call ByteFill
+	predef ByteFill
 	predef CloseSRAM
 	ld a, $2
 	ld [wScriptVar], a
@@ -618,7 +618,7 @@ Function17d370:
 	xor a
 	ld hl, vTiles2 tile $7f
 	ld bc, 1 tiles
-	call ByteFill
+	predef ByteFill
 	ld hl, wc608
 	ld de, vTiles0 tile $ee
 	ld bc, 1 tiles
@@ -665,7 +665,7 @@ Function17d405:
 	xor a
 	ld hl, vTiles2 tile $7f
 	ld bc, 1 tiles
-	call ByteFill
+	predef ByteFill
 	ld hl, wc608
 	ld de, vTiles0 tile $ee
 	ld bc, 1 tiles
@@ -3212,7 +3212,7 @@ Function17e51b:
 	ld c, a
 	ld b, 0
 	ld a, $7f
-	call ByteFill
+	predef ByteFill
 	pop hl
 	ld bc, $14
 	add hl, bc
@@ -3324,7 +3324,7 @@ Function17e600:
 	push hl
 	push bc
 	ld a, $7f
-	call ByteFill
+	predef ByteFill
 	pop bc
 	pop hl
 	ld de, $14
@@ -4527,11 +4527,11 @@ Function17f5e4:
 	ld a, " "
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	ld a, $6
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
+	predef ByteFill
 	hlcoord 2, 1
 	ld b, $1
 	ld c, $e
