@@ -181,7 +181,7 @@ Function4a0c2:
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH_JAPANESE
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	farcall _LoadData
 	ld c, 2
 	call DelayFrames
@@ -376,7 +376,7 @@ Function4a28a:
 	ld a, $5
 	call OpenSRAM
 	ld a, [$aa4b]
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	jr z, .asm_4a2df
 	hlcoord 12, 0
@@ -430,7 +430,7 @@ Function4a28a:
 	xor a
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, DeletedTheLoginPasswordText
 	call PrintText
 	call JoyWaitAorB

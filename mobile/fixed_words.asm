@@ -354,7 +354,7 @@ Function11c254:
 	ld de, wcd36
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 EZChat_ClearBottom12Rows:
@@ -1783,7 +1783,7 @@ Function11cb66:
 	inc de
 	dec c
 	jr nz, .asm_11cba2
-	call CloseSRAM
+	predef CloseSRAM
 	call PlayClickSFX
 	ld de, Unknown_11cfc6
 	call Function11cfce

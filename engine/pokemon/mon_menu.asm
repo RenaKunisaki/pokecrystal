@@ -468,7 +468,7 @@ ComposeMailMessage:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 MonMailAction:

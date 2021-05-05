@@ -1010,7 +1010,7 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	call Request2bpp
 
 .done
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop af
 	ldh [rSVBK], a
@@ -1032,7 +1032,7 @@ BattleAnimCmd_MinimizeOpp:
 	call OpenSRAM
 	call GetMinimizePic
 	call Request2bpp
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop af
 	ldh [rSVBK], a
@@ -1089,7 +1089,7 @@ BattleAnimCmd_Minimize:
 	call GetMinimizePic
 	ld hl, vTiles0 tile $00
 	call Request2bpp
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop af
 	ldh [rSVBK], a

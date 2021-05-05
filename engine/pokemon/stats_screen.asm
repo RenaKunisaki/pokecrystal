@@ -931,7 +931,7 @@ StatsScreen_GetAnimationParam:
 	call OpenSRAM
 	call .CheckEggFaintedFrzSlp
 	push af
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 
@@ -1148,7 +1148,7 @@ CopyNickname:
 	push de
 	call CopyBytes
 	pop de
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .partymon

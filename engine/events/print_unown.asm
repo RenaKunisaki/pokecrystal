@@ -166,7 +166,7 @@ _UnownPrinter:
 	ld b, a
 	ld c, $31
 	call Get2bpp
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop af
 	ldh [rSVBK], a
@@ -191,7 +191,7 @@ _UnownPrinter:
 	ldh a, [hROMBank]
 	ld b, a
 	call Get2bpp
-	call CloseSRAM
+	predef CloseSRAM
 	ld c, 20
 	call DelayFrames
 	ret

@@ -31,7 +31,7 @@ MobileCheckOwnMonAnywhere:
 .asm_4a873
 	call .CheckMatch
 	jr nc, .asm_4a87c
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .asm_4a87c
@@ -44,7 +44,7 @@ MobileCheckOwnMonAnywhere:
 	jr nz, .asm_4a873
 
 .asm_4a888
-	call CloseSRAM
+	predef CloseSRAM
 	ld c, 0
 .asm_4a88d
 	ld a, [wCurBox]
@@ -82,7 +82,7 @@ MobileCheckOwnMonAnywhere:
 	call .CheckMatch
 	jr nc, .asm_4a8c4
 	pop bc
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .asm_4a8c4
@@ -100,7 +100,7 @@ MobileCheckOwnMonAnywhere:
 	ld a, c
 	cp NUM_BOXES
 	jr c, .asm_4a88d
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 

@@ -419,12 +419,12 @@ LoadHOFTeam:
 	ld de, wHallOfFameTemp
 	ld bc, wHallOfFameTempEnd - wHallOfFameTemp + 1
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
 .absent
-	call CloseSRAM
+	predef CloseSRAM
 
 .invalid
 	scf

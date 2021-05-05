@@ -124,7 +124,7 @@ DoMysteryGift:
 	ld a, c
 	ld [sBackupMysteryGiftItem], a
 	ld [wNamedObjectIndex], a
-	call CloseSRAM
+	predef CloseSRAM
 	call GetItemName
 	ld hl, .MysteryGiftSentText ; sent item/decoration
 	jr .PrintTextAndExit
@@ -1273,7 +1273,7 @@ CheckAndSetMysteryGiftDecorationAlreadyReceived:
 	push hl
 	push bc
 	call Predef
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, c
 	and a
 	pop bc
@@ -1282,7 +1282,7 @@ CheckAndSetMysteryGiftDecorationAlreadyReceived:
 	call GetMysteryGiftBank
 	ld b, SET_FLAG
 	predef SmallFarFlagAction
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ret
 
@@ -1704,7 +1704,7 @@ StageDataForNameCard:
 	ld hl, sPlayerData + wSecretID - wPlayerData
 	ld bc, 2
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(sCrystalData)
 	call OpenSRAM
 	ld a, [sCrystalData + 0]
@@ -1718,7 +1718,7 @@ StageDataForNameCard:
 	ld hl, s4_a007 ; address of MBC30 bank
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 InitNameCardLayout:

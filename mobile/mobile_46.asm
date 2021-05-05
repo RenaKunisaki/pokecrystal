@@ -212,7 +212,7 @@ Function118180:
 .reset_banks
 	pop af
 	ldh [rSVBK], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .return_d3
@@ -481,7 +481,7 @@ BattleTowerRoomMenu_InitRAM:
 	call OpenSRAM
 	xor a
 	ld [s5_bfff], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function118440:
@@ -491,7 +491,7 @@ Function118440:
 	ld a, [s5_bfff]
 	inc a
 	ld [s5_bfff], a
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 
@@ -1093,7 +1093,7 @@ Function1188e7:
 	ld a, BANK(s5_aa4a)
 	call OpenSRAM
 	ld a, [s5_aa4a]
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret z
 	sla a
@@ -1524,7 +1524,7 @@ Function118d35: ; unreferenced
 	call OpenSRAM
 	ld a, b
 	ld [s5_b2fb], a
-	call CloseSRAM
+	predef CloseSRAM
 	farcall Function170be4
 	farcall Function1700c4
 	jr .asm_118d78
@@ -1968,7 +1968,7 @@ Function119054:
 	ret c
 
 .asm_11908a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $3 ; ???
 	ldh [rSVBK], a
 	ld a, BANK(s5_b1b3) ; aka BANK(s5_b1b4) and BANK(s5_aa7f) and BANK(s5_b2f3) and BANK(s5_b2f4)
@@ -1993,7 +1993,7 @@ Function119054:
 	call CopyBytes
 	pop af
 	ldh [rSVBK], a
-	call CloseSRAM
+	predef CloseSRAM
 	jp BattleTowerRoomMenu_IncrementJumptable
 
 Function1190d0:
@@ -2017,12 +2017,12 @@ Function1190ec:
 	ld de, s5_aa73
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(s5_aa72)
 	call OpenSRAM
 	ld a, $1
 	ld [s5_aa72], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(s6_a000)
 	call OpenSRAM
 	ld a, [w3_d000]
@@ -2049,7 +2049,7 @@ Function1190ec:
 .asm_11913e
 	ld a, BANK("Battle Tower RAM")
 	ldh [rSVBK], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, Text_ReceivedNews
 	call BattleTowerRoomMenu_SetMessage
 	jp BattleTowerRoomMenu_IncrementJumptable
@@ -2091,7 +2091,7 @@ Function11915d:
 	ld [wMobileErrorCodeBuffer], a
 
 .asm_11918e
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function119192:
@@ -2226,7 +2226,7 @@ Function119223:
 	ld b, a
 	ld de, s5_b1d3
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld e, l
 	ld d, h
 	ld hl, wc608
@@ -2262,7 +2262,7 @@ Function119223:
 	pop af
 	dec a
 	jr nz, .asm_119286
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, e
 	ld [wcd4b], a
 	ld a, d
@@ -2313,7 +2313,7 @@ Function1192cc:
 	ld de, wc608
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wc608
 	ld de, wcd20
 	ld c, $c
@@ -2402,7 +2402,7 @@ Function119300:
 	pop af
 	dec a
 	jr nz, .asm_119348
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, e
 	ld [wcd4b], a
 	ld a, d
@@ -2529,7 +2529,7 @@ Function119413:
 .asm_119447
 	ld a, BANK("Battle Tower RAM")
 	ldh [rSVBK], a
-	call CloseSRAM
+	predef CloseSRAM
 	jp BattleTowerRoomMenu_IncrementJumptable
 
 Function119451:
@@ -3583,7 +3583,7 @@ Function119b52:
 	call OpenSRAM
 	ld a, $4
 	ld [s5_a800], a
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_119b66
 	ld a, $1c
@@ -3683,7 +3683,7 @@ Function119b6b:
 	call OpenSRAM
 	ld a, $1
 	ld [s5_a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [w3_d090], a
 	ret
@@ -3711,7 +3711,7 @@ Function119b6b:
 	call CopyBytes
 	ld a, $3
 	ld [s5_a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, w3_d800
 	ld de, wc608
 	ld bc, 105
@@ -3753,7 +3753,7 @@ popc
 	call OpenSRAM
 	ld a, $1
 	ld [s5_a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [w3_d090], a
 	scf
@@ -4133,7 +4133,7 @@ Function119ec2:
 	ld [hli], a
 	and a
 	jr nz, .loop
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 BattleTowerRoomMenu2:
@@ -4293,7 +4293,7 @@ Function11a00e:
 	and a
 	jr z, .asm_11a02a
 	ld a, [sMobileLoginPassword + 1]
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret nz
 	ld a, BANK(sMobileLoginPassword)
@@ -4302,7 +4302,7 @@ Function11a00e:
 	ld [sMobileLoginPassword], a
 
 .asm_11a02a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wBGMapPalBuffer]
 	and a
 	jr z, .asm_11a039
@@ -6960,7 +6960,7 @@ Function11b483:
 	dec a
 	and a
 	jr nz, .loop9
-	call CloseSRAM
+	predef CloseSRAM
 	jp Function11ad8a
 
 .InitRAM:
@@ -7049,7 +7049,7 @@ Function11b570:
 	ldh a, [hRTCDayHi]
 	ld [hl], a
 
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function11b5c0:
@@ -7078,7 +7078,7 @@ Function11b5e8:
 	ld de, $c608
 	ld bc, 4
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $5
 	call OpenSRAM
 	ld hl, $c608
@@ -7103,7 +7103,7 @@ Function11b5e8:
 	ld [wcd30], a
 	ld a, [$a826]
 	ld [wcd31], a
-	call CloseSRAM
+	predef CloseSRAM
 	call Mobile46_InitJumptable
 	call .loop
 	ret
@@ -7344,7 +7344,7 @@ Function11b7e5:
 	call OpenSRAM
 	ld a, $5
 	ld [$a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -7378,7 +7378,7 @@ Function11b879:
 	ld [wcd4b], a
 	ld a, [$a893]
 	ld [wcd4c], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wScriptVar]
 	and a
 	ret z
@@ -7461,7 +7461,7 @@ Function11b920:
 	ld de, $c626
 	ld bc, 8
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	call Function118000
 	ret
 
@@ -7474,7 +7474,7 @@ Function11b93b:
 	ld de, $c608
 	ld bc, $008f
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld a, LOW($c608)
 	ld [wMobileMonSpeciesPointer], a
@@ -7604,7 +7604,7 @@ AddMobileMonToParty:
 	ld bc, MAIL_STRUCT_LENGTH
 	call CopyBytes
 
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function11ba38:

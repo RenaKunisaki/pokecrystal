@@ -243,7 +243,7 @@ Stubbed_Increments5_a89a:
 	dec [hl]
 
 .finish
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 HandleBetweenTurnEffects:
@@ -8410,7 +8410,7 @@ DisplayLinkBattleResult:
 	call AddLastLinkBattleToLinkRecord
 	call ReadAndPrintLinkBattleRecord
 
-	call CloseSRAM
+	predef CloseSRAM
 
 	call IsMobileBattle2
 	jr z, .mobile
@@ -8454,7 +8454,7 @@ _DisplayLinkRecord:
 
 	call ReadAndPrintLinkBattleRecord
 
-	call CloseSRAM
+	predef CloseSRAM
 	hlcoord 0, 0, wAttrmap
 	xor a
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT

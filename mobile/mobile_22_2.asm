@@ -444,7 +444,7 @@ Function8b555:
 	ld de, s4_a037
 	ld bc, $4
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	call Function89448
 	ld bc, wd013
 	call Function8b493
@@ -500,7 +500,7 @@ Function8b5e7:
 	call OpenSRAMBank4
 	ld hl, s4_a037
 	call Function8b3a4
-	call CloseSRAM
+	predef CloseSRAM
 	jr z, .asm_8b635
 	ld hl, IncorrectPasscodeText
 	call PrintText
@@ -926,7 +926,7 @@ Function8b88c:
 .asm_8b8c0
 	pop hl
 	call PlaceString
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function8b8c8:
@@ -1088,7 +1088,7 @@ Function8b9e9:
 	ld [hli], a
 	cp $ff
 	jr nz, .asm_8ba10
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 

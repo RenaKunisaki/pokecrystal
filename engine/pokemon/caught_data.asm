@@ -91,7 +91,7 @@ CheckPartyFullAfterContest:
 	ld hl, sBoxCount
 	ld a, [hl]
 	cp MONS_PER_BOX
-	call CloseSRAM
+	predef CloseSRAM
 	jr nc, .BoxFull
 	xor a
 	ld [wCurPartyMon], a
@@ -122,14 +122,14 @@ CheckPartyFullAfterContest:
 	ld de, sBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 .BoxFull:
 	ld a, BANK(sBoxMon1Level)
 	call OpenSRAM
 	ld a, [sBoxMon1Level]
 	ld [wCurPartyLevel], a
-	call CloseSRAM
+	predef CloseSRAM
 	call SetBoxMonCaughtData
 	ld a, BANK(sBoxMon1CaughtLocation)
 	call OpenSRAM
@@ -139,7 +139,7 @@ CheckPartyFullAfterContest:
 	ld b, LANDMARK_NATIONAL_PARK
 	or b
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wContestMon], a
 	ld a, BUGCONTEST_BOXED_MON
@@ -203,7 +203,7 @@ SetBoxMonCaughtData:
 	call OpenSRAM
 	ld hl, sBoxMon1CaughtLevel
 	call SetBoxmonOrEggmonCaughtData
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SetGiftBoxMonCaughtData:
@@ -213,7 +213,7 @@ SetGiftBoxMonCaughtData:
 	ld hl, sBoxMon1CaughtLevel
 	pop bc
 	call SetGiftMonCaughtData
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SetGiftPartyMonCaughtData:

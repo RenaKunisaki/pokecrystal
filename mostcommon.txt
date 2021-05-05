@@ -1,7 +1,7 @@
 grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     612 	call CopyBytes
     486 	call PlaceString
-    384 	call CloseSRAM
+    384 	predef CloseSRAM
     351 	call OpenSRAM
     345 	call ByteFill
     297 	call DelayFrame
@@ -3837,8 +3837,8 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call CompareBytesLong
       1 	call CmdQueues_DecAnonJumptableIndex
       1 	call .CloseText
-      1 	call CloseSRAM ; unlatch clock, disable clock r/w
-      1  	call CloseSRAM
+      1 	predef CloseSRAM ; unlatch clock, disable clock r/w
+      1  	predef CloseSRAM
       1 	call ClockResetPassword
       1 	call ClearWRAM
       1 	call ClearWholeMenuBox

@@ -28,7 +28,7 @@ Function11766b:
 	ld de, $c708
 	ld bc, $11
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -43,7 +43,7 @@ Function117699:
 	ld hl, $c708
 	ld bc, $11
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wcd49], a
 	ld [wcd4a], a
@@ -406,7 +406,7 @@ Function117942:
 	ld de, sMobileLoginPassword + 1
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wcd4f]
 	and a
 	jr z, asm_11797e
@@ -716,7 +716,7 @@ Function117bb6:
 	ld de, $b000
 	ld bc, $1000
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ldh [rSVBK], a
 	jp MobileStudium_JumptableIncrement
@@ -780,7 +780,7 @@ Function117c89:
 	ld de, wcd69
 	ld bc, $10
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 MenuHeader_117cbc:

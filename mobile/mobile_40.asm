@@ -1097,7 +1097,7 @@ MobileBattleResetTimer:
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 MobileBattleFixTimer:
@@ -1110,7 +1110,7 @@ MobileBattleFixTimer:
 	ld [hli], a
 	xor a
 	ld [hli], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function100720:
@@ -1132,7 +1132,7 @@ Function100720:
 	ld [wcd6d], a
 	ld a, [hli]
 	ld [wcd6e], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wcd6d]
 	ld [wcd6b], a
 	ret
@@ -1251,7 +1251,7 @@ Function1007f6:
 	call OpenSRAM
 	ld hl, $a802
 	call Function100826
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wcd6e
 	call Function100826
 	ldh a, [hHours]
@@ -1345,7 +1345,7 @@ MobileBattleGetRemainingTime:
 	ld [wStringBuffer2 + 1], a
 	ld a, [hli]
 	ld [wStringBuffer2 + 2], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wStringBuffer2 + 2]
 	ld b, a
 	ld a, MOBILE_BATTLE_ALLOWED_SECONDS
@@ -2377,7 +2377,7 @@ Function100f8d:
 .sram
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Unknown_100fc0:
@@ -2434,7 +2434,7 @@ endr
 	ld de, $a001
 	ld bc, wc7bd - wc608
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function10107d:
@@ -2658,7 +2658,7 @@ Function1011f1:
 	call OpenSRAM
 	ld a, [s4_a60c]
 	ld [wdc41], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wdc41
 	res 4, [hl]
 	ld hl, wGameTimerPaused
@@ -4663,7 +4663,7 @@ Function1020bf:
 	call OpenSRAM
 	call Function10208e
 	call Function102068
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ret
 
@@ -4727,7 +4727,7 @@ Function102112:
 
 .done
 	push af
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 
@@ -6260,7 +6260,7 @@ Function102c48:
 	ld de, wc608
 	ld bc, $2f
 	call Function102c71
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wc608
 	ld de, w5_da00
 	ld bc, $1e0
@@ -6367,7 +6367,7 @@ Function102d34:
 Function102d3e:
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function102d48:
@@ -6914,7 +6914,7 @@ Function103309:
 	ld a, [wdc41]
 	ld [s4_a60c], a
 	ld [wd1ea], a
-	call CloseSRAM
+	predef CloseSRAM
 	call Function1035c6
 	ld a, [hli]
 	ld e, a
@@ -6966,7 +6966,7 @@ Function103362:
 	ld a, [wd1ea]
 	ld [s4_a60c], a
 	ld [wdc41], a
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ret
 

@@ -821,7 +821,7 @@ Printer_PrintBoxListSegment:
 	ld a, $1
 	ld [wFinishedPrintingBox], a
 .max_length
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Printer_GetMonGender:

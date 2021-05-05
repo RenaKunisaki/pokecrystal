@@ -31,7 +31,7 @@ ReadAnyMail:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	farcall IsMailEuropean
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, c
 	ld de, StandardEnglishFont
 	or a
@@ -93,7 +93,7 @@ ReadAnyMail:
 	ld a, [hli] ; species
 	ld [wCurPartySpecies], a
 	ld b, [hl] ; type
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, MailGFXPointers
 	ld c, 0
 .loop2
@@ -697,7 +697,7 @@ MailGFX_PlaceMessage:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wTempMailAuthor
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH - 1

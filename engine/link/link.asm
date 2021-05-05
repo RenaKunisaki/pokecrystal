@@ -937,7 +937,7 @@ Link_PrepPartyData_Gen2:
 	pop bc
 	dec b
 	jr nz, .loop4
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld hl, wLinkPlayerMailMessages
 	ld bc, (MAIL_MSG_LENGTH + 1) * PARTY_LENGTH
@@ -1792,7 +1792,7 @@ LinkTrade:
 	pop de
 	ld bc, MAIL_STRUCT_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 ; Buffer player data
 ; nickname
@@ -2601,7 +2601,7 @@ CheckSRAM0Flag: ; unreferenced
 	ld d, 0
 	ld b, CHECK_FLAG
 	predef SmallFarFlagAction
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, c
 	and a
 	ret

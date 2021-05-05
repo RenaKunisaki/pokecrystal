@@ -699,12 +699,12 @@ SendGetMonIntoFromBox:
 	ld b, a
 	call RestorePPOfDepositedPokemon
 .CloseSRAM_And_ClearCarryFlag:
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
 CloseSRAM_And_SetCarryFlag:
-	call CloseSRAM
+	predef CloseSRAM
 	scf
 	ret
 
@@ -1061,12 +1061,12 @@ SendMonIntoBox:
 	ld b, 0
 	call RestorePPOfDepositedPokemon
 
-	call CloseSRAM
+	predef CloseSRAM
 	scf
 	ret
 
 .full
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
@@ -1753,7 +1753,7 @@ GivePoke::
 	ld [hli], a
 	call Random
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	farcall SetGiftBoxMonCaughtData
 	jr .skip_nickname
 
@@ -1790,7 +1790,7 @@ GivePoke::
 	ld de, sBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld b, $1
 	ret
 

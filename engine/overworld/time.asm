@@ -30,7 +30,7 @@ if DEF(_DEBUG)
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
 	call OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
-	call CloseSRAM
+	predef CloseSRAM
 	dec a
 	cp 2
 	jr nc, .debug_ok
@@ -264,14 +264,14 @@ DoMysteryGiftIfDayHasPassed:
 	ld [wTempMysteryGiftTimer], a
 	ld a, [hl]
 	ld [wTempMysteryGiftTimer + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld hl, wTempMysteryGiftTimer
 	call CheckDayDependentEventHL
 	jr nc, .not_timed_out
 	ld hl, wTempMysteryGiftTimer
 	call InitOneDayCountdown
-	call CloseSRAM
+	predef CloseSRAM
 	farcall ResetDailyMysteryGiftLimitIfUnlocked
 
 .not_timed_out
@@ -282,7 +282,7 @@ DoMysteryGiftIfDayHasPassed:
 	ld [sMysteryGiftTimer], a
 	ld a, [hl]
 	ld [sMysteryGiftTimer + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 UpdateTimeRemaining:

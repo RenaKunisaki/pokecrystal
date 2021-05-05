@@ -201,7 +201,7 @@ DebugRoom_SaveChecksum:
 	ld [sChecksum + 0], a
 	ld a, d
 	ld [sChecksum + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoomMenu_SpClear:
@@ -213,7 +213,7 @@ DebugRoomMenu_SpClear:
 	ld hl, sStackTop
 	ld [hli], a
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_PrintStackBottomTop
 	ret
 
@@ -227,7 +227,7 @@ DebugRoom_PrintStackBottomTop:
 	ld de, sStackTop + 0
 	ld c, 1
 	call PrintHexNumber
-	call CloseSRAM
+	predef CloseSRAM
 	hlcoord 16, 12
 	ld de, .SPString
 	call PlaceString
@@ -268,7 +268,7 @@ DebugRoomMenu_WinWorkClr:
 	ld hl, wWindowStack
 	xor a
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_PrintWindowStackBottomTop:
@@ -287,7 +287,7 @@ DebugRoom_PrintWindowStackBottomTop:
 	inc hl
 	jr .loop
 .ok
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, h
 	ld h, l
 	ld l, a
@@ -343,7 +343,7 @@ DebugRoomMenu_PokedexComp:
 	inc a
 	dec b
 	jr nz, .loop2
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
 
@@ -362,7 +362,7 @@ DebugRoomMenu_PokedexClr:
 	ld bc, NUM_UNOWN
 	xor a
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
 
@@ -373,7 +373,7 @@ DebugRoomMenu_TimerReset:
 	call OpenSRAM
 	ld hl, sRTCStatusFlags
 	set 7, [hl]
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoomMenu_BattleSkip:
@@ -383,7 +383,7 @@ DebugRoomMenu_BattleSkip:
 	inc a
 	and 1
 	ld [sSkipBattle], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_PrintBattleSkip:
@@ -393,7 +393,7 @@ DebugRoom_PrintBattleSkip:
 	ld a, BANK(sSkipBattle)
 	call OpenSRAM
 	ld a, [sSkipBattle]
-	call CloseSRAM
+	predef CloseSRAM
 	hlcoord 16, 7
 	ld de, .DoString
 	or a
@@ -417,7 +417,7 @@ DebugRoomMenu_ChangeSex:
 	inc a
 	and 1
 	ld [sCrystalData + (wPlayerGender - wCrystalData)], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_PrintGender:
@@ -427,7 +427,7 @@ DebugRoom_PrintGender:
 	ld a, BANK(sCrystalData)
 	call OpenSRAM
 	ld a, [sCrystalData + (wPlayerGender - wCrystalData)]
-	call CloseSRAM
+	predef CloseSRAM
 	or a
 	ld a, "♂"
 	jr z, .ok
@@ -450,7 +450,7 @@ DebugRoomMenu_TelDebug:
 	xor a
 .ok
 	ld [sDebugTimeCyclesSinceLastCall], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_PrintTelDebug:
@@ -460,7 +460,7 @@ DebugRoom_PrintTelDebug:
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
 	call OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
-	call CloseSRAM
+	predef CloseSRAM
 	hlcoord 16, 17
 	ld de, .BusyString
 	dec a
@@ -489,7 +489,7 @@ DebugRoomMenu_RAMFlagClr:
 	call OpenSRAM
 	xor a
 	ld [sOpenedInvalidSRAM], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_PrintRAMFlag:
@@ -499,7 +499,7 @@ DebugRoom_PrintRAMFlag:
 	hlcoord 18, 4
 	ld c, 1
 	call PrintHexNumber
-	call CloseSRAM
+	predef CloseSRAM
 	hlcoord 16, 3
 	ld de, .RamString
 	call PlaceString
@@ -534,7 +534,7 @@ DebugRoomMenu_DecorateAll:
 	inc de
 	dec c
 	jr nz, .loop
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
 
@@ -1063,7 +1063,7 @@ DebugRoom_SaveItem:
 .full
 	ld hl, .StockFullText
 .done
-	call CloseSRAM
+	predef CloseSRAM
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
 	call CloseWindow
@@ -1199,7 +1199,7 @@ DebugRoom_SavePokemon:
 	call CopyBytes
 	pop hl
 	pop de
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, .CompletedText
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
@@ -1207,7 +1207,7 @@ DebugRoom_SavePokemon:
 	ret
 
 .full
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, .BoxIsFullText
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
@@ -1446,7 +1446,7 @@ DebugRoom_GetClock:
 	inc c
 	dec b
 	jr nz, .loop
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoom_SetClock:
@@ -1462,7 +1462,7 @@ DebugRoom_SetClock:
 	inc c
 	dec b
 	jr nz, .loop
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoomMenu_RTCEdit_Page1Values:
@@ -1488,7 +1488,7 @@ DebugRoomMenu_HaltChkClr:
 	ld hl, sRTCHaltCheckValue
 	ld [hli], a
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_PrintRTCHaltChk
 	ret
 
@@ -1502,7 +1502,7 @@ DebugRoom_PrintRTCHaltChk:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld de, .HaltString
 	ld a, h
 	cp HIGH(RTC_HALT_VALUE)
@@ -1549,7 +1549,7 @@ DebugRoom_SaveGBID:
 	ld [hli], a
 	ld a, [wDebugRoomGBID + 1]
 	ld [hli], a
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
 
@@ -1570,7 +1570,7 @@ DebugRoomMenu_BtlRecClr:
 	ld hl, sLinkBattleStats
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 DebugRoomMenu_HOFClear:
@@ -1584,7 +1584,7 @@ DebugRoomMenu_HOFClear:
 	ld hl, sHallOfFame
 	ld bc, sHallOfFameEnd - sHallOfFame
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	call DebugRoom_SaveChecksum
 	ret
 
@@ -1690,7 +1690,7 @@ DebugRoomMenu_BTBugPoke:
 	ld a, BANK(sIsBugMon)
 	call OpenSRAM
 	ld a, [sIsBugMon]
-	call CloseSRAM
+	predef CloseSRAM
 	or a
 	jr nz, .bug_mon
 	ld hl, .NoBugMonText
@@ -1718,7 +1718,7 @@ DebugRoomMenu_BTBugPoke:
 	xor a
 	ld [sIsBugMon], a
 .done
-	call CloseSRAM
+	predef CloseSRAM
 	call CloseWindow
 	ret
 

@@ -135,7 +135,7 @@ CheckMysteryGift:
 
 .no
 	ld [wScriptVar], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 GetMysteryGiftItem:
@@ -150,7 +150,7 @@ GetMysteryGiftItem:
 	jr nc, .no_room
 	xor a
 	ld [sMysteryGiftItem], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -161,7 +161,7 @@ GetMysteryGiftItem:
 	ret
 
 .no_room
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wScriptVar], a
 	ret

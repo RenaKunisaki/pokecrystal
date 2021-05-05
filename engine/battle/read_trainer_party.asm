@@ -77,7 +77,7 @@ ReadTrainerParty:
 	call OpenSRAM
 	ld de, sMysteryGiftTrainer
 	call TrainerType2
-	call CloseSRAM
+	predef CloseSRAM
 	jr .done
 
 TrainerTypes:
@@ -341,7 +341,7 @@ GetTrainerName::
 	call OpenSRAM
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	and a
-	call CloseSRAM
+	predef CloseSRAM
 	jr z, .not_cal2
 
 	ld a, BANK(sMysteryGiftPartnerName)

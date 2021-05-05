@@ -27,7 +27,7 @@ StageDataForMysteryGift:
 	ld a, [wNumSetBits]
 	ld [de], a
 	inc de ; wMysteryGiftStaging+15
-	call CloseSRAM
+	predef CloseSRAM
 	call Random
 	and 1
 	ld [de], a
@@ -50,7 +50,7 @@ StageDataForMysteryGift:
 	ld [de], a
 	ld a, wMysteryGiftPlayerDataEnd - wMysteryGiftPlayerData
 	ld [wUnusedMysteryGiftStagedDataLength], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wMysteryGiftStaging
 	ld de, wMysteryGiftPlayerData
 	ld bc, wMysteryGiftPlayerDataEnd - wMysteryGiftPlayerData

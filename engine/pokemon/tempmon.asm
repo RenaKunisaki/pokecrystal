@@ -110,7 +110,7 @@ GetMonSpecies:
 	call OpenSRAM
 	ld hl, sBoxSpecies
 	call .done
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .breedmon

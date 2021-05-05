@@ -258,7 +258,7 @@ CopyBoxmonToTempMon:
 	ld a, BANK(sBoxMon1Species)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 LoadBoxMonListing: ; unreferenced
@@ -361,7 +361,7 @@ LoadBoxMonListing: ; unreferenced
 	dec b
 	jr nz, .loop
 .empty_box
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .BoxAddresses:

@@ -2372,7 +2372,7 @@ Pokedex_LoadSelectedMonTiles:
 	ldh a, [hROMBank]
 	ld b, a
 	call Get2bpp
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Pokedex_LoadCurrentFootprint:
@@ -2494,7 +2494,7 @@ Pokedex_LoadUnownFont:
 	ld hl, vTiles2 tile FIRST_UNOWN_CHAR
 	lb bc, BANK(Pokedex_LoadUnownFont), NUM_UNOWN + 1
 	call Request2bpp
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Pokedex_LoadUnownFrontpicTiles:

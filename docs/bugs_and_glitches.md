@@ -932,7 +932,7 @@ This can occur if your party and current PC box are both full when you start the
  	call OpenSRAM
  	ld a, [sBoxCount]
  	cp MONS_PER_BOX
- 	call CloseSRAM
+ 	predef CloseSRAM
  	jp z, Ball_BoxIsFullMessage
 ```
 

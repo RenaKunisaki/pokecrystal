@@ -131,7 +131,7 @@ _GetVarAction::
 	ld a, MONS_PER_BOX
 	sub [hl]
 	ld b, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, b
 	jp .loadstringbuffer2
 

@@ -1157,7 +1157,7 @@ BillsPC_LoadMonStats:
 	inc de
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .party
@@ -1213,7 +1213,7 @@ BillsPC_LoadMonStats:
 	ld a, [hl]
 	ld [de], a
 
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 BillsPC_RefreshTextboxes:
@@ -1301,14 +1301,14 @@ BillsPC_RefreshTextboxes:
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
 	call PlaceString
 	ret
 
 .boxfail
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	jr .placeholder_string
 
@@ -1353,14 +1353,14 @@ BillsPC_RefreshTextboxes:
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
 	call PlaceString
 	ret
 
 .sBoxFail
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 .placeholder_string
 	ld de, .Placeholder
@@ -1395,7 +1395,7 @@ copy_box_data: MACRO
 
 .done\@
 if \1
-	call CloseSRAM
+	predef CloseSRAM
 endc
 	ld a, -1
 	ld [de], a
@@ -1718,7 +1718,7 @@ BillsPC_CopyMon:
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	farcall CalcBufferMonStats
 	ret
 
@@ -1761,7 +1761,7 @@ BillsPC_CopyMon:
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	call CopyMonToTemp
-	call CloseSRAM
+	predef CloseSRAM
 	farcall CalcBufferMonStats
 	ret
 
@@ -1827,7 +1827,7 @@ TryWithdrawPokemon:
 	ld a, [wCurPartyMon]
 	ld hl, sBoxMonNicknames
 	call GetNickname
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
 	predef SendGetMonIntoFromBox
@@ -2056,7 +2056,7 @@ MovePKMNWitoutMail_InsertMon:
 	ld hl, sBoxMons
 	ld bc, BOXMON_STRUCT_LENGTH
 	call CopyMonToTemp
-	call CloseSRAM
+	predef CloseSRAM
 	farcall CalcBufferMonStats
 	ld a, REMOVE_BOX
 	ld [wPokemonWithdrawDepositParameter], a
@@ -2348,7 +2348,7 @@ GetBoxCount:
 	ld h, [hl]
 	ld l, a
 	ld a, [hl]
-	call CloseSRAM
+	predef CloseSRAM
 	ld c, a
 	ld a, [wSavedAtLeastOnce]
 	and a
@@ -2366,7 +2366,7 @@ GetBoxCount:
 	call OpenSRAM
 	ld hl, sBoxCount
 	ld a, [hl]
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .BoxBankAddresses:

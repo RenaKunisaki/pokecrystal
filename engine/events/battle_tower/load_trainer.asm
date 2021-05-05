@@ -58,7 +58,7 @@ endc
 	add hl, bc
 	ld [hl], a
 
-	call CloseSRAM
+	predef CloseSRAM
 
 	push af
 ; Copy name (10 bytes) and class (1 byte) of trainer
@@ -204,7 +204,7 @@ LoadRandomBattleTowerMon:
 	ld [sBTMonPrevTrainer2], a
 	ld a, [wBT_OTMon3]
 	ld [sBTMonPrevTrainer3], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 INCLUDE "data/battle_tower/classes.asm"

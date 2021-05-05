@@ -160,7 +160,7 @@ AddHallOfFameEntry:
 	ld de, sHallOfFame
 	ld bc, wHallOfFamePokemonListEnd - wHallOfFamePokemonList + 1
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveGameData:
@@ -217,7 +217,7 @@ CompareLoadedAndSavedPlayerID:
 	ld a, [hli]
 	ld c, [hl]
 	ld b, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wPlayerID]
 	cp b
 	ret nz
@@ -280,7 +280,7 @@ _SaveGameData:
 	xor a
 	ld [sBattleTowerChallengeState], a
 .ok
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 UpdateStackTop:
@@ -308,7 +308,7 @@ UpdateStackTop:
 	ld [sStackTop + 1], a
 
 .done
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 FindStackTop:
@@ -358,7 +358,7 @@ ErasePreviousSave:
 	xor a
 	ld [sStackTop + 0], a
 	ld [sStackTop + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $1
 	ld [wSavedAtLeastOnce], a
 	ret
@@ -428,7 +428,7 @@ Function14d6c: ; unreferenced
 .ok
 	ld a, b
 	ld [s4_a60b], a ; address of MBC30 bank
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function14d83: ; unreferenced
@@ -437,7 +437,7 @@ Function14d83: ; unreferenced
 	xor a
 	ld [s4_a60c], a ; address of MBC30 bank
 	ld [s4_a60d], a ; address of MBC30 bank
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function14d93: ; unreferenced
@@ -445,7 +445,7 @@ Function14d93: ; unreferenced
 	call OpenSRAM
 	xor a
 	ld [s7_a000], a ; address of MBC30 bank
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 HallOfFame_InitSaveIfNeeded:
@@ -496,7 +496,7 @@ SavePokemonData:
 	ld de, sPokemonData
 	ld bc, wPokemonDataEnd - wPokemonData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveBox:
@@ -514,7 +514,7 @@ SaveChecksum:
 	ld [sChecksum + 0], a
 	ld a, d
 	ld [sChecksum + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 ValidateBackupSave:
@@ -524,7 +524,7 @@ ValidateBackupSave:
 	ld [sBackupCheckValue1], a
 	ld a, SAVE_CHECK_VALUE_2
 	ld [sBackupCheckValue2], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveBackupOptions:
@@ -534,7 +534,7 @@ SaveBackupOptions:
 	ld de, sBackupOptions
 	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveBackupPlayerData:
@@ -548,7 +548,7 @@ SaveBackupPlayerData:
 	ld de, sBackupCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveBackupPokemonData:
@@ -558,7 +558,7 @@ SaveBackupPokemonData:
 	ld de, sBackupPokemonData
 	ld bc, wPokemonDataEnd - wPokemonData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 SaveBackupChecksum:
@@ -571,7 +571,7 @@ SaveBackupChecksum:
 	ld [sBackupChecksum + 0], a
 	ld a, d
 	ld [sBackupChecksum + 1], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 TryLoadSaveFile:
@@ -638,7 +638,7 @@ TryLoadSaveData:
 	ld de, wStatusFlags
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .backup
@@ -657,7 +657,7 @@ TryLoadSaveData:
 	ld de, wStatusFlags
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .corrupt
@@ -683,12 +683,12 @@ CheckPrimarySaveFile:
 	ld de, wOptions
 	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, TRUE
 	ld [wSaveFileExists], a
 
 .nope
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 CheckBackupSaveFile:
@@ -708,7 +708,7 @@ CheckBackupSaveFile:
 	ld [wSaveFileExists], a
 
 .nope
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 LoadPlayerData:
@@ -722,7 +722,7 @@ LoadPlayerData:
 	ld de, wCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(sBattleTowerChallengeState)
 	call OpenSRAM
 	ld a, [sBattleTowerChallengeState]
@@ -731,7 +731,7 @@ LoadPlayerData:
 	ld a, BATTLETOWER_WON_CHALLENGE
 	ld [sBattleTowerChallengeState], a
 .not_4
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 LoadPokemonData:
@@ -741,7 +741,7 @@ LoadPokemonData:
 	ld de, wPokemonData
 	ld bc, wPokemonDataEnd - wPokemonData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 LoadBox:
@@ -762,7 +762,7 @@ VerifyChecksum:
 	cp d
 .fail
 	push af
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 
@@ -777,7 +777,7 @@ LoadBackupPlayerData:
 	ld de, wCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 LoadBackupPokemonData:
@@ -787,7 +787,7 @@ LoadBackupPokemonData:
 	ld de, wPokemonData
 	ld bc, wPokemonDataEnd - wPokemonData
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 VerifyBackupChecksum:
@@ -803,7 +803,7 @@ VerifyBackupChecksum:
 	cp d
 .fail
 	push af
-	call CloseSRAM
+	predef CloseSRAM
 	pop af
 	ret
 
@@ -892,7 +892,7 @@ SaveBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop de
 	pop af
 ; Save it to the target box.
@@ -902,7 +902,7 @@ SaveBoxAddress:
 	ld hl, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 ; Load the second part of the active box.
 	ld a, BANK(sBox)
@@ -911,7 +911,7 @@ SaveBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop de
 	pop af
 
@@ -926,7 +926,7 @@ SaveBoxAddress:
 	ld hl, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 ; Load the third and final part of the active box.
 	ld a, BANK(sBox)
@@ -935,7 +935,7 @@ SaveBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, sBoxEnd - (sBox + (wBoxPartialDataEnd - wBoxPartialData) * 2) ; $8e
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop de
 	pop af
 
@@ -948,7 +948,7 @@ SaveBoxAddress:
 	ld hl, wBoxPartialData
 	ld bc, sBoxEnd - (sBox + (wBoxPartialDataEnd - wBoxPartialData) * 2) ; $8e
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop hl
 	ret
@@ -967,14 +967,14 @@ LoadBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(sBox)
 	call OpenSRAM
 	ld hl, wBoxPartialData
 	ld de, sBox
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	pop af
 
@@ -987,14 +987,14 @@ LoadBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(sBox)
 	call OpenSRAM
 	ld hl, wBoxPartialData
 	ld de, sBox + (wBoxPartialDataEnd - wBoxPartialData)
 	ld bc, (wBoxPartialDataEnd - wBoxPartialData)
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	pop af
 ; Load part 3
@@ -1004,14 +1004,14 @@ LoadBoxAddress:
 	ld de, wBoxPartialData
 	ld bc, sBoxEnd - (sBox + (wBoxPartialDataEnd - wBoxPartialData) * 2) ; $8e
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(sBox)
 	call OpenSRAM
 	ld hl, wBoxPartialData
 	ld de, sBox + (wBoxPartialDataEnd - wBoxPartialData) * 2
 	ld bc, sBoxEnd - (sBox + (wBoxPartialDataEnd - wBoxPartialData) * 2) ; $8e
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 
 	pop hl
 	ret
@@ -1051,7 +1051,7 @@ EraseBoxes:
 	inc de
 	xor a
 	ld [de], a
-	call CloseSRAM
+	predef CloseSRAM
 	pop bc
 	dec c
 	jr nz, .next

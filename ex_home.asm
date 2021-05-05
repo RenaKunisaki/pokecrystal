@@ -316,7 +316,7 @@ ClearsScratch_far::
 	ld bc, $20
 	xor a
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 ; ========== joypad.asm ==========

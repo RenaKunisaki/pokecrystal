@@ -88,7 +88,7 @@ CheckOwnMonAnywhere:
 	jr nc, .loop
 
 	; found!
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .loop
@@ -102,7 +102,7 @@ CheckOwnMonAnywhere:
 
 	; Run CheckOwnMon on each monster in the other 13 PC boxes.
 .boxes
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld c, 0
 .box
@@ -152,7 +152,7 @@ CheckOwnMonAnywhere:
 
 	; found!
 	pop bc
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .loopboxmon
@@ -172,7 +172,7 @@ CheckOwnMonAnywhere:
 	jr c, .box
 
 	; not found
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 

@@ -5,7 +5,7 @@ CheckSave::
 	ld b, a
 	ld a, [sCheckValue2]
 	ld c, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, b
 	cp SAVE_CHECK_VALUE_1
 	jr nz, .ok

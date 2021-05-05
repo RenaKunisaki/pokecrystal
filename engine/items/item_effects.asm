@@ -222,7 +222,7 @@ PokeBallEffect:
 	call OpenSRAM
 	ld a, [sBoxCount]
 	cp MONS_PER_BOX
-	call CloseSRAM
+	predef CloseSRAM
 	jp z, Ball_BoxIsFullMessage
 
 .room_in_party
@@ -636,7 +636,7 @@ PokeBallEffect:
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [sBoxMon1Happiness], a
 .SkipBoxMonFriendBall:
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld hl, AskGiveNicknameText
 	call PrintText
@@ -668,7 +668,7 @@ PokeBallEffect:
 	ld de, wStringBuffer1
 	call InitName
 
-	call CloseSRAM
+	predef CloseSRAM
 
 .SkipBoxMonNickname:
 	ld a, BANK(sBoxMonNicknames)
@@ -679,7 +679,7 @@ PokeBallEffect:
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
 
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld hl, BallSentToPCText
 	call PrintText

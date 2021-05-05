@@ -30,7 +30,7 @@ StubbedTrainerRankings_HallOfFame2::
 	call CopyBytes
 
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_MagikarpLength:
@@ -98,7 +98,7 @@ StubbedTrainerRankings_MagikarpLength:
 
 .done
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_BugContestScore:
@@ -127,7 +127,7 @@ StubbedTrainerRankings_BugContestScore:
 
 .done
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_AddToSlotsWinStreak:
@@ -167,7 +167,7 @@ StubbedTrainerRankings_AddToSlotsWinStreak:
 
 .done
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_EndSlotsWinStreak:
@@ -179,7 +179,7 @@ StubbedTrainerRankings_EndSlotsWinStreak:
 	ld [hli], a
 	ld [hl], a
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_AddToSlotsPayouts:
@@ -207,7 +207,7 @@ StubbedTrainerRankings_AddToSlotsPayouts:
 
 .done
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_AddToBattlePayouts:
@@ -237,7 +237,7 @@ StubbedTrainerRankings_AddToBattlePayouts:
 
 .done
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StubbedTrainerRankings_StepCount:
@@ -251,7 +251,7 @@ StubbedTrainerRankings_BattleTowerWins: ; unreferenced
 	call OpenSRAM
 	ld a, [s5_aa8d]
 	and a
-	call CloseSRAM
+	predef CloseSRAM
 	ret nz
 	ld hl, sTrainerRankingBattleTowerWins
 	jp StubbedTrainerRankings_Increment2Byte
@@ -467,7 +467,7 @@ StubbedTrainerRankings_Increment:
 
 .asm_10614d
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	pop bc
 	ret
 
@@ -477,7 +477,7 @@ UpdateTrainerRankingsChecksum2:
 	ld a, BANK(sTrainerRankings)
 	call OpenSRAM
 	call UpdateTrainerRankingsChecksum
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 UpdateTrainerRankingsChecksum:
@@ -521,7 +521,7 @@ BackupMobileEventIndex:
 	call OpenSRAM
 	pop af
 	ld [sMobileEventIndexBackup], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 RestoreMobileEventIndex:
@@ -533,7 +533,7 @@ RestoreMobileEventIndex:
 	call OpenSRAM
 	pop af
 	ld [sMobileEventIndex], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 VerifyTrainerRankingsChecksum: ; unreferenced
@@ -552,7 +552,7 @@ DeleteMobileEventIndex:
 	call OpenSRAM
 	xor a
 	ld [sMobileEventIndex], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 InitializeTrainerRankings: ; unreferenced
@@ -793,12 +793,12 @@ Stubbed_Function106314:
 	ld a, c
 	cpl
 	ld [s4_b000], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(s7_a800)
 	call OpenSRAM
 	ld a, c
 	ld [s7_a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Mobile_AlwaysReturnNotCarry:
@@ -813,12 +813,12 @@ Function106331: ; unreferenced
 	ld a, [s4_b000]
 	cpl
 	ld b, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, BANK(s7_a800)
 	call OpenSRAM
 	ld a, [s7_a800]
 	ld c, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, c
 	cp b
 	jr nz, .nope

@@ -130,7 +130,7 @@ _SwitchPartyMons:
 	ld hl, wSwitchMonBuffer
 	ld bc, MAIL_STRUCT_LENGTH
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	pop bc
 	pop de
 	pop hl

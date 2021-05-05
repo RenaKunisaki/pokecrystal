@@ -23,7 +23,7 @@ CheckBattleScene:
 	call OpenSRAM
 	ld a, [s4_a60c]
 	ld c, a
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld a, c
 	bit 0, c

@@ -1647,7 +1647,7 @@ Function89a57:
 	call OpenSRAMBank4
 	call Function8931b
 	call .Function89ad4
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .Function89ad4:
@@ -2189,7 +2189,7 @@ Jumptable_89e04:
 Function89e0a:
 	call OpenSRAMBank4
 	call Function8b3b0
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, Jumptable_89e18
 	rst JumpTable
 	ret
@@ -2203,7 +2203,7 @@ Function89e1e:
 	call OpenSRAMBank4
 	ld bc, $a037
 	call Function8b36c
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wd02d], a
 
@@ -2502,13 +2502,13 @@ Function89ff6:
 	ld hl, $a603
 	ld de, wd008
 	call Function89381
-	call CloseSRAM
+	predef CloseSRAM
 	call Function8987f
 	call OpenSRAMBank4
 	hlcoord 1, 13
 	ld bc, $a007
 	call Function89a0c
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891ab
 	call Mobile22_PromptButton
 	jp Function89e36
@@ -2851,7 +2851,7 @@ Function8a2aa:
 	jr c, .asm_8a2ed
 	ld a, $1
 	call Function8a313
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891de
 	call Function89245
 	call Function89168
@@ -2882,7 +2882,7 @@ Function8a2fe:
 	ld bc, $8
 	ld a, -1
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function8a313:
@@ -2994,7 +2994,7 @@ Function8a3df:
 	call OpenSRAMBank4
 	ld hl, $a603
 	call Function89b45
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, wd002
 	jr c, .asm_8a3f8
 	ld de, Unknown_8a408
@@ -3345,14 +3345,14 @@ Function8a679:
 	call OpenSRAMBank4
 	call Function8931b
 	call Function89844
-	call CloseSRAM
+	predef CloseSRAM
 	call OpenSRAMBank4
 	call Function8939a
 	call Function89856
 	hlcoord 1, 13
 	call Function899fe
 	call Function891ab
-	call CloseSRAM
+	predef CloseSRAM
 .asm_8a6a3
 	call Function89a57
 	jr c, .asm_8a6a3
@@ -3390,7 +3390,7 @@ Function8a6cd:
 	call Function8931b
 	call Function89844
 	call Function8a757
-	call CloseSRAM
+	predef CloseSRAM
 .asm_8a6e5
 	call OpenSRAMBank4
 	call Function8931b
@@ -3399,7 +3399,7 @@ Function8a6cd:
 	call Function891ab
 	xor a
 	ld [wd02f], a
-	call CloseSRAM
+	predef CloseSRAM
 .asm_8a6fb
 	call Function89b97
 	call Function89c67
@@ -3417,7 +3417,7 @@ Function8a6cd:
 .asm_8a718
 	call OpenSRAMBank4
 	call Function8a765
-	call CloseSRAM
+	predef CloseSRAM
 	jr nc, .asm_8a73f
 	call Mobile22_SetBGMapMode0
 	call Function89448
@@ -3430,7 +3430,7 @@ Function8a6cd:
 	call Function89254
 	jr c, .asm_8a6e5
 .asm_8a73f
-	call CloseSRAM
+	predef CloseSRAM
 .asm_8a742
 	call ClearBGPalettes
 	call Function89448
@@ -3490,7 +3490,7 @@ Function8a78c:
 	ld e, l
 	ld hl, wd002
 	call InitName
-	call CloseSRAM
+	predef CloseSRAM
 	call DelayFrame
 	call JoyTextDelay
 	call Function891de
@@ -3499,7 +3499,7 @@ Function8a78c:
 	call OpenSRAMBank4
 	pop bc
 	call Function89844
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
@@ -3532,7 +3532,7 @@ Function8a7cb:
 	call Function89856
 	call Function89a2e
 	call Function891ab
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
@@ -3570,7 +3570,7 @@ Function8a818:
 	call WaitBGMap
 	call JoyWaitAorB
 .asm_8a863
-	call CloseSRAM
+	predef CloseSRAM
 	scf
 	ret
 
@@ -3597,7 +3597,7 @@ String_8a88b:
 Function8a8a1:
 	call OpenSRAMBank4
 	call Function8a765
-	call CloseSRAM
+	predef CloseSRAM
 	jr nc, .asm_8a8bf
 	call Function89a23
 	hlcoord 1, 13
@@ -3622,7 +3622,7 @@ Function8a8c3:
 	call Function89844
 	call Function8939a
 	call Function89856
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891ab
 	hlcoord 1, 13
 	ld de, String_8a919
@@ -3632,7 +3632,7 @@ Function8a8c3:
 	jr c, .asm_8a90f
 	call OpenSRAMBank4
 	call Function892b4
-	call CloseSRAM
+	predef CloseSRAM
 	call Function89a23
 	call Mobile22_SetBGMapMode0
 	hlcoord 1, 13
@@ -3704,7 +3704,7 @@ Function8a930:
 	ld de, SFX_SWITCH_POKEMON
 	call WaitPlaySFX
 .asm_8a995
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function8a999:
@@ -3790,7 +3790,7 @@ Function8aa0a:
 	ld hl, $a603
 	ld de, wd008
 	call Function89381
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891fe
 	call ClearBGPalettes
 	call Function893cc
@@ -3881,7 +3881,7 @@ Function8aab6:
 	call WaitBGMap
 	call JoyWaitAorB
 .asm_8aaeb
-	call CloseSRAM
+	predef CloseSRAM
 	scf
 	ret
 
@@ -3903,7 +3903,7 @@ Function8ab11:
 	ld de, wd008
 	ld c, $8
 	call Function89185
-	call CloseSRAM
+	predef CloseSRAM
 	jr z, .asm_8ab37
 	call Function89a23
 	hlcoord 1, 13
@@ -3931,13 +3931,13 @@ Function8ab3b:
 	ld hl, $a603
 	ld de, wd008
 	call Function89381
-	call CloseSRAM
+	predef CloseSRAM
 	call Function8987f
 	call OpenSRAMBank4
 	hlcoord 1, 13
 	ld bc, $a007
 	call Function89a0c
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891ab
 	call .JoypadLoop
 	jr c, .pressed_start
@@ -3988,11 +3988,11 @@ Function8aba9:
 	ld hl, $0011
 	add hl, bc
 	call Function89b45
-	call CloseSRAM
+	predef CloseSRAM
 	jr c, .asm_8abe2
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call CloseSRAM
+	predef CloseSRAM
 	jr .asm_8abb9
 
 .asm_8abdf
@@ -4009,13 +4009,13 @@ Function8aba9:
 	call OpenSRAMBank4
 	call Function8931b
 	call Function89844
-	call CloseSRAM
+	predef CloseSRAM
 	call OpenSRAMBank4
 	call Function8939a
 	call Function89856
 	hlcoord 1, 13
 	call Function899fe
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891ab
 .asm_8ac0f
 	call Function89a57
@@ -4076,17 +4076,17 @@ Function8ac7c:
 	call OpenSRAMBank4
 	call Function8931b
 	call Function8932d
-	call CloseSRAM
+	predef CloseSRAM
 	jr nc, .asm_8acb0
 	call OpenSRAMBank4
 	ld hl, $0011
 	add hl, bc
 	call Function89b45
-	call CloseSRAM
+	predef CloseSRAM
 	jr nc, .asm_8accc
 	call OpenSRAMBank4
 	call Function892b7
-	call CloseSRAM
+	predef CloseSRAM
 	jr .asm_8accc
 
 .asm_8acb0
@@ -4124,7 +4124,7 @@ Function8ac7c:
 	call Function89193
 
 .asm_8ace4
-	call CloseSRAM
+	predef CloseSRAM
 	call LoadStandardFont
 	ld a, [wd02f]
 	ld c, a
@@ -4162,7 +4162,7 @@ Function8ad0b:
 	call Function89856
 	hlcoord 1, 13
 	call Function899fe
-	call CloseSRAM
+	predef CloseSRAM
 	call Function891ab
 	pop bc
 .asm_8ad37
@@ -4230,13 +4230,13 @@ Function8adbf: ; unreferenced
 	call OpenSRAMBank4
 	ld hl, $a603
 	call Function89b45
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function8adcc:
 	call OpenSRAMBank4
 	call Function8b3b0
-	call CloseSRAM
+	predef CloseSRAM
 	ret nc
 	cp $2
 	ret z

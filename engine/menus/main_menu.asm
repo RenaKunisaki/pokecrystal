@@ -207,7 +207,7 @@ MainMenu_GetWhichMenu:
 	call OpenSRAM
 	ld a, [sNumDailyMysteryGiftPartnerIDs]
 	cp -1 ; locked?
-	call CloseSRAM
+	predef CloseSRAM
 	jr nz, .mystery_gift
 	; This check makes no difference.
 	ld a, [wStatusFlags]

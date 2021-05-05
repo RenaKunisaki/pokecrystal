@@ -7,7 +7,7 @@ StopRTC: ; unreferenced
 	ld a, [MBC3RTC]
 	set 6, a ; halt
 	ld [MBC3RTC], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StartRTC:
@@ -19,7 +19,7 @@ StartRTC:
 	ld a, [MBC3RTC]
 	res 6, a ; halt
 	ld [MBC3RTC], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 GetTimeOfDay::
@@ -85,7 +85,7 @@ SaveRTC:
 	ld [MBC3SRamBank], a
 	xor a
 	ld [sRTCStatusFlags], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 StartClock::
@@ -144,7 +144,7 @@ ClockContinue:
 	ld a, [s5_b2fa]
 	inc a
 	ld [s5_b2fa], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .dont_update

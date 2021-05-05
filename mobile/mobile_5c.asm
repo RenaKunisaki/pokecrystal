@@ -68,7 +68,7 @@ Function17005a:
 	ld [wOTTrademonCaughtData], a
 	ld a, [wcd81]
 	ld [wc74e], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 INCLUDE "engine/events/battle_tower/battle_tower.asm"
@@ -80,7 +80,7 @@ Function170be4:
 	ld hl, s5_a894
 	ld bc, 6 + 2
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Clears5_a89a:
@@ -90,7 +90,7 @@ Clears5_a89a:
 	xor a
 	ld [hli], a
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function170c06: ; unreferenced
@@ -192,7 +192,7 @@ Function170c06: ; unreferenced
 	ld a, [hl]
 	add c
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function170c8b:
@@ -583,7 +583,7 @@ Function171beb:
 	call OpenSRAM
 	ld a, [wcd4a]
 	ld [$aa4a], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, MenuHeader_171c6b
 	call LoadMenuHeader
 	call MenuBox

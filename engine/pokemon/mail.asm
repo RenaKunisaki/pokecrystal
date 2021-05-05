@@ -30,7 +30,7 @@ SendMailToPC:
 	ld [hl], 0
 	ld hl, sMailboxCount
 	inc [hl]
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ret
 
@@ -109,7 +109,7 @@ MoveMailFromPCToParty:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	ld [hl], d
-	call CloseSRAM
+	predef CloseSRAM
 	pop bc
 	jp DeleteMailFromPC
 
@@ -177,7 +177,7 @@ CheckPokeMail::
 	ld a, POKEMAIL_CORRECT
 
 .close_sram_return
-	call CloseSRAM
+	predef CloseSRAM
 	jr .return
 
 .pop_return
@@ -318,7 +318,7 @@ InitMail:
 	ld a, BANK(sMailboxCount)
 	call OpenSRAM
 	ld a, [sMailboxCount]
-	call CloseSRAM
+	predef CloseSRAM
 
 ; initialize wMailboxCount from sMailboxCount
 	ld hl, wMailboxCount
@@ -356,7 +356,7 @@ MailboxPC_GetMailAuthor:
 	call CopyBytes
 	ld a, "@"
 	ld [de], a
-	call CloseSRAM
+	predef CloseSRAM
 	pop de
 	ret
 

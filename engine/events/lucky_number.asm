@@ -46,7 +46,7 @@ CheckForLuckyNumberWinners:
 	jr nz, .OpenBoxLoop
 
 .SkipOpenBox:
-	call CloseSRAM
+	predef CloseSRAM
 	ld c, $0
 .BoxesLoop:
 	ld a, [wCurBox]
@@ -99,7 +99,7 @@ CheckForLuckyNumberWinners:
 	cp NUM_BOXES
 	jr c, .BoxesLoop
 
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wScriptVar]
 	and a
 	ret z ; found nothing

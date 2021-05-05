@@ -21,7 +21,7 @@ _ResetClock:
 	call OpenSRAM
 	ld a, $80
 	ld [sRTCStatusFlags], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld hl, .PasswordAskResetText
 	call PrintText
 	ret
@@ -227,7 +227,7 @@ ClockResetPassword:
 	ld hl, sPlayerData + (wMoney - wPlayerData)
 	ld c, 3
 	call .ComponentFromNumber
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .ComponentFromNumber:

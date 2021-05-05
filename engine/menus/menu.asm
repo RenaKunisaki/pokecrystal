@@ -701,7 +701,7 @@ RestoreOverworldMapTiles: ; unreferenced
 	ld de, sScratch
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	call OverworldTextModeSwitch
 	xor a ; sScratch
 	call OpenSRAM
@@ -720,7 +720,7 @@ RestoreOverworldMapTiles: ; unreferenced
 	ld a, c
 	or b
 	jr nz, .loop
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Error_Cant_ExitMenu:

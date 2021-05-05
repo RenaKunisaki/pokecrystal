@@ -155,7 +155,7 @@ _ResetWRAM:
 	call OpenSRAM
 	ld hl, sBoxCount
 	call .InitList
-	call CloseSRAM
+	predef CloseSRAM
 
 	ld hl, wNumItems
 	call .InitList
@@ -189,7 +189,7 @@ _ResetWRAM:
 	assert sMysteryGiftItem + 1 == sMysteryGiftUnlocked
 	dec a ; -1
 	ld [hl], a
-	call CloseSRAM
+	predef CloseSRAM
 
 	call LoadOrRegenerateLuckyIDNumber
 	call InitializeMagikarpHouse

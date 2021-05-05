@@ -3440,7 +3440,7 @@ if DEF(_DEBUG)
 	ld a, BANK(sSkipBattle)
 	call OpenSRAM
 	ld a, [sSkipBattle]
-	call CloseSRAM
+	predef CloseSRAM
 	or a
 	; If [sSkipBattle] is nonzero, skip the "jr nc, .no_underflow" check,
 	; so any attack deals maximum damage to the enemy.

@@ -305,7 +305,7 @@ Function17d0f3:
 	call OpenSRAM
 	ld a, $5
 	ld [$a800], a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -510,7 +510,7 @@ Function17d2ce:
 	ld a, BANK(s5_aa72)
 	call OpenSRAM
 	ld a, [s5_aa72]
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	jr nz, .asm_17d2e2
 	ld a, $1
@@ -545,7 +545,7 @@ Function17d314:
 	ld a, $5
 	call OpenSRAM
 	ld a, [$b1b1]
-	call CloseSRAM
+	predef CloseSRAM
 	cp $21
 	jr nc, .asm_17d354
 	ld a, $6
@@ -575,19 +575,19 @@ Function17d314:
 	ld a, [$a003]
 	cp h
 	jr nz, .asm_17d354
-	call CloseSRAM
+	predef CloseSRAM
 	and a
 	ret
 
 .asm_17d354
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $5
 	call OpenSRAM
 	xor a
 	ld hl, $aa73
 	ld bc, $c
 	call ByteFill
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $2
 	ld [wScriptVar], a
 	scf
@@ -641,7 +641,7 @@ Function17d370:
 	ld de, wBGPals1
 	ld bc, $1000
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function17d3f6:
@@ -961,7 +961,7 @@ Function17d60b:
 	ld l, a
 	ld a, [$b1b4]
 	ld h, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $6
 	call OpenSRAM
 	ld de, wc708
@@ -1021,7 +1021,7 @@ Function17d60b:
 	jr .asm_17d63b
 
 .asm_17d684
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $5
 	call OpenSRAM
 	ld hl, wc708
@@ -1031,7 +1031,7 @@ Function17d60b:
 	ld a, [$b1b2]
 	ld b, a
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function17d6a1:
@@ -1056,7 +1056,7 @@ Function17d6a1:
 	ld a, [hl]
 	ld h, a
 	ld l, c
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $6
 	call OpenSRAM
 	ld a, l
@@ -1079,7 +1079,7 @@ Function17d6a1:
 	ld [wcd6a], a
 	ld a, h
 	ld [wcd6b], a
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	ret
 
@@ -1183,7 +1183,7 @@ Function17d78d:
 	ld de, wBGPals1
 	ld bc, $1000
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	xor a
 	ld [wcd77], a
 	call ClearBGPalettes
@@ -1357,7 +1357,7 @@ Function17d85d:
 	jr .asm_17d878
 
 .asm_17d8c2
-	call CloseSRAM
+	predef CloseSRAM
 	jr .asm_17d878
 
 .asm_17d8c7
@@ -1535,7 +1535,7 @@ Function17d9e3:
 	jr .asm_17da30
 
 .asm_17da2d
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_17da30
 	ret
@@ -1595,7 +1595,7 @@ Function17da31:
 	jr .asm_17da8b
 
 .asm_17da88
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_17da8b
 	ret
@@ -2037,7 +2037,7 @@ Function17dd49:
 	jr .exited_bank
 
 .close_sram
-	call CloseSRAM
+	predef CloseSRAM
 
 .exited_bank
 	ld a, [wc711]
@@ -2113,7 +2113,7 @@ Function17ddcd:
 	jr .asm_17de0f
 
 .asm_17de0c
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_17de0f
 	push hl
@@ -2194,7 +2194,7 @@ Function17de32:
 	ld h, a
 
 .asm_17de8a
-	call CloseSRAM
+	predef CloseSRAM
 	call Function17e40f
 	ret
 
@@ -2236,7 +2236,7 @@ Function17de91:
 	ld h, a
 
 .asm_17ded2
-	call CloseSRAM
+	predef CloseSRAM
 	call Function17e40f
 	ret
 
@@ -2450,7 +2450,7 @@ Function17e026:
 	ld a, BANK(sBoxCount)
 	call OpenSRAM
 	ld a, [sBoxCount]
-	call CloseSRAM
+	predef CloseSRAM
 	cp $14
 	jp nc, .asm_17e0ea
 	bit 0, b
@@ -2487,7 +2487,7 @@ Function17e026:
 	ld a, [hli]
 	ld b, a
 	push hl
-	call CloseSRAM
+	predef CloseSRAM
 	farcall SetGiftBoxMonCaughtData
 	ld a, $1
 	call OpenSRAM
@@ -2550,7 +2550,7 @@ Function17e026:
 	ld hl, sBoxMon1Moves
 	ld de, sBoxMon1PP
 	predef FillPP
-	call CloseSRAM
+	predef CloseSRAM
 	pop hl
 	pop bc
 	inc hl
@@ -2558,7 +2558,7 @@ Function17e026:
 	jr asm_17e0ee
 
 .asm_17e0e1
-	call CloseSRAM
+	predef CloseSRAM
 	ld de, $6
 	add hl, de
 	jr asm_17e0ee
@@ -2712,7 +2712,7 @@ Function17e1a1:
 	jr .asm_17e1e5
 
 .asm_17e1e2
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_17e1e5
 	ld a, [wc70e]
@@ -2744,7 +2744,7 @@ Function17e1a1:
 	jr .asm_17e21d
 
 .asm_17e21a
-	call CloseSRAM
+	predef CloseSRAM
 
 .asm_17e21d
 	ld a, [wc70b]
@@ -2891,7 +2891,7 @@ Function17e2a7:
 	ld de, $aa7f
 	ld bc, $c
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .asm_17e2f7
@@ -2930,7 +2930,7 @@ Function17e32b:
 	ld hl, wBGMapBuffer
 	ld bc, $5b
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 Function17e349:
@@ -2943,7 +2943,7 @@ Function17e349:
 	ld de, wBGMapBuffer
 	ld bc, $5b
 	call CopyBytes
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 inc_crash_check_pointer_farcall: MACRO
@@ -3545,7 +3545,7 @@ RunMobileScript::
 	jr .loop
 
 .finished
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 _RunMobileScript:
@@ -4089,7 +4089,7 @@ MobileScript_Prefecture:
 
 .asm_17f35d
 	ld c, a
-	call CloseSRAM
+	predef CloseSRAM
 	ld de, wc608
 	farcall Function48c63
 	pop hl
@@ -4136,7 +4136,7 @@ Function17f382:
 	ld a, 3
 	ld c, a
 	call PrintNum
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, l
 	ld [wcd52], a
 	ld a, h
@@ -4315,7 +4315,7 @@ Function17f44f:
 	jr .asm_17f4b7
 
 .asm_17f4af
-	call CloseSRAM
+	predef CloseSRAM
 	ld a, $6
 	call OpenSRAM
 
@@ -4490,7 +4490,7 @@ DisplayMobileError:
 	call OpenSRAM
 	xor a
 	ld [sMobileLoginPassword], a
-	call CloseSRAM
+	predef CloseSRAM
 	ret
 
 .RunJumptable:
