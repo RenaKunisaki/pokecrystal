@@ -204,7 +204,7 @@ MainMenu_GetWhichMenu:
 	ld a, MAINMENU_CONTINUE
 	ret nz
 	ld a, BANK(sNumDailyMysteryGiftPartnerIDs)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sNumDailyMysteryGiftPartnerIDs]
 	cp -1 ; locked?
 	predef CloseSRAM

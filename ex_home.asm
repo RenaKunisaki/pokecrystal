@@ -311,7 +311,7 @@ ClearsScratch_far::
 ; Wipe the first 32 bytes of sScratch
 
 	ld a, BANK(sScratch)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sScratch
 	ld bc, $20
 	xor a

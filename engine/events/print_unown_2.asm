@@ -2,7 +2,7 @@ RotateUnownFrontpic:
 ; something to do with Unown printer
 	push de
 	xor a ; BANK(sScratch)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sScratch
 	ld bc, 0
 .loop

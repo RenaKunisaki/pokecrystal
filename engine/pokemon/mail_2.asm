@@ -29,7 +29,7 @@ ReadAnyMail:
 	pop de
 	push de
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	farcall IsMailEuropean
 	predef CloseSRAM
 	ld a, c
@@ -83,7 +83,7 @@ ReadAnyMail:
 	ld l, e
 	push hl
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, sPartyMon1MailAuthorID - sPartyMon1Mail
 	add hl, de
 	ld a, [hli] ; author id
@@ -695,7 +695,7 @@ MailGFX_PlaceMessage:
 	ld bc, MAIL_STRUCT_LENGTH
 	ld de, wTempMail
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	predef CloseSRAM
 	ld hl, wTempMailAuthor

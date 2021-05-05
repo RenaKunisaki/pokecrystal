@@ -152,7 +152,7 @@ _ResetWRAM:
 	call SetDefaultBoxNames
 
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxCount
 	call .InitList
 	predef CloseSRAM
@@ -182,7 +182,7 @@ _ResetWRAM:
 	ld [wRoamMon3MapNumber], a
 
 	ld a, BANK(sMysteryGiftItem) ; aka BANK(sMysteryGiftUnlocked)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sMysteryGiftItem
 	xor a
 	ld [hli], a
@@ -320,7 +320,7 @@ InitializeWorld:
 
 LoadOrRegenerateLuckyIDNumber:
 	ld a, BANK(sLuckyIDNumber)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [wCurDay]
 	inc a
 	ld b, a

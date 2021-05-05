@@ -182,7 +182,7 @@ DebugRoomMenu_Next:
 
 DebugRoom_SaveChecksum:
 	ld a, BANK(sGameData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld bc, sGameDataEnd - sGameData
 	ld de, 0
 	ld hl, sGameData
@@ -208,7 +208,7 @@ DebugRoomMenu_SpClear:
 	call YesNoBox
 	ret c
 	ld a, BANK(sStackTop)
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld hl, sStackTop
 	ld [hli], a
@@ -219,7 +219,7 @@ DebugRoomMenu_SpClear:
 
 DebugRoom_PrintStackBottomTop:
 	ld a, BANK(sStackTop)
-	call OpenSRAM
+	predef OpenSRAM
 	hlcoord 16, 14
 	ld de, sStackTop + 1
 	ld c, 1
@@ -260,7 +260,7 @@ DebugRoomMenu_WinWorkClr:
 	sbc HIGH(wWindowStack)
 	ret c
 	ld a, $00
-	call OpenSRAM
+	predef OpenSRAM
 	ld bc, -wWindowStack + $10000
 	add hl, bc
 	ld b, h
@@ -275,7 +275,7 @@ DebugRoom_PrintWindowStackBottomTop:
 	ret ; stubbed out
 
 	ld a, $00
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, wWindowStack
 .loop
 	ld a, h
@@ -321,7 +321,7 @@ DebugRoomMenu_PokedexComp:
 	call YesNoBox
 	ret c
 	ld a, BANK(sGameData) ; aka BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wPokedexCaught - wPlayerData)
 	ld b, wEndPokedexSeen - wPokedexCaught
 	ld a, %11111111
@@ -351,7 +351,7 @@ DebugRoomMenu_PokedexClr:
 	call YesNoBox
 	ret c
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wStatusFlags - wPlayerData)
 	res STATUSFLAGS_UNOWN_DEX_F, [hl]
 	ld hl, sPlayerData + (wPokedexCaught - wPlayerData)
@@ -370,7 +370,7 @@ DebugRoomMenu_TimerReset:
 	call YesNoBox
 	ret c
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sRTCStatusFlags
 	set 7, [hl]
 	predef CloseSRAM
@@ -378,7 +378,7 @@ DebugRoomMenu_TimerReset:
 
 DebugRoomMenu_BattleSkip:
 	ld a, BANK(sSkipBattle)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sSkipBattle]
 	inc a
 	and 1
@@ -391,7 +391,7 @@ DebugRoom_PrintBattleSkip:
 	ld de, .BTLString
 	call PlaceString
 	ld a, BANK(sSkipBattle)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sSkipBattle]
 	predef CloseSRAM
 	hlcoord 16, 7
@@ -412,7 +412,7 @@ DebugRoom_PrintBattleSkip:
 
 DebugRoomMenu_ChangeSex:
 	ld a, BANK(sCrystalData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sCrystalData + (wPlayerGender - wCrystalData)]
 	inc a
 	and 1
@@ -425,7 +425,7 @@ DebugRoom_PrintGender:
 	ld de, .SexString
 	call PlaceString
 	ld a, BANK(sCrystalData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sCrystalData + (wPlayerGender - wCrystalData)]
 	predef CloseSRAM
 	or a
@@ -442,7 +442,7 @@ DebugRoom_PrintGender:
 
 DebugRoomMenu_TelDebug:
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
 	inc a
 	cp 3
@@ -458,7 +458,7 @@ DebugRoom_PrintTelDebug:
 	ld de, .TelString
 	call PlaceString
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
 	predef CloseSRAM
 	hlcoord 16, 17
@@ -486,7 +486,7 @@ DebugRoomMenu_RAMFlagClr:
 	call YesNoBox
 	ret c
 	ld a, BANK(sOpenedInvalidSRAM)
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld [sOpenedInvalidSRAM], a
 	predef CloseSRAM
@@ -494,7 +494,7 @@ DebugRoomMenu_RAMFlagClr:
 
 DebugRoom_PrintRAMFlag:
 	ld a, BANK(sOpenedInvalidSRAM)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, sOpenedInvalidSRAM
 	hlcoord 18, 4
 	ld c, 1
@@ -518,7 +518,7 @@ DebugRoomMenu_DecorateAll:
 	call YesNoBox
 	ret c
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wEventFlags - wPlayerData)
 	ld de, EVENT_DECO_BED_1 ; the first EVENT_DECO_* constant
 	ld b, SET_FLAG
@@ -1020,7 +1020,7 @@ DebugRoom_SaveItem:
 	call YesNoBox
 	ret c
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wPCItems - wPlayerData)
 	ld a, [wDebugRoomItemID]
 	ld c, a
@@ -1133,7 +1133,7 @@ DebugRoom_SavePokemon:
 	ld de, DebugRoom_BoxAddresses
 	add hl, de
 	ld a, [hli]
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1483,7 +1483,7 @@ DebugRoomMenu_HaltChkClr:
 	call YesNoBox
 	ret c
 	ld a, BANK(sRTCHaltCheckValue)
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld hl, sRTCHaltCheckValue
 	ld [hli], a
@@ -1498,7 +1498,7 @@ DebugRoom_PrintRTCHaltChk:
 	call PlaceString
 	ld a, BANK(sRTCHaltCheckValue)
 	ld hl, sRTCHaltCheckValue
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1543,7 +1543,7 @@ DebugRoom_SaveGBID:
 	call YesNoBox
 	ret c
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wPlayerID - wPlayerData)
 	ld a, [wDebugRoomGBID + 0]
 	ld [hli], a
@@ -1565,7 +1565,7 @@ DebugRoomMenu_BtlRecClr:
 	call YesNoBox
 	ret c
 	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld hl, sLinkBattleStats
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
@@ -1577,7 +1577,7 @@ DebugRoomMenu_HOFClear:
 	call YesNoBox
 	ret c
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + (wHallOfFameCount - wPlayerData)
 	ld [hl], 0
 	xor a
@@ -1688,7 +1688,7 @@ DebugRoomMenu_ROMChecksum:
 
 DebugRoomMenu_BTBugPoke:
 	ld a, BANK(sIsBugMon)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sIsBugMon]
 	predef CloseSRAM
 	or a
@@ -1707,7 +1707,7 @@ DebugRoomMenu_BTBugPoke:
 	ld hl, .ItsBugMonText
 	call MenuTextbox
 	ld a, BANK(sIsBugMon)
-	call OpenSRAM
+	predef OpenSRAM
 	hlcoord 4, 16
 	ld de, sIsBugMon
 	ld c, 1

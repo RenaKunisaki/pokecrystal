@@ -880,7 +880,7 @@ Link_PrepPartyData_Gen2:
 
 ; Copy all the mail messages to wLinkPlayerMailMessages
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPartyMail
 	ld b, PARTY_LENGTH
 .loop2
@@ -1760,7 +1760,7 @@ LinkTrade:
 	ld bc, MAIL_STRUCT_LENGTH
 	predef AddNTimes
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	ld d, h
 	ld e, l
 	ld bc, MAIL_STRUCT_LENGTH
@@ -2597,7 +2597,7 @@ INCBIN "gfx/trade/unused_gs_border_tiles.2bpp"
 CheckSRAM0Flag: ; unreferenced
 ; input: hl = unknown flag array in "SRAM Bank 0"
 	ld a, BANK("SRAM Bank 0")
-	call OpenSRAM
+	predef OpenSRAM
 	ld d, 0
 	ld b, CHECK_FLAG
 	predef SmallFarFlagAction

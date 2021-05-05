@@ -1092,7 +1092,7 @@ Function1006dc:
 MobileBattleResetTimer:
 	ld a, BANK(sMobileBattleTimer)
 	ld hl, sMobileBattleTimer
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld [hli], a
 	ld [hli], a
@@ -1103,7 +1103,7 @@ MobileBattleResetTimer:
 MobileBattleFixTimer:
 	ld a, BANK(sMobileBattleTimer)
 	ld hl, sMobileBattleTimer
-	call OpenSRAM
+	predef OpenSRAM
 	xor a ; MOBILE_BATTLE_ALLOWED_SECONDS
 	ld [hli], a
 	ld a, MOBILE_BATTLE_ALLOWED_MINUTES
@@ -1125,7 +1125,7 @@ Function100720:
 	ld [wcd74], a
 	ld a, BANK(sMobileBattleTimer)
 	ld hl, sMobileBattleTimer
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld [wcd6c], a
 	ld a, [hli]
@@ -1248,7 +1248,7 @@ Function1007f6:
 	ld de, wcd71
 	call Function1006dc
 	ld a, $04
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $a802
 	call Function100826
 	predef CloseSRAM
@@ -1338,7 +1338,7 @@ MobileBattleGetRemainingTime:
 ; Returns minutes in c and seconds in b
 	ld a, BANK(sMobileBattleTimer)
 	ld hl, sMobileBattleTimer
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld [wStringBuffer2], a
 	ld a, [hli]
@@ -2375,7 +2375,7 @@ Function100f8d:
 	ret
 
 .sram
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	predef CloseSRAM
 	ret
@@ -2429,7 +2429,7 @@ endr
 	inc hl
 	ld [hl], d
 	ld a, $07
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, wc608
 	ld de, $a001
 	ld bc, wc7bd - wc608
@@ -2655,7 +2655,7 @@ LoadSelectedPartiesForColosseum:
 
 Function1011f1:
 	ld a, BANK(s4_a60c)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [s4_a60c]
 	ld [wdc41], a
 	predef CloseSRAM
@@ -4660,7 +4660,7 @@ Function1020bf:
 	ld d, h
 	ld e, l
 	ld a, $04
-	call OpenSRAM
+	predef OpenSRAM
 	call Function10208e
 	call Function102068
 	predef CloseSRAM
@@ -4696,7 +4696,7 @@ Function1020ea:
 
 Function102112:
 	ld a, $04
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $a041
 	ld c, 40
 .outer_loop
@@ -6255,7 +6255,7 @@ Function102c3b:
 Function102c48:
 	farcall Function10165a
 	ld a, 0
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $a600
 	ld de, wc608
 	ld bc, $2f
@@ -6365,7 +6365,7 @@ Function102d34:
 	ret
 
 Function102d3e:
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	predef CloseSRAM
 	ret
@@ -6910,7 +6910,7 @@ Function103309:
 	xor a
 	predef ByteFill
 	ld a, BANK(s4_a60c)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [wdc41]
 	ld [s4_a60c], a
 	ld [wd1ea], a
@@ -6962,7 +6962,7 @@ Function103362:
 	bit 6, [hl]
 	jr z, .asm_103398
 	ld a, BANK(s4_a60c)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [wd1ea]
 	ld [s4_a60c], a
 	ld [wdc41], a

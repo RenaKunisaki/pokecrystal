@@ -256,7 +256,7 @@ CopyBoxmonToTempMon:
 	ld de, wTempMonSpecies
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, BANK(sBoxMon1Species)
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	predef CloseSRAM
 	ret
@@ -282,7 +282,7 @@ LoadBoxMonListing: ; unreferenced
 	ld hl, sBoxCount
 
 .okay
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hl]
 	ld bc, sBoxMons - sBox
 	add hl, bc

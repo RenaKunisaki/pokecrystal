@@ -726,7 +726,7 @@ PrintPCBox_Page4:
 
 Printer_PrintBoxListSegment:
 	ld a, [wBankOfBoxToPrint]
-	call OpenSRAM
+	predef OpenSRAM
 .loop
 	ld a, c
 	and a

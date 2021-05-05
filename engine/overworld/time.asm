@@ -28,7 +28,7 @@ NextCallReceiveDelay:
 if DEF(_DEBUG)
 	ld h, a
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
 	predef CloseSRAM
 	dec a
@@ -258,7 +258,7 @@ _CheckLuckyNumberShowFlag:
 
 DoMysteryGiftIfDayHasPassed:
 	ld a, BANK(sMysteryGiftTimer)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sMysteryGiftTimer
 	ld a, [hli]
 	ld [wTempMysteryGiftTimer], a
@@ -276,7 +276,7 @@ DoMysteryGiftIfDayHasPassed:
 
 .not_timed_out
 	ld a, BANK(sMysteryGiftTimer)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, wTempMysteryGiftTimer
 	ld a, [hli]
 	ld [sMysteryGiftTimer], a

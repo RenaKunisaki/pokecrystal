@@ -11,7 +11,7 @@ if DEF(_DEBUG)
 	dec a
 	jr nz, .loop
 	ld a, BANK(sOpenedInvalidSRAM)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sOpenedInvalidSRAM]
 	or b
 	ld [sOpenedInvalidSRAM], a

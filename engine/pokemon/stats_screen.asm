@@ -928,7 +928,7 @@ StatsScreen_GetAnimationParam:
 	ld b, h
 	ld c, l
 	ld a, BANK(sBoxMons)
-	call OpenSRAM
+	predef OpenSRAM
 	call .CheckEggFaintedFrzSlp
 	push af
 	predef CloseSRAM
@@ -1144,7 +1144,7 @@ CopyNickname:
 	cp BOXMON
 	jr nz, .partymon
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 	push de
 	call CopyBytes
 	pop de

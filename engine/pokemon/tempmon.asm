@@ -107,7 +107,7 @@ GetMonSpecies:
 
 .boxmon
 	ld a, BANK(sBoxSpecies)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxSpecies
 	call .done
 	predef CloseSRAM

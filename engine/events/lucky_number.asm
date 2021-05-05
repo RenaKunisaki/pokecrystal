@@ -20,7 +20,7 @@ CheckForLuckyNumberWinners:
 	dec d
 	jr nz, .PartyLoop
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxCount]
 	and a
 	jr z, .SkipOpenBox
@@ -59,7 +59,7 @@ CheckForLuckyNumberWinners:
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a ; hl now contains the address of the loaded box in SRAM

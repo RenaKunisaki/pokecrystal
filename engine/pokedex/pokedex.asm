@@ -2364,7 +2364,7 @@ Pokedex_LoadSelectedMonTiles:
 
 .QuestionMark:
 	ld a, BANK(sScratch)
-	call OpenSRAM
+	predef OpenSRAM
 	farcall LoadQuestionMarkPic
 	ld hl, vTiles2
 	ld de, sScratch
@@ -2480,7 +2480,7 @@ Pokedex_CheckSGB:
 
 Pokedex_LoadUnownFont:
 	ld a, BANK(sScratch)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, UnownFont
 	; sScratch + $188 was the address of sDecompressBuffer in pokegold
 	ld de, sScratch + $188

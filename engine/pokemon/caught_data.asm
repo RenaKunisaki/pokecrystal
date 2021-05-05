@@ -87,7 +87,7 @@ CheckPartyFullAfterContest:
 
 .TryAddToBox:
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxCount
 	ld a, [hl]
 	cp MONS_PER_BOX
@@ -118,7 +118,7 @@ CheckPartyFullAfterContest:
 
 .Box_SkipNickname:
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, sBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -126,13 +126,13 @@ CheckPartyFullAfterContest:
 
 .BoxFull:
 	ld a, BANK(sBoxMon1Level)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxMon1Level]
 	ld [wCurPartyLevel], a
 	predef CloseSRAM
 	call SetBoxMonCaughtData
 	ld a, BANK(sBoxMon1CaughtLocation)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxMon1CaughtLocation
 	ld a, [hl]
 	and CAUGHT_GENDER_MASK
@@ -200,7 +200,7 @@ SetBoxmonOrEggmonCaughtData:
 
 SetBoxMonCaughtData:
 	ld a, BANK(sBoxMon1CaughtLevel)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxMon1CaughtLevel
 	call SetBoxmonOrEggmonCaughtData
 	predef CloseSRAM
@@ -209,7 +209,7 @@ SetBoxMonCaughtData:
 SetGiftBoxMonCaughtData:
 	push bc
 	ld a, BANK(sBoxMon1CaughtLevel)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxMon1CaughtLevel
 	pop bc
 	call SetGiftMonCaughtData

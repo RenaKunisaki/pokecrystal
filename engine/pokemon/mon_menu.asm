@@ -466,7 +466,7 @@ ComposeMailMessage:
 	ld hl, wTempMail
 	ld bc, MAIL_STRUCT_LENGTH
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	predef CloseSRAM
 	ret

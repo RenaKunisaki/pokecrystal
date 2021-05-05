@@ -75,7 +75,7 @@ CheckOwnMonAnywhere:
 
 	; Run CheckOwnMon on each Pokémon in the PC.
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxCount]
 	and a
 	jr z, .boxes
@@ -119,7 +119,7 @@ CheckOwnMonAnywhere:
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a

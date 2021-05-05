@@ -1127,7 +1127,7 @@ BillsPC_LoadMonStats:
 	ld b, a
 	call GetBoxPointer
 	ld a, b
-	call OpenSRAM
+	predef OpenSRAM
 	push hl
 	ld bc, sBoxMon1Level - sBox
 	add hl, bc
@@ -1187,7 +1187,7 @@ BillsPC_LoadMonStats:
 
 .sBox
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxMon1Level
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
@@ -1282,7 +1282,7 @@ BillsPC_RefreshTextboxes:
 	push hl
 	call GetBoxPointer
 	ld a, b
-	call OpenSRAM
+	predef OpenSRAM
 	push hl
 	ld bc, sBoxMons - sBox
 	add hl, bc
@@ -1339,7 +1339,7 @@ BillsPC_RefreshTextboxes:
 .sBox
 	push hl
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxSpecies
 	ld d, $0
 	add hl, de
@@ -1421,7 +1421,7 @@ CopyBoxmonSpecies:
 	ld b, a
 	call GetBoxPointer
 	ld a, b
-	call OpenSRAM
+	predef OpenSRAM
 	inc hl
 	copy_box_data 1
 	ret
@@ -1433,7 +1433,7 @@ CopyBoxmonSpecies:
 
 .sBox
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxSpecies
 	copy_box_data 1
 	ret
@@ -1704,7 +1704,7 @@ BillsPC_CopyMon:
 	cp NUM_BOXES + 1
 	jr nz, .box
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxSpecies
 	call CopySpeciesToTemp
 	ld hl, sBoxMonNicknames
@@ -1742,7 +1742,7 @@ BillsPC_CopyMon:
 	ld b, a
 	call GetBoxPointer
 	ld a, b
-	call OpenSRAM
+	predef OpenSRAM
 	push hl
 	inc hl
 	call CopySpeciesToTemp
@@ -1823,7 +1823,7 @@ TryWithdrawPokemon:
 	add [hl]
 	ld [wCurPartyMon], a
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [wCurPartyMon]
 	ld hl, sBoxMonNicknames
 	call GetNickname
@@ -2046,7 +2046,7 @@ MovePKMNWitoutMail_InsertMon:
 	add [hl]
 	ld [wCurPartyMon], a
 	ld a, BANK(sBox)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxSpecies
 	call CopySpeciesToTemp
 	ld hl, sBoxMonNicknames
@@ -2343,7 +2343,7 @@ GetBoxCount:
 	add hl, bc
 	ld a, [hli]
 	ld b, a
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -2363,7 +2363,7 @@ GetBoxCount:
 .activebox
 	ld a, BANK(sBoxCount)
 	ld b, a
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxCount
 	ld a, [hl]
 	predef CloseSRAM

@@ -4,7 +4,7 @@
 
 Function1f4003: ; unreferenced
 	ld a, BANK(s6_a000)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000
@@ -17,7 +17,7 @@ INCBIN "mobile/news/news_1.bin"
 
 Function1f4dbe: ; unreferenced
 	ld a, BANK(s6_a000)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000
@@ -30,7 +30,7 @@ INCBIN "mobile/news/news_2.bin"
 
 Function1f5d9f: ; unreferenced
 	ld a, BANK(s6_a000)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000

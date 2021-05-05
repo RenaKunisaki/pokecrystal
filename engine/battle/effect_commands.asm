@@ -3438,7 +3438,7 @@ DoEnemyDamage:
 if DEF(_DEBUG)
 	push af
 	ld a, BANK(sSkipBattle)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sSkipBattle]
 	predef CloseSRAM
 	or a

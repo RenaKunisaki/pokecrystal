@@ -1,6 +1,6 @@
 InsertPokemonIntoBox:
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sBoxCount
 	call InsertSpeciesIntoBoxOrParty
 	ld a, [sBoxCount]

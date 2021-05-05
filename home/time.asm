@@ -261,7 +261,7 @@ ClearRTCStatus:: ; unreferenced
 	xor a
 	push af
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	predef OpenSRAM
 	pop af
 	ld [sRTCStatusFlags], a
 	predef CloseSRAM
@@ -272,7 +272,7 @@ RecordRTCStatus::
 	ld hl, sRTCStatusFlags
 	push af
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	predef OpenSRAM
 	pop af
 	or [hl]
 	ld [hl], a
@@ -282,7 +282,7 @@ RecordRTCStatus::
 CheckRTCStatus::
 ; check sRTCStatusFlags
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sRTCStatusFlags]
 	predef CloseSRAM
 	ret

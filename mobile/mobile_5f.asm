@@ -302,7 +302,7 @@ Function17d0f3:
 	ld [wLinkMode], a
 	farcall SaveAfterLinkTrade
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, $5
 	ld [$a800], a
 	predef CloseSRAM
@@ -508,7 +508,7 @@ Function17d2c0:
 
 Function17d2ce:
 	ld a, BANK(s5_aa72)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [s5_aa72]
 	predef CloseSRAM
 	and a
@@ -543,13 +543,13 @@ Function17d2ce:
 
 Function17d314:
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [$b1b1]
 	predef CloseSRAM
 	cp $21
 	jr nc, .asm_17d354
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	ld l, $0
 	ld h, l
 	ld de, $a006
@@ -582,7 +582,7 @@ Function17d314:
 .asm_17d354
 	predef CloseSRAM
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld hl, $aa73
 	ld bc, $c
@@ -636,7 +636,7 @@ Function17d370:
 	ld a, $d0
 	ld [wcd21], a
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $a006
 	ld de, wBGPals1
 	ld bc, $1000
@@ -948,7 +948,7 @@ Function17d5f6:
 
 Function17d60b:
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $b1d3
 	ld de, wc608
 	ld bc, $20
@@ -963,7 +963,7 @@ Function17d60b:
 	ld h, a
 	predef CloseSRAM
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, wc708
 	ld a, c
 	and a
@@ -1023,7 +1023,7 @@ Function17d60b:
 .asm_17d684
 	predef CloseSRAM
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, wc708
 	ld de, $b1b3
 	ld a, [$b1b1]
@@ -1040,7 +1040,7 @@ Function17d6a1:
 	ld c, a
 	ld b, 0
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $b1d3
 	add hl, bc
 	add hl, bc
@@ -1058,7 +1058,7 @@ Function17d6a1:
 	ld l, c
 	predef CloseSRAM
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, l
 	ld [wcd5e], a
 	ld a, h
@@ -1177,7 +1177,7 @@ Function17d78d:
 	ld b, a
 	call HlToCrashCheckPointer
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $a006
 	add hl, bc
 	ld de, wBGPals1
@@ -1330,7 +1330,7 @@ Function17d85d:
 
 .asm_17d89b
 	ld a, [wcd4f]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17d8a1
 	push hl
@@ -1511,7 +1511,7 @@ Function17d9e3:
 
 .asm_17da01
 	ld a, [wc70c]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17da07
 	ld a, [wc708]
@@ -1556,7 +1556,7 @@ Function17da31:
 
 .asm_17da4f
 	ld a, [wc70a]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17da55
 	ld a, [wc708]
@@ -2017,7 +2017,7 @@ Function17dd49:
 
 .sram
 	ld a, [wc708]
-	call OpenSRAM
+	predef OpenSRAM
 
 .got_bank
 	ld a, [wc709]
@@ -2093,7 +2093,7 @@ Function17ddcd:
 
 .asm_17dde7
 	ld a, [wc708]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17dded
 	ld a, [wc709]
@@ -2150,7 +2150,7 @@ Function17de32:
 	ld b, 0
 	call CopyBytes
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	call Function17f4f6
 	ld a, [wc708]
 	ld e, a
@@ -2204,7 +2204,7 @@ Function17de91:
 	ld bc, $7
 	call CopyBytes
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	call Function17f4f6
 	ld a, [wc708]
 	ld e, a
@@ -2448,7 +2448,7 @@ Function17ded9:
 
 Function17e026:
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxCount]
 	predef CloseSRAM
 	cp $14
@@ -2463,7 +2463,7 @@ Function17e026:
 	pop hl
 	pop bc
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 	bit 1, b
 	jr z, .asm_17e067
 	push bc
@@ -2490,7 +2490,7 @@ Function17e026:
 	predef CloseSRAM
 	farcall SetGiftBoxMonCaughtData
 	ld a, $1
-	call OpenSRAM
+	predef OpenSRAM
 	pop hl
 	pop bc
 	jr .asm_17e092
@@ -2692,7 +2692,7 @@ Function17e1a1:
 
 .asm_17e1bb
 	ld a, [wc708]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17e1c1
 	ld a, [wc709]
@@ -2724,7 +2724,7 @@ Function17e1a1:
 
 .asm_17e1f3
 	ld a, [wc70c]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17e1f9
 	ld a, [wc70d]
@@ -2886,7 +2886,7 @@ Function17e2a7:
 	xor a
 	ld [wcd7a], a
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $aa73
 	ld de, $aa7f
 	ld bc, $c
@@ -2922,7 +2922,7 @@ Function17e309:
 
 Function17e32b:
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, wc608
 	ld de, $b0b1
 	ld bc, $40
@@ -2935,7 +2935,7 @@ Function17e32b:
 
 Function17e349:
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, $b0b1
 	ld de, wc608
 	ld bc, $40
@@ -3537,7 +3537,7 @@ INCLUDE "gfx/mobile/pokemon_news.pal"
 
 RunMobileScript::
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 	inc de
 .loop
 	call _RunMobileScript
@@ -4078,13 +4078,13 @@ MobileScript_Prefecture:
 	bit 7, a
 	jr nz, .asm_17f355
 	ld a, BANK(sCrystalData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sCrystalData + 2]
 	jr .asm_17f35d
 
 .asm_17f355
 	ld a, BANK(s5_b2f3)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [s5_b2f3]
 
 .asm_17f35d
@@ -4121,13 +4121,13 @@ Function17f382:
 	bit 7, a
 	jr nz, .asm_17f3a3
 	ld a, BANK(sCrystalData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, sCrystalData + 3
 	jr .asm_17f3ab
 
 .asm_17f3a3
 	ld a, BANK(s5_b2f4)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, s5_b2f4
 
 .asm_17f3ab
@@ -4295,7 +4295,7 @@ Function17f44f:
 
 .asm_17f488
 	ld a, [wcd54]
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17f48e
 	ld a, [wcd55]
@@ -4317,7 +4317,7 @@ Function17f44f:
 .asm_17f4af
 	predef CloseSRAM
 	ld a, $6
-	call OpenSRAM
+	predef OpenSRAM
 
 .asm_17f4b7
 	ld de, wc608
@@ -4487,7 +4487,7 @@ DisplayMobileError:
 
 .asm_17f5a1
 	ld a, BANK(sMobileLoginPassword)
-	call OpenSRAM
+	predef OpenSRAM
 	xor a
 	ld [sMobileLoginPassword], a
 	predef CloseSRAM

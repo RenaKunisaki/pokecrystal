@@ -2,7 +2,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     612 	call CopyBytes
     486 	call PlaceString
     384 	predef CloseSRAM
-    351 	call OpenSRAM
+    351 	predef OpenSRAM
     345 	predef ByteFill
     297 	call DelayFrame
     296 	predef AddNTimes
@@ -2601,7 +2601,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call OptionsControl
       1 	call OpponentPartyAttr
       1 	call OpponentCantMove
-      1  	call OpenSRAM
+      1  	predef OpenSRAM
       1 	call .OpenMenu
       1 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap
       1 	call OffsetMenuHeader

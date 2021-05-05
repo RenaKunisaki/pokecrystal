@@ -929,7 +929,7 @@ This can occur if your party and current PC box are both full when you start the
  	jr nz, .room_in_party
 
  	ld a, BANK(sBoxCount)
- 	call OpenSRAM
+ 	predef OpenSRAM
  	ld a, [sBoxCount]
  	cp MONS_PER_BOX
  	predef CloseSRAM

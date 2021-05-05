@@ -696,7 +696,7 @@ RestoreOverworldMapTiles: ; unreferenced
 	bit 0, a
 	ret z
 	xor a ; sScratch
-	call OpenSRAM
+	predef OpenSRAM
 	hlcoord 0, 0
 	ld de, sScratch
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -704,7 +704,7 @@ RestoreOverworldMapTiles: ; unreferenced
 	predef CloseSRAM
 	call OverworldTextModeSwitch
 	xor a ; sScratch
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sScratch
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT

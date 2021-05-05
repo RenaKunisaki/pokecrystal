@@ -219,7 +219,7 @@ PokeBallEffect:
 	jr nz, .room_in_party
 
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxCount]
 	cp MONS_PER_BOX
 	predef CloseSRAM
@@ -621,7 +621,7 @@ PokeBallEffect:
 	farcall SetBoxMonCaughtData
 
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 
 	ld a, [sBoxCount]
 	cp MONS_PER_BOX
@@ -657,7 +657,7 @@ PokeBallEffect:
 	farcall NamingScreen
 
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 
 	ld hl, wMonOrItemNameBuffer
 	ld de, sBoxMonNicknames
@@ -672,7 +672,7 @@ PokeBallEffect:
 
 .SkipBoxMonNickname:
 	ld a, BANK(sBoxMonNicknames)
-	call OpenSRAM
+	predef OpenSRAM
 
 	ld hl, sBoxMonNicknames
 	ld de, wMonOrItemNameBuffer

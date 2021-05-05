@@ -116,7 +116,7 @@ _SwitchPartyMons:
 	ld de, wSwitchMonBuffer
 	ld bc, MAIL_STRUCT_LENGTH
 	ld a, BANK(sPartyMail)
-	call OpenSRAM
+	predef OpenSRAM
 	call CopyBytes
 	ld hl, sPartyMail
 	ld a, [wSwitchMonFrom]

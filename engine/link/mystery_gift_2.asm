@@ -4,7 +4,7 @@ StageDataForMysteryGift:
 	ld [de], a
 	inc de ; wMysteryGiftStaging+1
 	ld a, BANK(sGameData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + wPlayerID - wPlayerData
 	ld a, [hli]
 	ld [de], a
@@ -42,7 +42,7 @@ StageDataForMysteryGift:
 	ld [de], a
 	inc de ; wMysteryGiftStaging+18
 	ld a, BANK(sBackupMysteryGiftItem)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBackupMysteryGiftItem]
 	ld [de], a
 	inc de

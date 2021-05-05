@@ -18,7 +18,7 @@ _ResetClock:
 	call ClockResetPassword
 	jr c, .wrongpassword
 	ld a, BANK(sRTCStatusFlags)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, $80
 	ld [sRTCStatusFlags], a
 	predef CloseSRAM
@@ -216,7 +216,7 @@ ClockResetPassword:
 
 .CalculatePassword:
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld de, 0
 	ld hl, sPlayerData + (wPlayerID - wPlayerData)
 	ld c, 2

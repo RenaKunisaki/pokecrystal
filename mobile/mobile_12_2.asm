@@ -21,7 +21,7 @@ MobileCheckOwnMonAnywhere:
 	dec d
 	jr nz, .asm_4a851
 	ld a, BANK(sBoxCount)
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [sBoxCount]
 	and a
 	jr z, .asm_4a888
@@ -57,7 +57,7 @@ MobileCheckOwnMonAnywhere:
 	add hl, bc
 	add hl, bc
 	ld a, [hli]
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a

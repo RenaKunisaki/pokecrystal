@@ -231,7 +231,7 @@ BattleTurn:
 Stubbed_Increments5_a89a:
 	ret
 	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, s5_a89a + 1 ; address of MBC30 bank
 	inc [hl]
 	jr nz, .finish
@@ -8405,7 +8405,7 @@ DisplayLinkBattleResult:
 	predef DelayFrames
 
 	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
+	predef OpenSRAM
 
 	call AddLastLinkBattleToLinkRecord
 	call ReadAndPrintLinkBattleRecord
@@ -8450,7 +8450,7 @@ IsMobileBattle2:
 
 _DisplayLinkRecord:
 	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
+	predef OpenSRAM
 
 	call ReadAndPrintLinkBattleRecord
 

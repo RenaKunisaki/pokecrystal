@@ -176,7 +176,7 @@ Function4a0c2:
 	ld a, 2
 	call MenuClickSound
 	ld a, BANK(sPlayerData)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sPlayerData + wPlayerName - wPlayerData
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH_JAPANESE
@@ -374,7 +374,7 @@ Function4a28a:
 	call WaitBGMap
 	call LoadStandardMenuHeader
 	ld a, $5
-	call OpenSRAM
+	predef OpenSRAM
 	ld a, [$aa4b]
 	predef CloseSRAM
 	and a
@@ -425,7 +425,7 @@ Function4a28a:
 	cp $2
 	jr z, .dont_delete_password
 	ld a, BANK(sMobileLoginPassword)
-	call OpenSRAM
+	predef OpenSRAM
 	ld hl, sMobileLoginPassword
 	xor a
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
