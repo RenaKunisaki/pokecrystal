@@ -1836,7 +1836,7 @@ Function11cb66:
 	ret
 
 Function11cbf5:
-	call WaitSFX
+	predef WaitSFX
 	ld hl, wcf64
 	dec [hl]
 	ret nz

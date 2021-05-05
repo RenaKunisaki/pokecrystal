@@ -125,7 +125,7 @@ ENDM
 	ld de, SFX_GAME_FREAK_LOGO_GS
 	predef PlaySFX
 	call .FlashPalettes8Times
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_BOOT_PC
 	predef PlaySFX
 	ret

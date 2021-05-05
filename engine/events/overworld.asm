@@ -318,10 +318,10 @@ Script_UseFlash:
 UseFlashTextScript:
 	text_far _BlindingFlashText
 	text_asm
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_FLASH
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld hl, .BlankText
 	ret
 

@@ -926,7 +926,7 @@ TextCommand_SOUND::
 	inc hl
 	ld d, [hl]
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	pop de
 
 .done

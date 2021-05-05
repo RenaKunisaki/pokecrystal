@@ -74,7 +74,7 @@ _Option:
 .ExitOptions:
 	ld de, SFX_TRANSACTION
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	pop af
 	ldh [hInMenu], a
 	ret

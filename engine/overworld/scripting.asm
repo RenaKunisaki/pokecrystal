@@ -548,7 +548,7 @@ Script_specialsound:
 	ld de, SFX_ITEM
 .play
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 GetPocketName:
@@ -787,7 +787,7 @@ Script_playsound:
 	ret
 
 Script_waitsfx:
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 Script_warpsound:

@@ -751,7 +751,7 @@ EggHatch_AnimationSequence:
 	ld a, [wJumptableIndex]
 	call Hatch_UpdateFrontpicBGMapCenter
 	call Hatch_ShellFragmentLoop
-	call WaitSFX
+	predef WaitSFX
 	ld a, [wJumptableIndex]
 	ld [wCurPartySpecies], a
 	hlcoord 6, 3

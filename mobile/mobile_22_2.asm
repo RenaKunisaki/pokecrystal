@@ -531,7 +531,7 @@ UnknownText_0x8b64c:
 	text_asm
 	ld de, SFX_TWINKLE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, $8
 	predef DelayFrames
 	ld hl, .string_8b663

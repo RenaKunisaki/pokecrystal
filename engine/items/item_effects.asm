@@ -1108,7 +1108,7 @@ Text_GotchaMonWasCaught:
 	; Gotcha! @ was caught!@ @
 	text_far Text_BallCaught
 	text_asm
-	call WaitSFX
+	predef WaitSFX
 	push bc
 	ld de, MUSIC_NONE
 	call PlayMusic
@@ -2166,7 +2166,7 @@ XItemEffect:
 	ld [wAttackMissed], a
 	ld [wEffectFailed], a
 	farcall RaiseStat
-	call WaitSFX
+	predef WaitSFX
 
 	farcall BattleCommand_StatUpMessage
 	farcall BattleCommand_StatUpFailText
@@ -2263,7 +2263,7 @@ PokeFluteEffect:
 	push de
 	ld de, SFX_POKEFLUTE
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	pop de
 
 .battle

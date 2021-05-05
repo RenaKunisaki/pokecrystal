@@ -20,7 +20,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     114 	call GetBattleVarAddr
     109 	call ClearBox
     104 	call ClearTilemap
-    100 	call WaitSFX
+    100 	predef WaitSFX
      98 	call MobileSDK_CopyBytes
      97 	call StdBattleTextbox
      95 	call SetPalettes

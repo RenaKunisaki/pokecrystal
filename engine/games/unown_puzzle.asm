@@ -297,7 +297,7 @@ UnownPuzzle_A:
 	call RedrawUnownPuzzlePieces
 	call FillUnoccupiedPuzzleSpace
 	call WaitBGMap
-	call WaitSFX
+	predef WaitSFX
 	ld a, TRUE
 	ld [wHoldingUnownPuzzlePiece], a
 	ret
@@ -317,7 +317,7 @@ UnownPuzzle_A:
 	call RedrawUnownPuzzlePieces
 	xor a
 	ld [wHoldingUnownPuzzlePiece], a
-	call WaitSFX
+	predef WaitSFX
 	call CheckSolvedUnownPuzzle
 	ret nc
 
@@ -326,7 +326,7 @@ UnownPuzzle_A:
 	predef ClearSprites
 	ld de, SFX_1ST_PLACE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	call SimpleWaitPressAorB
 	ld a, TRUE
 	ld [wSolvedUnownPuzzle], a
@@ -338,7 +338,7 @@ UnownPuzzle_Quit:
 UnownPuzzle_InvalidAction:
 	ld de, SFX_WRONG
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 UnownPuzzle_FillBox:

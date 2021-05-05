@@ -902,7 +902,7 @@ OakText2:
 	text_asm
 	ld a, WOOPER
 	call PlayMonCry
-	call WaitSFX
+	predef WaitSFX
 	ld hl, OakText3
 	ret
 

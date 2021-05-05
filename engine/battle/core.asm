@@ -2244,7 +2244,7 @@ StopDangerSound:
 
 FaintYourPokemon:
 	call StopDangerSound
-	call WaitSFX
+	predef WaitSFX
 	ld a, $f0
 	ld [wCryTracks], a
 	ld a, [wBattleMonSpecies]
@@ -2257,7 +2257,7 @@ FaintYourPokemon:
 	jp StdBattleTextbox
 
 FaintEnemyPokemon:
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_KINESIS
 	predef PlaySFX
 	call EnemyMonFaintedAnimation
@@ -2878,7 +2878,7 @@ ForcePickPartyMonInBattle:
 
 	ld de, SFX_WRONG
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	jr .pick
 
 PickSwitchMonInBattle:
@@ -3834,10 +3834,10 @@ TryToRunAwayFromBattle:
 	ld de, SFX_RUN
 	call WaitPlaySFX
 	pop de
-	call WaitSFX
+	predef WaitSFX
 	ld hl, BattleText_GotAwaySafely
 	call StdBattleTextbox
-	call WaitSFX
+	predef WaitSFX
 	call LoadTilemapToTempTilemap
 	scf
 	ret
@@ -3851,7 +3851,7 @@ TryToRunAwayFromBattle:
 	call StdBattleTextbox
 
 .skip_link_error
-	call WaitSFX
+	predef WaitSFX
 	call LoadTilemapToTempTilemap
 	scf
 	ret
@@ -4205,10 +4205,10 @@ PursuitSwitch:
 
 	ld de, SFX_KINESIS
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_FAINT
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	call EnemyMonFaintedAnimation
 	ld hl, BattleText_EnemyMonFainted
 
@@ -7288,7 +7288,7 @@ GiveExperiencePoints:
 	jr z, .skip_exp_bar_animation
 	ld de, SFX_HIT_END_OF_EXP_BAR
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld hl, BattleText_StringBuffer1GrewToLevel
 	call StdBattleTextbox
 	call LoadTilemapToTempTilemap
@@ -7531,7 +7531,7 @@ AnimateExpBar:
 	ld de, SFX_HIT_END_OF_EXP_BAR
 	predef PlaySFX
 	farcall AnimateEndOfExpBar
-	call WaitSFX
+	predef WaitSFX
 	ld hl, BattleText_StringBuffer1GrewToLevel
 	call StdBattleTextbox
 	pop de
@@ -7561,7 +7561,7 @@ AnimateExpBar:
 
 .PlayExpBarSound:
 	push bc
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_EXP_BAR
 	predef PlaySFX
 	ld c, 10
@@ -8314,7 +8314,7 @@ CleanUpBattleRAM:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 CheckPayDay:
@@ -9070,7 +9070,7 @@ BattleStartMessage:
 
 	ld de, SFX_SHINE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 
 	ld c, 20
 	predef DelayFrames

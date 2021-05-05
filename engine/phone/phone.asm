@@ -559,7 +559,7 @@ HangUp_BoopOff:
 	ret
 
 Phone_StartRinging:
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_CALL
 	predef PlaySFX
 	call Phone_CallerTextbox

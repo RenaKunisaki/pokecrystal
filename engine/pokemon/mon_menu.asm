@@ -919,7 +919,7 @@ MoveScreenLoop:
 	jp .joy_loop
 .b_button
 	call PlayClickSFX
-	call WaitSFX
+	predef WaitSFX
 	ld a, [wSwappingMove]
 	and a
 	jp z, .exit
@@ -999,7 +999,7 @@ MoveScreenLoop:
 
 .a_button
 	call PlayClickSFX
-	call WaitSFX
+	predef WaitSFX
 	ld a, [wSwappingMove]
 	and a
 	jr nz, .place_move
@@ -1035,10 +1035,10 @@ MoveScreenLoop:
 .swap_moves
 	ld de, SFX_SWITCH_POKEMON
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_SWITCH_POKEMON
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	hlcoord 1, 2
 	lb bc, 8, 18
 	call ClearBox

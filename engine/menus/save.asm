@@ -246,7 +246,7 @@ SavedTheGame:
 	ld [wOptions], a
 	ld de, SFX_SAVE
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	; wait 30 frames
 	ld c, 30
 	predef DelayFrames

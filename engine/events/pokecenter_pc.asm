@@ -185,7 +185,7 @@ PC_PlayBootSound:
 PC_PlayShutdownSound:
 	ld de, SFX_SHUT_DOWN_PC
 	call PC_WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 PC_PlayChoosePCSound:
@@ -199,7 +199,7 @@ PC_PlaySwapItemsSound:
 
 PC_WaitPlaySFX:
 	push de
-	call WaitSFX
+	predef WaitSFX
 	pop de
 	predef PlaySFX
 	ret

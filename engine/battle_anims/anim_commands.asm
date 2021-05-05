@@ -47,7 +47,7 @@ _PlayBattleAnim:
 	call BattleAnimDelayFrame
 	call BattleAnimDelayFrame
 	call BattleAnimDelayFrame
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 BattleAnimRunScript:
@@ -85,7 +85,7 @@ BattleAnimRunScript:
 	ld [wFXAnimID + 1], a
 
 .hi_byte
-	call WaitSFX
+	predef WaitSFX
 	call PlayHitSound
 	call RunBattleAnimScript
 

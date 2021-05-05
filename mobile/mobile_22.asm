@@ -2677,7 +2677,7 @@ Function8a116:
 	jr c, .asm_8a121
 	jr .asm_8a15a
 .asm_8a14c
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_TWINKLE
 	predef PlaySFX
 	ld c, $10

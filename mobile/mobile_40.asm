@@ -1935,14 +1935,14 @@ Mobile_PartyMenuSelect:
 	ld [wCurPartySpecies], a
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	and a
 	ret
 
 .done
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	scf
 	ret
 

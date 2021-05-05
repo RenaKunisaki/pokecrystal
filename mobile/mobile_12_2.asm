@@ -338,7 +338,7 @@ Function4aa6e: ; unreferenced
 	pop af
 	ld de, SFX_WRONG
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	jr Function4aa34
 
 Function4aa7a:
@@ -504,7 +504,7 @@ Function4ab1a:
 	ld [wCurPartySpecies], a
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld a, $1
 	and a
 	ret
@@ -515,7 +515,7 @@ Function4ab1a:
 .asm_4ab73
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	scf
 	ret
 
@@ -527,7 +527,7 @@ Function4ab1a:
 	jr z, .asm_4ab73
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	xor a
 	ld [wd018], a
 	and a

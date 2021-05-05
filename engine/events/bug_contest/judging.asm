@@ -30,7 +30,7 @@ ContestJudging_FirstPlaceText:
 	text_asm
 	ld de, SFX_1ST_PLACE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld hl, ContestJudging_FirstPlaceScoreText
 	ret
 
@@ -44,7 +44,7 @@ ContestJudging_SecondPlaceText:
 	text_asm
 	ld de, SFX_2ND_PLACE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld hl, ContestJudging_SecondPlaceScoreText
 	ret
 
@@ -58,7 +58,7 @@ ContestJudging_ThirdPlaceText:
 	text_asm
 	ld de, SFX_3RD_PLACE
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld hl, ContestJudging_ThirdPlaceScoreText
 	ret
 

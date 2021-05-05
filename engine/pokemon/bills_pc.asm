@@ -1585,7 +1585,7 @@ BillsPC_CheckSpaceInDestination:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	scf
@@ -1625,7 +1625,7 @@ BillsPC_CheckMail_PreventBlackout:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	scf
@@ -1643,7 +1643,7 @@ BillsPC_IsMonAnEgg:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	scf
@@ -1811,7 +1811,7 @@ DepositPokemon:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	scf
@@ -1866,7 +1866,7 @@ TryWithdrawPokemon:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	scf
@@ -2507,7 +2507,7 @@ BillsPC_PlaceEmptyBoxString_SFX:
 	call BillsPC_PlaceChangeBoxString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld c, 50
 	predef DelayFrames
 	ret

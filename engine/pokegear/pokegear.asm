@@ -53,7 +53,7 @@ PokeGear:
 .done
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	pop af
 	ld [wVramState], a
 	pop af
@@ -925,12 +925,12 @@ PokegearPhone_MakePhoneCall:
 	predef PlaySFX
 	ld hl, .GearEllipseText
 	call PrintText
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_CALL
 	predef PlaySFX
 	ld hl, .GearEllipseText
 	call PrintText
-	call WaitSFX
+	predef WaitSFX
 	ld a, [wPokegearPhoneSelectedPerson]
 	ld b, a
 	call MakePhoneCallFromPokegear

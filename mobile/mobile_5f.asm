@@ -1204,7 +1204,7 @@ Function17d7c2:
 	ld e, a
 	ld d, 0
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	call HlToCrashCheckPointer
 	ret
 
@@ -1215,7 +1215,7 @@ Function17d7d3:
 	ld e, a
 	ld d, 0
 	call PlayCry
-	call WaitSFX
+	predef WaitSFX
 	call HlToCrashCheckPointer
 	ret
 

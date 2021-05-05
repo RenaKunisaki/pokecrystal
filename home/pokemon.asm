@@ -109,7 +109,7 @@ PlayStereoCry::
 	ld [wStereoPanningMask], a
 	pop af
 	call _PlayMonCry
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 PlayStereoCry2::
@@ -123,7 +123,7 @@ PlayStereoCry2::
 
 PlayMonCry::
 	call PlayMonCry2
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 PlayMonCry2::

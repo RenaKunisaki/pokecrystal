@@ -66,10 +66,10 @@ _CardFlip:
 	call .CardFlip
 	jr .MasterLoop
 .leavethegame
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_QUIT_SLOTS
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	predef ClearBGPalettes
 	ld hl, wOptions
 	res 4, [hl]
@@ -142,7 +142,7 @@ _CardFlip:
 	call CardFlip_PrintCoinBalance
 	ld a, $1
 	ldh [hBGMapMode], a
-	call WaitSFX
+	predef WaitSFX
 	call .Increment
 	ret
 
@@ -251,10 +251,10 @@ _CardFlip:
 	xor a
 	ldh [hVBlankCounter], a
 	call CardFlip_UpdateCursorOAM
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_CHOOSE_A_CARD
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ld a, [wCardFlipNumCardsPlayed]
 	ld e, a
 	ld d, 0
@@ -1073,7 +1073,7 @@ CardFlip_CheckWinCondition:
 	predef PlaySFX
 	ld hl, .CardFlipDarnText
 	call CardFlip_UpdateCoinBalanceDisplay
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 .Payout:
@@ -1083,7 +1083,7 @@ CardFlip_CheckWinCondition:
 	call CardFlip_UpdateCoinBalanceDisplay
 	pop de
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	pop bc
 .loop
 	push bc

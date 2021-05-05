@@ -120,7 +120,7 @@ PlaySFX::
     jp pop_af_bc_de_hl_ret
 
 WaitPlaySFX::
-	call WaitSFX
+	predef WaitSFX
 	predef PlaySFX
 	ret
 

@@ -56,7 +56,7 @@ Pokedex:
 .exit
 	ld de, SFX_READ_TEXT_2
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	predef ClearSprites
 	ld a, [wCurDexMode]
 	ld [wLastDexMode], a

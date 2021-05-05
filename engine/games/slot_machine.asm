@@ -82,10 +82,10 @@ _SlotMachine:
 .loop
 	call SlotsLoop
 	jr nc, .loop
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_QUIT_SLOTS
 	predef PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	predef ClearBGPalettes
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
 	ld hl, wOptions
@@ -326,7 +326,7 @@ SlotsAction_BetAndStart:
 	ld [wReel1ManipCounter], a
 	ld [wReel2ManipCounter], a
 	ld [wReel3ManipCounter], a
-	call WaitSFX
+	predef WaitSFX
 	ld a, SFX_SLOT_MACHINE_START
 	call Slots_PlaySFX
 	ret
@@ -1360,14 +1360,14 @@ ReelAction_WaitSlowAdvanceReel3:
 	and a
 	jr nz, .play_sfx
 	call Slots_StopReel
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 .check2
 	call Slots_CheckMatchedAllThreeReels
 	jr c, .play_sfx
 	call Slots_StopReel
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 Slots_CheckMatchedFirstTwoReels:
@@ -1745,7 +1745,7 @@ Slots_AskBet:
 	jr nc, .ok
 	dec [hl]
 .ok
-	call WaitSFX
+	predef WaitSFX
 	ld de, SFX_PAY_DAY
 	predef PlaySFX
 	ld hl, .SlotsStartText
@@ -1919,7 +1919,7 @@ endr
 .LinedUpSevens:
 	ld a, SFX_2ND_PLACE
 	call Slots_PlaySFX
-	call WaitSFX
+	predef WaitSFX
 
 ; Oddly, the rarest mode (wKeepSevenBiasChance = 1) is the one with
 ; the worse odds to favor seven symbol streaks (12.5% vs 25%).
@@ -1946,13 +1946,13 @@ endr
 .LinedUpPokeballs:
 	ld a, SFX_3RD_PLACE
 	call Slots_PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 .LinedUpMonOrCherry:
 	ld a, SFX_PRESENT
 	call Slots_PlaySFX
-	call WaitSFX
+	predef WaitSFX
 	ret
 
 Slots_AnimateGolem:
