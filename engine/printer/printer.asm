@@ -486,14 +486,14 @@ Printer_CopyTilemapToBuffer:
 	hlcoord 0, 0
 	ld de, wPrinterTilemapBuffer
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Printer_CopyBufferToTilemap:
 	ld hl, wPrinterTilemapBuffer
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Printer_ResetJoypadRegisters:

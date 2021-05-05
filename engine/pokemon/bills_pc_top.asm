@@ -257,7 +257,7 @@ CopyBoxmonToTempMon:
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, BANK(sBoxMon1Species)
 	predef OpenSRAM
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -314,7 +314,7 @@ LoadBoxMonListing: ; unreferenced
 	ld bc, sBoxMonNicknames - sBoxMons
 	add hl, bc
 	call SkipNames
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 	pop hl
 

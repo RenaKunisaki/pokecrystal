@@ -51,7 +51,7 @@ CheckMagikarpLength:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonOTs
 	call SkipNames
-	call CopyBytes
+	predef CopyBytes
 	ld a, MAGIKARPLENGTH_BEAT_RECORD
 	ld [wScriptVar], a
 	ret

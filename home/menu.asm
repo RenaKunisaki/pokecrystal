@@ -153,7 +153,7 @@ CopyMenuData::
 	ld l, a
 	ld de, wMenuData
 	ld bc, wMenuDataEnd - wMenuData
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	pop bc
 	pop de
@@ -317,7 +317,7 @@ LoadMenuHeader::
 CopyMenuHeader::
 	ld de, wMenuHeader
 	ld bc, wMenuHeaderEnd - wMenuHeader
-	call CopyBytes
+	predef CopyBytes
 	ldh a, [hROMBank]
 	ld [wMenuDataBank], a
 	ret

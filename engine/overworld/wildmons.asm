@@ -13,7 +13,7 @@ LoadWildMonData:
 	inc hl
 	ld de, wMornEncounterRate
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 .done_copy
 	call _WaterWildmonLookup
 	ld a, 0

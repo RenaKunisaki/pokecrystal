@@ -82,7 +82,7 @@ SGB_ApplyCreditsPals: ; unreferenced
 	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 	pop de
 	ld a, c
@@ -211,7 +211,7 @@ GSIntro_LoadMonPalette: ; unreferenced
 	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	call GetMonPalettePointer
 	ld a, [hli]
@@ -408,7 +408,7 @@ LoadMailPalettes:
 	ld hl, PalPacket_Pal01
 	ld de, wSGBPals
 	ld bc, PALPACKET_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	inc hl
 	inc hl

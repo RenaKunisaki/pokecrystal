@@ -310,19 +310,19 @@ GetTradeMonName:
 
 CopyTradeName:
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Trade_CopyFourCharString: ; unreferenced
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 	ret
 
 Trade_CopyThreeCharString: ; unreferenced
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 	ret

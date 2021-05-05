@@ -1112,7 +1112,7 @@ Script_earthquake:
 	ld hl, EarthquakeMovement
 	ld de, wEarthquakeMovementDataBuffer
 	ld bc, EarthquakeMovement.End - EarthquakeMovement
-	call CopyBytes
+	predef CopyBytes
 	call GetScriptByte
 	ld [wEarthquakeMovementDataBuffer + 1], a
 	and %00111111

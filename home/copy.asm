@@ -98,7 +98,7 @@ FarCopyWRAM::
 	ldh a, [hTempBank]
 	ldh [rSVBK], a
 
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a

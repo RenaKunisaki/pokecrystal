@@ -10,24 +10,24 @@ StubbedTrainerRankings_HallOfFame2::
 	ld hl, wGameTimeHours
 	ld de, sTrainerRankingGameTimeHOF
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, sTrainerRankingStepCount
 	ld de, sTrainerRankingStepCountHOF
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 
 	; sTrainerRankingHealings is only a 3-byte value.
 	; One extraneous byte is copied from sTrainerRankingMysteryGift.
 	ld hl, sTrainerRankingHealings
 	ld de, sTrainerRankingHealingsHOF
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, sTrainerRankingBattles
 	ld de, sTrainerRankingBattlesHOF
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 
 	call UpdateTrainerRankingsChecksum
 	predef CloseSRAM
@@ -572,7 +572,7 @@ InitializeTrainerRankings: ; unreferenced
 	ld hl, sTrainerRankings
 	ld de, sTrainerRankingsBackup
 	ld bc, sTrainerRankingsEnd - sTrainerRankings
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 _MobilePrintNum::

@@ -376,7 +376,7 @@ CopyTrainerName:
 	ld de, wStringBuffer1
 	push de
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop de
 	ret
 

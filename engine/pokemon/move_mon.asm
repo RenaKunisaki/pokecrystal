@@ -48,7 +48,7 @@ TryAddMonToParty:
 	ld e, l
 	ld hl, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	; Only initialize the nickname for party mon
 	ld a, [wMonType]
 	and a
@@ -64,7 +64,7 @@ TryAddMonToParty:
 	ld e, l
 	ld hl, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .skipnickname
 	ld hl, wPartyMon1Species
@@ -333,7 +333,7 @@ endr
 	jr nz, .generatestats
 	ld hl, wEnemyMonMaxHP
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_MAXHP
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	jr .registerunowndex
 
@@ -417,7 +417,7 @@ AddTempmonToParty:
 	ld e, l
 	ld d, h
 	ld hl, wTempMonSpecies
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wPartyMonOTs
 	ld a, [wPartyCount]
@@ -429,7 +429,7 @@ AddTempmonToParty:
 	ld a, [wCurPartyMon]
 	call SkipNames
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wPartyMonNicknames
 	ld a, [wPartyCount]
@@ -441,7 +441,7 @@ AddTempmonToParty:
 	ld a, [wCurPartyMon]
 	call SkipNames
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -559,7 +559,7 @@ SendGetMonIntoFromBox:
 
 .okay4
 	ld bc, BOXMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wPokemonWithdrawDepositParameter]
 	cp DAY_CARE_DEPOSIT
 	ld de, wBreedMon1OT
@@ -593,7 +593,7 @@ SendGetMonIntoFromBox:
 
 .okay8
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wPokemonWithdrawDepositParameter]
 	cp DAY_CARE_DEPOSIT
 	ld de, wBreedMon1Nickname
@@ -627,7 +627,7 @@ SendGetMonIntoFromBox:
 
 .okay12
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 
 	ld a, [wPokemonWithdrawDepositParameter]
@@ -721,14 +721,14 @@ RestorePPOfDepositedPokemon:
 	push bc
 	ld de, wTempMonPP
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 	ld hl, MON_MOVES
 	add hl, bc
 	push hl
 	ld de, wTempMonMoves
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	pop de
 
@@ -837,7 +837,7 @@ RetrieveBreedmon:
 	ld h, d
 	ld l, e
 	pop de
-	call CopyBytes
+	predef CopyBytes
 	push hl
 	ld hl, wPartyMonOTs
 	ld a, [wPartyCount]
@@ -846,12 +846,12 @@ RetrieveBreedmon:
 	ld d, h
 	ld e, l
 	pop hl
-	call CopyBytes
+	predef CopyBytes
 	push hl
 	call GetLastPartyMon
 	pop hl
 	ld bc, BOXMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	call GetBaseData
 	call GetLastPartyMon
 	ld b, d
@@ -926,11 +926,11 @@ DepositBreedmon:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call SkipNames
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonOTs
 	call SkipNames
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -969,7 +969,7 @@ SendMonIntoBox:
 	ld hl, wPlayerName
 	ld de, sBoxMonOTs
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
@@ -978,12 +978,12 @@ SendMonIntoBox:
 	ld de, sBoxMonNicknames
 	ld hl, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wEnemyMon
 	ld de, sBoxMon1
 	ld bc, 1 + 1 + NUM_MOVES ; species + item + moves
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wPlayerID
 	ld a, [hli]
@@ -1051,12 +1051,12 @@ SendMonIntoBox:
 	ld hl, sBoxMon1Moves
 	ld de, wTempMonMoves
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, sBoxMon1PP
 	ld de, wTempMonPP
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 
 	ld b, 0
 	call RestorePPOfDepositedPokemon
@@ -1355,7 +1355,7 @@ RemoveMonFromPartyOrBox:
 	push bc
 	push hl
 	ld bc, MAIL_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	push hl
 	ld bc, MAIL_STRUCT_LENGTH
@@ -1677,7 +1677,7 @@ GivePoke::
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	and a
 	jp z, .wildmon
@@ -1789,7 +1789,7 @@ GivePoke::
 	ld hl, wMonOrItemNameBuffer
 	ld de, sBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ld b, $1
 	ret

@@ -253,7 +253,7 @@ CopyMobileEZChatToC608:
 	ld bc, NAME_LENGTH_JAPANESE - 1
 .copy_string
 	ld de, wc608
-	call CopyBytes
+	predef CopyBytes
 	ld de, wc608
 	pop af
 	ldh [rSVBK], a
@@ -314,7 +314,7 @@ Function11c1b9:
 	ld hl, SelectStartGFX
 	ld de, vTiles2
 	ld bc, $60
-	call CopyBytes
+	predef CopyBytes
 	ld hl, EZChatSlowpokeLZ
 	ld de, vTiles0
 	call Decompress
@@ -330,7 +330,7 @@ Function11c1b9:
 	ld hl, wc6d0
 	ld de, wLYOverrides
 	ld bc, $100
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	call EZChat_GetCategoryWordsByKana
@@ -353,7 +353,7 @@ Function11c254:
 	add hl, bc
 	ld de, wcd36
 	ld bc, 12
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -2861,7 +2861,7 @@ Function11d323:
 	ld hl, Palette_11d33a
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	ret

@@ -4,13 +4,13 @@ Function170000:
 	ld hl, $c62e
 	ld de, wPlayerTrademonSenderName
 	ld bc, $0005
-	call CopyBytes
+	predef CopyBytes
 	ld a, $50
 	ld [de], a
 	ld hl, $c663
 	ld de, wPlayerTrademonOTName
 	ld bc, $0005
-	call CopyBytes
+	predef CopyBytes
 	ld a, $50
 	ld [de], a
 	ld hl, $c648
@@ -32,7 +32,7 @@ Function170000:
 	ld hl, $c608
 	ld de, $d800
 	ld bc, $008f
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function17005a:
@@ -43,13 +43,13 @@ Function17005a:
 	ld hl, $a827
 	ld de, wOTTrademonSenderName
 	ld bc, NAME_LENGTH_JAPANESE - 1
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 	ld hl, $a85c
 	ld de, wOTTrademonOTName
 	ld bc, NAME_LENGTH_JAPANESE - 1
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 	ld hl, $a841
@@ -653,7 +653,7 @@ Function171c87:
 	ld hl, AsciiFontGFX
 	ld de, vTiles2 tile $00
 	ld bc, $6e0
-	call CopyBytes
+	predef CopyBytes
 	ld hl, PasswordSlowpokeLZ
 	ld de, vTiles0 tile $00
 	call Decompress
@@ -661,11 +661,11 @@ Function171c87:
 	ld hl, PasswordTopTilemap
 	decoord 0, 0
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	ld hl, MobilePasswordAttrmap
 	decoord 0, 0, wAttrmap
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 3, 2
 	ld de, String_172e31
 	call PlaceString
@@ -682,7 +682,7 @@ Function171ccd:
 	ld hl, MobilePasswordPalettes
 	ld de, wBGPals1
 	ld bc, 8 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wOBPals1 palette 0 color 1
 	ld a, LOW(PALRGB_WHITE)
 	ld [hli], a
@@ -706,7 +706,7 @@ Function171cf0:
 	ld hl, PasswordBottomTilemap
 	decoord 0, 7
 	ld bc, $8c
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 3, 16
 	ld de, String_172e3f
 	jp PlaceString
@@ -715,7 +715,7 @@ Function171cf0:
 	ld hl, PasswordShiftTilemap
 	decoord 0, 7
 	ld bc, $8c
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 3, 16
 	ld de, String_172e4e
 	jp PlaceString
@@ -725,7 +725,7 @@ Function171d2b:
 	ld hl, AsciiFontGFX
 	ld de, vTiles2 tile $00
 	ld bc, $6e0
-	call CopyBytes
+	predef CopyBytes
 	ld hl, PasswordSlowpokeLZ
 	ld de, vTiles0 tile $00
 	call Decompress
@@ -733,11 +733,11 @@ Function171d2b:
 	ld hl, ChooseMobileCenterTilemap
 	decoord 0, 0
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	ld hl, ChooseMobileCenterAttrmap
 	decoord 0, 0, wAttrmap
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 2, 2
 	ld de, String_172e5d
 	call PlaceString
@@ -798,16 +798,16 @@ Function172e78:
 	ld hl, Stadium2N64GFX
 	ld de, vTiles2 tile $00
 	ld bc, $610
-	call CopyBytes
+	predef CopyBytes
 	call EnableLCD
 	ld hl, Stadium2N64Tilemap
 	decoord 0, 0
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	ld hl, Stadium2N64Attrmap
 	decoord 0, 0, wAttrmap
 	ld bc, $168
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function172eb9:
@@ -818,11 +818,11 @@ Function172eb9:
 	ld hl, Palette_172edf
 	ld de, wBGPals1
 	ld bc, 8 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, Palette_172edf
 	ld de, wBGPals2
 	ld bc, 8 palettes
-	call CopyBytes
+	predef CopyBytes
 	call SetPalettes
 	pop af
 	ldh [rSVBK], a

@@ -824,7 +824,7 @@ TradeAnim_GetNicknamename:
 	ld hl, wStringBuffer1
 	pop de
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 TradeAnim_ShowGivemonFrontpic:
@@ -1318,11 +1318,11 @@ LinkTradeAnim_LoadTradePlayerNames:
 	push de
 	ld de, wLinkPlayer1Name
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	ld de, wLinkPlayer2Name
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 LinkTradeAnim_LoadTradeMonSpecies:

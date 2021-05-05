@@ -773,17 +773,17 @@ Function17abcf:
 	ld hl, Palette_17ac55
 	ld de, wBGPals1
 	ld bc, 6 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, Palette_17ac95
 	ld de, wOBPals1
 	ld bc, 8 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, Palette_17b4b5
 	ld de, wOBPals1 palette 1
 	ld bc, 2 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, MapObjectPals palette 1
 	ld de, wOBPals1 palette 3
@@ -808,14 +808,14 @@ Function17ac1d:
 	ld hl, DialpadTilemap
 	decoord 0, 4
 	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function17ac2a:
 	ld hl, DialpadAttrmap
 	decoord 0, 4, wAttrmap
 	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 0, 4, wAttrmap
 	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
 .loop

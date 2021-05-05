@@ -309,7 +309,7 @@ HatchEggs:
 	ld d, h
 	ld e, l
 	ld hl, wPlayerName
-	call CopyBytes
+	predef CopyBytes
 	ld hl, .Text_HatchEgg
 	call PrintText
 	ld a, [wCurPartyMon]
@@ -340,7 +340,7 @@ HatchEggs:
 .nonickname
 	ld hl, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .next
 	ld hl, wCurPartyMon
@@ -902,7 +902,7 @@ DayCareMonCompatibilityText:
 	push bc
 	ld de, wStringBuffer1
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	call CheckBreedmonCompatibility
 	pop bc
 	ld a, [wBreedingCompatibility]

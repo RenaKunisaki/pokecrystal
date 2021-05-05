@@ -24,10 +24,10 @@ Function11766b:
 	ld hl, $b1f3
 	ld de, wcd49
 	ld bc, $8
-	call CopyBytes
+	predef CopyBytes
 	ld de, $c708
 	ld bc, $11
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	pop af
 	ldh [rSVBK], a
@@ -39,10 +39,10 @@ Function117699:
 	ld hl, wcd49
 	ld de, $b1f3
 	ld bc, $8
-	call CopyBytes
+	predef CopyBytes
 	ld hl, $c708
 	ld bc, $11
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	xor a
 	ld [wcd49], a
@@ -405,7 +405,7 @@ Function117942:
 	ld hl, $c708
 	ld de, sMobileLoginPassword + 1
 	ld bc, MOBILE_LOGIN_PASSWORD_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ld a, [wcd4f]
 	and a
@@ -715,7 +715,7 @@ Function117bb6:
 	ld hl, w3_d002
 	ld de, $b000
 	ld bc, $1000
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	pop af
 	ldh [rSVBK], a
@@ -779,7 +779,7 @@ Function117c89:
 	ld hl, $bfea
 	ld de, wcd69
 	ld bc, $10
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 

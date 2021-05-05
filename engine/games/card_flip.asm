@@ -36,11 +36,11 @@ _CardFlip:
 	ld hl, CardFlipOffButtonGFX
 	ld de, vTiles0 tile CARDFLIP_LIGHT_OFF
 	ld bc, 1 tiles
-	call CopyBytes
+	predef CopyBytes
 	ld hl, CardFlipOnButtonGFX
 	ld de, vTiles0 tile CARDFLIP_LIGHT_ON
 	ld bc, 1 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	call CardFlip_ShiftDigitsUpOnePixel
 	call CardFlip_InitTilemap
@@ -586,7 +586,7 @@ CardFlip_ShiftDigitsUpOnePixel:
 	ld de, vTiles0 tile "0"
 	ld hl, vTiles0 tile "0" + 2
 	ld bc, 10 tiles - 2
-	call CopyBytes
+	predef CopyBytes
 	ld hl, vTiles0 tile "9" + 1 tiles - 2
 	xor a
 	ld [hli], a
@@ -1587,7 +1587,7 @@ CardFlip_InitAttrPals:
 	ld hl, .palettes
 	ld de, wBGPals1
 	ld bc, 9 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	ret

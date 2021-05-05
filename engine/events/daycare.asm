@@ -244,7 +244,7 @@ GetPriceToRetrieveBreedmon:
 	ld [wStringBuffer2 + 1], a
 	ld de, wStringBuffer1
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, 0
 	ld bc, 100
 	ld a, [wStringBuffer2 + 1]
@@ -468,20 +468,20 @@ DayCare_GiveEgg:
 	ld bc, MON_NAME_LENGTH
 	call DayCare_GetCurrentPartyMember
 	ld hl, wEggMonNickname
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
 	call DayCare_GetCurrentPartyMember
 	ld hl, wEggMonOT
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call DayCare_GetCurrentPartyMember
 	ld hl, wEggMon
 	ld bc, BOXMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	call GetBaseData
 	ld a, [wPartyCount]
@@ -612,7 +612,7 @@ DayCare_InitBreeding:
 	ld hl, wPlayerName
 	ld de, wEggMonOT
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	xor a
 	ld [wEggMonItem], a
 	ld de, wEggMonMoves
@@ -701,14 +701,14 @@ DayCare_InitBreeding:
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wEggMonMoves
 	ld de, wEggMonPP
 	predef FillPP
 	ld hl, wMonOrItemNameBuffer
 	ld de, wStringBuffer1
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wBaseEggSteps]
 	ld hl, wEggMonHappiness
 	ld [hli], a

@@ -797,7 +797,7 @@ EscapeRopeOrDig:
 	ld hl, wDigWarpNumber
 	ld de, wNextWarp
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	call GetPartyNickname
 	ld a, [wEscapeRopeOrDigType]
 	cp $2

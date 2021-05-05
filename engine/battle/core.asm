@@ -2160,7 +2160,7 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld hl, wEnemyMonBaseStats
 	ld de, wBackupEnemyMonBaseStats
 	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	call CopyBytes
+	predef CopyBytes
 	xor a
 	ld [wGivingExperienceToExpShareHolders], a
 	call GiveExperiencePoints
@@ -2174,7 +2174,7 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld hl, wBackupEnemyMonBaseStats
 	ld de, wEnemyMonBaseStats
 	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	call CopyBytes
+	predef CopyBytes
 	ld a, $1
 	ld [wGivingExperienceToExpShareHolders], a
 	call GiveExperiencePoints
@@ -3027,7 +3027,7 @@ MonFaintedAnimation:
 	push hl
 	push de
 	ld bc, 7
-	call CopyBytes
+	predef CopyBytes
 	pop de
 	pop hl
 	ld bc, -SCREEN_WIDTH
@@ -3861,18 +3861,18 @@ InitBattleMon:
 	call GetPartyParamLocation
 	ld de, wBattleMonSpecies
 	ld bc, MON_ID
-	call CopyBytes
+	predef CopyBytes
 	ld bc, MON_DVS - MON_ID
 	add hl, bc
 	ld de, wBattleMonDVs
 	ld bc, MON_PKRUS - MON_DVS
-	call CopyBytes
+	predef CopyBytes
 	inc hl
 	inc hl
 	inc hl
 	ld de, wBattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wBattleMonSpecies]
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
@@ -3887,11 +3887,11 @@ InitBattleMon:
 	call SkipNames
 	ld de, wBattleMonNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wBattleMonAttack
 	ld de, wPlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
-	call CopyBytes
+	predef CopyBytes
 	call ApplyStatusEffectOnPlayerStats
 	call BadgeStatBoosts
 	ret
@@ -3947,18 +3947,18 @@ InitEnemyMon:
 	call GetPartyLocation
 	ld de, wEnemyMonSpecies
 	ld bc, MON_ID
-	call CopyBytes
+	predef CopyBytes
 	ld bc, MON_DVS - MON_ID
 	add hl, bc
 	ld de, wEnemyMonDVs
 	ld bc, MON_PKRUS - MON_DVS
-	call CopyBytes
+	predef CopyBytes
 	inc hl
 	inc hl
 	inc hl
 	ld de, wEnemyMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wEnemyMonSpecies]
 	ld [wCurSpecies], a
 	call GetBaseData
@@ -3967,11 +3967,11 @@ InitEnemyMon:
 	call SkipNames
 	ld de, wEnemyMonNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wEnemyMonAttack
 	ld de, wEnemyStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
-	call CopyBytes
+	predef CopyBytes
 	call ApplyStatusEffectOnEnemyStats
 	ld hl, wBaseType1
 	ld de, wEnemyMonType1
@@ -5107,12 +5107,12 @@ Battle_StatsScreen:
 	ld hl, vTiles2 tile $31
 	ld de, vTiles0
 	ld bc, $11 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, vTiles2
 	ld de, vTiles0 tile $11
 	ld bc, $31 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	call EnableLCD
 
@@ -5128,12 +5128,12 @@ Battle_StatsScreen:
 	ld hl, vTiles0
 	ld de, vTiles2 tile $31
 	ld bc, $11 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, vTiles0 tile $11
 	ld de, vTiles2
 	ld bc, $31 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	call EnableLCD
 	ret
@@ -5339,7 +5339,7 @@ MoveSelectionScreen:
 .got_menu_type
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	xor a
 	ldh [hBGMapMode], a
 
@@ -6326,7 +6326,7 @@ LoadEnemyMon:
 	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	jr .PP
 
 .WildMoves:
@@ -6361,7 +6361,7 @@ LoadEnemyMon:
 	call GetPartyLocation
 	ld de, wEnemyMonPP
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 
 .Finish:
 ; Only the first five base stats are copied..
@@ -6396,7 +6396,7 @@ LoadEnemyMon:
 	ld hl, wStringBuffer1
 	ld de, wEnemyMonNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 ; Saw this mon
 	ld a, [wTempEnemyMonSpecies]
@@ -6409,7 +6409,7 @@ LoadEnemyMon:
 	ld hl, wEnemyMonStats
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
-	call CopyBytes
+	predef CopyBytes
 
 	ret
 
@@ -7252,7 +7252,7 @@ GiveExperiencePoints:
 	ld de, wBattleMonMaxHP
 	push bc
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_MAXHP
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 	ld hl, MON_LEVEL
 	add hl, bc
@@ -7265,7 +7265,7 @@ GiveExperiencePoints:
 	add hl, bc
 	ld de, wPlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
-	call CopyBytes
+	predef CopyBytes
 
 .transformed
 	xor a ; FALSE
@@ -7526,7 +7526,7 @@ AnimateExpBar:
 	ld hl, wBattleMonNickname
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	call TerminateExpBarSound
 	ld de, SFX_HIT_END_OF_EXP_BAR
 	predef PlaySFX
@@ -8182,11 +8182,11 @@ InitEnemyWildmon:
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wEnemyMonPP
 	ld de, wWildMonPP
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wEnemyMonDVs
 	predef GetUnownLetter
 	ld a, [wCurPartySpecies]
@@ -8491,12 +8491,12 @@ ReadAndPrintLinkBattleRecord:
 	ld l, e
 	ld de, wLinkBattleRecordName
 	ld bc, NAME_LENGTH - 1
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 	inc de ; wLinkBattleRecordWins
 	ld bc, 6
-	call CopyBytes
+	predef CopyBytes
 	ld de, wLinkBattleRecordName
 	pop hl
 	call PlaceString
@@ -8704,10 +8704,10 @@ AddLastLinkBattleToLinkRecord:
 	ld hl, wOTPlayerID
 	ld de, wStringBuffer1
 	ld bc, 2
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wOTPlayerName
 	ld bc, NAME_LENGTH - 1
-	call CopyBytes
+	predef CopyBytes
 	ld hl, sLinkBattleStats - (LINK_BATTLE_RECORD_LENGTH - 6)
 	call .StoreResult
 	ld hl, sLinkBattleRecord
@@ -8741,7 +8741,7 @@ AddLastLinkBattleToLinkRecord:
 	ld e, l
 	ld hl, wStringBuffer1
 	ld bc, LINK_BATTLE_RECORD_LENGTH - 6
-	call CopyBytes
+	predef CopyBytes
 	ld b, 6
 	xor a
 .loop2
@@ -8861,7 +8861,7 @@ AddLastLinkBattleToLinkRecord:
 	push hl
 	ld de, wLinkBattleRecordBuffer
 	ld bc, LINK_BATTLE_RECORD_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	pop bc
 	push hl
@@ -8872,11 +8872,11 @@ AddLastLinkBattleToLinkRecord:
 	pop de
 	push hl
 	ld bc, LINK_BATTLE_RECORD_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wLinkBattleRecordBuffer
 	ld bc, LINK_BATTLE_RECORD_LENGTH
 	pop de
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .LoadPointer:

@@ -700,7 +700,7 @@ RestoreOverworldMapTiles: ; unreferenced
 	hlcoord 0, 0
 	ld de, sScratch
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	call OverworldTextModeSwitch
 	xor a ; sScratch

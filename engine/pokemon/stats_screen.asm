@@ -268,7 +268,7 @@ StatsScreen_CopyToTempMon:
 	ld hl, wBufferMon
 	ld de, wTempMon
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	jr .done
 
 .not_tempmon
@@ -729,7 +729,7 @@ LoadGreenPage:
 	ld hl, wTempMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	hlcoord 8, 10
 	ld a, SCREEN_WIDTH * 2
 	ld [wListMovesLineSpacing], a
@@ -1146,14 +1146,14 @@ CopyNickname:
 	ld a, BANK(sBoxMonNicknames)
 	predef OpenSRAM
 	push de
-	call CopyBytes
+	predef CopyBytes
 	pop de
 	predef CloseSRAM
 	ret
 
 .partymon
 	push de
-	call CopyBytes
+	predef CopyBytes
 	pop de
 	ret
 

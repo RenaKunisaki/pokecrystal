@@ -1164,7 +1164,7 @@ DebugRoom_SavePokemon:
 	ld e, l
 	ld hl, wDebugRoomMon
 	ld bc, BOXMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	pop de
 	; skip box mons
@@ -1180,7 +1180,7 @@ DebugRoom_SavePokemon:
 	ld e, l
 	ld hl, .OTString
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	pop de
 	; skip OT names
@@ -1196,7 +1196,7 @@ DebugRoom_SavePokemon:
 	ld e, l
 	ld hl, .NicknameString
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	pop de
 	predef CloseSRAM

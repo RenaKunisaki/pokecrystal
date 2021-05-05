@@ -443,7 +443,7 @@ Function8b555:
 	ld hl, wd013
 	ld de, s4_a037
 	ld bc, $4
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	call Function89448
 	ld bc, wd013
@@ -594,7 +594,7 @@ Function8b6bb:
 	ld hl, Palette_8b6d5
 	ld de, wBGPals1
 	ld bc, 3 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	call Function8949c

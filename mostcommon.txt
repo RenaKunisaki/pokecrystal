@@ -1,5 +1,5 @@
 grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
-    612 	call CopyBytes
+    612 	predef CopyBytes
     486 	call PlaceString
     384 	predef CloseSRAM
     351 	predef OpenSRAM

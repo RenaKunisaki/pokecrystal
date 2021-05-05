@@ -152,7 +152,7 @@ GameFreakPresents_PlaceGameFreak:
 	ld hl, .game_freak
 	decoord 5, 10
 	ld bc, .end - .game_freak
-	call CopyBytes
+	predef CopyBytes
 	call GameFreakPresents_NextScene
 	ld de, SFX_GAME_FREAK_PRESENTS
 	predef PlaySFX
@@ -176,7 +176,7 @@ GameFreakPresents_PlacePresents:
 	ld hl, .presents
 	decoord 7, 11
 	ld bc, .end - .presents
-	call CopyBytes
+	predef CopyBytes
 	call GameFreakPresents_NextScene
 	ret
 

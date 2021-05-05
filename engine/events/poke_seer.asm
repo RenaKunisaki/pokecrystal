@@ -142,7 +142,7 @@ GetCaughtName:
 	predef AddNTimes
 	ld de, wSeerNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 GetCaughtLevel:
@@ -172,7 +172,7 @@ GetCaughtLevel:
 	ld de, wSeerCaughtLevelString
 	ld hl, .unknown_level
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .unknown_level
@@ -208,7 +208,7 @@ GetCaughtTime:
 UnknownCaughtData:
 	ld hl, .unknown
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .unknown
@@ -227,7 +227,7 @@ GetCaughtLocation:
 	ld hl, wStringBuffer1
 	ld de, wSeerCaughtLocation
 	ld bc, 17
-	call CopyBytes
+	predef CopyBytes
 	and a
 	ret
 
@@ -254,7 +254,7 @@ GetCaughtOT:
 	predef AddNTimes
 	ld de, wSeerOT
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 ; this routine is useless in Western localizations
 	ld hl, .male

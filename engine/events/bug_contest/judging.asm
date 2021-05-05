@@ -91,7 +91,7 @@ LoadContestantName:
 	ld hl, wStringBuffer1
 	ld de, wBugContestWinnerName
 	ld bc, TRAINER_CLASS_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wBugContestWinnerName
 ; Delete the trailing terminator and replace it with a space.
 .next
@@ -174,11 +174,11 @@ DetermineContestWinners:
 	ld hl, wBugContestSecondPlaceWinnerID
 	ld de, wBugContestThirdPlaceWinnerID
 	ld bc, BUG_CONTESTANT_SIZE
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wBugContestFirstPlaceWinnerID
 	ld de, wBugContestSecondPlaceWinnerID
 	ld bc, BUG_CONTESTANT_SIZE
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wBugContestFirstPlaceWinnerID
 	call CopyTempContestant
 	jr .done
@@ -192,7 +192,7 @@ DetermineContestWinners:
 	ld hl, wBugContestSecondPlaceWinnerID
 	ld de, wBugContestThirdPlaceWinnerID
 	ld bc, BUG_CONTESTANT_SIZE
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wBugContestSecondPlaceWinnerID
 	call CopyTempContestant
 	jr .done

@@ -265,7 +265,7 @@ endr
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	; Now that we've chosen our wild Pokemon,
 	; let's recover the map index info and get its name.

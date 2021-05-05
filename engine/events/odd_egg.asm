@@ -46,7 +46,7 @@ _GiveOddEgg:
 	; even though OddEggs does not have data for wOddEggOT
 	ld de, wOddEgg
 	ld bc, NICKNAMED_MON_STRUCT_LENGTH + NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, EGG_TICKET
 	ld [wCurItem], a
@@ -76,7 +76,7 @@ _GiveOddEgg:
 	ld hl, .Odd
 	ld de, wTempOddEggNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	; load pointer to wTempOddEggNickname in wMobileMonOTPointer
 	ld a, LOW(wTempOddEggNickname)

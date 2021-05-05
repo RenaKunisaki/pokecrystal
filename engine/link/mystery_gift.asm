@@ -112,7 +112,7 @@ DoMysteryGift:
 	ld l, e
 	ld de, wStringBuffer1
 	ld bc, ITEM_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, .MysteryGiftSentHomeText ; sent decoration to home
 	jr .PrintTextAndExit
 
@@ -248,7 +248,7 @@ DoMysteryGift:
 	ld hl, wMysteryGiftPartnerName
 	ld de, sMysteryGiftPartnerName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	assert sMysteryGiftPartnerName + NAME_LENGTH == sMysteryGiftUnusedFlag
 	ld a, TRUE
 	ld [de], a
@@ -256,7 +256,7 @@ DoMysteryGift:
 	assert sMysteryGiftUnusedFlag + 1 == sMysteryGiftTrainer
 	ld hl, wMysteryGiftTrainer
 	ld bc, wMysteryGiftTrainerEnd - wMysteryGiftTrainer
-	call CopyBytes
+	predef CopyBytes
 	jp CloseSRAM
 
 ExchangeMysteryGiftData:
@@ -477,7 +477,7 @@ EndOrContinueMysteryGiftIRCommunication:
 	ld hl, wMysteryGiftTrainer
 	ld de, wMysteryGiftPartnerData
 	ld bc, wMysteryGiftPartnerDataEnd - wMysteryGiftPartnerData
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wMysteryGiftTrainer] ; first byte is the version
 	cp POKEMON_PIKACHU_2_VERSION
 	jr nc, .quit
@@ -1410,7 +1410,7 @@ StagePartyDataForMysteryGift:
 	add hl, bc
 	push bc
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 	pop hl
 .next
@@ -1697,13 +1697,13 @@ StageDataForNameCard:
 	predef OpenSRAM
 	ld hl, sPlayerData + wPlayerName - wPlayerData
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, sPlayerData + wPlayerID - wPlayerData
 	ld bc, 2
-	call CopyBytes
+	predef CopyBytes
 	ld hl, sPlayerData + wSecretID - wPlayerData
 	ld bc, 2
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ld a, BANK(sCrystalData)
 	predef OpenSRAM
@@ -1714,10 +1714,10 @@ StageDataForNameCard:
 	predef OpenSRAM
 	ld hl, s4_a603 ; address of MBC30 bank
 	ld bc, 8
-	call CopyBytes
+	predef CopyBytes
 	ld hl, s4_a007 ; address of MBC30 bank
 	ld bc, 12
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -1808,7 +1808,7 @@ InitNameCardLayout:
 	ld de, wVirtualOAMSprite00
 	ld hl, .NameCardOAMData
 	ld bc, 16 * SPRITEOAMSTRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	call EnableLCD
 	predef WaitBGMap
 	ld b, CRYSTAL_CGB_NAME_CARD

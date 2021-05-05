@@ -690,7 +690,7 @@ AI_Switch:
 	ld e, l
 	ld hl, wEnemyMonStatus
 	ld bc, MON_MAXHP - MON_STATUS
-	call CopyBytes
+	predef CopyBytes
 	pop af
 
 	jr c, .skiptext
@@ -841,7 +841,7 @@ PrintText_UsedItemOn:
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, ITEM_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, EnemyUsedOnText
 	jp PrintText
 

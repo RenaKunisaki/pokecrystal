@@ -180,7 +180,7 @@ Function4a0c2:
 	ld hl, sPlayerData + wPlayerName - wPlayerData
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH_JAPANESE
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	farcall _LoadData
 	ld c, 2

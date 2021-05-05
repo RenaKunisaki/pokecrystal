@@ -158,12 +158,12 @@ DebugColor_LoadGFX:
 	ld hl, DebugColor_GFX
 	ld de, vTiles2 tile DEBUGTEST_TICKS_1
 	ld bc, 22 tiles
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, DebugColor_UpArrowGFX
 	ld de, vTiles0
 	ld bc, 1 tiles
-	call CopyBytes
+	predef CopyBytes
 
 ; Invert the font colors.
 	call LoadStandardFont
@@ -192,7 +192,7 @@ DebugColor_InitPalettes:
 	ld hl, Palette_DebugBG
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, 1 << rBGPI_AUTO_INCREMENT
 	ldh [rBGPI], a
@@ -430,7 +430,7 @@ DebugColor_SetRGBMeter:
 	add hl, de
 	ld de, wDebugMiddleColors
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	xor a
 	ld [wDebugColorRGBJumptableIndex], a
 	ld [wDebugColorCurColor], a
@@ -890,7 +890,7 @@ DebugColor_BackupSpriteColors:
 	ld d, h
 	ld hl, wDebugMiddleColors
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 DebugColor_LoadPalettes_White_Col1_Col2_Black:
@@ -1177,7 +1177,7 @@ DebugTileset_LoadPalettes:
 	add hl, de
 	ld de, wDebugPalette
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld de, wDebugPalette
 	call DebugColor_CalculateRGB
 
@@ -1226,7 +1226,7 @@ DebugColorMain2: ; unreferenced
 	predef AddNTimes
 	ld de, wDebugPalette
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a
@@ -1260,7 +1260,7 @@ DebugTileset_UpdatePalettes:
 	ld d, h
 	ld hl, wDebugPalette
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	hlcoord 1, 0
 	ld de, wDebugWhiteTileColor

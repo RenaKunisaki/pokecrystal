@@ -122,11 +122,11 @@ IntroScene1:
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -195,11 +195,11 @@ IntroScene3:
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -261,11 +261,11 @@ IntroScene5:
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -368,12 +368,12 @@ IntroScene7:
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a
@@ -526,11 +526,11 @@ IntroScene11:
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroUnownsPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -652,11 +652,11 @@ IntroScene13:
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroBackgroundPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -761,11 +761,11 @@ IntroScene15:
 	ld hl, IntroSuicunePalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroSuicunePalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -835,11 +835,11 @@ IntroScene17:
 	ld hl, IntroSuicuneClosePalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroSuicuneClosePalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -909,11 +909,11 @@ IntroScene19:
 	ld hl, IntroSuicunePalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroSuicunePalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -1079,11 +1079,11 @@ IntroScene26:
 	ld hl, IntroCrystalUnownsPalette
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, IntroCrystalUnownsPalette
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	xor a
@@ -1360,7 +1360,7 @@ Intro_Scene20_AppearUnown:
 	ld d, a
 
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 
 	ld de, wBGPals1
@@ -1372,7 +1372,7 @@ Intro_Scene20_AppearUnown:
 	ld d, a
 
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a

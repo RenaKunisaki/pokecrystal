@@ -359,7 +359,7 @@ CopyPlayerObjectTemplate::
 	inc de
 	pop hl
 	ld bc, MAPOBJECT_LENGTH - 1
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 ;DeleteFollowerMapObject: ; unreferenced

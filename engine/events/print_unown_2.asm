@@ -33,7 +33,7 @@ RotateUnownFrontpic:
 	ld hl, wGameboyPrinter2bppSource
 	ld de, sScratch
 	ld bc, 7 * 7 tiles
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	ld de, sScratch
 	ld c, 7 * 7

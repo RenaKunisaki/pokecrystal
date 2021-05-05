@@ -263,7 +263,7 @@ GetBaseData::
 	predef AddNTimes
 	ld de, wCurBaseData
 	ld bc, BASE_DATA_SIZE
-	call CopyBytes
+	predef CopyBytes
 	jr .end
 
 .egg
@@ -313,7 +313,7 @@ GetNickname::
 
 	push de
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop de
 
 	callfar CorrectNickErrors

@@ -304,7 +304,7 @@ InitializeNPCNames:
 
 .Copy:
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .Rival:  db "???@"

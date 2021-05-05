@@ -1869,7 +1869,7 @@ Mobile_MoveSelectionScreen:
 	ld hl, wBattleMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
-	call CopyBytes
+	predef CopyBytes
 	ld a, SCREEN_WIDTH * 2
 	ld [wListMovesLineSpacing], a
 	hlcoord 2, 10
@@ -2366,7 +2366,7 @@ Function100f8d:
 	jr z, .sram
 	and a
 	jr nz, .far_wram
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .far_wram
@@ -2376,7 +2376,7 @@ Function100f8d:
 
 .sram
 	predef OpenSRAM
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -2433,7 +2433,7 @@ endr
 	ld hl, wc608
 	ld de, $a001
 	ld bc, wc7bd - wc608
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -2445,7 +2445,7 @@ Function10107d:
 	ld hl, wOTPlayerName
 	ld de, wc608
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wd271
 	ld a, [hli]
 	ld [wc608 + 11], a
@@ -2477,7 +2477,7 @@ Function10107d:
 	ld b, h
 	ld c, l
 	pop hl
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function1010de:
@@ -2551,7 +2551,7 @@ LoadSelectedPartiesForColosseum:
 	inc de
 	ld hl, wStringBuffer2 + NAME_LENGTH_JAPANESE
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	ld a, $ff
 	ld [de], a
 	ret
@@ -2617,7 +2617,7 @@ LoadSelectedPartiesForColosseum:
 	ld e, a
 	ld a, [wStringBuffer2 + 1]
 	ld d, a
-	call CopyBytes
+	predef CopyBytes
 	ld a, e
 	ld [wStringBuffer2], a
 	ld a, d
@@ -2636,7 +2636,7 @@ LoadSelectedPartiesForColosseum:
 	ld d, h
 	ld e, l
 	ld hl, wc608
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .GetDestinationAddress:
@@ -3518,7 +3518,7 @@ Function1017b0:
 	call Function10173b
 	pop bc
 	ld de, wccb5
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function1017c7:
@@ -3698,7 +3698,7 @@ Function1018fb:
 .asm_101909
 	ld de, wLinkBattleRNs
 	ld bc, 10
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function101913:
@@ -3762,7 +3762,7 @@ _SelectMonsForMobileBattle:
 	ld hl, wPlayerMonSelection
 	ld de, wccb5
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wcd6c
 	ld a, [hli]
 	ld [wccb8], a
@@ -3818,7 +3818,7 @@ _StartMobileBattle:
 	ld hl, wOTPlayerName
 	ld de, wOTClassName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcd2f]
 	and a
 	ld a, USING_INTERNAL_CLOCK
@@ -3867,7 +3867,7 @@ CopyOtherPlayersBattleMonSelection:
 	ld hl, wcc61
 	ld de, wOTMonSelection
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	ld de, wcc64
 	farcall Function100772
 	farcall Function101050
@@ -4625,7 +4625,7 @@ Function10208e:
 	ld l, e
 	ld de, wdc42
 	ld bc, 8
-	call CopyBytes
+	predef CopyBytes
 	pop de
 	ret
 
@@ -4761,7 +4761,7 @@ Function102180:
 	ld hl, wc608 + 1
 	ld de, wStringBuffer2
 	ld bc, 11
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function10218d:
@@ -5994,7 +5994,7 @@ Function102a3b:
 	ld hl, wPlayerName
 	ld de, wPlayerTrademonSenderName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcd4c]
 	dec a
 	ld c, a
@@ -6009,7 +6009,7 @@ Function102a3b:
 	call SkipNames
 	ld de, wPlayerTrademonOTName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcd4c]
 	dec a
 	ld hl, wPartyMon1ID
@@ -6038,7 +6038,7 @@ Function102a3b:
 	ld hl, wOTPlayerName
 	ld de, wOTTrademonSenderName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, [wcd4d]
 	dec a
@@ -6054,7 +6054,7 @@ Function102a3b:
 	call SkipNames
 	ld de, wOTTrademonOTName
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcd4d]
 	dec a
 	ld hl, wOTPartyMon1ID
@@ -6329,7 +6329,7 @@ Function102cee:
 	call Function102d34
 	ld de, wd002
 	ld bc, $2f
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wJumptableIndex]
 	ld c, a
 	ld a, $06
@@ -6347,7 +6347,7 @@ Function102cee:
 	ld hl, $2f
 	add hl, de
 	pop bc
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcf64]
 	dec a
 	call Function102d34
@@ -6355,7 +6355,7 @@ Function102cee:
 	ld e, l
 	ld hl, wd002
 	ld bc, $2f
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 Function102d34:
@@ -6366,7 +6366,7 @@ Function102d34:
 
 Function102d3e:
 	predef OpenSRAM
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -6556,7 +6556,7 @@ Function102ea8:
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer2
 	ld bc, 11
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wcd4d]
 	dec a
 	ld c, a
@@ -7631,7 +7631,7 @@ Function10383c:
 	ld hl, wd002
 	ld de, wPlayerMonSelection
 	ld bc, 3
-	call CopyBytes
+	predef CopyBytes
 	xor a
 	ld [wScriptVar], a
 	ret

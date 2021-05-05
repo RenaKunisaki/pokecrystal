@@ -139,7 +139,7 @@ FarCopyBytes::
 	ldh a, [hTempBank]
 	rst Bankswitch
 
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	rst Bankswitch

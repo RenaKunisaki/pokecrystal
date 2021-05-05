@@ -77,7 +77,7 @@ SwitchItemsInBag:
 	call ItemSwitch_GetItemFormatSize
 	add hl, bc
 	pop bc
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wScrollingMenuCursorPosition]
 	call ItemSwitch_CopyBufferToItem
 	xor a
@@ -183,7 +183,7 @@ ItemSwitch_CopyItemToBuffer:
 	call ItemSwitch_GetNthItem
 	ld de, wSwitchItemBuffer
 	call ItemSwitch_GetItemFormatSize
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 ItemSwitch_CopyBufferToItem:
@@ -192,7 +192,7 @@ ItemSwitch_CopyBufferToItem:
 	ld e, l
 	ld hl, wSwitchItemBuffer
 	call ItemSwitch_GetItemFormatSize
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 ItemSwitch_GetNthItem:

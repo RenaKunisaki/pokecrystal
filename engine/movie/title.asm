@@ -134,12 +134,12 @@ _TitleScreen:
 	ld hl, TitleScreenPalettes
 	ld de, wBGPals1
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, TitleScreenPalettes
 	ld de, wBGPals2
 	ld bc, 16 palettes
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a

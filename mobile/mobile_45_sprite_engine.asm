@@ -375,7 +375,7 @@ Function1161d5:
 	ld hl, PichuBorderMobileTilemapAttrmap
 	ld de, wDecompressScratch
 	ld bc, 32 * 12 * 2
-	call CopyBytes
+	predef CopyBytes
 
 	di
 
@@ -493,11 +493,11 @@ Function116294:
 	ld hl, wBGPals1 palette 6
 	ld de, wc320
 	ld bc, 2 palettes
-	call CopyBytes
+	predef CopyBytes
 	ld hl, PichuBorderMobileBGPalettes
 	ld de, wBGPals1 palette 7
 	ld bc, 1 palettes
-	call CopyBytes
+	predef CopyBytes
 	call SetPalettes
 	pop af
 	ldh [rSVBK], a
@@ -517,7 +517,7 @@ Function1162cb:
 	ld hl, PichuBorderMobileOBPalettes
 	ld de, wOBPals1 + 2 palettes
 	ld bc, 6 palettes
-	call CopyBytes
+	predef CopyBytes
 	call SetPalettes
 	pop af
 	ldh [rSVBK], a
@@ -620,7 +620,7 @@ Function11636e:
 	ld hl, wBGPals2
 	ld de, wBGPals1
 	ld bc, 8 palettes
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	call SetPalettes
@@ -669,7 +669,7 @@ Function1163c0:
 	ld hl, $c320
 	ld de, wd030
 	ld bc, $0010
-	call CopyBytes
+	predef CopyBytes
 	pop af
 	ldh [rSVBK], a
 	call SetPalettes

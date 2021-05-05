@@ -8,7 +8,7 @@ Function1f4003: ; unreferenced
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -21,7 +21,7 @@ Function1f4dbe: ; unreferenced
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -34,7 +34,7 @@ Function1f5d9f: ; unreferenced
 	ld hl, .news_data
 	ld de, s6_a000
 	ld bc, $1000
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 

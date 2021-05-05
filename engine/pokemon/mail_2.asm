@@ -696,12 +696,12 @@ MailGFX_PlaceMessage:
 	ld de, wTempMail
 	ld a, BANK(sPartyMail)
 	predef OpenSRAM
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ld hl, wTempMailAuthor
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH - 1
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [wTempMailAuthor], a
 	ld [wMonOrItemNameBuffer + NAME_LENGTH - 1], a

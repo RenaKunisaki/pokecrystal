@@ -156,7 +156,7 @@ Pokegear_LoadGFX:
 	ld hl, FastShipGFX
 	ld de, vTiles0 tile $10
 	ld bc, 8 tiles
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 FastShipGFX:
@@ -2472,7 +2472,7 @@ Pokedex_GetArea:
 	hlcoord 0, 0
 	ld de, wVirtualOAM
 	ld bc, wVirtualOAMEnd - wVirtualOAM
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .PlaceString_MonsNest:
@@ -2534,7 +2534,7 @@ Pokedex_GetArea:
 	ld hl, wVirtualOAM
 	decoord 0, 0
 	ld bc, wVirtualOAMEnd - wVirtualOAM
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .HideNestsShowPlayer:

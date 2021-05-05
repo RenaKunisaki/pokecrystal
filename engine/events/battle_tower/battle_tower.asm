@@ -27,11 +27,11 @@ Function1700c4:
 	ld hl, w3_dffc
 	ld de, s5_aa41
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	ld hl, w3_d202Name
 	ld de, s5_aa8e
 	ld bc, BATTLETOWER_STREAK_LENGTH * $cc ; length of battle tower struct from japanese games?
-	call CopyBytes
+	predef CopyBytes
 	ld hl, s5_aa5d ; some sort of count
 	ld a, [hl]
 	inc [hl]
@@ -45,7 +45,7 @@ Function1700c4:
 	ld d, h
 	ld hl, w3_dffc
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	pop af
 	ldh [rSVBK], a
@@ -63,7 +63,7 @@ Function170114:
 	ld hl, s5_a948
 	ld de, wc608
 	ld bc, 246
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	call Function170c8b
 	ret
@@ -104,7 +104,7 @@ Function170139: ; unreferenced
 	ld d, h
 	ld hl, wPlayerName
 	ld bc, NAME_LENGTH_JAPANESE - 1
-	call CopyBytes
+	predef CopyBytes
 	ld bc, wPlayerID
 	ld de, wPlayerGender
 	farcall GetMobileOTTrainerClass
@@ -128,7 +128,7 @@ Function170139: ; unreferenced
 	ld a, [wcd4a]
 	ld h, a
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, l
 	ld [wcd49], a
 	ld a, h
@@ -138,7 +138,7 @@ Function170139: ; unreferenced
 	ld a, [wcd4c]
 	ld h, a
 	ld bc, 6
-	call CopyBytes
+	predef CopyBytes
 	ld a, l
 	ld [wcd4b], a
 	ld a, h
@@ -151,18 +151,18 @@ Function170139: ; unreferenced
 	predef OpenSRAM
 	ld hl, s4_a013
 	ld bc, 36
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 
 	ld a, BANK(s5_a894) ; aka BANK(s5_a948)
 	predef OpenSRAM
 	ld hl, s5_a894
 	ld bc, 6
-	call CopyBytes
+	predef CopyBytes
 	ld hl, wc608
 	ld de, s5_a948
 	ld bc, 246
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ret
 
@@ -276,7 +276,7 @@ ReadBTTrainerParty:
 	ld h, d
 	ld de, wBT_OTTempMon1Name
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .skip_mon_1
 	ld de, wBT_OTTempMon2Name
@@ -290,7 +290,7 @@ ReadBTTrainerParty:
 	ld h, d
 	ld de, wBT_OTTempMon2Name
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .skip_mon_2
 	ld de, wBT_OTTempMon3Name
@@ -304,7 +304,7 @@ ReadBTTrainerParty:
 	ld h, d
 	ld de, wBT_OTTempMon3Name
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .skip_mon_3
 ; Add the terminator character to each of these names
@@ -328,7 +328,7 @@ ReadBTTrainerParty:
 .done_trainer_name
 	ld de, wOTPlayerName
 	ld bc, NAME_LENGTH - 1
-	call CopyBytes
+	predef CopyBytes
 	ld a, "@"
 	ld [de], a
 
@@ -353,14 +353,14 @@ ReadBTTrainerParty:
 	inc bc
 	push bc
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	push de
 	ld a, [wBGMapBuffer]
 	ld e, a
 	ld a, [wBGMapBuffer + 1]
 	ld d, a
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ld a, e
 	ld [wBGMapBuffer], a
 	ld a, d
@@ -533,7 +533,7 @@ Function17042c:
 	push de
 	ld hl, Unknown_17047e
 	ld bc, BATTLETOWER_TRAINERDATALENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .next_trainer
 	pop hl
@@ -556,7 +556,7 @@ CopyBTTrainer_FromBT_OT_TowBT_OTTemp:
 	ld hl, wBT_OTTrainer
 	ld de, wBT_OTTemp
 	ld bc, BATTLE_TOWER_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	pop af
 	ldh [rSVBK], a
@@ -629,12 +629,12 @@ Function1704e1:
 	ld hl, s5_a89c
 	ld de, wStringBuffer3
 	ld bc, 22
-	call CopyBytes
+	predef CopyBytes
 
 	ld hl, s5_a8b2
 	ld de, wc608
 	ld bc, 150
-	call CopyBytes
+	predef CopyBytes
 
 	predef CloseSRAM
 	hlcoord 1, 1
@@ -1371,7 +1371,7 @@ Function1709bb: ; BattleTowerAction $10
 	ld hl, s5_b023
 	ld de, wc608
 	ld bc, 105
-	call CopyBytes
+	predef CopyBytes
 	ld a, [s5_a825]
 	ld [wcd30], a
 	ld a, [s5_a826]
@@ -1389,7 +1389,7 @@ Function1709bb: ; BattleTowerAction $10
 	ld hl, wRTC
 	ld de, wc608
 	ld bc, 4
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	ld a, BANK(s5_b08c)
 	predef OpenSRAM

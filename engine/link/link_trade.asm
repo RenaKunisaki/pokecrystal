@@ -12,7 +12,7 @@ LoadMobileTradeBorderTilemap:
 	ld hl, MobileTradeBorderTilemap
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 TestMobileTradeBorderTilemap: ; unreferenced
@@ -145,11 +145,11 @@ LoadCableTradeBorderTilemap:
 	ld hl, CableTradeBorderTopTilemap
 	decoord 0, 0
 	ld bc, 2 * SCREEN_WIDTH
-	call CopyBytes
+	predef CopyBytes
 	ld hl, CableTradeBorderBottomTilemap
 	decoord 0, 16
 	ld bc, 2 * SCREEN_WIDTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 LinkTextbox:

@@ -66,7 +66,7 @@ endc
 	ld bc, NAME_LENGTH
 	predef AddNTimes
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	call LoadRandomBattleTowerMon
 	pop af
@@ -166,7 +166,7 @@ LoadRandomBattleTowerMon:
 	jr z, .FindARandomBattleTowerMon
 
 	ld bc, NICKNAMED_MON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	ld a, [wNamedObjectIndex]
 	push af
@@ -183,7 +183,7 @@ LoadRandomBattleTowerMon:
 	ld l, e
 	pop de
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 	pop de
 	pop af

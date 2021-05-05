@@ -1300,7 +1300,7 @@ BillsPC_RefreshTextboxes:
 	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
@@ -1326,7 +1326,7 @@ BillsPC_RefreshTextboxes:
 	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	pop hl
 	ld de, wStringBuffer1
 	call PlaceString
@@ -1352,7 +1352,7 @@ BillsPC_RefreshTextboxes:
 	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
@@ -1717,7 +1717,7 @@ BillsPC_CopyMon:
 	predef AddNTimes
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	predef CloseSRAM
 	farcall CalcBufferMonStats
 	ret
@@ -1735,7 +1735,7 @@ BillsPC_CopyMon:
 	predef AddNTimes
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 .box
@@ -2117,7 +2117,7 @@ CopyNicknameToTemp:
 	predef AddNTimes
 	ld de, wBufferMonNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 CopyOTNameToTemp:
@@ -2126,14 +2126,14 @@ CopyOTNameToTemp:
 	predef AddNTimes
 	ld de, wBufferMonOT
 	ld bc, NAME_LENGTH
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 CopyMonToTemp:
 	ld a, [wCurPartyMon]
 	predef AddNTimes
 	ld de, wBufferMon
-	call CopyBytes
+	predef CopyBytes
 	ret
 
 GetBoxPointer:
@@ -2199,7 +2199,7 @@ BillsPC_InitGFX:
 	ld hl, PCMailGFX
 	ld de, vTiles2 tile $5c
 	ld bc, 4 tiles
-	call CopyBytes
+	predef CopyBytes
 	ld hl, PCSelectLZ
 	ld de, vTiles0 tile $00
 	call Decompress

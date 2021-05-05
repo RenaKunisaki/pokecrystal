@@ -27,7 +27,7 @@ CopyMonToTempMon:
 	predef AddNTimes
 	ld de, wTempMon
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
+	predef CopyBytes
 
 .done
 	ret
@@ -71,7 +71,7 @@ _TempMonStatsCalculation:
 	ld hl, MON_MAXHP
 	add hl, bc
 	ld bc, 2
-	call CopyBytes
+	predef CopyBytes
 	pop bc
 
 .zero_status

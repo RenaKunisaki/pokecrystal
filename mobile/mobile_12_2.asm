@@ -271,7 +271,7 @@ Function4a9d7:
 	ld l, e
 	ld de, wMobileParticipant1Nickname
 	ld bc, NAME_LENGTH_JAPANESE
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wd003]
 	ld hl, wPartyMonNicknames
 	call GetNickname
@@ -279,7 +279,7 @@ Function4a9d7:
 	ld l, e
 	ld de, wMobileParticipant2Nickname
 	ld bc, NAME_LENGTH_JAPANESE
-	call CopyBytes
+	predef CopyBytes
 	ld a, [wd004]
 	ld hl, wPartyMonNicknames
 	call GetNickname
@@ -287,7 +287,7 @@ Function4a9d7:
 	ld l, e
 	ld de, wMobileParticipant3Nickname
 	ld bc, NAME_LENGTH_JAPANESE
-	call CopyBytes
+	predef CopyBytes
 	ld hl, MobileUseTheseThreeMonText
 	call PrintText
 	call YesNoBox
