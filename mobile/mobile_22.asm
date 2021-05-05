@@ -1305,7 +1305,7 @@ Function898be:
 	dec hl
 
 .asm_898d7
-	call PlaceString
+	predef PlaceString
 	pop bc
 	ret
 
@@ -1321,7 +1321,7 @@ Function898dc:
 
 .asm_898eb
 	hlcoord 6, 4
-	call PlaceString
+	predef PlaceString
 	pop bc
 	ret
 
@@ -1341,7 +1341,7 @@ Function898f3:
 .asm_8990a
 	hlcoord 5, 5
 	ld de, String_89116
-	call PlaceString
+	predef PlaceString
 
 .asm_89913
 	pop bc
@@ -1458,12 +1458,12 @@ Function8998b:
 
 Function8999c:
 	ld de, wPlayerName
-	call PlaceString
+	predef PlaceString
 	inc bc
 	ld h, b
 	ld l, c
 	ld de, String_899ac
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_899ac:
@@ -1479,7 +1479,7 @@ Function899b2:
 	ld de, String_89116
 .asm_899c2
 	hlcoord 6, 4
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function899c9:
@@ -1529,7 +1529,7 @@ Function89a0c:
 
 .asm_89a1c
 	ld de, String_89153
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function89a23:
@@ -1546,10 +1546,10 @@ Function89a2e:
 	call Textbox
 	hlcoord 13, 13
 	ld de, String_89a4e
-	call PlaceString
+	predef PlaceString
 	hlcoord 13, 14
 	ld de, String_89a53
-	call PlaceString
+	predef PlaceString
 	call Function89655
 	ret
 
@@ -2741,7 +2741,7 @@ Function8a1b0:
 	dec a
 	ld c, a
 	call Function8919e
-	call PlaceString
+	predef PlaceString
 	ret
 
 Strings_8a1cc:
@@ -3060,7 +3060,7 @@ Function8a453:
 	ld c, a
 	call Function8919e
 .asm_8a472
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_8a476:
@@ -3424,7 +3424,7 @@ Function8a6cd:
 	call Function89a23
 	hlcoord 1, 13
 	ld de, String_89135
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	ld a, $2
 	call Function89254
@@ -3566,7 +3566,7 @@ Function8a818:
 	call Function89193
 	hlcoord 1, 13
 	ld de, .string_8a868
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8a863
@@ -3584,7 +3584,7 @@ Function8a818:
 	ld de, String_8911c
 .asm_8a87d
 	hlcoord 1, 13
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call JoyWaitAorB
 	and a
@@ -3602,7 +3602,7 @@ Function8a8a1:
 	call Function89a23
 	hlcoord 1, 13
 	ld de, String_89135
-	call PlaceString
+	predef PlaceString
 	ld a, $2
 	call Function89254
 	jr c, .asm_8a8c1
@@ -3626,7 +3626,7 @@ Function8a8c3:
 	call Function891ab
 	hlcoord 1, 13
 	ld de, String_8a919
-	call PlaceString
+	predef PlaceString
 	ld a, $2
 	call Function89254
 	jr c, .asm_8a90f
@@ -3637,7 +3637,7 @@ Function8a8c3:
 	call Mobile22_SetBGMapMode0
 	hlcoord 1, 13
 	ld de, String_8a926
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8a90f
@@ -3877,7 +3877,7 @@ Function8aab6:
 	call Function89193
 	hlcoord 1, 13
 	ld de, String_8aaf0
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call JoyWaitAorB
 .asm_8aaeb
@@ -3891,7 +3891,7 @@ String_8aaf0:
 Function8ab00:
 	ld de, String_8911c
 	hlcoord 1, 13
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call Mobile22_PromptButton
 	and a
@@ -3908,7 +3908,7 @@ Function8ab11:
 	call Function89a23
 	hlcoord 1, 13
 	ld de, String_89135
-	call PlaceString
+	predef PlaceString
 	ld a, $2
 	call Function89254
 	jr c, .asm_8ab39
@@ -4030,7 +4030,7 @@ Function8aba9:
 	call Textbox
 	hlcoord 1, 14
 	ld de, String_8ac3b
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	call Function8925e
 	jp c, .asm_8abb3
@@ -4182,7 +4182,7 @@ Function8ad0b:
 	call Textbox
 	ld de, String_8ad89
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $2
 	call Function8925e
 	jr c, .asm_8ad87
@@ -4193,7 +4193,7 @@ Function8ad0b:
 	call Textbox
 	ld de, String_8ad9c
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	call Function8925e
 	jr c, .asm_8ad84

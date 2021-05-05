@@ -17,7 +17,7 @@ PlaceWaitingText::
 	hlcoord 4, 11
 	ld de, .Waiting
     breakpoint
-	call PlaceString
+	predef PlaceString
 	ld c, 50
 	jp DelayFrames
 

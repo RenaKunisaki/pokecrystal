@@ -1863,7 +1863,7 @@ This supports up to six entries.
  	jr c, .print_num_hof
  	ld de, .HOFMaster
  	hlcoord 1, 2
- 	call PlaceString
+ 	predef PlaceString
  	hlcoord 13, 2
  	jr .finish
 ```

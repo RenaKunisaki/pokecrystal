@@ -24,7 +24,7 @@ LinkCommunications:
 	farcall LinkTextbox2
 	hlcoord 4, 10
 	ld de, String_PleaseWait
-	call PlaceString
+	predef PlaceString
 	call SetTradeRoomBGPals
 	call WaitBGMap2
 	ld hl, wLinkByteTimeout
@@ -1381,7 +1381,7 @@ LinkTrade_TradeStatsMenu:
 	call LinkTextboxAtHL
 	hlcoord 2, 16
 	ld de, .String_Stats_Trade
-	call PlaceString
+	predef PlaceString
 	farcall Link_WaitBGMap
 
 .joy_loop
@@ -1522,7 +1522,7 @@ LinkTrade_TradeStatsMenu:
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ld [wPlayerLinkAction], a
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
@@ -1693,7 +1693,7 @@ LinkTrade:
 	call LinkTextboxAtHL
 	ld de, String_TradeCancel
 	hlcoord 12, 8
-	call PlaceString
+	predef PlaceString
 	ld a, 8
 	ld [w2DMenuCursorInitY], a
 	ld a, 11
@@ -1733,7 +1733,7 @@ LinkTrade:
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	predef PlaceString
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
 	jp InitTradeMenuDisplay_Delay
 
@@ -1751,7 +1751,7 @@ LinkTrade:
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	predef PlaceString
 	jp InitTradeMenuDisplay_Delay
 
 .do_trade
@@ -2007,7 +2007,7 @@ LinkTrade:
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TradeCompleted
-	call PlaceString
+	predef PlaceString
 	farcall Link_WaitBGMap
 	ld c, 50
 	predef DelayFrames

@@ -395,7 +395,7 @@ Function171a95:
 	farcall Function171ccd
 	hlcoord 2, 8
 	ld de, String_171aa7
-	call PlaceString
+	predef PlaceString
 	jp Function171c66
 
 String_171aa7:
@@ -591,7 +591,7 @@ Function171beb:
 	farcall ReloadMapPart
 	hlcoord 1, 14
 	ld de, String_171c73
-	call PlaceString
+	predef PlaceString
 	ld a, [wcd4a]
 	cp $2
 	jr z, .asm_171c1f
@@ -668,10 +668,10 @@ Function171c87:
 	predef CopyBytes
 	hlcoord 3, 2
 	ld de, String_172e31
-	call PlaceString
+	predef PlaceString
 	hlcoord 3, 16
 	ld de, String_172e3f
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function171ccd:
@@ -740,10 +740,10 @@ Function171d2b:
 	predef CopyBytes
 	hlcoord 2, 2
 	ld de, String_172e5d
-	call PlaceString
+	predef PlaceString
 	hlcoord 14, 16
 	ld de, String_172e58
-	call PlaceString
+	predef PlaceString
 	ret
 
 MobilePasswordPalettes:

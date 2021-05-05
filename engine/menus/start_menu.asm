@@ -250,7 +250,7 @@ StartMenu::
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 .MenuDesc:
@@ -266,7 +266,7 @@ endr
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 .none
 	pop de

@@ -520,7 +520,7 @@ Function17a99e:
 	call Function17ac46
 	hlcoord 2, 14
 	ld de, String_17a9b2
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_17a9b2:

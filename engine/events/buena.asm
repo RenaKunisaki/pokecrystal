@@ -58,7 +58,7 @@ endr
 	ld c, a
 	farcall GetBuenasPassword
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 BuenaPrize:
@@ -190,7 +190,7 @@ PrintBlueCardBalance:
 	ld bc, SCREEN_WIDTH + 1
 	add hl, bc
 	ld de, .Points_string
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	inc hl
@@ -275,7 +275,7 @@ endr
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 .PrintPrizePoints:

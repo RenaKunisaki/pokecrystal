@@ -452,10 +452,10 @@ MemoryGame_InitStrings:
 	predef ByteFill
 	hlcoord 0, 0
 	ld de, .japstr1
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 0
 	ld de, .japstr2
-	call PlaceString
+	predef PlaceString
 	ld hl, .dummy_text
 	call PrintText
 	ret

@@ -674,7 +674,7 @@ Function4ac58:
 	call Textbox
 	hlcoord 13, 14
 	ld de, String_4ada7
-	call PlaceString
+	predef PlaceString
 	jr .asm_4ac96
 
 .asm_4ac89
@@ -811,7 +811,7 @@ Function4ad67: ; unreferenced
 Function4ad68:
 	hlcoord 13, 12
 	ld de, String_4ad88
-	call PlaceString
+	predef PlaceString
 	call Function4adb2
 	jr c, .asm_4ad7e
 	hlcoord 13, 10
@@ -823,7 +823,7 @@ Function4ad68:
 	ld de, String_4ad9a
 
 .asm_4ad84
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_4ad88:

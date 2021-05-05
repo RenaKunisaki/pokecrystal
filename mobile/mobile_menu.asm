@@ -19,7 +19,7 @@ Function49f16:
 	call Function48cdc
 	hlcoord 6, 2
 	ld de, MobileString1
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 12
 	ld b, 4
 	ld c, SCREEN_HEIGHT
@@ -27,7 +27,7 @@ Function49f16:
 	xor a
 	ld de, String_0x49fe9
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	call WaitBGMap2
 	call SetPalettes
 	call StaticMenuJoypad
@@ -85,7 +85,7 @@ Function49f16:
 	ld c, SCREEN_HEIGHT
 	predef ClearBox
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	jp .useless_jump
 
 .useless_jump
@@ -250,7 +250,7 @@ Function4a149:
 	call Function48cdc
 	hlcoord 3, 4
 	ld de, String_4a1ef
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 12
 	ld b, $4
 	ld c, $12
@@ -266,7 +266,7 @@ Function4a149:
 	ld c, $12
 	predef ClearBox
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	call SetPalettes
 	call StaticMenuJoypad
@@ -312,7 +312,7 @@ asm_4a19d:
 	ld c, $12
 	predef ClearBox
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	jr .asm_4a1db
 .asm_4a1db
 	call Function4a373
@@ -385,7 +385,7 @@ Function4a28a:
 	call Function48cdc
 	hlcoord 14, 1
 	ld de, String_4a34b
-	call PlaceString
+	predef PlaceString
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	call Function4a118
 	call ScrollingMenuJoypad
@@ -645,19 +645,19 @@ Function4a4c4:
 	call Function48cdc
 	hlcoord 4, 2
 	ld de, String_4a5c5
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 4
 	ld de, String_4a5cd
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 6
 	ld de, String_4a5da
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 8
 	ld de, String_4a5e6
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 10
 	ld de, String_4a5f2
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 12
 	ld b, $4
 	ld c, $12
@@ -667,14 +667,14 @@ Function4a4c4:
 	ld d, h
 	ld e, l
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ld hl, Strings_4a5f6
 	call GetNthString
 	ld d, h
 	ld e, l
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	call WaitBGMap2
 	call SetPalettes
 	call StaticMenuJoypad
@@ -728,7 +728,7 @@ asm_4a54d:
 	ld c, $12
 	predef ClearBox
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	pop af
 	inc a
 	ld hl, Strings_4a5f6
@@ -736,7 +736,7 @@ asm_4a54d:
 	ld d, h
 	ld e, l
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	jp Function4a5b0
 
 Function4a5b0:

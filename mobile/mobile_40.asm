@@ -327,7 +327,7 @@ Function100232:
 	call UpdateSprites
 	hlcoord 1, 2
 	pop de
-	call PlaceString
+	predef PlaceString
 	call Function100320
 	call JoyWaitAorB
 	ret
@@ -762,7 +762,7 @@ Function100504:
 	call UpdateSprites
 	pop de
 	hlcoord 4, 2
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function100513:
@@ -930,7 +930,7 @@ Mobile_CommunicationStandby:
 	call Function3eea
 	ld de, .String
 	hlcoord 4, 11
-	call PlaceString
+	predef PlaceString
 	ret
 
 .String:
@@ -1025,14 +1025,14 @@ Function100697:
 	push de
 	call .asm_1006b4
 	ld de, String1006c2
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	pop de
 	inc de
 	call .asm_1006b4
 	ld de, String1006c6
-	call PlaceString
+	predef PlaceString
 	ret
 
 .asm_1006b4
@@ -1042,7 +1042,7 @@ Function100697:
 
 .asm_1006bb
 	ld de, String1006ca
-	call PlaceString
+	predef PlaceString
 	ret
 
 String1006c2:
@@ -1310,7 +1310,7 @@ Function100846:
 	ld [wStringBuffer2], a
 	ld de, String_10088e
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld de, wStringBuffer2
 	hlcoord 4, 16
 	call Function100697
@@ -1319,11 +1319,11 @@ Function100846:
 .asm_10087c
 	ld de, String_10088e
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, String_10089f
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_10088e:
@@ -1404,7 +1404,7 @@ Function100902:
 	jr z, .asm_10093f
 	ld de, .string_100966
 	hlcoord 4, 11
-	call PlaceString
+	predef PlaceString
 	hlcoord 8, 11
 	lb bc, 1, 2
 	ld de, wStringBuffer2
@@ -1419,7 +1419,7 @@ Function100902:
 .asm_10093f
 	ld de, .string_10095a
 	hlcoord 4, 11
-	call PlaceString
+	predef PlaceString
 	ld de, SFX_4_NOTE_DITTY
 	predef PlaySFX
 	farcall ReloadMapPart
@@ -5671,7 +5671,7 @@ Function1027eb:
 	farcall _LinkTextbox
 	ld de, .Stats_Trade
 	hlcoord 2, 16
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Stats_Trade:
@@ -5941,7 +5941,7 @@ Function1029cf:
 	farcall _LinkTextbox
 	ld de, String_102a26
 	hlcoord 12, 8
-	call PlaceString
+	predef PlaceString
 	ld hl, wcd4b
 	set 1, [hl]
 	ld de, MenuData3_102a33
@@ -6481,7 +6481,7 @@ Function102e07:
 .okay
 	ld de, .waiting
 	hlcoord 4, 11
-	call PlaceString
+	predef PlaceString
 	ret
 
 .waiting
@@ -6490,7 +6490,7 @@ Function102e07:
 Function102e3e:
 	ld de, .CancelString
 	hlcoord 10, 17
-	call PlaceString
+	predef PlaceString
 	ret
 
 .CancelString:
@@ -6501,12 +6501,12 @@ Function102e4f:
 	farcall _InitMG_Mobile_LinkTradePalMap
 	ld de, wPlayerName
 	hlcoord 4, 0
-	call PlaceString
+	predef PlaceString
 	ld a, $14
 	ld [bc], a
 	ld de, wOTPlayerName
 	hlcoord 4, 8
-	call PlaceString
+	predef PlaceString
 	ld a, $14
 	ld [bc], a
 	hlcoord 7, 1
@@ -6532,7 +6532,7 @@ Function102e4f:
 	ldh [hDividend], a
 	call GetPokemonName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop de
 	inc de
 	pop hl
@@ -6578,7 +6578,7 @@ Function102ee7:
 	call Function102dc3
 	ld de, String_102ef4
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_102ef4:
@@ -6590,7 +6590,7 @@ Function102f15:
 	call Function102dc3
 	ld de, .TooBadTheTradeWasCanceled
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 .TooBadTheTradeWasCanceled:
@@ -6600,7 +6600,7 @@ Function102f32:
 	call Function102dc3
 	ld de, .TradeCompleted
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 .TradeCompleted:
@@ -6610,7 +6610,7 @@ Function102f50:
 	call Function102dc3
 	ld de, .PleaseWait
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 .PleaseWait:
@@ -6620,7 +6620,7 @@ Function102f6d:
 	call Function102dc3
 	ld de, .Finished
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Finished:
@@ -6638,12 +6638,12 @@ Function102f85:
 	call Function102dc3
 	ld de, String_102fb2
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld de, wStringBuffer1
 	hlcoord 13, 14
-	call PlaceString
+	predef PlaceString
 	ld de, String_102fcc
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_102fb2:
@@ -6658,7 +6658,7 @@ Function102fce:
 	call Function102dc3
 	ld de, String_102fdb
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_102fdb:
@@ -6670,7 +6670,7 @@ Function102ff5:
 	call Function102dc3
 	ld de, String_103002
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_103002:
@@ -6682,7 +6682,7 @@ Function103021:
 	call Function102dc3
 	ld de, String_10302e
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_10302e:
@@ -7109,7 +7109,7 @@ Function103487:
 	push de
 	call Function1034f7
 	pop de
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function103490:
@@ -7120,7 +7120,7 @@ Function103490:
 	ld bc, 6
 	call Function10350f
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function1034a7:

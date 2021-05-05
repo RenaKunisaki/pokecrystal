@@ -1439,7 +1439,7 @@ BuenasPassword1:
 	ldh [hBGMapMode], a
 	ld de, BuenasPasswordChannelName
 	hlcoord 2, 9
-	call PlaceString
+	predef PlaceString
 	pop af
 	ldh [hBGMapMode], a
 	ld hl, BuenaRadioText1

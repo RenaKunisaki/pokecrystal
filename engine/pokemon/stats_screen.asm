@@ -216,7 +216,7 @@ if DEF(_DEBUG)
 	ld [wStepCount], a
 	ld de, .HatchSoonString
 	hlcoord 8, 17
-	call PlaceString
+	predef PlaceString
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
 	pop hl
@@ -433,7 +433,7 @@ StatsScreen_InitUpperHalf:
 	call GetNicknamenamePointer
 	call CopyNickname
 	hlcoord 8, 2
-	call PlaceString
+	predef PlaceString
 	hlcoord 18, 0
 	call .PlaceGenderChar
 	hlcoord 9, 4
@@ -442,7 +442,7 @@ StatsScreen_InitUpperHalf:
 	ld a, [wBaseDexNo]
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
-	call PlaceString
+	predef PlaceString
 	call StatsScreen_PlaceHorizontalDivider
 	call StatsScreen_PlacePageSwitchArrows
 	call StatsScreen_PlaceShinyIcon
@@ -582,7 +582,7 @@ LoadPinkPage:
 	ld [hl], $41 ; right HP/exp bar end cap
 	ld de, .Status_Type
 	hlcoord 0, 12
-	call PlaceString
+	predef PlaceString
 	ld a, [wTempMonPokerusStatus]
 	ld b, a
 	and $f
@@ -606,11 +606,11 @@ LoadPinkPage:
 .HasPokerus:
 	ld de, .PkrsStr
 	hlcoord 1, 13
-	call PlaceString
+	predef PlaceString
 	jr .done_status
 .StatusOK:
 	ld de, .OK_str
-	call PlaceString
+	predef PlaceString
 .done_status
 	hlcoord 1, 15
 	predef PrintMonTypes
@@ -625,7 +625,7 @@ LoadPinkPage:
 	jr nz, .vertical_divider
 	ld de, .ExpPointStr
 	hlcoord 10, 9
-	call PlaceString
+	predef PlaceString
 	hlcoord 17, 14
 	call .PrintNextLevel
 	hlcoord 13, 10
@@ -639,10 +639,10 @@ LoadPinkPage:
 	predef PrintNum
 	ld de, .LevelUpStr
 	hlcoord 10, 12
-	call PlaceString
+	predef PlaceString
 	ld de, .ToStr
 	hlcoord 14, 14
-	call PlaceString
+	predef PlaceString
 	hlcoord 11, 16
 	ld a, [wTempMonLevel]
 	ld b, a
@@ -719,13 +719,13 @@ LoadPinkPage:
 LoadGreenPage:
 	ld de, .Item
 	hlcoord 0, 8
-	call PlaceString
+	predef PlaceString
 	call .GetItemName
 	hlcoord 8, 8
-	call PlaceString
+	predef PlaceString
 	ld de, .Move
 	hlcoord 0, 10
-	call PlaceString
+	predef PlaceString
 	ld hl, wTempMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
@@ -780,10 +780,10 @@ LoadBluePage:
 .PlaceOTInfo:
 	ld de, IDNoString
 	hlcoord 0, 9
-	call PlaceString
+	predef PlaceString
 	ld de, OTString
 	hlcoord 0, 12
-	call PlaceString
+	predef PlaceString
 	hlcoord 2, 10
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
@@ -793,7 +793,7 @@ LoadBluePage:
 	call CopyNickname
 	farcall CorrectNickErrors
 	hlcoord 2, 13
-	call PlaceString
+	predef PlaceString
 	ld a, [wTempMonCaughtGender]
 	and a
 	jr z, .done
@@ -995,23 +995,23 @@ EggStatsScreen:
 	call StatsScreen_PlaceHorizontalDivider
 	ld de, EggString
 	hlcoord 8, 1
-	call PlaceString
+	predef PlaceString
 	ld de, IDNoString
 	hlcoord 8, 3
-	call PlaceString
+	predef PlaceString
 	ld de, OTString
 	hlcoord 8, 5
-	call PlaceString
+	predef PlaceString
 	ld de, FiveQMarkString
 	hlcoord 11, 3
-	call PlaceString
+	predef PlaceString
 	ld de, FiveQMarkString
 	hlcoord 11, 5
-	call PlaceString
+	predef PlaceString
 if DEF(_DEBUG)
 	ld de, .PushStartString
 	hlcoord 8, 17
-	call PlaceString
+	predef PlaceString
 	jr .placed_push_start
 
 .PushStartString:
@@ -1032,7 +1032,7 @@ endc
 	ld de, EggALotMoreTimeString
 .picked
 	hlcoord 1, 9
-	call PlaceString
+	predef PlaceString
 	ld hl, wStatsScreenFlags
 	set 5, [hl]
 	call SetPalettes ; pals

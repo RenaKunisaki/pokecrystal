@@ -835,7 +835,7 @@ Function17d48d:
 	pop de
 	hlcoord 0, 0
 	add hl, bc
-	call PlaceString
+	predef PlaceString
 	push de
 	pop hl
 	inc hl
@@ -1260,7 +1260,7 @@ Function17d818:
 	ld d, h
 	hlcoord 0, 0
 	add hl, bc
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function17d833:
@@ -3112,7 +3112,7 @@ Function17e451:
 	push hl
 	pop de
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop bc
 	pop hl
 	ld a, [wcd26]
@@ -3315,7 +3315,7 @@ Function17e5af:
 	ld h, a
 	bccoord 0, 0
 	add hl, bc
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function17e600:
@@ -3723,7 +3723,7 @@ Function17f0f8:
 	ld [de], a
 	pop hl
 	ld de, wc608
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -3816,7 +3816,7 @@ Function17f181:
 	farcall Function48c63
 	pop hl
 	ld de, wc608
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -3870,7 +3870,7 @@ Function17f1d0:
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -3931,7 +3931,7 @@ Function17f220:
 	ld a, [hl]
 	ld d, a
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -3989,7 +3989,7 @@ Function17f27b:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -4051,7 +4051,7 @@ MobileScript_PlayerName:
 	ldh [rSVBK], a
 	pop hl
 	ld de, wc608
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -4094,7 +4094,7 @@ MobileScript_Prefecture:
 	farcall Function48c63
 	pop hl
 	ld de, wc608
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wcd52], a
 	ld a, b
@@ -4191,7 +4191,7 @@ Function17f3f0:
 	ld e, l
 	ld d, h
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop af
 	ld e, a
 	ld d, 0
@@ -4542,7 +4542,7 @@ Function17f5e4:
 	call Function3eea
 	hlcoord 3, 2
 	ld de, MobileCommunicationErrorText
-	call PlaceString
+	predef PlaceString
 	call Function17ff3c
 	jr nc, .asm_17f632
 	hlcoord 11, 2
@@ -4610,7 +4610,7 @@ Function17f5e4:
 
 .asm_17f67d
 	hlcoord 2, 6
-	call PlaceString
+	predef PlaceString
 	ret
 
 .asm_17f684
@@ -4625,7 +4625,7 @@ Function17f5e4:
 	ld a, [hl]
 	ld d, a
 	hlcoord 2, 6
-	call PlaceString
+	predef PlaceString
 	ret
 
 Table_17f699:
@@ -5152,7 +5152,7 @@ Function17ff3c:
 	ret c
 	hlcoord 10, 2
 	ld de, String_17ff68
-	call PlaceString
+	predef PlaceString
 	ld a, [wMobileErrorCodeBuffer]
 	push af
 	sub $d0

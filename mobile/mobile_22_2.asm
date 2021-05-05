@@ -908,7 +908,7 @@ Function8b88c:
 .asm_8b8a3
 	pop hl
 	push hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld d, $0
 	ld e, $6
@@ -925,7 +925,7 @@ Function8b88c:
 
 .asm_8b8c0
 	pop hl
-	call PlaceString
+	predef PlaceString
 	predef CloseSRAM
 	ret
 
@@ -946,7 +946,7 @@ Function8b8c8:
 	ld d, h
 	ld e, l
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 13
 	ld a, $f
 	ld [hl], a

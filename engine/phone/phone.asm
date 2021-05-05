@@ -100,7 +100,7 @@ BrokenPlaceFarString:
 	ld a, b
 	rst Bankswitch
 
-	call PlaceString
+	predef PlaceString
 
 	pop af
 	rst Bankswitch
@@ -637,7 +637,7 @@ GetCallerName:
 	call Phone_GetTrainerName
 	push hl
 	push bc
-	call PlaceString
+	predef PlaceString
 	ld a, ":"
 	ld [bc], a
 	pop bc
@@ -645,7 +645,7 @@ GetCallerName:
 	ld de, SCREEN_WIDTH + 3
 	add hl, de
 	call Phone_GetTrainerClassName
-	call PlaceString
+	predef PlaceString
 	ret
 
 .NotTrainer:
@@ -659,7 +659,7 @@ GetCallerName:
 	ld e, a
 	ld d, [hl]
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 INCLUDE "data/phone/non_trainer_names.asm"

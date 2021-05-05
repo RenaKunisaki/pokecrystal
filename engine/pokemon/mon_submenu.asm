@@ -84,7 +84,7 @@ PopulateMonMenu:
 	push hl
 	call GetMonMenuString
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld bc, 2 * SCREEN_WIDTH
 	add hl, bc
 	pop de

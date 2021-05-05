@@ -41,15 +41,15 @@ _UnownPrinter:
 
 	hlcoord 1, 2
 	ld de, AlphRuinsStampString
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 1, 16
 	ld de, UnownDexDoWhatString
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 10, 6
 	ld de, UnownDexMenuString
-	call PlaceString
+	predef PlaceString
 
 	xor a
 	ld [wJumptableIndex], a
@@ -178,7 +178,7 @@ _UnownPrinter:
 	predef ClearBox
 	hlcoord 1, 9
 	ld de, UnownDexVacantString
-	call PlaceString
+	predef PlaceString
 	xor a ; sScratch
 	predef OpenSRAM
 	ld hl, sScratch

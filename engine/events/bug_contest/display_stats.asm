@@ -21,26 +21,26 @@ DisplayCaughtContestMonStats:
 
 	hlcoord 2, 0
 	ld de, .Stock
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 2, 6
 	ld de, .This
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 5, 4
 	ld de, .Health
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 5, 10
 	ld de, .Health
-	call PlaceString
+	predef PlaceString
 
 	ld a, [wContestMon]
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	ld de, wStringBuffer1
 	hlcoord 1, 2
-	call PlaceString
+	predef PlaceString
 
 	ld h, b
 	ld l, c
@@ -50,7 +50,7 @@ DisplayCaughtContestMonStats:
 
 	ld de, wEnemyMonNickname
 	hlcoord 1, 8
-	call PlaceString
+	predef PlaceString
 
 	ld h, b
 	ld l, c

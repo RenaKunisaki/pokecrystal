@@ -28,7 +28,7 @@ _Option:
 	call Textbox
 	hlcoord 2, 2
 	ld de, StringOptions
-	call PlaceString
+	predef PlaceString
 	xor a
 	ld [wJumptableIndex], a
 
@@ -159,7 +159,7 @@ Options_TextSpeed:
 	inc hl
 	ld d, [hl]
 	hlcoord 14, 2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -230,7 +230,7 @@ Options_BattleScene:
 
 .Display:
 	hlcoord 15, 3
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -266,7 +266,7 @@ Options_BattleStyle:
 
 .Display:
 	hlcoord 16, 4
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -309,7 +309,7 @@ Options_Sound:
 
 .Display:
 	hlcoord 9, 5
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -364,7 +364,7 @@ Options_Print:
 	inc hl
 	ld d, [hl]
 	hlcoord 9, 6
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -451,7 +451,7 @@ Options_MenuAccount:
 
 .Display:
 	hlcoord 13, 7
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -520,7 +520,7 @@ Options_24Hour: ; e4365
 
 .Display:
 	hlcoord 9, 9
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 ; e4398
@@ -561,7 +561,7 @@ Options_FastHPBar: ; e44c1
 
 .Display:
 	hlcoord 10, 10
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 ; e44f2
@@ -602,7 +602,7 @@ Options_AIItems:
 
 .Display:
 	hlcoord 12, 11
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 ; e44f2

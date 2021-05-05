@@ -599,7 +599,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	predef ByteFill
 	hlcoord 0, 1
 	ld de, wLinkPlayer1Name
-	call PlaceString
+	predef PlaceString
 	ld hl, wLinkPlayer2Name
 	ld de, 0
 .find_name_end_loop
@@ -613,7 +613,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	hlcoord 0, 4
 	add hl, de
 	ld de, wLinkPlayer2Name
-	call PlaceString
+	predef PlaceString
 	hlcoord 7, 2
 	ld bc, 6
 	pop af
@@ -933,7 +933,7 @@ TrademonStats_MonTemplate:
 	call Textbox
 	hlcoord 4, 0
 	ld de, .OTMonData
-	call PlaceString
+	predef PlaceString
 	ret
 
 .OTMonData:
@@ -953,7 +953,7 @@ TrademonStats_Egg:
 	call Textbox
 	hlcoord 4, 2
 	ld de, .EggData
-	call PlaceString
+	predef PlaceString
 	call TrademonStats_WaitBGMap
 	ret
 
@@ -978,7 +978,7 @@ TrademonStats_PrintSpeciesNumber:
 
 TrademonStats_PrintSpeciesName:
 	hlcoord 4, 2
-	call PlaceString
+	predef PlaceString
 	ret
 
 TrademonStats_PrintOTName:
@@ -988,7 +988,7 @@ TrademonStats_PrintOTName:
 .caught_gender_okay
 	push af
 	hlcoord 7, 4
-	call PlaceString
+	predef PlaceString
 	inc bc
 	pop af
 	ld hl, .Gender

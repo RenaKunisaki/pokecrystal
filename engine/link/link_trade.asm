@@ -119,7 +119,7 @@ InitTradeSpeciesList:
 	farcall PlaceTradePartnerNamesAndParty
 	hlcoord 10, 17
 	ld de, .CancelString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .CancelString:
@@ -171,7 +171,7 @@ PrintWaitingTextAndSyncAndExchangeNybble:
 	predef LinkTextboxAtHL
 	hlcoord 5, 11
 	ld de, .Waiting
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call WaitBGMap2
 	ld c, 50

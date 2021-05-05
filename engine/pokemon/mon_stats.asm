@@ -87,7 +87,7 @@ PrintTempMonStats:
 	push bc
 	push hl
 	ld de, .StatNames
-	call PlaceString
+	predef PlaceString
 	pop hl
 	pop bc
 	add hl, bc
@@ -345,7 +345,7 @@ Unused_PlaceEnemyHPLevel:
 	ld a, [wCurPartyMon]
 	call GetNickname
 	pop hl
-	call PlaceString
+	predef PlaceString
 	call CopyMonToTempMon
 	pop hl
 	ld a, [wCurPartySpecies]
@@ -453,7 +453,7 @@ ListMoves:
 	ld de, wStringBuffer1
 	pop hl
 	push bc
-	call PlaceString
+	predef PlaceString
 	pop bc
 	ld a, b
 	ld [wNumMoves], a

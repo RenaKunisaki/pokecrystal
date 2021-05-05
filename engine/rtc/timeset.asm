@@ -192,7 +192,7 @@ DisplayHourOClock:
 	call PrintHour
 	inc hl
 	ld de, String_oclock
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ret
 
@@ -276,7 +276,7 @@ DisplayMinutesWithMinString:
 	call PrintTwoDigitNumberLeftAlign
 	inc hl
 	ld de, String_min
-	call PlaceString
+	predef PlaceString
 	ret
 
 PrintTwoDigitNumberLeftAlign:
@@ -502,7 +502,7 @@ SetDayOfWeek:
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 .WeekdayStrings:
@@ -677,7 +677,7 @@ PrintHour:
 	ld h, d
 	push bc
 	call GetTimeOfDayString
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	inc hl

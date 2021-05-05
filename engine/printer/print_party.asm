@@ -175,12 +175,12 @@ PrintPartyMonPage1:
 	ld hl, wPartyMonNicknames
 	call GetCurPartyMonName
 	hlcoord 8, 4
-	call PlaceString
+	predef PlaceString
 	hlcoord 9, 6
 	ld [hl], "/"
 	call GetPokemonName
 	hlcoord 10, 6
-	call PlaceString
+	predef PlaceString
 	hlcoord 8, 0
 	ld [hl], "№"
 	inc hl
@@ -191,21 +191,21 @@ PrintPartyMonPage1:
 	predef PrintNum
 	hlcoord 1, 9
 	ld de, PrintParty_OTString
-	call PlaceString
+	predef PlaceString
 	ld hl, wPartyMonOTs
 	call GetCurPartyMonName
 	hlcoord 4, 9
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 11
 	ld de, PrintParty_IDNoString
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 11
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	predef PrintNum
 	hlcoord 1, 14
 	ld de, PrintParty_MoveString
-	call PlaceString
+	predef PlaceString
 	hlcoord 7, 14
 	ld a, [wTempMonMoves + 0]
 	call PlaceMoveNameString
@@ -257,7 +257,7 @@ PrintPartyMonPage2:
 	call PlaceMoveNameString
 	hlcoord 7, 7
 	ld de, PrintParty_StatsString
-	call PlaceString
+	predef PlaceString
 	hlcoord 16, 7
 	ld de, wTempMonAttack
 	call .PrintTempMonStats
@@ -304,7 +304,7 @@ PlaceMoveNameString:
 	ld de, PrintParty_NoMoveString
 
 .got_string
-	call PlaceString
+	predef PlaceString
 	ret
 
 PlaceGenderAndShininess:

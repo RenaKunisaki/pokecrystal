@@ -332,7 +332,7 @@ MainMenu_PrintCurrentTimeAndDay:
 .PrintTimeNotSet:
 	hlcoord 1, 14
 	ld de, .TimeNotSetString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .TimeNotSetString:
@@ -350,11 +350,11 @@ MainMenu_PrintCurrentTimeAndDay:
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Days:

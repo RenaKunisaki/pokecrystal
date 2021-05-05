@@ -31,7 +31,7 @@ DoMysteryGift:
 	call InitMysteryGiftLayout
 	hlcoord 3, 8
 	ld de, .String_PressAToLink_BToCancel
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 
 	; Prepare the first of two messages for wMysteryGiftPartnerData
@@ -1574,7 +1574,7 @@ DoNameCardSwap:
 	call InitNameCardLayout
 	hlcoord 3, 8
 	ld de, .String_PressAToLink_BToCancel_JP
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	call StageDataForNameCard
 	call ClearMysteryGiftTrainer

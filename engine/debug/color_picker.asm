@@ -334,7 +334,7 @@ DebugColor_InitScreen:
 	ld [wUnownLetter], a
 	call GetPokemonName
 	hlcoord 4, 1
-	call PlaceString
+	predef PlaceString
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 12, 3
@@ -357,10 +357,10 @@ DebugColor_InitScreen:
 	ld de, .NormalText
 .place_text
 	hlcoord 7, 17
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 17
 	ld de, .SwitchText
-	call PlaceString
+	predef PlaceString
 	jr .done
 
 .trainer
@@ -369,7 +369,7 @@ DebugColor_InitScreen:
 	callfar GetTrainerAttributes
 	ld de, wStringBuffer1
 	hlcoord 4, 1
-	call PlaceString
+	predef PlaceString
 	ld de, vTiles2
 	callfar GetTrainerPic
 	xor a
@@ -697,7 +697,7 @@ DebugColor_InitTMHM:
 	predef ByteFill
 	hlcoord 2, 12
 	ld de, DebugColor_AreYouFinishedString
-	call PlaceString
+	predef PlaceString
 	xor a
 	ld [wDebugColorCurTMHM], a
 	call DebugColor_PrintTMHMMove
@@ -777,7 +777,7 @@ DebugColor_PrintTMHMMove:
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	hlcoord 10, 12
-	call PlaceString
+	predef PlaceString
 
 	ld a, [wDebugColorCurTMHM]
 	call .GetNumberedTMHM
@@ -790,7 +790,7 @@ DebugColor_PrintTMHMMove:
 	ld de, .NotAbleText
 .place_string
 	hlcoord 10, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 .AbleText:

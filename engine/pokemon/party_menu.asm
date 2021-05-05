@@ -93,7 +93,7 @@ PlacePartyNicknames:
 	ld a, b
 	call GetNickname
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld de, 2 * SCREEN_WIDTH
 	add hl, de
@@ -106,7 +106,7 @@ PlacePartyNicknames:
 	dec hl
 	dec hl
 	ld de, .CancelString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .CancelString:
@@ -317,7 +317,7 @@ PlacePartyMonTMHMCompatibility:
 	predef CanLearnTMHMMove
 	pop hl
 	call .PlaceAbleNotAble
-	call PlaceString
+	predef PlaceString
 
 .next
 	pop hl
@@ -372,7 +372,7 @@ PlacePartyMonEvoStoneCompatibility:
 	add hl, de
 	call .DetermineCompatibility
 	pop hl
-	call PlaceString
+	predef PlaceString
 
 .next
 	pop hl
@@ -452,7 +452,7 @@ PlacePartyMonGender:
 
 .got_gender
 	pop hl
-	call PlaceString
+	predef PlaceString
 
 .next
 	pop hl
@@ -484,7 +484,7 @@ PlacePartyMonMobileBattleSelection:
 	push bc
 	push hl
 	ld de, .String_Sanka_Shinai
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld de, 2 * SCREEN_WIDTH
 	add hl, de
@@ -500,7 +500,7 @@ PlacePartyMonMobileBattleSelection:
 	sbc $0
 	ld h, a
 	ld de, .String_Kettei_Yameru
-	call PlaceString
+	predef PlaceString
 	ld b, $3
 	ld c, $0
 	ld hl, wd002
@@ -520,7 +520,7 @@ PlacePartyMonMobileBattleSelection:
 .done
 	ld de, .String_Banme
 	push hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	pop bc
 	push bc
@@ -531,7 +531,7 @@ PlacePartyMonMobileBattleSelection:
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop bc
 	pop hl
 	inc hl
@@ -727,7 +727,7 @@ PrintPartyMenuText:
 	set NO_TEXT_SCROLL, a
 	ld [wOptions], a
 	hlcoord 1, 16 ; Coord
-	call PlaceString
+	predef PlaceString
 	pop af
 	ld [wOptions], a
 	ret

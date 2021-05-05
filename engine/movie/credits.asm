@@ -308,7 +308,7 @@ ParseCredits:
 	call .get
 	ld bc, SCREEN_WIDTH * 2
 	predef AddNTimes
-	call PlaceString
+	predef PlaceString
 	jr .loop
 
 .theend

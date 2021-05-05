@@ -185,7 +185,7 @@ PlaceVerticalMenuItems::
 	ld b, a
 .loop
 	push bc
-	call PlaceString
+	predef PlaceString
 	inc de
 	ld bc, 2 * SCREEN_WIDTH
 	add hl, bc
@@ -708,7 +708,7 @@ PlaceMenuStrings::
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 PlaceNthMenuStrings::
@@ -721,7 +721,7 @@ PlaceNthMenuStrings::
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 GetNthMenuStrings:: ; unreferenced
@@ -820,7 +820,7 @@ Place2DMenuItemName::
 	ldh a, [hTempBank]
 	rst Bankswitch
 
-	call PlaceString
+	predef PlaceString
 	pop af
 	rst Bankswitch
 

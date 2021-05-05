@@ -707,7 +707,7 @@ MailGFX_PlaceMessage:
 	ld [wMonOrItemNameBuffer + NAME_LENGTH - 1], a
 	ld de, wTempMailMessage
 	hlcoord 2, 7
-	call PlaceString
+	predef PlaceString
 	ld de, wMonOrItemNameBuffer
 	ld a, [de]
 	and a

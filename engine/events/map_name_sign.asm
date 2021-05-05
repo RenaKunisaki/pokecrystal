@@ -152,7 +152,7 @@ PlaceMapNameCenterAlign:
 	hlcoord 0, 2
 	add hl, bc
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 .GetNameLength:

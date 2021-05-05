@@ -577,7 +577,7 @@ PlacePrinterStatusString:
 	call PlaceFarString
 	hlcoord 2, 15
 	ld de, String_PressBToCancel
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	xor a
@@ -610,7 +610,7 @@ PlacePrinterStatusStringBorderless: ; unreferenced
 	call PlaceFarString
 	hlcoord 4, 15
 	ld de, String_PressBToCancel
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	xor a
@@ -649,7 +649,7 @@ PrintPCBox_Page1:
 
 	hlcoord 4, 3
 	ld de, .String_PokemonList
-	call PlaceString
+	predef PlaceString
 
 	ld a, [wWhichBoxToPrint]
 	ld bc, BOX_NAME_LENGTH
@@ -658,7 +658,7 @@ PrintPCBox_Page1:
 	ld d, h
 	ld e, l
 	hlcoord 6, 5
-	call PlaceString
+	predef PlaceString
 	ld a, 1
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 9
@@ -753,7 +753,7 @@ Printer_PrintBoxListSegment:
 	pop hl
 
 	push hl
-	call PlaceString
+	predef PlaceString
 	ld a, [wCurPartySpecies]
 	cp EGG
 	pop hl
@@ -788,7 +788,7 @@ Printer_PrintBoxListSegment:
 	pop hl
 
 	push hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 
 	ld bc, MON_NAME_LENGTH
@@ -919,7 +919,7 @@ Printer_PlaceEmptyBoxSlotString:
 	push bc
 	push hl
 	ld de, .EmptyBoxSlotString
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld bc, 3 * SCREEN_WIDTH
 	add hl, bc

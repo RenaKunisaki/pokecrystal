@@ -20,11 +20,11 @@ PrintDayOfWeek:
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Days:
@@ -534,7 +534,7 @@ endc
 	call Textbox
     hlcoord 2, 1
 	ld de, .text
-	call PlaceString
+	predef PlaceString
 
     ; display player gender
     call GetPlayerGender
@@ -623,7 +623,7 @@ endc
 	ld a, b
 	call GetNickname
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
@@ -755,7 +755,7 @@ Continue_DisplayBadgesDexPlayerName:
 	decoord 8, 2, 0
 	add hl, de
 	ld de, .Player
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ret
 
@@ -772,7 +772,7 @@ Continue_UnknownGameTime:
 	decoord 9, 8, 0
 	add hl, de
 	ld de, .three_question_marks
-	call PlaceString
+	predef PlaceString
 	ret
 
 .three_question_marks

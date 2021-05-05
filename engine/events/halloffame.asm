@@ -121,7 +121,7 @@ AnimateHallOfFame:
 	call DisplayHOFMon
 	ld de, .String_NewHallOfFamer
 	hlcoord 1, 2
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	decoord 6, 5
 	ld c, ANIM_MON_HOF
@@ -368,14 +368,14 @@ _HallOfFamePC:
 	jr c, .print_num_hof
 	ld de, .HOFMaster
 	hlcoord 1, 2
-	call PlaceString
+	predef PlaceString
 	hlcoord 13, 2
 	jr .finish
 
 .print_num_hof
 	ld de, .TimeFamer
 	hlcoord 1, 2
-	call PlaceString
+	predef PlaceString
 	hlcoord 2, 2
 	ld de, wHallOfFameTempWinCount
 	lb bc, 1, 3
@@ -384,7 +384,7 @@ _HallOfFamePC:
 
 .finish
 	ld de, .EmptyString
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
@@ -482,7 +482,7 @@ DisplayHOFMon:
 	predef PrintNum
 	call GetBasePokemonName
 	hlcoord 7, 13
-	call PlaceString
+	predef PlaceString
 	ld a, TEMPMON
 	ld [wMonType], a
 	farcall GetGender
@@ -499,7 +499,7 @@ DisplayHOFMon:
 	ld a, "/"
 	ld [hli], a
 	ld de, wStringBuffer2
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 16
 	call PrintLevel
 
@@ -573,7 +573,7 @@ HOF_AnimatePlayerPic:
 	call Textbox
 	hlcoord 2, 4
 	ld de, wPlayerName
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 6
 	ld a, "<ID>"
 	ld [hli], a
@@ -586,7 +586,7 @@ HOF_AnimatePlayerPic:
 	predef PrintNum
 	hlcoord 1, 8
 	ld de, .PlayTime
-	call PlaceString
+	predef PlaceString
 	hlcoord 3, 9
 	ld de, wGameTimeHours
 	lb bc, 2, 3

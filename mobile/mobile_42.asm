@@ -1258,7 +1258,7 @@ MobileTradeAnim_DisplayEggData:
 	call Textbox
 	hlcoord 6, 2
 	ld de, .EggTemplate
-	call PlaceString
+	predef PlaceString
 	call MobileTradeAnim_MonDisplay_UpdateBGMap
 	ret
 
@@ -1279,7 +1279,7 @@ Function108a33:
 	call Textbox
 	hlcoord 7, 4
 	ld de, .OddEgg
-	call PlaceString
+	predef PlaceString
 	call MobileTradeAnim_MonDisplay_UpdateBGMap
 	ret
 
@@ -1297,7 +1297,7 @@ MobileTradeAnim_LoadMonTemplate:
 	call Textbox
 	hlcoord 5, 0
 	ld de, .MonTemplate
-	call PlaceString
+	predef PlaceString
 	ret
 
 .MonTemplate:
@@ -1322,7 +1322,7 @@ MobileTradeAnim_MonDisplay_PrintSpeciesNumber:
 
 MobileTradeAnim_MonDisplay_PrintSpeciesName:
 	hlcoord 5, 2
-	call PlaceString
+	predef PlaceString
 	ret
 
 MobileTradeAnim_MonDisplay_PrintOTNameAndGender:
@@ -1332,7 +1332,7 @@ MobileTradeAnim_MonDisplay_PrintOTNameAndGender:
 .got_gender
 	push af
 	hlcoord 8, 4
-	call PlaceString
+	predef PlaceString
 	inc bc
 	pop af
 	ld hl, .GenderChars

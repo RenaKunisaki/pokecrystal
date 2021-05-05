@@ -60,27 +60,27 @@ InitMobileProfile:
 	ld [hl], a
 	ld de, MobileProfileString
 	hlcoord 1, 1
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 2
 	ld b, $a
 	ld c, $12
 	call Function48cdc
 	hlcoord 2, 4
 	ld de, MobileString_Gender
-	call PlaceString
+	predef PlaceString
 .asm_480d7
 	hlcoord 2, 6
 	ld de, MobileString_Age
-	call PlaceString
+	predef PlaceString
 	hlcoord 2, 8
 	ld de, MobileString_Address
-	call PlaceString
+	predef PlaceString
 	hlcoord 2, 10
 	ld de, MobileString_ZipCode
-	call PlaceString
+	predef PlaceString
 	hlcoord 2, 12
 	ld de, MobileString_OK
-	call PlaceString
+	predef PlaceString
 	ld a, [wd002]
 	bit 6, a
 	jr nz, .asm_48113
@@ -90,7 +90,7 @@ InitMobileProfile:
 	ld d, h
 	ld e, l
 	hlcoord 11, 4
-	call PlaceString
+	predef PlaceString
 .asm_48113
 	hlcoord 11, 6
 	call Function487ec
@@ -101,7 +101,7 @@ InitMobileProfile:
 	ld d, h
 	ld e, l
 	hlcoord 11, 8
-	call PlaceString
+	predef PlaceString
 	hlcoord 11, 10
 	call Function489ea
 	hlcoord 0, 14
@@ -110,7 +110,7 @@ InitMobileProfile:
 	call Textbox
 	hlcoord 1, 16
 	ld de, MobileString_PersonalInfo
-	call PlaceString
+	predef PlaceString
 	call Function48187
 	call WaitBGMap2
 	call SetPalettes
@@ -164,7 +164,7 @@ Function48187:
 	push de
 	hlcoord 2, 12
 	ld de, MobileString_OK
-	call PlaceString
+	predef PlaceString
 	pop de
 .asm_481ad
 	ld a, [wd002]
@@ -204,7 +204,7 @@ Function48187:
 .asm_481f8
 	hlcoord 11, 10
 	ld de, .String_TellLater
-	call PlaceString
+	predef PlaceString
 .asm_48201
 	ret
 
@@ -245,7 +245,7 @@ Function4820d:
 	predef ClearBox
 	ld de, MobileString_ProfileChanged
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	ld c, 48
 	predef DelayFrames
@@ -278,7 +278,7 @@ asm_4828d:
 	call Function48283
 	hlcoord 1, 16
 	ld de, MobileDesc_Gender
-	call PlaceString
+	predef PlaceString
 	ld hl, MenuHeader_0x484f1
 	call LoadMenuHeader
 	call Function4873c
@@ -288,10 +288,10 @@ asm_4828d:
 	call Function48cdc
 	hlcoord 13, 4
 	ld de, String_484fb
-	call PlaceString
+	predef PlaceString
 	hlcoord 13, 6
 	ld de, String_484ff
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	ld a, [wPlayerGender]
 	inc a
@@ -320,7 +320,7 @@ asm_4828d:
 	ld d, h
 	ld e, l
 	hlcoord 11, 4
-	call PlaceString
+	predef PlaceString
 	ld a, [wd003]
 	set 0, a
 	ld [wd003], a
@@ -330,7 +330,7 @@ Function48304:
 	call Function48283
 	hlcoord 1, 16
 	ld de, MobileDesc_Address
-	call PlaceString
+	predef PlaceString
 	ld hl, MenuHeader_0x48504
 	call LoadMenuHeader
 	ld hl, MenuHeader_0x48513
@@ -447,7 +447,7 @@ Function483bb:
 	hlcoord 11, 7
 	predef ClearBox
 	hlcoord 11, 8
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function483e8:
@@ -475,7 +475,7 @@ Function483e8:
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function4840c:
@@ -483,7 +483,7 @@ Function4840c:
 	call Function48283
 	hlcoord 1, 16
 	ld de, MobileString_PersonalInfo
-	call PlaceString
+	predef PlaceString
 	call Function486bf
 	pop bc
 	ld hl, wMenuCursorY
@@ -521,7 +521,7 @@ Mobile12_Bin2Dec:
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop de
 	pop af
 	pop bc
@@ -665,7 +665,7 @@ Function48689:
 	ld [hl], a
 	ld de, MobileProfileString
 	hlcoord 1, 2
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 4
 	ld b, $8
 	ld c, $12
@@ -815,7 +815,7 @@ Function4876f:
 	call Function48283
 	hlcoord 1, 16
 	ld de, MobileDesc_Age
-	call PlaceString
+	predef PlaceString
 	ld hl, MenuHeader_0x48509
 	call LoadMenuHeader
 	ldh a, [hInMenu]
@@ -879,7 +879,7 @@ rept 4
 	inc hl
 endr
 	ld de, String_4880d
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function487ff:
@@ -1013,7 +1013,7 @@ Function488d3:
 	call Function48283
 	hlcoord 1, 16
 	ld de, MobileDesc_ZipCode
-	call PlaceString
+	predef PlaceString
 	call Function48a3a
 	jp c, Function4840c
 	ld hl, MenuHeader_0x4850e
@@ -1184,7 +1184,7 @@ Function489ea:
 	call Mobile12_Bin2Dec
 	inc hl
 	ld de, String_48a38
-	call PlaceString
+	predef PlaceString
 	ld a, [wd477]
 	and $f0
 	swap a
@@ -1225,7 +1225,7 @@ Function48a3a:
 	call Function48cdc
 	hlcoord 12, 10
 	ld de, String_48aa1
-	call PlaceString
+	predef PlaceString
 	call StaticMenuJoypad
 	push af
 	call PlayClickSFX
@@ -1602,7 +1602,7 @@ Function48c8e: ; unreferenced
 	ld e, l
 	farcall Function48c63
 	hlcoord 10, 7
-	call PlaceString
+	predef PlaceString
 	predef WaitBGMap
 	ret
 

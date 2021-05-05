@@ -311,7 +311,7 @@ InitPokegearTilemap:
 	call Pokegear_LoadTilemapRLE
 	hlcoord 12, 1
 	ld de, .switch
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 12
 	lb bc, 4, 18
 	call Textbox
@@ -1157,7 +1157,7 @@ PokegearPhoneContactSubmenu:
 	pop de
 	pop hl
 	inc hl
-	call PlaceString
+	predef PlaceString
 	pop de
 	xor a
 	ld [wPokegearPhoneSubmenuCursor], a
@@ -1463,7 +1463,7 @@ UpdateRadioStation:
 	xor a
 	ldh [hBGMapMode], a
 	hlcoord 2, 9
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
@@ -2003,7 +2003,7 @@ PlayRadio:
 	ld [hl], "“"
 	pop de
 	hlcoord 2, 14
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld [hl], "”"
@@ -2196,7 +2196,7 @@ TownMapBubble:
 ; Print "Where?"
 	hlcoord 2, 0
 	ld de, .Where
-	call PlaceString
+	predef PlaceString
 ; Print the name of the default flypoint
 	call .Name
 ; Up/down arrows
@@ -2219,7 +2219,7 @@ TownMapBubble:
 	farcall GetLandmarkName
 	hlcoord 2, 1
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 GetMapCursorCoordinates:
@@ -2489,11 +2489,11 @@ Pokedex_GetArea:
 	ld [hl], $17
 	call GetPokemonName
 	hlcoord 2, 0
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, .String_SNest
-	call PlaceString
+	predef PlaceString
 	ret
 
 .String_SNest:

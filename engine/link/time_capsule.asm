@@ -103,12 +103,12 @@ CheckAnyOtherAliveMonsForTrade:
 PlaceTradePartnerNamesAndParty:
 	hlcoord 4, 0
 	ld de, wPlayerName
-	call PlaceString
+	predef PlaceString
 	ld a, $14
 	ld [bc], a
 	hlcoord 4, 8
 	ld de, wOTPlayerName
-	call PlaceString
+	predef PlaceString
 	ld a, $14
 	ld [bc], a
 	hlcoord 7, 1
@@ -131,7 +131,7 @@ PlaceTradePartnerNamesAndParty:
 	ldh [hProduct], a
 	call GetPokemonName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop de
 	inc de
 	pop hl

@@ -108,7 +108,7 @@ DrawPokedexSearchResultsWindow:
 	predef ClearBox
 	ld de, .esults_D
 	hlcoord 0, 12
-	call PlaceString
+	predef PlaceString
 	ret
 
 .esults_D

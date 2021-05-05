@@ -328,13 +328,13 @@ Function1178aa:
 	farcall ReloadMapPart
 	hlcoord 16, 8
 	ld de, YessNoString_1179c5
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 10
 	ld a, "▶"
 	ld [hl], a
 	hlcoord 1, 14
 	ld de, AskSavePasswordString
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ld [wcd4e], a
 	jp MobilePassword_IncrementJumptable
@@ -395,7 +395,7 @@ Function117942:
 	call SpeechTextbox
 	hlcoord 1, 14
 	ld de, SavedPasswordString
-	call PlaceString
+	predef PlaceString
 	ld a, $1e
 	ld [wcd4e], a
 	ld a, BANK(sMobileLoginPassword)
@@ -430,7 +430,7 @@ Function117984:
 	farcall ReloadMapPart
 	hlcoord 1, 14
 	ld de, NotAPokemonPasswordString
-	call PlaceString
+	predef PlaceString
 	ld a, $1e
 	ld [wcd4e], a
 	call MobilePassword_IncrementJumptable
@@ -583,7 +583,7 @@ Function117b31:
 	call MenuBoxCoord2Tile
 	hlcoord 16, 8
 	ld de, YesNo117ccc
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 8
 	ld a, "▶"
 	ld [hl], a

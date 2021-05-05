@@ -441,7 +441,7 @@ DecorationMenuFunction:
 	call GetDecorationData
 	call GetDecoName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 DoDecorationAction2:

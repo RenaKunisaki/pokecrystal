@@ -4,7 +4,7 @@ PlaceMenuItemName:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 PlaceMenuItemQuantity:
@@ -72,10 +72,10 @@ DisplayCoinCaseBalance:
 	call Textbox
 	hlcoord 12, 0
 	ld de, CoinString
-	call PlaceString
+	predef PlaceString
 	hlcoord 17, 1
 	ld de, ShowMoney_TerminatorString
-	call PlaceString
+	predef PlaceString
 	ld de, wCoins
 	lb bc, 2, 4
 	hlcoord 13, 1
@@ -89,14 +89,14 @@ DisplayMoneyAndCoinBalance:
 	call Textbox
 	hlcoord 6, 1
 	ld de, MoneyString
-	call PlaceString
+	predef PlaceString
 	hlcoord 12, 1
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
 	predef PrintNum
 	hlcoord 6, 3
 	ld de, CoinString
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 3
 	ld de, wCoins
 	lb bc, 2, 4
@@ -125,10 +125,10 @@ StartMenu_PrintSafariGameStatus: ; unreferenced
 	predef PrintNum
 	hlcoord 4, 1
 	ld de, .slash_500
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 3
 	ld de, .booru_ko
-	call PlaceString
+	predef PlaceString
 	hlcoord 5, 3
 	ld de, wSafariBallsRemaining
 	lb bc, 1, 2
@@ -157,14 +157,14 @@ StartMenu_PrintBugContestStatus:
 	call StartMenu_DrawBugContestStatusBox
 	hlcoord 1, 5
 	ld de, .BallsString
-	call PlaceString
+	predef PlaceString
 	hlcoord 8, 5
 	ld de, wParkBallsRemaining
 	lb bc, PRINTNUM_LEFTALIGN | 1, 2
 	predef PrintNum
 	hlcoord 1, 1
 	ld de, .CaughtString
-	call PlaceString
+	predef PlaceString
 	ld a, [wContestMon]
 	and a
 	ld de, .NoneString
@@ -174,13 +174,13 @@ StartMenu_PrintBugContestStatus:
 
 .no_contest_mon
 	hlcoord 8, 1
-	call PlaceString
+	predef PlaceString
 	ld a, [wContestMon]
 	and a
 	jr z, .skip_level
 	hlcoord 1, 3
 	ld de, .LevelString
-	call PlaceString
+	predef PlaceString
 	ld a, [wContestMonLevel]
 	ld h, b
 	ld l, c

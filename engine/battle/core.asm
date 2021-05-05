@@ -3046,7 +3046,7 @@ MonFaintedAnimation:
 	ld bc, 20
 	add hl, bc
 	ld de, .Spaces
-	call PlaceString
+	predef PlaceString
 	ld c, 2
 	predef DelayFrames
 	pop hl
@@ -4645,7 +4645,7 @@ PrintPlayerHUD:
 	ld de, wBattleMonNickname
 	hlcoord 10, 7
 	call Battle_DummyFunction
-	call PlaceString
+	predef PlaceString
 
 	push bc
 
@@ -4731,7 +4731,7 @@ DrawEnemyHUD:
 	ld de, wEnemyMonNickname
 	hlcoord 1, 0
 	call Battle_DummyFunction
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	dec hl
@@ -5422,7 +5422,7 @@ MoveSelectionScreen:
 	jr nz, .interpret_joypad
 	hlcoord 11, 14
 	ld de, .empty_string
-	call PlaceString
+	predef PlaceString
 	jr .interpret_joypad
 
 .battle_player_moves
@@ -5648,7 +5648,7 @@ MoveInfoBox:
 
 	hlcoord 1, 10
 	ld de, .Disabled
-	call PlaceString
+	predef PlaceString
 	jr .done
 
 .not_disabled
@@ -5682,7 +5682,7 @@ MoveInfoBox:
 
 	hlcoord 1, 9
 	ld de, .Type
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 7, 11
 	ld [hl], "/"
@@ -8399,7 +8399,7 @@ DisplayLinkBattleResult:
 
 .store_result
 	hlcoord 6, 8
-	call PlaceString
+	predef PlaceString
 	farcall BackupMobileEventIndex
 	ld c, 200
 	predef DelayFrames
@@ -8434,7 +8434,7 @@ DisplayLinkBattleResult:
 .Mobile_InvalidBattle:
 	hlcoord 6, 8
 	ld de, .InvalidBattle
-	call PlaceString
+	predef PlaceString
 	ld c, 200
 	predef DelayFrames
 	predef ClearTilemap
@@ -8499,7 +8499,7 @@ ReadAndPrintLinkBattleRecord:
 	predef CopyBytes
 	ld de, wLinkBattleRecordName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld de, 26
 	add hl, de
@@ -8524,7 +8524,7 @@ ReadAndPrintLinkBattleRecord:
 
 .PrintFormatString:
 	ld de, .Format
-	call PlaceString
+	predef PlaceString
 .next
 	pop hl
 	ld bc, LINK_BATTLE_RECORD_LENGTH
@@ -8542,15 +8542,15 @@ ReadAndPrintLinkBattleRecord:
 .PrintBattleRecord:
 	hlcoord 1, 0
 	ld de, .Record
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 0, 6
 	ld de, .Result
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 0, 2
 	ld de, .Total
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 6, 4
 	ld de, sLinkBattleWins
@@ -8582,7 +8582,7 @@ ReadAndPrintLinkBattleRecord:
 	and a
 	ret nz
 	ld de, .Scores
-	call PlaceString
+	predef PlaceString
 	scf
 	ret
 

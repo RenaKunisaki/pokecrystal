@@ -966,7 +966,7 @@ BillsPC_PlaceString:
 	call Textbox
 	pop de
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	ret
 
 BillsPC_MoveMonWOMail_BoxNameAndArrows:
@@ -1004,7 +1004,7 @@ BillsPC_BoxName:
 	ld de, .PartyPKMN
 .print
 	hlcoord 10, 1
-	call PlaceString
+	predef PlaceString
 	ret
 
 .PartyPKMN:
@@ -1074,7 +1074,7 @@ PCMonInfo:
 
 	call GetBasePokemonName
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 
 	hlcoord 1, 12
 	call PrintLevel
@@ -1264,7 +1264,7 @@ BillsPC_RefreshTextboxes:
 	cp -1
 	jr nz, .get_nickname
 	ld de, .CancelString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .get_nickname
@@ -1304,7 +1304,7 @@ BillsPC_RefreshTextboxes:
 	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 .boxfail
@@ -1329,7 +1329,7 @@ BillsPC_RefreshTextboxes:
 	predef CopyBytes
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 .partyfail
@@ -1356,7 +1356,7 @@ BillsPC_RefreshTextboxes:
 	predef CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 .sBoxFail
@@ -1364,7 +1364,7 @@ BillsPC_RefreshTextboxes:
 	pop hl
 .placeholder_string
 	ld de, .Placeholder
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Placeholder:
@@ -1794,11 +1794,11 @@ DepositPokemon:
 	predef WaitBGMap
 	hlcoord 1, 16
 	ld de, PCString_Stored
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ld a, "!"
 	ld [bc], a
 	ld c, 50
@@ -1849,11 +1849,11 @@ TryWithdrawPokemon:
 	predef WaitBGMap
 	hlcoord 1, 16
 	ld de, PCString_Got
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ld a, "!"
 	ld [bc], a
 	ld c, 50
@@ -1897,7 +1897,7 @@ ReleasePKMN_ByePKMN:
 	call GetPokemonName
 	hlcoord 1, 16
 	ld de, PCString_ReleasedPKMN
-	call PlaceString
+	predef PlaceString
 	ld c, 80
 	predef DelayFrames
 	hlcoord 0, 15
@@ -1905,12 +1905,12 @@ ReleasePKMN_ByePKMN:
 	call Textbox
 	hlcoord 1, 16
 	ld de, PCString_Bye
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	inc hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	ld [hl], "!"
@@ -1928,7 +1928,7 @@ MovePKMNWitoutMail_InsertMon:
 	call Textbox
 	hlcoord 1, 16
 	ld de, .Saving_LeaveOn
-	call PlaceString
+	predef PlaceString
 	ld c, 20
 	predef DelayFrames
 	pop af
@@ -2291,7 +2291,7 @@ endr
 	dec a
 	call GetBoxName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 GetBoxName:
@@ -2311,7 +2311,7 @@ BillsPC_PrintBoxCountAndCapacity:
 	ret z
 	hlcoord 12, 9
 	ld de, .Pokemon
-	call PlaceString
+	predef PlaceString
 	call GetBoxCount
 	ld [wTextDecimalByte], a
 	hlcoord 13, 11
@@ -2319,7 +2319,7 @@ BillsPC_PrintBoxCountAndCapacity:
 	lb bc, 1, 2
 	predef PrintNum
 	ld de, .OutOf20
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Pokemon:
@@ -2394,12 +2394,12 @@ BillsPC_PrintBoxName:
 	call Textbox
 	hlcoord 1, 2
 	ld de, .Current
-	call PlaceString
+	predef PlaceString
 	ld a, [wCurBox]
 	and $f
 	call GetBoxName
 	hlcoord 11, 2
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Current:
@@ -2522,7 +2522,7 @@ BillsPC_PlaceChangeBoxString:
 	call Textbox
 	pop de
 	hlcoord 1, 16
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret

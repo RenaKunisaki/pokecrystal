@@ -12,7 +12,7 @@ Function11c05d:
 	push hl
 	call CopyMobileEZChatToC608
 	pop hl
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -530,7 +530,7 @@ Function11c38a:
 	jr .asm_11c3b5
 .asm_11c3af
 	ld de, String_11c3bc
-	call PlaceString
+	predef PlaceString
 .asm_11c3b5
 	pop bc
 	pop hl
@@ -548,10 +548,10 @@ Function11c3c2:
 	call Function11d035
 	hlcoord 1, 7
 	ld de, String_11c4db
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 16
 	ld de, String_11c51b
-	call PlaceString
+	predef PlaceString
 	call Function11c4be
 	ld hl, wcd23
 	set 0, [hl]
@@ -875,7 +875,7 @@ EZChat_PlaceCategoryNames:
 	inc bc
 	ld h, a
 	push bc
-	call PlaceString
+	predef PlaceString
 	; The category names are padded with "@".
 	; To find the next category, the system must
 	; find the first character at de that is not "@".
@@ -890,7 +890,7 @@ EZChat_PlaceCategoryNames:
 	jr nz, .loop
 	hlcoord 1, 17
 	ld de, EZChatString_Stop_Mode_Cancel
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function11c618:
@@ -1284,7 +1284,7 @@ Function11c86e:
 	jr z, .asm_11c88a
 	hlcoord 2, 17
 	ld de, MobileString_Prev
-	call PlaceString
+	predef PlaceString
 	hlcoord 6, 17
 	ld c, $3
 	xor a
@@ -1311,7 +1311,7 @@ Function11c86e:
 	jr nc, .asm_11c8b7
 	hlcoord 16, 17
 	ld de, MobileString_Next
-	call PlaceString
+	predef PlaceString
 	hlcoord 11, 17
 	ld a, $3
 	ld c, a
@@ -1621,7 +1621,7 @@ Function11ca6a:
 	ld [hl], b
 	call Function11c95d
 	ld de, String_11c3bc
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function11ca7f:
@@ -1632,10 +1632,10 @@ Function11ca7f:
 	call Function11cfce
 	hlcoord 1, 14
 	pop de
-	call PlaceString
+	predef PlaceString
 	hlcoord 16, 8
 	ld de, String_11ca57
-	call PlaceString
+	predef PlaceString
 	call Function11ca01
 	ld a, $1
 	ld [wcd2a], a
@@ -1679,7 +1679,7 @@ Function11cab3:
 	ld [wcd35], a
 	hlcoord 1, 14
 	ld de, String_11cb31
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ld [wcd2a], a
 	ret
@@ -1801,7 +1801,7 @@ Function11cb66:
 	ld a, [hl]
 	ld d, a
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld hl, wJumptableIndex
 	inc [hl]
 	inc hl
@@ -1893,7 +1893,7 @@ Function11ccef:
 	call Function11cfce
 	hlcoord 1, 14
 	ld de, String_11cd10
-	call PlaceString
+	predef PlaceString
 	call Function11ca19
 	call Function11cfb5
 
@@ -1923,10 +1923,10 @@ Function11cd20:
 .asm_11cd3a
 	ld de, String_11cdd9
 .asm_11cd3d
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 8
 	ld de, String_11cdf5
-	call PlaceString
+	predef PlaceString
 	call Function11cdaa
 	ld hl, wcd24
 	res 5, [hl]
@@ -1988,7 +1988,7 @@ Function11cd54:
 	call Function11cfce
 	pop de
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function11cdaa:
@@ -2021,10 +2021,10 @@ Function11ce0b:
 	call EZChat_ClearBottom12Rows
 	hlcoord 1, 7
 	ld de, String_11cf79
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 17
 	ld de, EZChatString_Stop_Mode_Cancel
-	call PlaceString
+	predef PlaceString
 	call Function11c618
 	ld hl, wcd24
 	res 2, [hl]

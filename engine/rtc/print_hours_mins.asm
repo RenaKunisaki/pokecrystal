@@ -65,7 +65,7 @@ PrintHoursMins:
 	ld de, String_PM
 .place_am_pm
 	inc hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_AM: db "AM@"

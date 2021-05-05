@@ -639,16 +639,16 @@ Function1704e1:
 	predef CloseSRAM
 	hlcoord 1, 1
 	ld de, wStringBuffer3
-	call PlaceString
+	predef PlaceString
 	hlcoord 1, 3
 	ld de, .String_Mail
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 3
 	ld de, wStringBuffer4
-	call PlaceString
+	predef PlaceString
 	hlcoord 8, 3
 	ld de, .String_PastReaders
-	call PlaceString
+	predef PlaceString
 	call .DrawBorder
 	call .PlaceTextItems
 	jr .NextJumptableFunction
@@ -795,7 +795,7 @@ Function1704e1:
 .rejoin
 	ld de, wcd49
 	push bc
-	call PlaceString
+	predef PlaceString
 	ld de, NAME_LENGTH_JAPANESE
 	add hl, de
 	pop bc

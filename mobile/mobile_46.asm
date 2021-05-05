@@ -1177,10 +1177,10 @@ BattleTowerRoomMenu_PlacePickLevelMenu:
 BattleTowerRoomMenu_UpdatePickLevelMenu:
 	hlcoord 13, 8
 	ld de, String_119d07
-	call PlaceString
+	predef PlaceString
 	hlcoord 13, 10
 	ld de, String_119d07
-	call PlaceString
+	predef PlaceString
 	ld a, [wcd4b]
 	ld l, a
 	ld a, [wcd4c]
@@ -1220,7 +1220,7 @@ BattleTowerRoomMenu_UpdatePickLevelMenu:
 	pop af
 	ldh [rSVBK], a
 	hlcoord 13, 9
-	call PlaceString
+	predef PlaceString
 	ld hl, hJoyPressed
 	ld a, [hl]
 	and B_BUTTON
@@ -4195,7 +4195,7 @@ Function119f3f:
 Function119f45:
 	hlcoord 4, 2
 	ld de, String_11a661
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4213,7 +4213,7 @@ Function119f56:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6aa
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4231,7 +4231,7 @@ Function119f76:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a679
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4265,7 +4265,7 @@ Function119f98:
 .asm_119fd4
 	hlcoord 4, 2
 	ld de, String_11a692
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ld [wc30d], a
 	ld a, $1
@@ -4387,7 +4387,7 @@ Function11a113:
 	farcall Function115e18
 	hlcoord 4, 2
 	ld de, String_11a6c8
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -4408,7 +4408,7 @@ Function11a13d:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -4426,7 +4426,7 @@ Function11a14b:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6f1
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4445,7 +4445,7 @@ Function11a16d:
 	call Function11a1e6
 	hlcoord 4, 2
 	ld de, wc346
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4463,7 +4463,7 @@ Function11a192:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -4476,7 +4476,7 @@ Function11a192:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	scf
 	ret
 
@@ -4522,10 +4522,10 @@ BattleTowerRoomMenu2_PlaceYesNoMenu:
 	call ApplyTilemap
 	hlcoord 16, 8
 	ld de, String_11a2cf
-	call PlaceString
+	predef PlaceString
 	hlcoord 16, 10
 	ld de, String_11a2d3
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 8
 	ld a, $ed
 	ld [hl], a
@@ -4645,7 +4645,7 @@ Function11a2e6:
 	farcall Function115e18
 	hlcoord 4, 2
 	ld de, String_11a71e
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4663,7 +4663,7 @@ Function11a302:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a72a
-	call PlaceString
+	predef PlaceString
 	hlcoord 9, 4
 	ld de, wcd68
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
@@ -4696,7 +4696,7 @@ Function11a357:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a743
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4714,7 +4714,7 @@ Function11a36b:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a755
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4732,7 +4732,7 @@ Function11a38d:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -4749,7 +4749,7 @@ Function11a3c5:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a762
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4767,7 +4767,7 @@ Function11a3d9:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a779
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4785,7 +4785,7 @@ Function11a3f9:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a755
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4803,7 +4803,7 @@ Function11a41b:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -4820,7 +4820,7 @@ Function11a452:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a791
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4829,7 +4829,7 @@ Function11a466:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a7c1
-	call PlaceString
+	predef PlaceString
 	ld a, $80
 	ld [wMobileInactivityTimerMinutes], a
 	jp BattleTowerRoomMenu2_IncrementJumptable
@@ -4851,7 +4851,7 @@ Function11a488:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a7ac
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4869,7 +4869,7 @@ Function11a49e:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	ld a, $14
 	ld [wcf66], a
 	and a
@@ -4888,14 +4888,14 @@ Function11a4db:
 	call Function11a63c
 	ld de, String_11a6db
 	hlcoord 4, 2
-	call PlaceString
+	predef PlaceString
 	ret
 
 Function11a4e8:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a7d7
-	call PlaceString
+	predef PlaceString
 	call Function11a5f5
 	xor a
 	ld [wMobileInactivityTimerMinutes], a
@@ -4913,7 +4913,7 @@ Function11a4fe:
 	call Function11a63c
 	hlcoord 4, 2
 	ld de, String_11a6d2
-	call PlaceString
+	predef PlaceString
 	and a
 	ret
 
@@ -5048,10 +5048,10 @@ Function11a5f5:
 	call Function3eea
 	hlcoord 16, 7
 	ld de, String_11a2cf
-	call PlaceString
+	predef PlaceString
 	hlcoord 16, 9
 	ld de, String_11a2d3
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 7
 	ld a, $ed
 	ld [hl], a
@@ -5061,16 +5061,16 @@ Function11a5f5:
 Function11a63c:
 	hlcoord 4, 1
 	ld de, String_11a7f4
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 2
 	ld de, String_11a7f4
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 3
 	ld de, String_11a7f4
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 4
 	ld de, String_11a7f4
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_11a661:
@@ -5357,7 +5357,7 @@ Function11a971:
 	ld a, [wc31e]
 	ld h, a
 	ld de, wcd8d
-	call PlaceString
+	predef PlaceString
 	ld a, c
 	ld [wc31d], a
 	ld a, b
@@ -5689,7 +5689,7 @@ Function11ad95:
 	call MenuBox
 	hlcoord 12, 12
 	ld de, String_11ae40
-	call PlaceString
+	predef PlaceString
 	hlcoord 10, 10, wAttrmap
 	lb bc, 8, 8
 	call Function11afd6
@@ -5793,13 +5793,13 @@ Function11ae4e:
 	call MenuBox
 	hlcoord 10, 14
 	ld de, String_11aff0
-	call PlaceString
+	predef PlaceString
 	ld hl, MenuHeader_11b013
 	call LoadMenuHeader
 	call MenuBox
 	hlcoord 16, 8
 	ld de, String_11b01b
-	call PlaceString
+	predef PlaceString
 	hlcoord 14, 7, wAttrmap
 	lb bc, 5, 6
 	call Function11afd6
@@ -5883,13 +5883,13 @@ Function11af04:
 	call MenuBox
 	hlcoord 10, 14
 	ld de, String_11b003
-	call PlaceString
+	predef PlaceString
 	ld hl, MenuHeader_11b013
 	call LoadMenuHeader
 	call MenuBox
 	hlcoord 16, 8
 	ld de, String_11b01b
-	call PlaceString
+	predef PlaceString
 	hlcoord 14, 7, wAttrmap
 	lb bc, 5, 6
 	call Function11afd6
@@ -6163,7 +6163,7 @@ Function11b099:
 	push hl
 	call GetPokemonName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 .SetCaughtFlag:
@@ -6183,7 +6183,7 @@ Function11b099:
 
 	inc hl
 	ld de, .EmptySlot
-	call PlaceString
+	predef PlaceString
 	scf
 	ret
 
@@ -6437,7 +6437,7 @@ Function11b239:
 Function11b242:
 	hlcoord 3, 4
 	ld de, wStringBuffer3
-	call PlaceString
+	predef PlaceString
 	xor a
 	ld [wMonType], a
 	farcall GetGender
@@ -6493,10 +6493,10 @@ Function11b279:
 Function11b295:
 	hlcoord 4, 13
 	ld de, String_11b308
-	call PlaceString
+	predef PlaceString
 	hlcoord 4, 14
 	ld de, String_11b308
-	call PlaceString
+	predef PlaceString
 	call Function11b20b
 	call CheckSeenMemMon
 	jr z, .asm_11b2d1
@@ -6545,7 +6545,7 @@ Function11b295:
 	jr nz, .asm_11b2ec
 	pop hl
 	ld de, wStringBuffer4
-	call PlaceString
+	predef PlaceString
 	ret
 
 String_11b2fe: ; unreferenced

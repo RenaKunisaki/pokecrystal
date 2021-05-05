@@ -915,7 +915,7 @@ MoveScreenLoop:
 	predef ClearBox
 	hlcoord 1, 12
 	ld de, String_MoveWhere
-	call PlaceString
+	predef PlaceString
 	jp .joy_loop
 .b_button
 	call PlayClickSFX
@@ -1121,7 +1121,7 @@ SetUpMoveScreenBG:
 	ld a, [wCurPartyMon]
 	call GetNickname
 	hlcoord 5, 1
-	call PlaceString
+	predef PlaceString
 	push bc
 	farcall CopyMonToTempMon
 	pop hl
@@ -1181,13 +1181,13 @@ PlaceMoveData:
 	ldh [hBGMapMode], a
 	hlcoord 0, 10
 	ld de, String_MoveType_Top
-	call PlaceString
+	predef PlaceString
 	hlcoord 0, 11
 	ld de, String_MoveType_Bottom
-	call PlaceString
+	predef PlaceString
 	hlcoord 12, 12
 	ld de, String_MoveAtk
-	call PlaceString
+	predef PlaceString
 	ld a, [wCurSpecies]
 	ld b, a
 	hlcoord 2, 12
@@ -1210,7 +1210,7 @@ PlaceMoveData:
 
 .no_power
 	ld de, String_MoveNoPower
-	call PlaceString
+	predef PlaceString
 
 .description
 	hlcoord 1, 14

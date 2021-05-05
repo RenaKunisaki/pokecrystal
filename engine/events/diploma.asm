@@ -17,16 +17,16 @@ PlaceDiplomaOnScreen:
 	predef CopyBytes
 	ld de, .Player
 	hlcoord 2, 5
-	call PlaceString
+	predef PlaceString
 	ld de, .EmptyString
 	hlcoord 15, 5
-	call PlaceString
+	predef PlaceString
 	ld de, wPlayerName
 	hlcoord 9, 5
-	call PlaceString
+	predef PlaceString
 	ld de, .Certification
 	hlcoord 2, 8
-	call PlaceString
+	predef PlaceString
 	call EnableLCD
 	predef WaitBGMap
 	ld b, SCGB_DIPLOMA
@@ -60,10 +60,10 @@ PrintDiplomaPage2:
 	predef CopyBytes
 	ld de, .GameFreak
 	hlcoord 8, 0
-	call PlaceString
+	predef PlaceString
 	ld de, .PlayTime
 	hlcoord 3, 15
-	call PlaceString
+	predef PlaceString
 	hlcoord 12, 15
 	ld de, wGameTimeHours
 	lb bc, 2, 4

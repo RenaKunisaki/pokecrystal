@@ -493,7 +493,7 @@ CardFlip_PrintCoinBalance:
 	call Textbox
 	hlcoord 10, 16
 	ld de, .CoinStr
-	call PlaceString
+	predef PlaceString
 	hlcoord 15, 16
 	ld de, wCoins
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4

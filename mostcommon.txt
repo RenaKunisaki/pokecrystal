@@ -1,6 +1,6 @@
 grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     612 	predef CopyBytes
-    486 	call PlaceString
+    486 	predef PlaceString
     384 	predef CloseSRAM
     351 	predef OpenSRAM
     345 	predef ByteFill
@@ -2547,7 +2547,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call .PlaceUpDownArrows
       1 	call .PlaceTime
       1 	call PlaceString ; mon species
-      1  	call PlaceString
+      1  	predef PlaceString
       1 	call PlaceStatusString
       1 	call PlaceStartCancelBox
       1 	call .PlaceSquare

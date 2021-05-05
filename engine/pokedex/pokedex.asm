@@ -1189,13 +1189,13 @@ Pokedex_DrawOptionScreenBG:
 	call Pokedex_PlaceString
 	hlcoord 3, 4
 	ld de, .Modes
-	call PlaceString
+	predef PlaceString
 	ld a, [wUnlockedUnownMode]
 	and a
 	ret z
 	hlcoord 3, 10
 	ld de, .UnownMode
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Title:
@@ -1226,10 +1226,10 @@ Pokedex_DrawSearchScreenBG:
 	call Pokedex_PlaceString
 	hlcoord 3, 4
 	ld de, .Types
-	call PlaceString
+	predef PlaceString
 	hlcoord 3, 13
 	ld de, .Menu
-	call PlaceString
+	predef PlaceString
 	ret
 
 .Title:
@@ -1258,7 +1258,7 @@ Pokedex_DrawSearchResultsScreenBG:
 	call Pokedex_PlaceBorder
 	hlcoord 1, 12
 	ld de, .BottomWindowText
-	call PlaceString
+	predef PlaceString
 	ld de, wDexSearchResultCount
 	hlcoord 1, 16
 	lb bc, 1, 3
@@ -1520,7 +1520,7 @@ Pokedex_PrintListing:
 	push hl
 	call GetPokemonName
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 Pokedex_PrintNumberIfOldMode:
@@ -1555,7 +1555,7 @@ Pokedex_PlaceDefaultStringIfNotSeen:
 	ret nz
 	inc hl
 	ld de, .NameNotSeen
-	call PlaceString
+	predef PlaceString
 	scf
 	ret
 
@@ -1719,7 +1719,7 @@ Pokedex_DisplayModeDescription:
 	ld e, l
 	ld d, h
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
@@ -1754,7 +1754,7 @@ Pokedex_DisplayChangingModesMessage:
 	call Pokedex_PlaceBorder
 	ld de, String_ChangingModesPleaseWait
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 64
@@ -1868,7 +1868,7 @@ endr
 	ld e, l
 	ld d, h
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ret
 
 INCLUDE "data/types/search_strings.asm"
@@ -1958,7 +1958,7 @@ Pokedex_DisplayTypeNotFoundMessage:
 	call Pokedex_PlaceBorder
 	ld de, .TypeNotFound
 	hlcoord 1, 14
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, $80

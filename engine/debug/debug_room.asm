@@ -230,7 +230,7 @@ DebugRoom_PrintStackBottomTop:
 	predef CloseSRAM
 	hlcoord 16, 12
 	ld de, .SPString
-	call PlaceString
+	predef PlaceString
 	ld d, LOW(wStackBottom)
 	ld e, HIGH(wStackBottom)
 	push de
@@ -311,7 +311,7 @@ DebugRoom_PrintWindowStackBottomTop:
 	pop de
 	hlcoord 16, 15
 	ld de, .WSPString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .WSPString:
@@ -389,7 +389,7 @@ DebugRoomMenu_BattleSkip:
 DebugRoom_PrintBattleSkip:
 	hlcoord 16, 6
 	ld de, .BTLString
-	call PlaceString
+	predef PlaceString
 	ld a, BANK(sSkipBattle)
 	predef OpenSRAM
 	ld a, [sSkipBattle]
@@ -400,7 +400,7 @@ DebugRoom_PrintBattleSkip:
 	jr z, .ok
 	ld de, .SkipString
 .ok
-	call PlaceString
+	predef PlaceString
 	ret
 
 .BTLString:
@@ -423,7 +423,7 @@ DebugRoomMenu_ChangeSex:
 DebugRoom_PrintGender:
 	hlcoord 16, 0
 	ld de, .SexString
-	call PlaceString
+	predef PlaceString
 	ld a, BANK(sCrystalData)
 	predef OpenSRAM
 	ld a, [sCrystalData + (wPlayerGender - wCrystalData)]
@@ -456,7 +456,7 @@ DebugRoomMenu_TelDebug:
 DebugRoom_PrintTelDebug:
     hlcoord 16, 16
 	ld de, .TelString
-	call PlaceString
+	predef PlaceString
 	ld a, BANK(sDebugTimeCyclesSinceLastCall)
 	predef OpenSRAM
 	ld a, [sDebugTimeCyclesSinceLastCall]
@@ -470,7 +470,7 @@ DebugRoom_PrintTelDebug:
 	jr z, .ok
 	ld de, .OffString
 .ok
-	call PlaceString
+	predef PlaceString
 	ret
 
 .TelString:
@@ -502,7 +502,7 @@ DebugRoom_PrintRAMFlag:
 	predef CloseSRAM
 	hlcoord 16, 3
 	ld de, .RamString
-	call PlaceString
+	predef PlaceString
 	ret
 
 .RamString:
@@ -587,7 +587,7 @@ DebugRoom_EditPagedValues:
 	call Textbox
 	hlcoord 8, 17
 	ld de, DebugRoom_PageString
-	call PlaceString
+	predef PlaceString
 	call DebugRoom_InitializePagedValues
 	xor a
 	call DebugRoom_PrintPage
@@ -959,7 +959,7 @@ DebugRoom_PrintPagedValue:
 	ld bc, SCREEN_WIDTH * 2
 	predef AddNTimes
 	push hl
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ld bc, SCREEN_WIDTH - 7
 	add hl, bc
@@ -1092,7 +1092,7 @@ DebugRoom_PrintItemName:
 	predef ClearBox
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 DebugRoomMenu_ItemGet_Page1Values:
@@ -1253,7 +1253,7 @@ _DebugRoom_FinishGetName:
 	predef ClearBox
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
+	predef PlaceString
 	ret
 
 DebugRoom_UpdateExpForLevel:
@@ -1397,7 +1397,7 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	call DebugRoom_GetClock
 	ld de, DebugRoom_DayHTimeString
 	hlcoord 3, 14
-	call PlaceString
+	predef PlaceString
 	ld a, [wDebugRoomRTCCurDay + 0]
 	ld h, a
 	ld a, [wDebugRoomRTCCurDay + 1]
@@ -1495,7 +1495,7 @@ DebugRoomMenu_HaltChkClr:
 DebugRoom_PrintRTCHaltChk:
 	hlcoord 16, 9
 	ld de, .RTCString
-	call PlaceString
+	predef PlaceString
 	ld a, BANK(sRTCHaltCheckValue)
 	ld hl, sRTCHaltCheckValue
 	predef OpenSRAM
@@ -1514,7 +1514,7 @@ DebugRoom_PrintRTCHaltChk:
 	ld de, .OKString
 .done
 	hlcoord 16, 10
-	call PlaceString
+	predef PlaceString
 	ret
 
 .RTCString:
@@ -1651,7 +1651,7 @@ ComputeROMChecksum:
 DebugRoom_PrintROMChecksum: ; unreferenced
 	hlcoord 16, 0
 	ld de, .SumString
-	call PlaceString
+	predef PlaceString
 	hlcoord 16, 1
 	ld de, wDebugRoomROMChecksum
 	ld c, 2

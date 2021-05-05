@@ -94,14 +94,14 @@ NamingScreen:
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	hlcoord 5, 2
-	call PlaceString
+	predef PlaceString
 	ld l, c
 	ld h, b
 	ld de, .NicknameStrings
-	call PlaceString
+	predef PlaceString
 	inc de
 	hlcoord 5, 4
-	call PlaceString
+	predef PlaceString
 	farcall GetGender
 	jr c, .genderless
 	ld a, "♂"
@@ -123,7 +123,7 @@ NamingScreen:
 	call .LoadSprite
 	hlcoord 5, 2
 	ld de, .PlayerNameString
-	call PlaceString
+	predef PlaceString
 	call .StoreSpriteIconParams
 	ret
 
@@ -136,7 +136,7 @@ NamingScreen:
 	call .LoadSprite
 	hlcoord 5, 2
 	ld de, .RivalNameString
-	call PlaceString
+	predef PlaceString
 	call .StoreSpriteIconParams
 	ret
 
@@ -149,7 +149,7 @@ NamingScreen:
 	call .LoadSprite
 	hlcoord 5, 2
 	ld de, .MomNameString
-	call PlaceString
+	predef PlaceString
 	call .StoreSpriteIconParams
 	ret
 
@@ -173,7 +173,7 @@ NamingScreen:
 	ld [hl], $0
 	hlcoord 5, 2
 	ld de, .BoxNameString
-	call PlaceString
+	predef PlaceString
 	call .StoreBoxIconParams
 	ret
 
@@ -183,7 +183,7 @@ NamingScreen:
 .Tomodachi:
 	hlcoord 3, 2
 	ld de, .oTomodachi_no_namae_sutoringu
-	call PlaceString
+	predef PlaceString
 	call .StoreSpriteIconParams
 	ret
 
@@ -359,7 +359,7 @@ NamingScreenJoypadLoop:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
@@ -1037,7 +1037,7 @@ INCBIN "gfx/icons/mail_big.2bpp"
 	inc hl
 	ld d, [hl]
 	hlcoord 2, 2
-	call PlaceString
+	predef PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret

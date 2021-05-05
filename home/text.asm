@@ -341,7 +341,7 @@ PlaceBattlersName:
 
 .enemy
 	ld de, EnemyText
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, wEnemyMonNickname
@@ -361,11 +361,11 @@ PlaceEnemysName::
 	jr z, .rival
 
 	ld de, wOTClassName
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, String_Space
-	call PlaceString
+	predef PlaceString
 	push bc
 	callfar Battle_GetTrainerName
 	pop hl
@@ -383,7 +383,7 @@ PlaceEnemysName::
 PlaceGenderedPlayerName::
 	push de
 	ld de, wPlayerName
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld a, [wPlayerGender]
@@ -394,7 +394,7 @@ PlaceGenderedPlayerName::
 	jr PlaceCommandCharacter
 
 PlaceCommandCharacter::
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	pop de
@@ -533,7 +533,7 @@ ContText::
 	ld de, .cont
 	ld b, h
 	ld c, l
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	pop de
@@ -647,7 +647,7 @@ PlaceFarString::
 
 	ld a, b
 	rst Bankswitch
-	call PlaceString
+	predef PlaceString
 
 	pop af
 	rst Bankswitch
@@ -731,7 +731,7 @@ TextCommand_START::
 	ld e, l
 	ld h, b
 	ld l, c
-	call PlaceString
+	predef PlaceString
 	ld h, d
 	ld l, e
 	inc hl
@@ -746,7 +746,7 @@ TextCommand_RAM::
 	push hl
 	ld h, b
 	ld l, c
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ret
 
@@ -1015,7 +1015,7 @@ TextCommand_STRINGBUFFER::
 	ld e, l
 	ld h, b
 	ld l, c
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ret
 
@@ -1035,11 +1035,11 @@ TextCommand_DAY::
 	ld d, h
 	ld e, l
 	pop hl
-	call PlaceString
+	predef PlaceString
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
+	predef PlaceString
 	pop hl
 	ret
 
