@@ -184,11 +184,25 @@ LongAnim_UpdateVariables:
 	; used. The game then proceeds as though it never deleted that output.
 	; To fix, uncomment the line below.
 	call ComputeHPBarPixels
-	; ld a, e
+    push af
+    ld a,[wOptions2]
+    ld b,a
+    pop af
+    bit FAST_HP_BAR,b
+    jr z, .slow
+	ld a, e ; this line was commented
+.slow:
 	pop bc
 	pop de
 	pop hl
+    push af
+    ld a,[wOptions2]
+    ld b,a
+    pop af
+    bit FAST_HP_BAR,b
+    jr nz, .fast
 	ld a, e ; Comment or delete this line to fix the above bug.
+.fast:
 	ld hl, wCurHPBarPixels
 	cp [hl]
 	jr z, .loop
@@ -383,7 +397,7 @@ ShortHPBar_CalcPixelFrame:
 	ld a, h
 	sbc $0
 	ld h, a
-	; jr z, .done
+	jr z, .done ; this line was commented
 	jr c, .done
 	inc b
 	jr .loop

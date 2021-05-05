@@ -575,7 +575,6 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
-	effectchance ; bug: duplicate effectchance shouldn't be here
 	defensedown
 	statdownmessage
 	endmove
@@ -706,10 +705,10 @@ DefenseUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
+    defenseup
+	statupmessage
 	checkfaint
 	buildopponentrage
-	defenseup
-	statupmessage
 	endmove
 
 AttackUpHit:
@@ -728,10 +727,10 @@ AttackUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
+    attackup
+	statupmessage
 	checkfaint
 	buildopponentrage
-	attackup
-	statupmessage
 	endmove
 
 AllUpHit:
@@ -750,9 +749,9 @@ AllUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
+    allstatsup
 	checkfaint
 	buildopponentrage
-	allstatsup
 	endmove
 
 PayDay:

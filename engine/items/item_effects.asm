@@ -214,6 +214,11 @@ PokeBallEffect:
 	dec a
 	jp nz, UseBallInTrainerBattle
 
+    ; bugfix: don't crash in catching tutorial if box is full
+	ld a, [wBattleType]
+	cp BATTLETYPE_TUTORIAL
+	jr z, .room_in_party
+
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
 	jr nz, .room_in_party
@@ -344,7 +349,7 @@ PokeBallEffect:
 	and 1 << FRZ | SLP
 	ld c, 10
 	jr nz, .addstatus
-	; ld a, [wEnemyMonStatus]
+	ld a, [wEnemyMonStatus] ; this line was commented
 	and a
 	ld c, 5
 	jr nz, .addstatus
@@ -362,7 +367,7 @@ PokeBallEffect:
 	ld d, a
 	push de
 	ld a, [wBattleMonItem]
-	; ld b, a
+	ld b, a ; this line was commented
 	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_CATCH_CHANCE
@@ -446,20 +451,9 @@ PokeBallEffect:
 	push af
 	set SUBSTATUS_TRANSFORMED, [hl]
 
-; This code is buggy. Any wild Pokémon that has Transformed will be
-; caught as a Ditto, even if it was something else like Mew.
-; To fix, do not set [wTempEnemyMonSpecies] to DITTO.
 	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .ditto
-	jr .not_ditto
+	jr nz, .load_data
 
-.ditto
-	ld a, DITTO
-	ld [wTempEnemyMonSpecies], a
-	jr .load_data
-
-.not_ditto
-	set SUBSTATUS_TRANSFORMED, [hl]
 	ld hl, wEnemyBackupDVs
 	ld a, [wEnemyMonDVs]
 	ld [hli], a
@@ -767,7 +761,7 @@ GetPokedexEntryBank:
 	push hl
 	push de
 	ld a, [wEnemyMonSpecies]
-	; dec a
+	dec a ; this line was commented
 	rlca
 	rlca
 	maskbits NUM_DEX_ENTRY_BANKS
@@ -937,7 +931,7 @@ MoonBallMultiplier:
 	push bc
 	ld a, BANK("Evolutions and Attacks")
 	call GetFarByte
-	cp MOON_STONE_RED ; BURN_HEAL
+	cp BURN_HEAL
 	pop bc
 	ret nz
 
@@ -996,7 +990,7 @@ LoveBallMultiplier:
 	pop de
 	cp d
 	pop bc
-	ret nz ; for the intended effect, this should be "ret z"
+	ret z ; for the intended effect, this should be "ret z"
 
 	sla b
 	jr c, .max
@@ -1034,7 +1028,7 @@ FastBallMultiplier:
 	cp -1
 	jr z, .next
 	cp c
-	jr nz, .next ; for the intended effect, this should be "jr nz, .loop"
+	jr nz, .loop ; for the intended effect, this should be "jr nz, .loop"
 	sla b
 	jr c, .max
 
