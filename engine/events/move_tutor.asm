@@ -68,7 +68,7 @@ CheckCanLearnMoveTutorMove:
 	jr nz, .can_learn
 	push de
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ld a, BANK(TMHMNotCompatibleText)
 	ld hl, TMHMNotCompatibleText

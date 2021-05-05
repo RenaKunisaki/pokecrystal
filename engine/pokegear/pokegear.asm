@@ -52,7 +52,7 @@ PokeGear:
 
 .done
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	pop af
 	ld [wVramState], a
@@ -922,12 +922,12 @@ PokegearPhone_MakePhoneCall:
 	xor a
 	ldh [hInMenu], a
 	ld de, SFX_CALL
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .GearEllipseText
 	call PrintText
 	call WaitSFX
 	ld de, SFX_CALL
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .GearEllipseText
 	call PrintText
 	call WaitSFX
@@ -1313,7 +1313,7 @@ GetAMPMHours: ; unreferenced
 
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	ld a, c
 	ld [wJumptableIndex], a
 	ld a, b

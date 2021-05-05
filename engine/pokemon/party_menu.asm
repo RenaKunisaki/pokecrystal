@@ -689,14 +689,14 @@ PartyMenuSelect:
 	ld [wCurPartySpecies], a
 
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	and a
 	ret
 
 .exitmenu
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	scf
 	ret

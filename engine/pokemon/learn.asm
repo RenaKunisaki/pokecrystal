@@ -225,7 +225,7 @@ Text_1_2_and_Poof:
 	text_asm
 	push de
 	ld de, SFX_SWITCH_POKEMON
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ld hl, .MoveForgotText
 	ret

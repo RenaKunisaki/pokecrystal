@@ -369,7 +369,7 @@ DoPlayerMovement::
 	jr z, .DontJump
 
 	ld de, SFX_JUMP_OVER_LEDGE
-	call PlaySFX
+	predef PlaySFX
 	ld a, STEP_LEDGE
 	call .DoStep
 	ld a, PLAYERMOVEMENT_JUMP
@@ -777,7 +777,7 @@ ENDM
 	call CheckSFX
 	ret c
 	ld de, SFX_BUMP
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .GetOutOfWater:

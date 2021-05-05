@@ -776,7 +776,7 @@ RetrieveMonFromDayCareMan:
 	ld a, [wBreedMon1Species]
 	ld [wCurPartySpecies], a
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call GetBreedMon1LevelGrowth
 	ld a, b
@@ -791,7 +791,7 @@ RetrieveMonFromDayCareLady:
 	ld a, [wBreedMon2Species]
 	ld [wCurPartySpecies], a
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call GetBreedMon2LevelGrowth
 	ld a, b

@@ -530,7 +530,7 @@ UnknownText_0x8b64c:
 	text_far _CardFolderOpenText
 	text_asm
 	ld de, SFX_TWINKLE
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld c, $8
 	predef DelayFrames

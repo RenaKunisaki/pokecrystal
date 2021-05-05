@@ -162,7 +162,7 @@ BankOfMom:
 	ld bc, 3
 	call CopyBytes
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld hl, MomStoredMoneyText
 	call PrintText
@@ -228,7 +228,7 @@ BankOfMom:
 	ld bc, 3
 	call CopyBytes
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld hl, MomTakenMoneyText
 	call PrintText

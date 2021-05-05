@@ -536,7 +536,7 @@ AIUpdateHUD:
 AIUsedItemSound:
 	push de
 	ld de, SFX_FULL_HEAL
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ret
 

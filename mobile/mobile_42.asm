@@ -502,7 +502,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_SENT_BALL
 	call InitSpriteAnimStruct
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	hlcoord 0, 0
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, " "
@@ -542,7 +542,7 @@ MobileTradeAnim_ShowOTMonFromTrade:
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	call MobileTradeAnim_DisplayReceivedMon
 	xor a
 	ldh [hSCX], a
@@ -635,7 +635,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_SENT_BALL
 	call InitSpriteAnimStruct
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	hlcoord 0, 0
 	ld bc, 12 * SCREEN_WIDTH
 	ld a, " "
@@ -684,7 +684,7 @@ MobileTradeAnim_ShowOTMonFromGTS:
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	call MobileTradeAnim_DisplayReceivedMon
 	xor a
 	ldh [hSCX], a
@@ -752,7 +752,7 @@ MobileTradeAnim_GetOddEgg:
 	ld c, 48
 	call WaitMobileTradeSpriteAnims
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	call Function108a33
 	xor a
 	ldh [hSCX], a
@@ -910,7 +910,7 @@ MobileTradeAnim_11:
 
 MobileTradeAnim_GiveTrademon1:
 	ld de, SFX_GIVE_TRADEMON
-	call PlaySFX
+	predef PlaySFX
 	ld c, 40
 	ld hl, wBGPals2 palette 6
 	call Function1082f0
@@ -983,7 +983,7 @@ MobileTradeAnim_GiveTrademon2:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_PING
 	call InitSpriteAnimStruct
 	ld de, SFX_FORESIGHT
-	call PlaySFX
+	predef PlaySFX
 	ld c, 10
 	call WaitMobileTradeSpriteAnims
 	xor a
@@ -1011,7 +1011,7 @@ MobileTradeAnim_05:
 	ld a, $1
 	ld [wcf64], a
 	ld de, SFX_SHARPEN
-	call PlaySFX
+	predef PlaySFX
 	ld c, 60
 	call WaitMobileTradeSpriteAnims
 	depixel 30, 10, 2, 0
@@ -1019,7 +1019,7 @@ MobileTradeAnim_05:
 	call InitSpriteAnimStruct
 	call GetMobileTradeAnimByte
 	ld de, SFX_THROW_BALL
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 MobileTradeAnim_06:
@@ -1028,7 +1028,7 @@ MobileTradeAnim_06:
 	ld a, $1
 	ld [wcf64], a
 	ld de, SFX_SHARPEN
-	call PlaySFX
+	predef PlaySFX
 	call GetMobileTradeAnimByte
 	ret
 
@@ -1040,7 +1040,7 @@ MobileTradeAnim_07:
 	call InitSpriteAnimStruct
 	call GetMobileTradeAnimByte
 	ld de, SFX_THROW_BALL
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 MobileTradeAnim_GetTrademon1:
@@ -1062,7 +1062,7 @@ MobileTradeAnim_GetTrademon1:
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_PING
 	call InitSpriteAnimStruct
 	ld de, SFX_GLASS_TING_2
-	call PlaySFX
+	predef PlaySFX
 	call Function108af4
 	call MobileTradeAnim_Next
 	ret
@@ -1072,7 +1072,7 @@ MobileTradeAnim_GetTrademon2:
 	ld hl, wBGPals2 + 1 palettes
 	call Function1082fa
 	ld de, SFX_GIVE_TRADEMON
-	call PlaySFX
+	predef PlaySFX
 	ld c, 20
 	ld hl, wBGPals2 + 1 palettes
 	call Function1082fa

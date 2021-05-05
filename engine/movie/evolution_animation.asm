@@ -269,7 +269,7 @@ EvolutionAnimation:
 	and a
 	ret nz
 	ld de, SFX_EVOLVED
-	call PlaySFX
+	predef PlaySFX
 	ld hl, wJumptableIndex
 	ld a, [hl]
 	push af

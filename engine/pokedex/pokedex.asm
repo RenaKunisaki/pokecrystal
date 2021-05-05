@@ -55,7 +55,7 @@ Pokedex:
 
 .exit
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call ClearSprites
 	ld a, [wCurDexMode]
@@ -1760,7 +1760,7 @@ Pokedex_DisplayChangingModesMessage:
 	ld c, 64
 	predef DelayFrames
 	ld de, SFX_CHANGE_DEX_MODE
-	call PlaySFX
+	predef PlaySFX
 	ld c, 64
 	predef DelayFrames
 	ret

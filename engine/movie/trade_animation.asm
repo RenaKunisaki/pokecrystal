@@ -503,13 +503,13 @@ TradeAnim_TubeToPlayer7:
 TradeAnim_GiveTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
 	ld de, SFX_GIVE_TRADEMON
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 TradeAnim_GetTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
 	ld de, SFX_GET_TRADEMON
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 TradeAnim_TubeAnimJumptable:
@@ -643,7 +643,7 @@ TradeAnim_EnterLinkTube1:
 	lb de, %11100100, %11100100 ; 3,2,1,0, 3,2,1,0
 	call DmgToCgbObjPals
 	ld de, SFX_POTION
-	call PlaySFX
+	predef PlaySFX
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
@@ -1040,7 +1040,7 @@ TradeAnim_Poof:
 	ld a, 16
 	ld [wFrameCounter], a
 	ld de, SFX_BALL_POOF
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 TradeAnim_BulgeThroughTube:

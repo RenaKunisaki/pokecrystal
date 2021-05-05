@@ -38,7 +38,7 @@ MoveDeletion:
 	call .DeleteMove
 	call WaitSFX
 	ld de, SFX_MOVE_DELETED
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld hl, .DeleterForgotMoveText
 	call PrintText

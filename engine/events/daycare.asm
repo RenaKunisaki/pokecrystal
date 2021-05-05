@@ -401,7 +401,7 @@ DayCareManOutside:
 	ld hl, .ReceivedEggText
 	call PrintText
 	ld de, SFX_GET_EGG
-	call PlaySFX
+	predef PlaySFX
 	ld c, 120
 	predef DelayFrames
 	ld hl, .TakeGoodCareOfEggText

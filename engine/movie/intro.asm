@@ -157,7 +157,7 @@ IntroScene2:
 	depixel 11, 11
 	call CrystalIntro_InitUnownAnim
 	ld de, SFX_INTRO_UNOWN_1
-	call PlaySFX
+	predef PlaySFX
 	pop af
 .nosound
 	ld [wIntroSceneTimer], a
@@ -303,7 +303,7 @@ IntroScene6:
 	depixel 7, 15
 	call CrystalIntro_InitUnownAnim
 	ld de, SFX_INTRO_UNOWN_2
-	call PlaySFX
+	predef PlaySFX
 	pop af
 .NoUnown:
 	ld [wIntroSceneTimer], a
@@ -316,7 +316,7 @@ IntroScene6:
 	depixel 14, 6
 	call CrystalIntro_InitUnownAnim
 	ld de, SFX_INTRO_UNOWN_1
-	call PlaySFX
+	predef PlaySFX
 	pop af
 .StopUnown:
 	ld [wIntroSceneTimer], a
@@ -412,7 +412,7 @@ IntroScene8:
 
 .suicune_sound
 	ld de, SFX_INTRO_SUICUNE_3
-	call PlaySFX
+	predef PlaySFX
 .animate_suicune
 	ld a, [wGlobalAnimXOffset]
 	and a
@@ -423,7 +423,7 @@ IntroScene8:
 
 .finish
 	ld de, SFX_INTRO_SUICUNE_2
-	call PlaySFX
+	predef PlaySFX
 	farcall DeinitializeAllSprites
 	call NextIntroScene
 	ret
@@ -484,7 +484,7 @@ IntroScene10:
 	ld a, SPRITE_ANIM_INDEX_INTRO_PICHU
 	call InitSpriteAnimStruct
 	ld de, SFX_INTRO_PICHU
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .wooper
@@ -492,7 +492,7 @@ IntroScene10:
 	ld a, SPRITE_ANIM_INDEX_INTRO_WOOPER
 	call InitSpriteAnimStruct
 	ld de, SFX_INTRO_PICHU
-	call PlaySFX
+	predef PlaySFX
 	ret
 .done
 	call NextIntroScene
@@ -608,7 +608,7 @@ IntroScene12:
 	push de
 	call SFXChannelsOff
 	pop de
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .UnownSounds:
@@ -700,7 +700,7 @@ IntroScene14:
 
 .jump
 	ld de, SFX_INTRO_SUICUNE_4
-	call PlaySFX
+	predef PlaySFX
 
 .run_after_jump
 	ld a, $1
@@ -1139,7 +1139,7 @@ IntroScene28:
 	ret nz
 
 	ld de, SFX_INTRO_WHOOSH
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .clear

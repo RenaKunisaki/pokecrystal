@@ -1045,7 +1045,7 @@ DepositSellTutorial_InterpretJoypad:
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	scf
 	ret
@@ -1057,7 +1057,7 @@ DepositSellTutorial_InterpretJoypad:
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	scf
 	ret
@@ -1279,7 +1279,7 @@ Pack_InterpretJoypad:
 	ld [wPackJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	scf
 	ret
@@ -1290,7 +1290,7 @@ Pack_InterpretJoypad:
 	ld [wPackJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	scf
 	ret

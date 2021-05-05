@@ -1410,7 +1410,7 @@ Function100902:
 	ld de, wStringBuffer2
 	call PrintNum
 	ld de, SFX_TWO_PC_BEEPS
-	call PlaySFX
+	predef PlaySFX
 	farcall ReloadMapPart
 	ld c, $3c
 	predef DelayFrames
@@ -1421,7 +1421,7 @@ Function100902:
 	hlcoord 4, 11
 	call PlaceString
 	ld de, SFX_4_NOTE_DITTY
-	call PlaySFX
+	predef PlaySFX
 	farcall ReloadMapPart
 	ld c, 120
 	predef DelayFrames
@@ -1934,14 +1934,14 @@ Mobile_PartyMenuSelect:
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	and a
 	ret
 
 .done
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	scf
 	ret
@@ -1974,7 +1974,7 @@ MobileBattleMonMenu:
 .asm_100d56
 	push af
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	pop af
 	bit 1, a
 	jr z, .asm_100d65
@@ -2136,7 +2136,7 @@ Function100e63:
 	call Function100db0
 	ret nc
 	ld de, SFX_ELEVATOR_END
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 Function100e72:
@@ -4737,7 +4737,7 @@ Function102142:
 	ld hl, NewCardArrivedText
 	call MenuTextbox
 	ld de, SFX_LEVEL_UP
-	call PlaySFX
+	predef PlaySFX
 	call JoyWaitAorB
 	call ExitMenu
 	call Function10219f
@@ -4903,7 +4903,7 @@ Function102274:
 	ret z
 	res 3, [hl]
 	ld de, 8
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 Function102283:
@@ -4933,7 +4933,7 @@ Function102298:
 	set 7, [hl]
 	ret nz
 	ld de, SFX_ELEVATOR_END
-	call PlaySFX
+	predef PlaySFX
 	jr .asm_1022c1
 
 .asm_1022b6
@@ -7038,7 +7038,7 @@ Function1033af:
 	cp 3
 	jr nz, .a_return
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	ld hl, wd1eb
 	set 7, [hl]
 	ld hl, wd1eb
@@ -7052,7 +7052,7 @@ Function1033af:
 	cp 3
 	ret z
 	ld de, SFX_PUSH_BUTTON
-	call PlaySFX
+	predef PlaySFX
 	ld bc, 8
 	call Function10350f
 	ld a, [wd1ea]

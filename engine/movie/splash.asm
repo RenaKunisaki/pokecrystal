@@ -155,7 +155,7 @@ GameFreakPresents_PlaceGameFreak:
 	call CopyBytes
 	call GameFreakPresents_NextScene
 	ld de, SFX_GAME_FREAK_PRESENTS
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .game_freak
@@ -268,7 +268,7 @@ GameFreakLogo_Bounce:
 	sub 48
 	ld [hl], a
 	ld de, SFX_DITTO_BOUNCE
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .done
@@ -279,7 +279,7 @@ GameFreakLogo_Bounce:
 	add hl, bc
 	ld [hl], 0
 	ld de, SFX_DITTO_POP_UP
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 GameFreakLogo_Ditto:
@@ -300,7 +300,7 @@ GameFreakLogo_Ditto:
 	add hl, bc
 	ld [hl], 0
 	ld de, SFX_DITTO_TRANSFORM
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 GameFreakLogo_Transform:

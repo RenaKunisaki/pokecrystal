@@ -280,7 +280,7 @@ UnownPuzzleJumptable:
 	ld de, SFX_MOVE_PUZZLE_PIECE
 
 .play_sfx
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 UnownPuzzle_A:
@@ -291,7 +291,7 @@ UnownPuzzle_A:
 	and a
 	jr z, UnownPuzzle_InvalidAction
 	ld de, SFX_MEGA_KICK
-	call PlaySFX
+	predef PlaySFX
 	ld [hl], 0
 	ld [wUnownPuzzleHeldPiece], a
 	call RedrawUnownPuzzlePieces
@@ -307,7 +307,7 @@ UnownPuzzle_A:
 	and a
 	jr nz, UnownPuzzle_InvalidAction
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call PlaySFX
+	predef PlaySFX
 	ld a, [wUnownPuzzleHeldPiece]
 	ld [hl], a
 	call PlaceUnownPuzzlePieceGFX
@@ -325,7 +325,7 @@ UnownPuzzle_A:
 	call PlaceStartCancelBoxBorder
 	call ClearSprites
 	ld de, SFX_1ST_PLACE
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call SimpleWaitPressAorB
 	ld a, TRUE
@@ -337,7 +337,7 @@ UnownPuzzle_Quit:
 
 UnownPuzzle_InvalidAction:
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ret
 

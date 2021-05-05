@@ -11,7 +11,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     218 	predef DelayFrames
     163 	call WaitBGMap
     162 	call Random
-    159 	call PlaySFX
+    159 	predef PlaySFX
     158 	call ClearBGPalettes
     154 	call ClearSprites
     129 	call GetBattleVar
@@ -2524,8 +2524,8 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1  	call PlayStereoCry
       1 	call .PlayStation
       1 	call PlaySpriteAnimations
-      1 	call PlaySFX ; sfx loaded by previous Rate function call
-      1  	call PlaySFX
+      1 	predef PlaySFX ; sfx loaded by previous Rate function call
+      1  	predef PlaySFX
       1 	call _PlaySFX
       1 	call .PlayPoisonSFX
       1 +	call PlayMonCry

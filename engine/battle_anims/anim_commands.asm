@@ -1327,7 +1327,7 @@ PlayHitSound:
 	ld de, SFX_NOT_VERY_EFFECTIVE
 
 .play
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 BattleAnimAssignPals:

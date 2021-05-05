@@ -382,7 +382,7 @@ MagnetTrain_Jumptable:
 	ld a, $80
 	ld [wJumptableIndex], a
 	ld de, SFX_TRAIN_ARRIVED
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 MagnetTrain_Jumptable_FirstRunThrough:

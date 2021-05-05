@@ -1599,7 +1599,7 @@ Function89a57:
 .PlayPocketSwitchSFX:
 	push af
 	ld de, SFX_SWITCH_POCKETS
-	call PlaySFX
+	predef PlaySFX
 	pop af
 	ret
 
@@ -2679,7 +2679,7 @@ Function8a116:
 .asm_8a14c
 	call WaitSFX
 	ld de, SFX_TWINKLE
-	call PlaySFX
+	predef PlaySFX
 	ld c, $10
 	predef DelayFrames
 .asm_8a15a

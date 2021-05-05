@@ -128,7 +128,7 @@ BuenaPrize:
 
 .Purchase:
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .BuenaHereYouGoText
 
 .print

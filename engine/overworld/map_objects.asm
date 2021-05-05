@@ -675,7 +675,7 @@ MovementFunction_Strength:
 	call CanObjectMoveInDirection
 	jr c, .ok2
 	ld de, SFX_STRENGTH
-	call PlaySFX
+	predef PlaySFX
 	call SpawnStrengthBoulderDust
 	call UpdateTallGrassFlags
 	ld hl, OBJECT_STEP_TYPE

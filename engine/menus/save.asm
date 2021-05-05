@@ -109,7 +109,7 @@ MoveMonWOMail_InsertMon_SaveGame:
 	call LoadBox
 	call ResumeGameLogic
 	ld de, SFX_SAVE
-	call PlaySFX
+	predef PlaySFX
 	ld c, 24
 	predef DelayFrames
 	ret

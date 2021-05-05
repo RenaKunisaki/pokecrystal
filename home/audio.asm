@@ -121,7 +121,7 @@ PlaySFX::
 
 WaitPlaySFX::
 	call WaitSFX
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 WaitSFX::

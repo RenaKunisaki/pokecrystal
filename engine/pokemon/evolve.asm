@@ -247,7 +247,7 @@ EvolveAfterBattle_MasterLoop:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld de, SFX_CAUGHT_MON
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 
 	ld c, 40

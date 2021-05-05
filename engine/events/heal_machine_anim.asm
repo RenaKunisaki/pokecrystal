@@ -108,7 +108,7 @@ ENDM
 	call .PlaceHealingMachineTile
 	push de
 	ld de, SFX_SECOND_PART_OF_ITEMFINDER
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ld c, 30
 	predef DelayFrames
@@ -123,11 +123,11 @@ ENDM
 
 .HOF_PlaySFX:
 	ld de, SFX_GAME_FREAK_LOGO_GS
-	call PlaySFX
+	predef PlaySFX
 	call .FlashPalettes8Times
 	call WaitSFX
 	ld de, SFX_BOOT_PC
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .dummy_5

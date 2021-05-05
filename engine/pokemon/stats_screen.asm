@@ -1046,7 +1046,7 @@ endc
 	cp 6
 	ret nc
 	ld de, SFX_2_BOOPS
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 EggString:

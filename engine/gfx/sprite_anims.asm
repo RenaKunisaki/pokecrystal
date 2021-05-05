@@ -386,7 +386,7 @@ AnimSeq_SlotsChanseyEgg:
 	ld a, $4
 	ld [wSlotsDelay], a
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .move_right
@@ -470,7 +470,7 @@ AnimSeq_TradePokeBall:
 
 .done
 	ld de, SFX_GOT_SAFARI_BALLS
-	call PlaySFX
+	predef PlaySFX
 	jr .delete
 
 .one
@@ -521,7 +521,7 @@ AnimSeq_TradePokeBall:
 	sub $c
 	ld [hl], a
 	ld de, SFX_SWITCH_POKEMON
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .done2
@@ -548,7 +548,7 @@ AnimSeq_TradeTubeBulge:
 	and $3
 	ret nz
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .delete

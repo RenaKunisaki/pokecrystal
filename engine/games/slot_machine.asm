@@ -84,7 +84,7 @@ _SlotMachine:
 	jr nc, .loop
 	call WaitSFX
 	ld de, SFX_QUIT_SLOTS
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call ClearBGPalettes
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
@@ -486,7 +486,7 @@ SlotsAction_PayoutAnim:
 	and $7
 	ret z ; ret nz would be more appropriate
 	ld de, SFX_GET_COIN_FROM_SLOTS
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .done
@@ -1747,7 +1747,7 @@ Slots_AskBet:
 .ok
 	call WaitSFX
 	ld de, SFX_PAY_DAY
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .SlotsStartText
 	call PrintText
 	and a
@@ -2082,7 +2082,7 @@ Slots_AnimateChansey:
 	and $f
 	ret nz
 	ld de, SFX_JUMP_OVER_LEDGE
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .limit
@@ -2141,7 +2141,7 @@ Slots_PlaySFX:
 	push de
 	ld e, a
 	ld d, 0
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ret
 

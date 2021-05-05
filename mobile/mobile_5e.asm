@@ -650,12 +650,12 @@ Unknown_17aa77:
 Function17aa88:
 	jr c, asm_17aa91
 	ld de, SFX_SWITCH_POKEMON
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 asm_17aa91:
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 Function17aa98:

@@ -739,7 +739,7 @@ EggHatch_AnimationSequence:
 
 .done
 	ld de, SFX_EGG_HATCH
-	call PlaySFX
+	predef PlaySFX
 	xor a
 	ldh [hSCX], a
 	ld [wGlobalAnimXOffset], a
@@ -831,7 +831,7 @@ Hatch_InitShellFragments:
 	jr .loop
 .done
 	ld de, SFX_EGG_HATCH
-	call PlaySFX
+	predef PlaySFX
 	call EggHatch_DoAnimFrame
 	ret
 

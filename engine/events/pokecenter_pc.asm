@@ -113,7 +113,7 @@ PC_CheckPartyForPokemon:
 	and a
 	ret nz
 	ld de, SFX_CHOOSE_PC_OPTION
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .PokecenterPCCantUseText
 	call PC_DisplayText
 	scf
@@ -201,7 +201,7 @@ PC_WaitPlaySFX:
 	push de
 	call WaitSFX
 	pop de
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 _PlayersHousePC:

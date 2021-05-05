@@ -148,7 +148,7 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	jr c, .skip_sfx
 
 	ld de, SFX_RUN
-	call PlaySFX
+	predef PlaySFX
 
 .skip_sfx
 	call SetPlayerTurn
@@ -2259,10 +2259,10 @@ FaintYourPokemon:
 FaintEnemyPokemon:
 	call WaitSFX
 	ld de, SFX_KINESIS
-	call PlaySFX
+	predef PlaySFX
 	call EnemyMonFaintedAnimation
 	ld de, SFX_FAINT
-	call PlaySFX
+	predef PlaySFX
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
@@ -2877,7 +2877,7 @@ ForcePickPartyMonInBattle:
 	ret c
 
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	jr .pick
 
@@ -4204,10 +4204,10 @@ PursuitSwitch:
 	jr nz, .done
 
 	ld de, SFX_KINESIS
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld de, SFX_FAINT
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call EnemyMonFaintedAnimation
 	ld hl, BattleText_EnemyMonFainted
@@ -7287,7 +7287,7 @@ GiveExperiencePoints:
 	cp b
 	jr z, .skip_exp_bar_animation
 	ld de, SFX_HIT_END_OF_EXP_BAR
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld hl, BattleText_StringBuffer1GrewToLevel
 	call StdBattleTextbox
@@ -7529,7 +7529,7 @@ AnimateExpBar:
 	call CopyBytes
 	call TerminateExpBarSound
 	ld de, SFX_HIT_END_OF_EXP_BAR
-	call PlaySFX
+	predef PlaySFX
 	farcall AnimateEndOfExpBar
 	call WaitSFX
 	ld hl, BattleText_StringBuffer1GrewToLevel
@@ -7563,7 +7563,7 @@ AnimateExpBar:
 	push bc
 	call WaitSFX
 	ld de, SFX_EXP_BAR
-	call PlaySFX
+	predef PlaySFX
 	ld c, 10
 	predef DelayFrames
 	pop bc
@@ -9069,7 +9069,7 @@ BattleStartMessage:
 	jr z, .wild
 
 	ld de, SFX_SHINE
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 
 	ld c, 20

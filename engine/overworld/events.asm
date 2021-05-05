@@ -529,7 +529,7 @@ CheckAPressOW:
 PlayTalkObject:
 	push de
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ret
 

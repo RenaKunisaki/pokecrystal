@@ -856,7 +856,7 @@ MartBoughtText:
 PlayTransactionSound:
 	call WaitSFX
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 MartTextbox:

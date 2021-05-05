@@ -48,7 +48,7 @@ MonMenuLoop:
 	set 6, [hl]
 	call StaticMenuJoypad
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	ldh a, [hJoyPressed]
 	bit A_BUTTON_F, a
 	jr nz, .select
@@ -262,7 +262,7 @@ BattleMonMenu:
 	set 6, [hl]
 	call StaticMenuJoypad
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	ldh a, [hJoyPressed]
 	bit B_BUTTON_F, a
 	jr z, .clear_carry

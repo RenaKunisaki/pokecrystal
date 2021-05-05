@@ -108,7 +108,7 @@ ChooseMonToLearnTMHM_NoRefresh:
 	push bc
 	push af
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	pop af
 	pop bc
@@ -130,7 +130,7 @@ TeachTMHM:
 	jr nz, .compatible
 	push de
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ld hl, TMHMNotCompatibleText
 	call PrintText
@@ -481,7 +481,7 @@ Tutorial_TMHMPocket:
 TMHM_PlaySFX_ReadText2:
 	push de
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	pop de
 	ret
 

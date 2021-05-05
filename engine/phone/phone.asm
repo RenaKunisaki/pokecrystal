@@ -508,7 +508,7 @@ PhoneCall::
 
 Phone_NoSignal:
 	ld de, SFX_NO_SIGNAL
-	call PlaySFX
+	predef PlaySFX
 	jr Phone_CallEnd
 
 HangUp::
@@ -531,14 +531,14 @@ Phone_CallEnd:
 
 HangUp_ShutDown: ; unreferenced
 	ld de, SFX_SHUT_DOWN_PC
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 HangUp_Beep:
 	ld hl, PhoneClickText
 	call PrintText
 	ld de, SFX_HANG_UP
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 PhoneClickText:
@@ -561,7 +561,7 @@ HangUp_BoopOff:
 Phone_StartRinging:
 	call WaitSFX
 	ld de, SFX_CALL
-	call PlaySFX
+	predef PlaySFX
 	call Phone_CallerTextbox
 	call UpdateSprites
 	farcall PhoneRing_CopyTilemapAtOnce

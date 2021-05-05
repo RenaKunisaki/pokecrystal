@@ -1005,7 +1005,7 @@ ShrinkPlayer:
 	ld [wMusicFadeID + 1], a
 
 	ld de, SFX_ESCAPE_ROPE
-	call PlaySFX
+	predef PlaySFX
 	;pop af
 	;rst Bankswitch
 

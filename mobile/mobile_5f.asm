@@ -1203,7 +1203,7 @@ Function17d7c2:
 	ld a, [hli]
 	ld e, a
 	ld d, 0
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call HlToCrashCheckPointer
 	ret

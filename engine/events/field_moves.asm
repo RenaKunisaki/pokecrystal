@@ -5,7 +5,7 @@ FIELDMOVE_FLY EQU $84
 PlayWhirlpoolSound:
 	call WaitSFX
 	ld de, SFX_SURF
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ret
 
@@ -45,7 +45,7 @@ ShakeHeadbuttTree:
 	ld [wFrameCounter], a
 	call WaitSFX
 	ld de, SFX_SANDSTORM
-	call PlaySFX
+	predef PlaySFX
 .loop
 	ld hl, wFrameCounter
 	ld a, [hl]
@@ -120,7 +120,7 @@ OWCutAnimation:
 	call .LoadCutGFX
 	call WaitSFX
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call PlaySFX
+	predef PlaySFX
 .loop
 	ld a, [wJumptableIndex]
 	bit 7, a
@@ -417,7 +417,7 @@ FlyFunction_FrameTimer:
 	and $7
 	ret nz
 	ld de, SFX_FLY
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .exit

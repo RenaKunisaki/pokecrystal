@@ -547,7 +547,7 @@ Script_specialsound:
 	jr z, .play
 	ld de, SFX_ITEM
 .play
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ret
 
@@ -783,7 +783,7 @@ Script_playsound:
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 Script_waitsfx:
@@ -792,7 +792,7 @@ Script_waitsfx:
 
 Script_warpsound:
 	farcall GetWarpSFX
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 Script_cry:

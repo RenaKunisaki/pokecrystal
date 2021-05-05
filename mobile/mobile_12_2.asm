@@ -236,7 +236,7 @@ Function4a94e:
 
 .asm_4a9b0
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	ld hl, MobilePickThreeMonForBattleText
 	call PrintText
 	jr .asm_4a974
@@ -337,7 +337,7 @@ Function4aa34:
 Function4aa6e: ; unreferenced
 	pop af
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	jr Function4aa34
 
@@ -503,7 +503,7 @@ Function4ab1a:
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld a, $1
 	and a
@@ -514,7 +514,7 @@ Function4ab1a:
 	ld [wPartyMenuCursor], a
 .asm_4ab73
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	scf
 	ret
@@ -526,7 +526,7 @@ Function4ab1a:
 	cp $2
 	jr z, .asm_4ab73
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	xor a
 	ld [wd018], a
@@ -727,7 +727,7 @@ Function4acaa:
 	set 6, [hl]
 	call StaticMenuJoypad
 	ld de, SFX_READ_TEXT_2
-	call PlaySFX
+	predef PlaySFX
 	ldh a, [hJoyPressed]
 	bit 0, a
 	jr nz, .asm_4acf4

@@ -320,7 +320,7 @@ UseFlashTextScript:
 	text_asm
 	call WaitSFX
 	ld de, SFX_FLASH
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld hl, .BlankText
 	ret

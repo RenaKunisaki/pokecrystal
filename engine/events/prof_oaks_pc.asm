@@ -15,7 +15,7 @@ ProfOaksPCBoot:
 	ld hl, OakPCText2
 	call PrintText
 	call Rate
-	call PlaySFX ; sfx loaded by previous Rate function call
+	predef PlaySFX ; sfx loaded by previous Rate function call
 	call JoyWaitAorB
 	call WaitSFX
 	ret
@@ -26,7 +26,7 @@ ProfOaksPCRating:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	pop de
-	call PlaySFX
+	predef PlaySFX
 	call JoyWaitAorB
 	call WaitSFX
 	ret

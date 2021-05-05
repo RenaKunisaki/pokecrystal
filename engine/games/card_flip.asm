@@ -68,7 +68,7 @@ _CardFlip:
 .leavethegame
 	call WaitSFX
 	ld de, SFX_QUIT_SLOTS
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	call ClearBGPalettes
 	ld hl, wOptions
@@ -136,7 +136,7 @@ _CardFlip:
 	ld a, l
 	ld [wCoins + 1], a
 	ld de, SFX_TRANSACTION
-	call PlaySFX
+	predef PlaySFX
 	xor a
 	ldh [hBGMapMode], a
 	call CardFlip_PrintCoinBalance
@@ -184,7 +184,7 @@ _CardFlip:
 	and A_BUTTON
 	jr nz, .next
 	ld de, SFX_KINESIS
-	call PlaySFX
+	predef PlaySFX
 	call PlaceOAMCardBorder
 	ld c, 4
 	predef DelayFrames
@@ -196,7 +196,7 @@ _CardFlip:
 
 .next
 	ld de, SFX_SLOT_MACHINE_START
-	call PlaySFX
+	predef PlaySFX
 	ld a, $3
 .loop2
 	push af
@@ -253,7 +253,7 @@ _CardFlip:
 	call CardFlip_UpdateCursorOAM
 	call WaitSFX
 	ld de, SFX_CHOOSE_A_CARD
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	ld a, [wCardFlipNumCardsPlayed]
 	ld e, a
@@ -1070,7 +1070,7 @@ CardFlip_CheckWinCondition:
 
 .Lose:
 	ld de, SFX_WRONG
-	call PlaySFX
+	predef PlaySFX
 	ld hl, .CardFlipDarnText
 	call CardFlip_UpdateCoinBalanceDisplay
 	call WaitSFX
@@ -1082,7 +1082,7 @@ CardFlip_CheckWinCondition:
 	ld hl, .CardFlipYeahText
 	call CardFlip_UpdateCoinBalanceDisplay
 	pop de
-	call PlaySFX
+	predef PlaySFX
 	call WaitSFX
 	pop bc
 .loop
@@ -1119,7 +1119,7 @@ CardFlip_CheckWinCondition:
 	ld a, l
 	ld [wCoins + 1], a
 	ld de, SFX_PAY_DAY
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 .IsCoinCaseFull:
@@ -1308,7 +1308,7 @@ ChooseCard_HandleJoypad:
 
 .play_sound
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	call PlaySFX
+	predef PlaySFX
 	ret
 
 CardFlip_UpdateCursorOAM:

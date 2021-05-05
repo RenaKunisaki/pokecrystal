@@ -100,7 +100,7 @@ DoPoisonStep::
 
 .PlayPoisonSFX:
 	ld de, SFX_POISON
-	call PlaySFX
+	predef PlaySFX
 	ld b, $2
 	predef LoadPoisonBGPals
 	call DelayFrame
