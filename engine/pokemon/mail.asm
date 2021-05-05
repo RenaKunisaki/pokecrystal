@@ -9,13 +9,13 @@ SendMailToPC:
 	jr nc, .full
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sMailboxes
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld a, [wCurPartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sPartyMail
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld a, BANK(sMailboxCount)
 	call OpenSRAM
@@ -46,7 +46,7 @@ DeleteMailFromPC:
 	push bc
 	ld hl, sMailboxes
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	add hl, bc
 	pop de
@@ -75,7 +75,7 @@ ReadMailMessage:
 	ld a, b
 	ld hl, sMailboxes
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	farcall ReadAnyMail
@@ -88,12 +88,12 @@ MoveMailFromPCToParty:
 	ld a, b
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sMailboxes
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld a, [wCurPartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sPartyMail
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -107,7 +107,7 @@ MoveMailFromPCToParty:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], d
 	predef CloseSRAM
 	pop bc
@@ -130,7 +130,7 @@ CheckPokeMail::
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, [hl]
 	farcall ItemIsMail
 	ld a, POKEMAIL_NO_MAIL
@@ -141,7 +141,7 @@ CheckPokeMail::
 	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -195,7 +195,7 @@ GivePokeMail::
 	push bc
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ld [hl], b
 	pop af
@@ -203,7 +203,7 @@ GivePokeMail::
 	push af
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, wMonMailMessageBuffer
@@ -215,13 +215,13 @@ GivePokeMail::
 	push af
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld bc, NAME_LENGTH - 1
 	call CopyBytes
 	pop af
 	ld hl, wPartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -347,7 +347,7 @@ MailboxPC_GetMailAuthor:
 	dec a
 	ld hl, sMailbox1Author
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(sMailboxCount)
 	call OpenSRAM
 	ld de, wStringBuffer2
@@ -473,7 +473,7 @@ MailboxPC:
 	pop af
 	ld hl, sMailbox1Type
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wCurItem], a
 	jp CloseSRAM

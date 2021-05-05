@@ -1608,7 +1608,7 @@ GetStringBuffer:
 CopyConvertedText:
 	ld hl, wStringBuffer3
 	ld bc, STRING_BUFFER_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	call CopyName2
 	ret
 

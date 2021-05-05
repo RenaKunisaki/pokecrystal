@@ -406,7 +406,7 @@ Function4aab6:
 	push hl
 	hlcoord 0, 1
 	ld bc, $28
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], $ec
 	pop hl
 	pop de
@@ -457,7 +457,7 @@ Function4ab06:
 	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1HP
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	ld b, a
 	ld a, [hl]

@@ -292,7 +292,7 @@ LinkTradeMenu:
 
 .skip
 	ld c, SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [w2DMenuCursorOffsets]
 	and $f
 	ld c, a

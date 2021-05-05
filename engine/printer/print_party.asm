@@ -287,7 +287,7 @@ PrintPartyMonPage2:
 GetCurPartyMonName:
 	ld bc, NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ret

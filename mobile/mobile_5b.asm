@@ -644,7 +644,7 @@ Function16cbd1:
 	ld a, [hl]
 	ld bc, 2
 	ld hl, Unknown_16cfa3
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBGPals1 palette 1 color 2
 	ld bc, PAL_COLOR_SIZE
 	ld a, $5

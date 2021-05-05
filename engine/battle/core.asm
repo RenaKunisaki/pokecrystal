@@ -855,7 +855,7 @@ GetMoveEffect:
 	dec a
 	ld hl, Moves + MOVE_EFFECT
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	ld b, a
@@ -3283,7 +3283,7 @@ LookUpTheEffectivenessOfEveryMove:
 	dec a
 	ld hl, Moves
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, wEnemyMoveStruct
 	ld a, BANK(Moves)
 	call FarCopyBytes
@@ -3315,7 +3315,7 @@ IsThePlayerMonTypesEffectiveAgainstOTMon:
 	dec a
 	ld hl, BaseData + BASE_TYPES
 	ld bc, BASE_DATA_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ld de, wEnemyMonType
 	ld bc, BASE_CATCH_RATE - BASE_TYPES
 	ld a, BANK(BaseData)
@@ -5433,7 +5433,7 @@ MoveSelectionScreen:
 	hlcoord 5, 13
 	ld bc, SCREEN_WIDTH
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▷"
 
 .interpret_joypad
@@ -8226,7 +8226,7 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 	dec a
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	pop hl
@@ -8857,7 +8857,7 @@ AddLastLinkBattleToLinkRecord:
 	ld a, b
 	ld bc, LINK_BATTLE_RECORD_LENGTH
 	ld hl, sLinkBattleRecord
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld de, wLinkBattleRecordBuffer
 	ld bc, LINK_BATTLE_RECORD_LENGTH
@@ -8868,7 +8868,7 @@ AddLastLinkBattleToLinkRecord:
 	ld a, c
 	ld bc, LINK_BATTLE_RECORD_LENGTH
 	ld hl, sLinkBattleRecord
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	push hl
 	ld bc, LINK_BATTLE_RECORD_LENGTH

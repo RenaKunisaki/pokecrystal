@@ -95,7 +95,7 @@ AnimateHallOfFame:
 	jr nc, .done
 	ld hl, wHallOfFameTempMon1
 	ld bc, wHallOfFameTempMon1End - wHallOfFameTempMon1
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	cp -1
 	jr z, .done
@@ -162,7 +162,7 @@ GetHallOfFameParty:
 	ld a, c
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld c, l
 	ld b, h
 
@@ -201,7 +201,7 @@ GetHallOfFameParty:
 	ld a, c
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld bc, MON_NAME_LENGTH - 1
 	call CopyBytes
 
@@ -349,7 +349,7 @@ _HallOfFamePC:
 	jr nc, .fail
 	ld hl, wHallOfFameTempMon1
 	ld bc, wHallOfFameTempMon1End - wHallOfFameTempMon1
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	cp -1
 	jr nz, .okay
@@ -410,7 +410,7 @@ LoadHOFTeam:
 	jr nc, .invalid
 	ld hl, sHallOfFame
 	ld bc, wHallOfFameTempEnd - wHallOfFameTemp + 1
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(sHallOfFame)
 	call OpenSRAM
 	ld a, [hl]

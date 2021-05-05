@@ -265,7 +265,7 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld bc, MON_MAXHP
@@ -366,7 +366,7 @@ UpdateSpeciesNameIfNotNicknamed:
 	ld a, [wCurPartyMon]
 	ld bc, MON_NAME_LENGTH
 	ld hl, wPartyMonNicknames
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld a, [wCurSpecies]
 	ld [wNamedObjectIndex], a
@@ -388,7 +388,7 @@ IsMonHoldingEverstone:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	cp EVERSTONE
 	pop hl
@@ -444,7 +444,7 @@ LearnLevelMoves:
 	ld hl, wPartyMon1Moves
 	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 
 	ld b, NUM_MOVES
 .check_move
@@ -570,7 +570,7 @@ FillMoves:
 	dec a
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	pop hl

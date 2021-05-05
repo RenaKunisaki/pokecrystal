@@ -646,7 +646,7 @@ endc
 	ld a, b
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Level
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	pop hl

@@ -204,7 +204,7 @@ ItemSwitch_GetNthItem:
 	ld l, a
 	inc hl
 	pop af
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ItemSwitch_GetItemOffset:
@@ -217,7 +217,7 @@ ItemSwitch_GetItemOffset:
 	cpl
 .dont_negate
 	ld hl, 0
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	pop hl

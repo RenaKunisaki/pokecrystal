@@ -289,13 +289,13 @@ GetTradeAttr:
 
 Trade_GetAttributeOfCurrentPartymon:
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 Trade_GetAttributeOfLastPartymon:
 	ld a, [wPartyCount]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ret
@@ -392,7 +392,7 @@ PrintTradeText:
 	pop af
 	ld bc, 2 * 4
 	ld hl, TradeTexts
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wTradeDialog]
 	ld c, a
 	add hl, bc

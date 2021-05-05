@@ -243,7 +243,7 @@ endr
 	jr z, .loop2
 
 	ld bc, 2 * NUM_GRASSMON
-	call AddNTimes
+	predef AddNTimes
 .loop3
 	; Choose one of the middle three Pokemon.
 	call Random

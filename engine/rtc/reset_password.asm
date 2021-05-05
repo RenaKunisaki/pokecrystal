@@ -207,7 +207,7 @@ ClockResetPassword:
 	dec de
 	push hl
 	ld hl, 0
-	call AddNTimes
+	predef AddNTimes
 	ld c, l
 	ld b, h
 	pop hl

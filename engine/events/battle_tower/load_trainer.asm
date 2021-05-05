@@ -64,7 +64,7 @@ endc
 ; Copy name (10 bytes) and class (1 byte) of trainer
 	ld hl, BattleTowerTrainers
 	ld bc, NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld bc, NAME_LENGTH
 	call CopyBytes
 
@@ -73,7 +73,7 @@ endc
 
 	ld hl, BattleTowerTrainerData
 	ld bc, BATTLETOWER_TRAINERDATALENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld bc, BATTLETOWER_TRAINERDATALENGTH
 .copy_bt_trainer_data_loop
 	ld a, BANK(BattleTowerTrainerData)
@@ -105,7 +105,7 @@ LoadRandomBattleTowerMon:
 	dec a
 	ld hl, BattleTowerMons
 	ld bc, BATTLETOWER_NUM_UNIQUE_MON * NICKNAMED_MON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 
 	ldh a, [hRandomAdd]
 	ld b, a
@@ -123,7 +123,7 @@ LoadRandomBattleTowerMon:
 	; Check current and the 2 previous teams
 	; includes check if item is double at the current team
 	ld bc, NICKNAMED_MON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	ld b, a
 	ld a, [hld]

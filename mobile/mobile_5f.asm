@@ -399,7 +399,7 @@ Function17d1f1:
 	ld a, [wPartyCount]
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	predef GetUnownLetter
 	callfar UpdateUnownDex
 	ld a, [wFirstUnownSeen]
@@ -3082,7 +3082,7 @@ Function17e451:
 	hlcoord 0, 0
 	ld bc, $14
 	ld a, [wcd23]
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wCreditsTimer]
 	ld c, a
 	ld b, 0
@@ -3158,7 +3158,7 @@ Function17e4dd:
 	ld a, [wcd29]
 	hlcoord 0, 0
 	ld bc, $14
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wcd28]
 	ld c, a
 	ld b, 0
@@ -3172,7 +3172,7 @@ Function17e4dd:
 .asm_17e4ff
 	ld a, [wcd2a]
 	ld bc, $14
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wcd42]
 	ld c, a
 	ld a, [wcd2e]
@@ -3196,7 +3196,7 @@ Function17e51b:
 	ld bc, $14
 	ld a, [wcd23]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wCreditsTimer]
 	ld c, a
 	ld b, 0
@@ -3242,7 +3242,7 @@ Function17e571:
 	hlcoord 0, 0
 	ld bc, $14
 	ld a, [wcd23]
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wCreditsTimer]
 	ld c, a
 	ld b, 0
@@ -3257,7 +3257,7 @@ Function17e571:
 	ld l, $0
 	ld h, l
 	ld bc, $14
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wcd30]
 	dec a
 	ld c, a

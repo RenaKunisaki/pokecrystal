@@ -1170,7 +1170,7 @@ As Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") impli
  	ld a, [wCurOTMon]
  	ld hl, wOTPartyMon1Status
  	ld bc, PARTYMON_STRUCT_LENGTH
- 	call AddNTimes
+ 	predef AddNTimes
  	xor a
  	ld [hl], a
  	ld [wEnemyMonStatus], a
@@ -1221,7 +1221,7 @@ As Pryce's dialog ("That BADGE will raise the SPECIAL stats of POKéMON.") impli
  	ld a, [wCurOTMon]
  	ld hl, wOTPartyMon1Status
  	ld bc, PARTYMON_STRUCT_LENGTH
- 	call AddNTimes
+ 	predef AddNTimes
  	xor a
  	ld [hl], a
  	ld [wEnemyMonStatus], a

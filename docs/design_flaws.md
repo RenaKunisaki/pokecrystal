@@ -135,7 +135,7 @@ Edit `GetFrontpicPointer`:
 -	ld hl, PokemonPicPointers ; UnownPicPointers
  	dec a
  	ld bc, 6
- 	call AddNTimes
+ 	predef AddNTimes
 ```
 
 And `GetMonBackpic`:
@@ -154,7 +154,7 @@ And `GetMonBackpic`:
  .ok
  	dec a
  	ld bc, 6
- 	call AddNTimes
+ 	predef AddNTimes
 ```
 
 

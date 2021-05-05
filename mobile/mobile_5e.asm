@@ -679,7 +679,7 @@ Function17aaa9:
 	call Function17aae3
 	ld bc, $14
 	pop hl
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 Function17aac3:
@@ -716,7 +716,7 @@ Function17aae3:
 	ld a, [$d08a]
 	ld bc, $d
 	ld hl, Unknown_17aaf7
-	call AddNTimes
+	predef AddNTimes
 	pop af
 	ld c, a
 	ld b, 0

@@ -230,7 +230,7 @@ HatchEggs:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 	dec a
@@ -259,7 +259,7 @@ HatchEggs:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld bc, MON_MAXHP
 	add hl, bc
@@ -305,7 +305,7 @@ HatchEggs:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, wPlayerName
@@ -315,7 +315,7 @@ HatchEggs:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	push de

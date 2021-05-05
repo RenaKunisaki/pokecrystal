@@ -167,7 +167,7 @@ GetGender:
 .PartyMon:
 .sBoxMon
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 
 .DVs:
 ; sBoxMon data is read directly from SRAM.
@@ -200,7 +200,7 @@ GetGender:
 	dec a
 	ld hl, BaseData + BASE_GENDER
 	ld bc, BASE_DATA_SIZE
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 
 	ld a, BANK(BaseData)

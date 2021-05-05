@@ -252,7 +252,7 @@ CopyBoxmonToTempMon:
 	ld a, [wCurPartyMon]
 	ld hl, sBoxMon1Species
 	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, wTempMonSpecies
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, BANK(sBoxMon1Species)
@@ -268,7 +268,7 @@ LoadBoxMonListing: ; unreferenced
 	ld a, b
 	ld hl, .BoxAddresses
 	ld bc, 3
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	push af
 	ld a, [hli]
@@ -299,7 +299,7 @@ LoadBoxMonListing: ; unreferenced
 	ld bc, sBoxMon1Species - sBoxMons
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [de], a
 	inc de
@@ -324,7 +324,7 @@ LoadBoxMonListing: ; unreferenced
 	ld bc, MON_LEVEL
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [de], a
 	inc de
@@ -337,7 +337,7 @@ LoadBoxMonListing: ; unreferenced
 	ld bc, MON_DVS
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	and $f0
 	ld b, a

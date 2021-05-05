@@ -2143,7 +2143,7 @@ Pokedex_PutScrollbarOAM:
 	jr z, .max
 	ld hl, 0
 	ld bc, 121 ; max y - min y
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld b, 0

@@ -900,7 +900,7 @@ PokegearPhone_Joypad:
 	hlcoord 1, 4
 	ld a, [wPokegearPhoneCursorPosition]
 	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▷"
 	call PokegearPhoneContactSubmenu
 	jr c, .quit_submenu
@@ -1039,7 +1039,7 @@ endr
 	hlcoord 1, 4
 	ld a, [wPokegearPhoneCursorPosition]
 	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▶"
 	ret
 
@@ -1071,7 +1071,7 @@ PokegearPhone_UpdateDisplayList:
 	hlcoord 2, 4
 	ld a, [wPokegearPhoneDisplayPosition]
 	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop af
@@ -1268,7 +1268,7 @@ PokegearPhoneContactSubmenu:
 	pop hl
 	ld a, [wPokegearPhoneSubmenuCursor]
 	ld bc, SCREEN_WIDTH  * 2
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▶"
 	pop de
 	ret

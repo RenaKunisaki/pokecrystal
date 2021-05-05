@@ -680,6 +680,6 @@ Options_UpdateCursorPosition:
 	hlcoord 1, 2
 	ld bc, SCREEN_WIDTH
 	ld a, [wJumptableIndex]
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▶"
 	ret

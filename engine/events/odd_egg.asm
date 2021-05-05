@@ -40,7 +40,7 @@ _GiveOddEgg:
 
 	ld hl, OddEggs
 	ld a, NICKNAMED_MON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 
 	; Writes to wOddEgg, wOddEggName, and wOddEggOT,
 	; even though OddEggs does not have data for wOddEggOT

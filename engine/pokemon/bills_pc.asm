@@ -995,7 +995,7 @@ BillsPC_BoxName:
 	dec a
 	ld hl, wBoxNames
 	ld bc, BOX_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	jr .print
@@ -1133,7 +1133,7 @@ BillsPC_LoadMonStats:
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonLevel], a
 	pop hl
@@ -1142,7 +1142,7 @@ BillsPC_LoadMonStats:
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonItem], a
 	pop hl
@@ -1150,7 +1150,7 @@ BillsPC_LoadMonStats:
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -1164,19 +1164,19 @@ BillsPC_LoadMonStats:
 	ld hl, wPartyMon1Level
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonLevel], a
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonItem], a
 	ld hl, wPartyMon1DVs
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -1191,21 +1191,21 @@ BillsPC_LoadMonStats:
 	ld hl, sBoxMon1Level
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonLevel], a
 
 	ld hl, sBoxMon1Item
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	ld [wTempMonItem], a
 
 	ld hl, sBoxMon1DVs
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wTempMonDVs
 	ld a, [hli]
 	ld [de], a
@@ -1288,7 +1288,7 @@ BillsPC_RefreshTextboxes:
 	add hl, bc
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hl]
 	pop hl
 	and a
@@ -1297,7 +1297,7 @@ BillsPC_RefreshTextboxes:
 	add hl, bc
 	ld bc, MON_NAME_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -1323,7 +1323,7 @@ BillsPC_RefreshTextboxes:
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -1349,7 +1349,7 @@ BillsPC_RefreshTextboxes:
 	ld hl, sBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
 	ld a, e
-	call AddNTimes
+	predef AddNTimes
 	ld de, wStringBuffer1
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -1714,7 +1714,7 @@ BillsPC_CopyMon:
 	ld hl, sBoxMons
 	ld bc, BOXMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call CopyBytes
@@ -1732,7 +1732,7 @@ BillsPC_CopyMon:
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call CopyBytes
@@ -2114,7 +2114,7 @@ CopySpeciesToTemp:
 CopyNicknameToTemp:
 	ld bc, MON_NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBufferMonNickname
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -2123,7 +2123,7 @@ CopyNicknameToTemp:
 CopyOTNameToTemp:
 	ld bc, NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBufferMonOT
 	ld bc, NAME_LENGTH
 	call CopyBytes
@@ -2131,7 +2131,7 @@ CopyOTNameToTemp:
 
 CopyMonToTemp:
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBufferMon
 	call CopyBytes
 	ret
@@ -2297,7 +2297,7 @@ endr
 GetBoxName:
 	ld bc, BOX_NAME_LENGTH
 	ld hl, wBoxNames
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ret

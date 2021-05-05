@@ -572,7 +572,7 @@ PokeBallEffect:
 	dec a
 	ld hl, wPartyMon1Happiness
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [hl], a
@@ -593,7 +593,7 @@ PokeBallEffect:
 	ld [wCurPartyMon], a
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 
 	ld d, h
 	ld e, l
@@ -1707,7 +1707,7 @@ HealHP_SFX_GFX:
 	ld a, [wCurPartyMon]
 	hlcoord 11, 0
 	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
+	predef AddNTimes
 	ld a, $2
 	ld [wWhichHPBar], a
 	predef_jump AnimateHPBar
@@ -2413,7 +2413,7 @@ BattleRestorePP:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, wBattleMonMoves
 	ld b, NUM_MOVES
 .loop
@@ -2895,7 +2895,7 @@ GetMaxPPOfMove:
 	push hl
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	ld b, a
@@ -2934,7 +2934,7 @@ GetMaxPPOfMove:
 
 GetMthMoveOfNthPartymon:
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 
 GetMthMoveOfCurrentMon:
 	ld a, [wMenuCursorY]

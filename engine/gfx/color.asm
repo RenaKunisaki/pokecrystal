@@ -128,7 +128,7 @@ SGB_ApplyPartyMenuHPPals:
 	ld hl, wSGBPals + 10
 	ld bc, $6
 	ld a, [wSGBPals]
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	ld [hl], e
 	ret
@@ -1256,7 +1256,7 @@ LoadMapPals:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
 	ld hl, MapObjectPals
-	call AddNTimes
+	predef AddNTimes
 	ld de, wOBPals1
 	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)

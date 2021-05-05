@@ -6731,7 +6731,7 @@ Function11b3d9:
 	jr z, .skip
 	ld hl, 0
 	ld bc, $70
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld b, 0
@@ -7421,7 +7421,7 @@ Function11b879:
 	ld e, a
 	ld a, [wcd4c]
 	ld c, $3c
-	call AddNTimes
+	predef AddNTimes
 	add hl, de
 	push hl
 	xor a
@@ -7433,7 +7433,7 @@ Function11b879:
 	ld e, a
 	ld a, [wcd4a]
 	ld c, $3c
-	call AddNTimes
+	predef AddNTimes
 	add hl, de
 	ld a, l
 	cpl

@@ -307,7 +307,7 @@ ParseCredits:
 ; Print strings spaced every two lines.
 	call .get
 	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
+	predef AddNTimes
 	call PlaceString
 	jr .loop
 

@@ -260,7 +260,7 @@ GetBaseData::
 	dec a
 	ld bc, BASE_DATA_SIZE
 	ld hl, BaseData
-	call AddNTimes
+	predef AddNTimes
 	ld de, wCurBaseData
 	ld bc, BASE_DATA_SIZE
 	call CopyBytes

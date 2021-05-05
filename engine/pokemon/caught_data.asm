@@ -23,7 +23,7 @@ CheckPartyFullAfterContest:
 	ld a, [wPartyCount]
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, wContestMon

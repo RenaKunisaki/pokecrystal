@@ -772,7 +772,7 @@ Link_PrepPartyData_Gen1:
 	dec a
 	ld hl, BaseData + BASE_TYPES
 	ld bc, BASE_DATA_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ld bc, BASE_CATCH_RATE - BASE_TYPES
 	ld a, BANK(BaseData)
 	call FarCopyBytes
@@ -1634,7 +1634,7 @@ LinkTradePlaceArrow:
 	ld a, [wOtherPlayerLinkMode]
 	hlcoord 6, 9
 	ld bc, SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▷"
 	ret
 
@@ -1758,7 +1758,7 @@ LinkTrade:
 	ld hl, sPartyMail
 	ld a, [wCurTradePartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	ld d, h
@@ -1783,12 +1783,12 @@ LinkTrade:
 	ld a, [wPartyCount]
 	dec a
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld hl, wLinkPlayerMail
 	ld a, [wCurOTTradePartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	ld bc, MAIL_STRUCT_LENGTH
 	call CopyBytes

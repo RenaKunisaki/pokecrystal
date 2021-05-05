@@ -54,7 +54,7 @@ Unused_GetPartyMenuMonIcon:
 	ldh a, [hObjectStructIndex]
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ld a, [hl]
 	and a
@@ -128,7 +128,7 @@ PartyMenu_InitAnimatedMonIcon:
 	ldh a, [hObjectStructIndex]
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ld a, [hl]
 	and a

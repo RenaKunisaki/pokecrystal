@@ -36,7 +36,7 @@ HandleCmdQueue::
 GetNthCmdQueueEntry: ; unreferenced
 	ld hl, wCmdQueue
 	ld bc, CMDQUEUE_ENTRY_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	ret

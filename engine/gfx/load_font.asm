@@ -76,7 +76,7 @@ LoadFrame:
 	maskbits NUM_FRAMES
 	ld bc, TEXTBOX_FRAME_TILES * LEN_1BPP_TILE
 	ld hl, Frames
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, vTiles2 tile "┌" ; $79

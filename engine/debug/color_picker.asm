@@ -1009,7 +1009,7 @@ DebugColor_PlaceCursor:
 	dec a
 	hlcoord 1, 11
 	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▶"
 
 .place_cursor
@@ -1223,7 +1223,7 @@ DebugColorMain2: ; unreferenced
 	ld hl, wBGPals2
 	ld a, [wDebugTilesetCurPalette]
 	ld bc, 1 palettes
-	call AddNTimes
+	predef AddNTimes
 	ld de, wDebugPalette
 	ld bc, 1 palettes
 	call CopyBytes
@@ -1255,7 +1255,7 @@ DebugTileset_UpdatePalettes:
 	ld hl, wBGPals2
 	ld a, [wDebugTilesetCurPalette]
 	ld bc, 1 palettes
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld hl, wDebugPalette

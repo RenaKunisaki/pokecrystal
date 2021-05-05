@@ -106,7 +106,7 @@ Elevator_GoToFloor:
 	inc hl
 	pop af
 	ld bc, wElevatorDataEnd - wElevatorData
-	call AddNTimes
+	predef AddNTimes
 	inc hl
 	ld de, wBackupWarpNumber
 	ld a, [wElevatorPointerBank]

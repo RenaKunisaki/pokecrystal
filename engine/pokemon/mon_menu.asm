@@ -170,7 +170,7 @@ SwitchPartyMons:
 	ld bc, SCREEN_WIDTH * 2
 	ld a, [wSwitchMon]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], "▷"
 	call WaitBGMap
 	call SetPalettes
@@ -460,7 +460,7 @@ ComposeMailMessage:
 	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, wTempMail
@@ -1012,7 +1012,7 @@ MoveScreenLoop:
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	call .copy_move
 	pop hl
@@ -1024,7 +1024,7 @@ MoveScreenLoop:
 	ld hl, wBattleMonMoves
 	ld bc, wBattleMonStructEnd - wBattleMon
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	call .copy_move
 	pop hl
@@ -1164,7 +1164,7 @@ PrepareToPlaceMoveData:
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wMenuCursorY]
 	dec a
 	ld c, a
@@ -1196,7 +1196,7 @@ PlaceMoveData:
 	dec a
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	hlcoord 16, 12

@@ -208,7 +208,7 @@ if DEF(_DEBUG)
 	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Happiness
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], 1
 	ld a, 1
 	ld [wTempMonHappiness], a
@@ -911,7 +911,7 @@ StatsScreen_GetAnimationParam:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	jr .CheckEggFaintedFrzSlp
@@ -924,7 +924,7 @@ StatsScreen_GetAnimationParam:
 	ld hl, sBoxMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	ld a, BANK(sBoxMons)

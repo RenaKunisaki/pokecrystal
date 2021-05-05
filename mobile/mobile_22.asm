@@ -340,7 +340,7 @@ Function8931b:
 	ld a, [wMenuSelection]
 	dec a
 	ld bc, 37
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	pop hl

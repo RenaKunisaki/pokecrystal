@@ -326,7 +326,7 @@ CopyWarpData::
 	ld a, c
 	dec a
 	ld bc, WARP_EVENT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ld bc, 2 ; warp number
 	add hl, bc
 	ld a, [hli]
@@ -525,7 +525,7 @@ ReadMapSceneScripts::
 	ret z
 
 	ld bc, SCENE_SCRIPT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ReadMapCallbacks::
@@ -541,7 +541,7 @@ ReadMapCallbacks::
 	ret z
 
 	ld bc, CALLBACK_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ReadWarps::
@@ -556,7 +556,7 @@ ReadWarps::
 	and a
 	ret z
 	ld bc, WARP_EVENT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ReadCoordEvents::
@@ -573,7 +573,7 @@ ReadCoordEvents::
 	ret z
 
 	ld bc, COORD_EVENT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ReadBGEvents::
@@ -590,7 +590,7 @@ ReadBGEvents::
 	ret z
 
 	ld bc, BG_EVENT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 ReadObjectEvents::
@@ -697,7 +697,7 @@ endr
 	ld c, a
 	ld b, 0
 	ld a, WARP_EVENT_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ld a, [hli]
 	ld [wYCoord], a
 	ld a, [hli]
@@ -2054,7 +2054,7 @@ GetAnyMapPointer::
 	dec c
 	ld b, 0
 	ld a, 9
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 GetMapField::
@@ -2317,7 +2317,7 @@ LoadMapTileset::
 	ld hl, Tilesets
 	ld bc, TILESET_LENGTH
 	ld a, [wMapTileset]
-	call AddNTimes
+	predef AddNTimes
 
 	ld de, wTilesetBank
 	ld bc, TILESET_LENGTH

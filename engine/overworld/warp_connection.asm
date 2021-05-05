@@ -418,7 +418,7 @@ GetMapScreenCoords::
 	add 1
 	srl a
 .got_block_y
-	call AddNTimes
+	predef AddNTimes
 	ld a, l
 	ld [wOverworldMapAnchor], a
 	ld a, h

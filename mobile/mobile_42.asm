@@ -1722,7 +1722,7 @@ LoadMobileAdapterPalette:
 .asm_108d12
 	ld bc, 1 palettes
 	ld hl, MobileAdapterPalettes
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(wBGPals1)
 	ld de, wBGPals1 + 4 palettes
 	ld bc, 1 palettes

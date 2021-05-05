@@ -9,7 +9,7 @@ LoadMapGroupRoof::
 	ret z
 	ld hl, Roofs
 	ld bc, ROOF_LENGTH tiles
-	call AddNTimes
+	predef AddNTimes
 	ld de, vTiles2 tile $0a
 	ld bc, ROOF_LENGTH tiles
 	call CopyBytes

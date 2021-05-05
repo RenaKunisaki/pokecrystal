@@ -2473,7 +2473,7 @@ Function10107d:
 	push hl
 	ld hl, 0
 	ld a, [wOTPartyCount]
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	pop hl
@@ -2612,7 +2612,7 @@ LoadSelectedPartiesForColosseum:
 	call .GetDestinationAddress
 	call .GetCopySize
 	pop af
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wStringBuffer2]
 	ld e, a
 	ld a, [wStringBuffer2 + 1]
@@ -2629,7 +2629,7 @@ LoadSelectedPartiesForColosseum:
 	call .GetCopySize
 	ld a, 3
 	ld hl, 0
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	call .GetDestinationAddress
@@ -3440,7 +3440,7 @@ Function10173b:
 	ld c, a
 	ld b, 0
 	pop af
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ret
 
@@ -3476,7 +3476,7 @@ Function10177b:
 	ld b, 0
 	ld a, [wcd3a]
 	ld hl, 0
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld hl, wcd40
@@ -4656,7 +4656,7 @@ Function1020bf:
 	dec a
 	ld hl, $a04c
 	ld bc, $25
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld a, $04
@@ -6163,7 +6163,7 @@ Function102b9c:
 	dec a
 	hlcoord 6, 9
 	ld bc, $14
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], $ec
 	ret
 
@@ -6271,13 +6271,13 @@ Function102c48:
 Function102c71:
 	ld a, [wcd4c]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld h, d
 	ld l, e
 	ld a, [wcd4d]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	call SwapBytes
 	ret
@@ -6337,7 +6337,7 @@ Function102cee:
 	ret z
 	ld bc, $2f
 	ld hl, 0
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld a, [wJumptableIndex]
 	dec a
@@ -6361,7 +6361,7 @@ Function102cee:
 Function102d34:
 	ld hl, wc608
 	ld bc, $2f
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 Function102d3e:
@@ -6386,7 +6386,7 @@ Function102d48:
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1Happiness
-	call AddNTimes
+	predef AddNTimes
 	ld [hl], BASE_HAPPINESS
 
 .asm_102d6d
@@ -6397,7 +6397,7 @@ Function102d48:
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld hl, wPartyMon1DVs
-	call AddNTimes
+	predef AddNTimes
 	predef GetUnownLetter
 	farcall UpdateUnownDex
 	ld a, [wFirstUnownSeen]
@@ -7178,11 +7178,11 @@ Function1034f7:
 	add hl, bc
 	ld a, [wd1ef]
 	ld bc, SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, [wd1f2]
 	dec a
 	ld bc, 40
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 Function10350f:
@@ -7190,7 +7190,7 @@ Function10350f:
 	push bc
 	ld hl, Unknown_103522
 	ld bc, 9
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	add hl, bc
 	ld a, [hli]

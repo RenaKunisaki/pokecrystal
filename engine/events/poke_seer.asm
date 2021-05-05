@@ -139,7 +139,7 @@ GetCaughtName:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, wSeerNickname
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
@@ -251,7 +251,7 @@ GetCaughtOT:
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, wSeerOT
 	ld bc, NAME_LENGTH
 	call CopyBytes

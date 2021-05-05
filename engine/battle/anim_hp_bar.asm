@@ -370,7 +370,7 @@ ShortHPBar_CalcPixelFrame:
 	jr nc, .return_max
 	and a
 	jr z, .return_zero
-	call AddNTimes
+	predef AddNTimes
 
 	ld b, 0
 ; This routine is buggy. If [wCurHPAnimMaxHP] * [wCurHPBarPixels] is

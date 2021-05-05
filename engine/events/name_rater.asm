@@ -47,7 +47,7 @@ _NameRater:
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld e, l
 	ld d, h
 	ld hl, wStringBuffer2
@@ -83,7 +83,7 @@ CheckIfMonIsYourOT:
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wPlayerName
 	ld c, NAME_LENGTH
 	call .loop
@@ -92,7 +92,7 @@ CheckIfMonIsYourOT:
 	ld hl, wPartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld de, wPlayerID
 	ld c, 2 ; number of bytes in which your ID is stored
 .loop
@@ -136,7 +136,7 @@ CompareNewToOld:
 	ld hl, wPartyMonNicknames
 	ld bc, MON_NAME_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	call GetNicknamenameLength
 	ld b, c

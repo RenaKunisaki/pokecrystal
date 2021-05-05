@@ -131,7 +131,7 @@ DayCareAskDepositPokemon:
 	ld hl, wPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	predef AddNTimes
 	ld d, [hl]
 	farcall ItemIsMail
 	jr c, .HoldingMail
@@ -248,7 +248,7 @@ GetPriceToRetrieveBreedmon:
 	ld hl, 0
 	ld bc, 100
 	ld a, [wStringBuffer2 + 1]
-	call AddNTimes
+	predef AddNTimes
 	ld de, 100
 	add hl, de
 	xor a
@@ -488,7 +488,7 @@ DayCare_GiveEgg:
 	dec a
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld b, h
 	ld c, l
 	ld hl, MON_ID + 1
@@ -518,7 +518,7 @@ DayCare_GiveEgg:
 DayCare_GetCurrentPartyMember:
 	ld a, [wPartyCount]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ret

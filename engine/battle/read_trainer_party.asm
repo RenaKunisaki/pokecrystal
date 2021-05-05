@@ -127,7 +127,7 @@ TrainerType2:
 	dec a
 	ld hl, wOTPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -146,7 +146,7 @@ TrainerType2:
 	dec a
 	ld hl, wOTPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, MON_PP
@@ -167,7 +167,7 @@ TrainerType2:
 	dec a
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	pop bc
@@ -202,7 +202,7 @@ TrainerType3:
 	dec a
 	ld hl, wOTPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -232,7 +232,7 @@ TrainerType4:
 	dec a
 	ld hl, wOTPartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -245,7 +245,7 @@ TrainerType4:
 	dec a
 	ld hl, wOTPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	pop hl
@@ -264,7 +264,7 @@ TrainerType4:
 	dec a
 	ld hl, wOTPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, MON_PP
@@ -286,7 +286,7 @@ TrainerType4:
 	dec a
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
 	pop bc

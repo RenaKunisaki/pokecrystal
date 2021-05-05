@@ -800,7 +800,7 @@ _DebugRoom_GetPageBValueCPointer:
 	inc hl
 	ld a, c
 	ld bc, PAGED_VALUE_SIZE
-	call AddNTimes
+	predef AddNTimes
 	ret
 
 DebugRoom_GetCurPagedValuePointer:
@@ -815,7 +815,7 @@ DebugRoom_ShowHideCursor:
 	hlcoord 1, 1
 	ld bc, SCREEN_WIDTH * 2
 	ld a, [wDebugRoomCurValue]
-	call AddNTimes
+	predef AddNTimes
 	pop af
 	ld [hl], a
 	ret
@@ -872,7 +872,7 @@ DebugRoom_InitializePagedValues:
 	ld a, c
 	push bc
 	ld bc, PAGED_VALUE_SIZE
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ld e, [hl] ; de = value address
 	inc hl
@@ -939,7 +939,7 @@ DebugRoom_PrintPagedValue:
 	ld a, c
 	push bc
 	ld bc, PAGED_VALUE_SIZE
-	call AddNTimes
+	predef AddNTimes
 	pop bc
 	ld e, [hl] ; de = value address
 	inc hl
@@ -957,7 +957,7 @@ DebugRoom_PrintPagedValue:
 	hlcoord 2, 1
 	ld a, c
 	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	call PlaceString
 	pop hl
@@ -1159,7 +1159,7 @@ DebugRoom_SavePokemon:
 	push hl
 	ld a, e
 	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, wDebugRoomMon
@@ -1175,7 +1175,7 @@ DebugRoom_SavePokemon:
 	push hl
 	ld a, e
 	ld bc, NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, .OTString
@@ -1191,7 +1191,7 @@ DebugRoom_SavePokemon:
 	push hl
 	ld a, e
 	ld bc, MON_NAME_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld d, h
 	ld e, l
 	ld hl, .NicknameString
@@ -1261,7 +1261,7 @@ DebugRoom_UpdateExpForLevel:
 	ld bc, BASE_DATA_SIZE
 	ld a, [wDebugRoomMonSpecies]
 	dec a
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(BaseData)
 	call GetFarByte
 	ld [wBaseGrowthRate], a

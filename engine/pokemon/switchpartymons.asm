@@ -20,14 +20,14 @@ _SwitchPartyMons:
 	push af
 	hlcoord 0, 1
 	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
+	predef AddNTimes
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, " "
 	predef ByteFill
 	pop af
 	ld hl, wVirtualOAMSprite00
 	ld bc, 4 * SPRITEOAMSTRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	ld de, SPRITEOAMSTRUCT_LENGTH
 	ld c, 4
 .gfx_loop
@@ -63,7 +63,7 @@ _SwitchPartyMons:
 	ld a, [wSwitchMonTo]
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld de, wSwitchMonBuffer
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -71,7 +71,7 @@ _SwitchPartyMons:
 	ld a, [wSwitchMonFrom]
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	push hl
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -111,7 +111,7 @@ _SwitchPartyMons:
 	ld hl, sPartyMail
 	ld a, [wSwitchMonTo]
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	push hl
 	ld de, wSwitchMonBuffer
 	ld bc, MAIL_STRUCT_LENGTH
@@ -121,7 +121,7 @@ _SwitchPartyMons:
 	ld hl, sPartyMail
 	ld a, [wSwitchMonFrom]
 	ld bc, MAIL_STRUCT_LENGTH
-	call AddNTimes
+	predef AddNTimes
 	pop de
 	push hl
 	ld bc, MAIL_STRUCT_LENGTH

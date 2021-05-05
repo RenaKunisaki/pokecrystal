@@ -118,7 +118,7 @@ GetFrontpicPointer:
 	ld hl, PokemonPicPointers ; UnownPicPointers
 	dec a
 	ld bc, 6
-	call AddNTimes
+	predef AddNTimes
 	ld a, d
 	call GetFarByte
 	call FixPicBank
@@ -219,7 +219,7 @@ GetMonBackpic:
 .ok
 	dec a
 	ld bc, 6
-	call AddNTimes
+	predef AddNTimes
 	ld bc, 3
 	add hl, bc
 	ld a, d
@@ -294,7 +294,7 @@ GSIntro_GetMonFrontpic: ; unreferenced
 	ld hl, PokemonPicPointers
 	dec a
 	ld bc, 6
-	call AddNTimes
+	predef AddNTimes
 	ld a, BANK(PokemonPicPointers)
 	call GetFarByte
 	call FixPicBank
@@ -320,7 +320,7 @@ GetTrainerPic:
 	ld a, [wTrainerClass]
 	dec a
 	ld bc, 3
-	call AddNTimes
+	predef AddNTimes
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressScratch)

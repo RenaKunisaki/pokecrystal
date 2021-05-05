@@ -5,7 +5,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     351 	call OpenSRAM
     345 	predef ByteFill
     297 	call DelayFrame
-    296 	call AddNTimes
+    296 	predef AddNTimes
     242 	call PrintText
     218 	call GetScriptByte
     218 	predef DelayFrames
@@ -851,7 +851,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       4 	call AskOverwriteSaveFile
       4 	call .apply\@
       4 	call AICheckLastPlayerMon
-      4  	call AddNTimes
+      4  	predef AddNTimes
       3 	call z, Function115286
       3 	call WontHaveAnyEffectMessage
       3 	call WaitLinkTransfer
@@ -4120,7 +4120,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
       1 	call AddOutdoorSprites
       1 	call AddOrSubtractY
       1 	call AddOrSubtractX
-      1 ;	call AddNTimes
+      1 ;	predef AddNTimes
       1 	call .AddMysteryGiftPartnerID
       1 	call .AddMoneyToWallet
       1 	call .AddMoneyToMom

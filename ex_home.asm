@@ -369,7 +369,7 @@ BlinkCursor_far::
 ;GetObjectStruct_far::
 ;	ld bc, OBJECT_LENGTH
 ;	ld hl, wObjectStructs
-;	call AddNTimes
+;	predef AddNTimes
 ;	ld b, h
 ;	ld c, l
 ;	ret
