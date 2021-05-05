@@ -779,7 +779,8 @@ WipeLYOverrides:
 	ret
 
 StartTrainerBattle_DrawSineWave:
-	calc_sine_wave
+    farcall _Sine
+    ret
 
 StartTrainerBattle_ZoomToBlack:
 	farcall RespawnPlayerAndOpponent

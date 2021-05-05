@@ -195,7 +195,6 @@ ROMX $48
 	"Pic Pointers"
 	"Pics 1"
 ROMX $49
-	org $4000
 	"Unown Pic Pointers"
 	"Pics 2"
 ROMX $4a

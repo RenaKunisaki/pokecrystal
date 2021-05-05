@@ -541,7 +541,8 @@ Sprites_Cosine:
 	; fallthrough
 Sprites_Sine:
 ; a = d * sin(a * pi/32)
-	calc_sine_wave
+	farcall _Sine
+    ret
 
 AnimateEndOfExpBar:
 	ldh a, [hSGB]

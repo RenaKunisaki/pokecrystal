@@ -4285,7 +4285,8 @@ BattleAnim_Cosine:
 	; fallthrough
 BattleAnim_Sine:
 ; a = d * sin(a * pi/32)
-	calc_sine_wave BattleAnimSineWave
+    farcall _Sine
+    ret
 
 BattleAnim_Sine_e:
 	ld a, e
