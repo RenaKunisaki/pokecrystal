@@ -45,7 +45,7 @@ AskRememberPassword:
 Buena_ExitMenu:
 	ldh a, [hOAMUpdate]
 	push af
-	call ExitMenu
+	predef ExitMenu
 	call UpdateSprites
 	xor a
 	ldh [hOAMUpdate], a

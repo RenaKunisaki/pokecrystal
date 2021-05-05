@@ -34,14 +34,14 @@ TossItemFromPC:
 	farcall SelectQuantityToToss
 	push af
 	call CloseWindow
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	jr c, .quit
 	ld hl, .ItemsThrowAwayText
 	call MenuTextbox
 	call YesNoBox
 	push af
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	jr c, .quit
 	pop hl
@@ -50,7 +50,7 @@ TossItemFromPC:
 	call PartyMonItemName
 	ld hl, .ItemsDiscardedText
 	call MenuTextbox
-	call ExitMenu
+	predef ExitMenu
 	and a
 	ret
 
@@ -207,7 +207,7 @@ GiveTakePartyMonItem:
 	ld hl, GiveTakeItemMenuData
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	jr c, .cancel
 
 	call GetCurNickname
@@ -224,7 +224,7 @@ GiveTakePartyMonItem:
 	call .GiveItem
 	call ClearPalettes
 	call LoadFontsBattleExtra
-	call ExitMenu
+	predef ExitMenu
 	ld a, 0
 	ret
 
@@ -485,7 +485,7 @@ MonMailAction:
 	ld hl, .MenuHeader
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 
 ; Interpret the menu.
 	jp c, .done

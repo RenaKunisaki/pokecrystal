@@ -28,7 +28,7 @@ _PlayerDecorationMenu:
 	jr nc, .top_loop
 
 .exit_menu
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	ld [wWhichIndexSet], a
 	ld a, [wChangedDecorations]
@@ -355,7 +355,7 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_1
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .beyond_eight
@@ -381,7 +381,7 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_2
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .empty
@@ -847,7 +847,7 @@ DecoAction_AskWhichSide:
 	call MenuTextbox
 	ld hl, DecoSideMenuHeader
 	call GetMenu2
-	call ExitMenu
+	predef ExitMenu
 	call CopyMenuData
 	jr c, .nope
 	ld a, [wMenuCursorY]

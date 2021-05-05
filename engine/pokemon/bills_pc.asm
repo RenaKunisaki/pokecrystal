@@ -172,7 +172,7 @@ BillsPCDepositFuncDeposit:
 BillsPCDepositFuncStats:
 	call LoadStandardMenuHeader
 	call BillsPC_StatsScreen
-	call ExitMenu
+	predef ExitMenu
 	call PCMonInfo
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
@@ -194,7 +194,7 @@ BillsPCDepositFuncRelease:
 	call PlaceYesNoBox
 	ld a, [wMenuCursorY]
 	dec a
-	call ExitMenu
+	predef ExitMenu
 	and a
 	jr nz, .failed_release
 	ld a, [wBillsPC_CursorPosition]
@@ -428,7 +428,7 @@ BillsPC_Withdraw:
 .stats
 	call LoadStandardMenuHeader
 	call BillsPC_StatsScreen
-	call ExitMenu
+	predef ExitMenu
 	call PCMonInfo
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
@@ -448,7 +448,7 @@ BillsPC_Withdraw:
 	call PlaceYesNoBox
 	ld a, [wMenuCursorY]
 	dec a
-	call ExitMenu
+	predef ExitMenu
 	and a
 	jr nz, .FailedRelease
 	ld a, [wBillsPC_CursorPosition]
@@ -675,7 +675,7 @@ _MovePKMNWithoutMail:
 .Stats:
 	call LoadStandardMenuHeader
 	call BillsPC_StatsScreen
-	call ExitMenu
+	predef ExitMenu
 	call PCMonInfo
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
@@ -2409,7 +2409,7 @@ BillsPC_ChangeBoxSubmenu:
 	ld hl, .MenuHeader
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	ret c
 	ld a, [wMenuCursorY]
 	cp $1

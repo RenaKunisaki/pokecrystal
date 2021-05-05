@@ -421,7 +421,7 @@ SetDayOfWeek:
 	call JoyTextDelay
 	call .GetJoypadAction
 	jr nc, .loop2
-	call ExitMenu
+	predef ExitMenu
 	call UpdateSprites
 	ld hl, .ConfirmWeekdayText
 	call PrintText

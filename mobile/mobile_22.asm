@@ -2683,7 +2683,7 @@ Function8a116:
 	ld c, $10
 	predef DelayFrames
 .asm_8a15a
-	call ExitMenu
+	predef ExitMenu
 	call Function891de
 	call Function893e2
 	call Function89245
@@ -2846,7 +2846,7 @@ Function8a2aa:
 	call Function8a20d
 	jr .asm_8a2ea
 .asm_8a2cf
-	call ExitMenu
+	predef ExitMenu
 	call Function8a241
 	jr c, .asm_8a2ed
 	ld a, $1

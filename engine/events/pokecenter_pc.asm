@@ -36,7 +36,7 @@ PokemonCenterPC:
 
 .shutdown
 	call PC_PlayShutdownSound
-	call ExitMenu
+	predef ExitMenu
 	call CloseWindow
 	ret
 
@@ -234,7 +234,7 @@ _PlayersPC:
 	ld hl, PlayersPCAskWhatDoText
 	call PC_DisplayTextWaitMenu
 	call .PlayersPC
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .PlayersPC:
@@ -255,7 +255,7 @@ _PlayersPC:
 	xor a
 
 .done
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 PlayersPCMenuData:
@@ -355,8 +355,8 @@ PlayerWithdrawItemMenu:
 	ld hl, .PlayersPCHowManyWithdrawText
 	call MenuTextbox
 	farcall SelectQuantityToToss
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	jr c, .done
 
 .withdraw
@@ -378,7 +378,7 @@ PlayerWithdrawItemMenu:
 	call MenuTextbox
 	xor a
 	ldh [hBGMapMode], a
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .PackFull:
@@ -515,8 +515,8 @@ PlayerDepositItemMenu:
 	call MenuTextbox
 	farcall SelectQuantityToToss
 	push af
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	pop af
 	jr c, .DeclinedToDeposit
 
@@ -651,7 +651,7 @@ PCItemsJoypad:
 
 PC_DisplayText:
 	call MenuTextbox
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 PokecenterPCTurnOnText:

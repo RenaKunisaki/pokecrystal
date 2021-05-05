@@ -15,7 +15,7 @@ MonSubmenu:
 	call MonMenuLoop
 	ld [wMenuSelection], a
 
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .MenuHeader:

@@ -48,7 +48,7 @@ RestartClock:
 	ld hl, .ClockSetWithControlPadText
 	call PrintText
 	call .SetClock
-	call ExitMenu
+	predef ExitMenu
 	pop bc
 	ld hl, wOptions
 	ld [hl], b

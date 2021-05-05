@@ -688,7 +688,7 @@ Function4ac58:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call Function4acaa
-	call ExitMenu
+	predef ExitMenu
 	and a
 	ret
 

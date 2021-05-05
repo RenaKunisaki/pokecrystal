@@ -298,7 +298,7 @@ asm_4828d:
 	ld [wMenuCursorPosition], a
 	call StaticMenuJoypad
 	call PlayClickSFX
-	call ExitMenu
+	predef ExitMenu
 	bit 0, a
 	jp z, Function4840c
 	ld hl, wMenuCursorY
@@ -368,8 +368,8 @@ Function48304:
 	ld [wMenuScrollPosition], a
 	ld a, d
 	push af
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	pop af
 	ldh a, [hJoyPressed]
 	bit 0, a
@@ -863,7 +863,7 @@ Function4876f:
 	ld [wd473], a
 .asm_487da
 	ld a, [wd473]
-	call ExitMenu
+	predef ExitMenu
 	hlcoord 11, 6
 	call Function487ec
 	pop af
@@ -1158,7 +1158,7 @@ asm_48972:
 	pop de
 	pop bc
 	pop af
-	call ExitMenu
+	predef ExitMenu
 	hlcoord 11, 10
 	call Function489ea
 	hlcoord 11, 9
@@ -1229,7 +1229,7 @@ Function48a3a:
 	call StaticMenuJoypad
 	push af
 	call PlayClickSFX
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	bit 1, a
 	jp nz, Function48a9a

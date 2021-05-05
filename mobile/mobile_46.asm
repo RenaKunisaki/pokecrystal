@@ -4244,7 +4244,7 @@ Function119f98:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_119fef
-	call ExitMenu
+	predef ExitMenu
 	call Function11a63c
 	xor a
 	ld [wScriptVar], a
@@ -4252,7 +4252,7 @@ Function119f98:
 	ld a, [wScriptVar]
 	and a
 	jr z, .asm_119fd4
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	farcall Function115dc3
 	ld a, [wcd33]
@@ -4275,8 +4275,8 @@ Function119f98:
 	ret
 
 .asm_119fef
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerSeconds]
 	ld [wcf66], a
@@ -4350,7 +4350,7 @@ Function11a00e:
 	farcall Function117ab4
 	farcall Stubbed_Function106462
 	farcall Function106464
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	farcall Function115d99
 	ld c, $0
@@ -4372,7 +4372,7 @@ Function11a0ca:
 	farcall Function17d3f6
 	farcall Stubbed_Function106462
 	farcall Function106464
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	farcall Function115d99
 	ld c, $0
@@ -4458,7 +4458,7 @@ Function11a192:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_11a1b6
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	call Function11a63c
 	hlcoord 4, 2
@@ -4468,7 +4468,7 @@ Function11a192:
 	ret
 
 .asm_11a1b6
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerSeconds]
 	ld [wcf66], a
@@ -4594,7 +4594,7 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .exit_no_carry
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerFrames]
 	cp $0
@@ -4616,7 +4616,7 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	call PlayClickSFX
 
 .exit_no_carry
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	and a
 	ret
@@ -4686,7 +4686,7 @@ Function11a33a:
 	ret
 
 .asm_11a346
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	farcall Function115dc3
 	and a
@@ -4727,7 +4727,7 @@ Function11a38d:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_11a3b1
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	call Function11a63c
 	hlcoord 4, 2
@@ -4737,7 +4737,7 @@ Function11a38d:
 	ret
 
 .asm_11a3b1
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerSeconds]
 	ld [wcf66], a
@@ -4798,7 +4798,7 @@ Function11a41b:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_11a43f
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	call Function11a63c
 	hlcoord 4, 2
@@ -4808,7 +4808,7 @@ Function11a41b:
 	ret
 
 .asm_11a43f
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, $1c
 	ld [wcf66], a
@@ -4864,7 +4864,7 @@ Function11a49e:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_11a4c7
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	call Function11a63c
 	hlcoord 4, 2
@@ -4876,7 +4876,7 @@ Function11a49e:
 	ret
 
 .asm_11a4c7
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerFrames]
 	ld [wcf66], a
@@ -4908,7 +4908,7 @@ Function11a4fe:
 	ld a, [wMobileInactivityTimerMinutes]
 	and a
 	jr nz, .asm_11a522
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	call Function11a63c
 	hlcoord 4, 2
@@ -4918,7 +4918,7 @@ Function11a4fe:
 	ret
 
 .asm_11a522
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, [wMobileInactivityTimerSeconds]
 	ld [wcf66], a
@@ -4946,7 +4946,7 @@ Function11a536:
 	jr z, .asm_11a562
 	call Function11a9f0
 	jr nz, .asm_11a562
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 
 .asm_11a562
@@ -5771,7 +5771,7 @@ Function11adc4:
 	call Function11ad8a
 
 .asm_11ae2e
-	call ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ret
 
@@ -5872,8 +5872,8 @@ Function11ae98:
 	call Function11ad8a
 
 .asm_11aef7
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ret
 
@@ -5962,8 +5962,8 @@ Function11af4e:
 	ld [wScriptVar], a
 
 .asm_11afaa
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ret
 

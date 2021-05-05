@@ -262,7 +262,7 @@ Function17a81a:
 	ldh a, [hJoyPressed]
 	and $3
 	ret z
-	call ExitMenu
+	predef ExitMenu
 	call Function17ac1d
 	call Function17ac2a
 	ld hl, $d088

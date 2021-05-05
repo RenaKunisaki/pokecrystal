@@ -6,7 +6,7 @@ LoadBattleMenu:
 	call InterpretBattleMenu
 	ld a, [wMenuCursorPosition]
 	ld [wBattleMenuCursorPosition], a
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 SafariBattleMenu: ; unreferenced
@@ -25,7 +25,7 @@ CommonBattleMenu:
 	call _2DMenu
 	ld a, [wMenuCursorPosition]
 	ld [wBattleMenuCursorPosition], a
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 BattleMenuHeader:

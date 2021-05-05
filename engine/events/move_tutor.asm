@@ -89,12 +89,12 @@ CheckCanLearnMoveTutorMove:
 	jr .learned
 
 .didnt_learn
-	call ExitMenu
+	predef ExitMenu
 	and a
 	ret
 
 .learned
-	call ExitMenu
+	predef ExitMenu
 	scf
 	ret
 

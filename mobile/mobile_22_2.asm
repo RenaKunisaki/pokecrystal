@@ -1005,7 +1005,7 @@ Function8b960:
 	call Function89d5e
 	ld hl, Function8b9ab
 	call Function89d85
-	call ExitMenu
+	predef ExitMenu
 	jr c, .asm_8b99c
 	call Function8b99f
 	jr nz, .asm_8b99d

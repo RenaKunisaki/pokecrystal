@@ -1230,7 +1230,7 @@ PokegearPhoneContactSubmenu:
 	ld hl, PokegearAskDeleteText
 	call MenuTextbox
 	call YesNoBox
-	call ExitMenu
+	predef ExitMenu
 	jr c, .CancelDelete
 	call PokegearPhone_DeletePhoneNumber
 	xor a

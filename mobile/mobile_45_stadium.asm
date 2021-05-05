@@ -381,14 +381,14 @@ Function1178e8:
 	ld a, [wcd4e]
 	and a
 	jr nz, .b_button
-	call ExitMenu
+	predef ExitMenu
 	ld a, $1
 	ld [wcd4f], a
 	jp MobilePassword_IncrementJumptable
 
 .b_button
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	jp MobilePassword_IncrementJumptable
 
 Function117942:
@@ -416,7 +416,7 @@ Function117976:
 	ld hl, wcd4e
 	dec [hl]
 	ret nz
-	call ExitMenu
+	predef ExitMenu
 asm_11797e:
 	ld a, $80
 	ld [wcd49], a
@@ -439,7 +439,7 @@ Function1179a7:
 	ld hl, wcd4e
 	dec [hl]
 	ret nz
-	call ExitMenu
+	predef ExitMenu
 	ld a, $1
 	ld [wcd49], a
 	ret
@@ -631,14 +631,14 @@ Function117b4f:
 	ld a, [wcf64]
 	and a
 	jr nz, .b_button
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	jp MobileStudium_JumptableIncrement
 
 .b_button
-	call ExitMenu
-	call ExitMenu
+	predef ExitMenu
+	predef ExitMenu
 	farcall ReloadMapPart
 	ld a, $80
 	ld [wJumptableIndex], a

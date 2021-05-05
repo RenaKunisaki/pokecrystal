@@ -609,7 +609,7 @@ Function171c2c:
 	ld hl, wcd4c
 	dec [hl]
 	ret nz
-	call ExitMenu
+	predef ExitMenu
 	predef ClearBGPalettes
 	jr asm_171c60
 

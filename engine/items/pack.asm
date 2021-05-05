@@ -149,7 +149,7 @@ Pack:
 	push de
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	pop hl
 	ret c
 	ld a, [wMenuCursorY]
@@ -300,7 +300,7 @@ Pack:
 	push de
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	pop hl
 	ret c
 	ld a, [wMenuCursorY]
@@ -479,7 +479,7 @@ TossMenu:
 	call Pack_PrintTextNoScroll
 	farcall SelectQuantityToToss
 	push af
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	jr c, .finish
 	call Pack_GetItemName
@@ -487,7 +487,7 @@ TossMenu:
 	call MenuTextbox
 	call YesNoBox
 	push af
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	jr c, .finish
 	ld hl, wNumItems
@@ -794,7 +794,7 @@ TMHMSubmenu:
 	push de
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	pop hl
 	ret c
 	ld a, [wMenuCursorY]

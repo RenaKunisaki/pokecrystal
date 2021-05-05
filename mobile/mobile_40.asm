@@ -857,7 +857,7 @@ Function100597:
 	ld [wMenuCursorY], a
 
 .asm_1005a6
-	call ExitMenu
+	predef ExitMenu
 	ld a, [wcd26]
 	set 7, a
 	ld [wcd26], a
@@ -904,7 +904,7 @@ Function1005e1:
 	xor a
 	ld [wMenuCursorY], a
 .asm_1005f0
-	call ExitMenu
+	predef ExitMenu
 	ld a, [wcd26]
 	set 7, a
 	ld [wcd26], a
@@ -1707,7 +1707,7 @@ Mobile_LoadBattleMenu:
 	call Function100ed4
 	ld a, [wMenuCursorPosition]
 	ld [wBattleMenuCursorPosition], a
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 Function100b45:
@@ -4284,7 +4284,7 @@ Function101d95:
 
 Function101db2:
 	farcall Function103302
-	call ExitMenu
+	predef ExitMenu
 	ld hl, wcd29
 	set 5, [hl]
 	jr c, .asm_101dca
@@ -4739,12 +4739,12 @@ Function102142:
 	ld de, SFX_LEVEL_UP
 	predef PlaySFX
 	call JoyWaitAorB
-	call ExitMenu
+	predef ExitMenu
 	call Function10219f
 	ld hl, PutCardInCardFolderText
 	call MenuTextbox
 	call YesNoBox
-	call ExitMenu
+	predef ExitMenu
 	jr c, .asm_10217c
 	call Function1021b8
 	jr c, .asm_10217c
@@ -4810,7 +4810,7 @@ CardWasListedText:
 Function1021e0:
 	call MenuTextbox
 	call JoyWaitAorB
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 StartingLinkText: ; unreferenced
@@ -5895,7 +5895,7 @@ Function102984:
 
 Function102996:
 	call Function1029af
-	call ExitMenu
+	predef ExitMenu
 	scf
 	ret
 
@@ -5961,7 +5961,7 @@ Function1029fe:
 	and [hl]
 	ret z
 	push af
-	call ExitMenu
+	predef ExitMenu
 	pop af
 	ld a, [wMenuCursorY]
 	cp $01
@@ -7377,7 +7377,7 @@ Mobile_SelectThreeMons:
 	ld hl, MenuHeader_103747
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	jr c, .asm_1036f4
 	ld a, [wMenuCursorY]
 	cp $01

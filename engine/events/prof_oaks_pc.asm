@@ -8,7 +8,7 @@ ProfOaksPC:
 	ld hl, OakPCText4
 	call PrintText
 	call JoyWaitAorB
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 ProfOaksPCBoot:

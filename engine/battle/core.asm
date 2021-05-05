@@ -2737,7 +2737,7 @@ ForcePlayerMonChoice:
 	predef ClearSprites
 	predef ClearBGPalettes
 	call _LoadHPBar
-	call ExitMenu
+	predef ExitMenu
 	call LoadTilemapToTempTilemap
 	call WaitBGMap
 	call GetMemSGBLayout
@@ -3523,7 +3523,7 @@ OfferSwitch:
 ClearEnemyMonBox:
 	xor a
 	ldh [hBGMapMode], a
-	call ExitMenu
+	predef ExitMenu
 	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
@@ -4987,7 +4987,7 @@ BattleMenu_Pack:
 	call _LoadBattleFontsHPBar
 	call GetBattleMonBackpic
 	call GetEnemyMonFrontpic
-	call ExitMenu
+	predef ExitMenu
 	call WaitBGMap
 	call FinishBattleAnim
 	call LoadTilemapToTempTilemap
@@ -5022,7 +5022,7 @@ BattleMenu_Pack:
 	call GetEnemyMonFrontpic
 	ld a, $1
 	ld [wMenuCursorY], a
-	call ExitMenu
+	predef ExitMenu
 	call UpdateBattleHUDs
 	call WaitBGMap
 	call LoadTilemapToTempTilemap
@@ -5045,7 +5045,7 @@ BattleMenu_Pack:
 BattleMenu_PKMN:
 	call LoadStandardMenuHeader
 BattleMenuPKMN_ReturnFromStats:
-	call ExitMenu
+	predef ExitMenu
 	call LoadStandardMenuHeader
 	predef ClearBGPalettes
 BattleMenuPKMN_Loop:

@@ -435,7 +435,7 @@ Function4a28a:
 	call PrintText
 	call JoyWaitAorB
 .dont_delete_password
-	call ExitMenu
+	predef ExitMenu
 .quit
 	call Call_ExitMenu
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap

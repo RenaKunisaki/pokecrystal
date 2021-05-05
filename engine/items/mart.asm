@@ -188,7 +188,7 @@ StandardMart:
 	ret
 
 .Buy:
-	call ExitMenu
+	predef ExitMenu
 	call FarReadMart
 	call BuyMenu
 	and a
@@ -196,13 +196,13 @@ StandardMart:
 	ret
 
 .Sell:
-	call ExitMenu
+	predef ExitMenu
 	call SellMenu
 	ld a, STANDARDMART_ANYTHINGELSE
 	ret
 
 .Quit:
-	call ExitMenu
+	predef ExitMenu
 	ld hl, MartComeAgainText
 	call MartTextbox
 	ld a, STANDARDMART_EXIT
@@ -504,7 +504,7 @@ StandardMartAskPurchaseQuantity:
 	ld a, MARTTEXT_HOW_MANY
 	call LoadBuyMenuText
 	farcall SelectQuantityToBuy
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 MartConfirmPurchase:
@@ -561,7 +561,7 @@ RooftopSaleAskPurchaseQuantity:
 	ld a, MAX_ITEM_STACK
 	ld [wItemQuantity], a
 	farcall RooftopSale_SelectQuantityToBuy
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 .GetSalePrice:
@@ -767,7 +767,7 @@ SellMenu:
 	call PrintText
 	farcall PlaceMoneyAtTopLeftOfTextbox
 	farcall SelectQuantityToSell
-	call ExitMenu
+	predef ExitMenu
 	jr c, .declined
 	hlcoord 1, 14
 	lb bc, 3, 18
@@ -793,7 +793,7 @@ SellMenu:
 	call JoyWaitAorB
 
 .declined
-	call ExitMenu
+	predef ExitMenu
 	and a
 	ret
 
@@ -862,5 +862,5 @@ PlayTransactionSound:
 MartTextbox:
 	call MenuTextbox
 	call JoyWaitAorB
-	call ExitMenu
+	predef ExitMenu
 	ret

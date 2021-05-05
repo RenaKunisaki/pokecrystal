@@ -12,12 +12,12 @@ SaveMenu:
 	call PauseGameLogic
 	call _SavingDontTurnOffThePower
 	call ResumeGameLogic
-	call ExitMenu
+	predef ExitMenu
 	and a
 	ret
 
 .refused
-	call ExitMenu
+	predef ExitMenu
 	call GSReloadPalettes
 	farcall SaveMenu_CopyTilemapAtOnce
 	scf
@@ -41,7 +41,7 @@ ChangeBoxSaveGame:
 	ld hl, ChangeBoxSaveText
 	call MenuTextbox
 	call YesNoBox
-	call ExitMenu
+	predef ExitMenu
 	jr c, .refused
 	call AskOverwriteSaveFile
 	jr c, .refused
@@ -118,7 +118,7 @@ StartMoveMonWOMail_SaveGame:
 	ld hl, MoveMonWOMailSaveText
 	call MenuTextbox
 	call YesNoBox
-	call ExitMenu
+	predef ExitMenu
 	jr c, .refused
 	call AskOverwriteSaveFile
 	jr c, .refused

@@ -86,7 +86,7 @@ StartMenu::
 	pop af
 	ldh [hOAMUpdate], a
 .ReturnEnd:
-	call ExitMenu
+	predef ExitMenu
 .ReturnEnd2:
 	call CloseText
 	call UpdateTimePals
@@ -118,19 +118,19 @@ StartMenu::
 	ret
 
 .ExitMenuRunScript:
-	call ExitMenu
+	predef ExitMenu
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
 	ret
 
 .ExitMenuRunScriptCloseText:
-	call ExitMenu
+	predef ExitMenu
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
 	jr .ReturnEnd2
 
 .ExitMenuCallFuncCloseText:
-	call ExitMenu
+	predef ExitMenu
 	ld hl, wQueuedScriptAddr
 	ld a, [hli]
 	ld h, [hl]

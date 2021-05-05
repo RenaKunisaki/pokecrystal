@@ -80,7 +80,7 @@ InitVerticalMenuCursor::
 
 CloseWindow::
 	push af
-	call ExitMenu
+	predef ExitMenu
 	call ApplyTilemap
 	call UpdateSprites
 	pop af
@@ -363,7 +363,7 @@ LoadStandardMenuHeader::
 	db 1 ; default option
 
 Call_ExitMenu::
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 VerticalMenu::
@@ -810,7 +810,7 @@ PlayClickSFX::
 MenuTextboxWaitButton::
 	call MenuTextbox
 	call WaitButton
-	call ExitMenu
+	predef ExitMenu
 	ret
 
 Place2DMenuItemName::

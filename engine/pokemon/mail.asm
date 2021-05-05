@@ -405,7 +405,7 @@ MailboxPC:
 	ld hl, .SubMenuHeader
 	call LoadMenuHeader
 	call VerticalMenu
-	call ExitMenu
+	predef ExitMenu
 	jr c, .subexit
 	ld a, [wMenuCursorY]
 	dec a
@@ -433,7 +433,7 @@ MailboxPC:
 	ld hl, .MailMessageLostText
 	call MenuTextbox
 	call YesNoBox
-	call ExitMenu
+	predef ExitMenu
 	ret c
 	ld a, [wMenuSelection]
 	dec a
