@@ -30,7 +30,7 @@ DrawPokedexListWindow:
 	predef ByteFill
 	hlcoord 0, 1
 	lb bc, 15, 11
-	call ClearBox
+	predef ClearBox
 	ld a, $34
 	hlcoord 0, 0
 	ld bc, 11
@@ -105,7 +105,7 @@ DrawPokedexSearchResultsWindow:
 	ld [hl], $68
 	hlcoord 0, 12
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 	ld de, .esults_D
 	hlcoord 0, 12
 	call PlaceString

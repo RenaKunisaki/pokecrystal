@@ -547,7 +547,7 @@ StatsScreen_LoadGFX:
 	call StatsScreen_LoadPageIndicators
 	hlcoord 0, 8
 	lb bc, 10, 20
-	call ClearBox
+	predef ClearBox
 	ret
 
 .LoadPals:

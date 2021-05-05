@@ -595,7 +595,7 @@ PlacePrinterStatusStringBorderless: ; unreferenced
 	ldh [hBGMapMode], a
 	hlcoord 2, 4
 	lb bc, 13, 16
-	call ClearBox
+	predef ClearBox
 	pop af
 	ld e, a
 	ld d, 0
@@ -711,7 +711,7 @@ PrintPCBox_Page4:
 	call Printer_PlaceEmptyBoxSlotString
 	hlcoord 1, 15
 	lb bc, 2, 18
-	call ClearBox
+	predef ClearBox
 	call Printer_PlaceSideBorders
 	call Printer_PlaceBottomBorders
 	ld a, [wFinishedPrintingBox]

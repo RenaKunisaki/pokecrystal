@@ -5120,7 +5120,7 @@ BattleCommand_ForceSwitch:
 	predef DelayFrames
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	ld c, 20
 	predef DelayFrames
 	ld a, [wOTPartyCount]
@@ -5215,7 +5215,7 @@ BattleCommand_ForceSwitch:
 	predef DelayFrames
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 	ld c, 20
 	predef DelayFrames
 	ld a, [wPartyCount]

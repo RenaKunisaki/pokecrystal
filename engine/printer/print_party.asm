@@ -25,7 +25,7 @@ PrintPage1:
 	ld [hl], a
 	hlcoord 2, 11, wPrinterTilemapBuffer
 	lb bc, 5, 18
-	call ClearBox
+	predef ClearBox
 	ld a, [wTempSpecies]
 	dec a
 	call CheckCaughtMon

@@ -175,7 +175,7 @@ _UnownPrinter:
 .vacant
 	hlcoord 1, 6
 	lb bc, 7, 7
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 9
 	ld de, UnownDexVacantString
 	call PlaceString

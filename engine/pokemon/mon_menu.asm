@@ -107,7 +107,7 @@ CancelPokemonAction:
 PokemonActionSubmenu:
 	hlcoord 1, 15
 	lb bc, 2, 18
-	call ClearBox
+	predef ClearBox
 	farcall MonSubmenu
 	call GetCurNickname
 	ld a, [wMenuSelection]
@@ -912,7 +912,7 @@ MoveScreenLoop:
 	predef ByteFill
 	hlcoord 1, 12
 	lb bc, 5, SCREEN_WIDTH - 2
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 12
 	ld de, String_MoveWhere
 	call PlaceString
@@ -930,7 +930,7 @@ MoveScreenLoop:
 	ld [wSwappingMove], a
 	hlcoord 1, 2
 	lb bc, 8, SCREEN_WIDTH - 2
-	call ClearBox
+	predef ClearBox
 	jp .loop
 
 .d_right
@@ -1041,10 +1041,10 @@ MoveScreenLoop:
 	predef WaitSFX
 	hlcoord 1, 2
 	lb bc, 8, 18
-	call ClearBox
+	predef ClearBox
 	hlcoord 10, 10
 	lb bc, 1, 9
-	call ClearBox
+	predef ClearBox
 	jp .loop
 
 .copy_move
@@ -1114,7 +1114,7 @@ SetUpMoveScreenBG:
 	call Textbox
 	hlcoord 2, 0
 	lb bc, 2, 3
-	call ClearBox
+	predef ClearBox
 	xor a
 	ld [wMonType], a
 	ld hl, wPartyMonNicknames

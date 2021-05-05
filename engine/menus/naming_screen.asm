@@ -270,7 +270,7 @@ NamingScreen_InitText:
 	lb bc, 4, 18
 
 .not_box
-	call ClearBox
+	predef ClearBox
 	ld de, NameInputUpper
 NamingScreen_ApplyTextInputMode:
 	call NamingScreen_IsTargetBox
@@ -291,10 +291,10 @@ NamingScreen_ApplyTextInputMode:
 	lb bc, 9, 18
 
 .not_box_2
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 16
 	lb bc, 1, 18
-	call ClearBox
+	predef ClearBox
 	pop de
 	hlcoord 2, 8
 	ld b, $5
@@ -350,7 +350,7 @@ NamingScreenJoypadLoop:
 
 .got_coords
 	lb bc, 1, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, wNamingScreenDestinationPointer
 	ld e, [hl]
 	inc hl
@@ -983,7 +983,7 @@ INCBIN "gfx/icons/mail_big.2bpp"
 	predef ByteFill
 	hlcoord 1, 1
 	lb bc, 4, SCREEN_WIDTH - 2
-	call ClearBox
+	predef ClearBox
 	ld de, MailEntry_Uppercase
 
 .PlaceMailCharset:
@@ -1031,7 +1031,7 @@ INCBIN "gfx/icons/mail_big.2bpp"
 	ldh [hBGMapMode], a
 	hlcoord 1, 1
 	lb bc, 4, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, wNamingScreenDestinationPointer
 	ld e, [hl]
 	inc hl

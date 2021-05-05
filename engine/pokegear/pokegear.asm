@@ -508,7 +508,7 @@ PokegearClock_Joypad:
 Pokegear_UpdateClock:
 	hlcoord 3, 5
 	lb bc, 5, 14
-	call ClearBox
+	predef ClearBox
 	ldh a, [hHours]
 	ld b, a
 	ldh a, [hMinutes]
@@ -728,7 +728,7 @@ PokegearMap_UpdateLandmarkName:
 	push af
 	hlcoord 8, 0
 	lb bc, 2, 12
-	call ClearBox
+	predef ClearBox
 	pop af
 	ld e, a
 	push de
@@ -1765,7 +1765,7 @@ NoRadioName:
 	ldh [hBGMapMode], a
 	hlcoord 1, 8
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 12
 	lb bc, 4, 18
 	call Textbox

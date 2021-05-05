@@ -51,7 +51,7 @@ InitMobileProfile:
 	hlcoord 0, 0
 	ld b,  2
 	ld c, 20
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 1
 	ld a, $c
 	ld [hl], a
@@ -158,7 +158,7 @@ Function48187:
 	jr c, .asm_481a2
 	lb bc, 1, 4
 	hlcoord 2, 12
-	call ClearBox
+	predef ClearBox
 	jr .asm_481ad
 .asm_481a2
 	push de
@@ -174,19 +174,19 @@ Function48187:
 	jr nz, .asm_481c1
 	lb bc, 1, 8
 	hlcoord 11, 4
-	call ClearBox
+	predef ClearBox
 .asm_481c1
 	bit 1, d
 	jr nz, .asm_481ce
 	lb bc, 1, 8
 	hlcoord 11, 6
-	call ClearBox
+	predef ClearBox
 .asm_481ce
 	bit 2, d
 	jr nz, .asm_481db
 	lb bc, 2, 8
 	hlcoord 11, 7
-	call ClearBox
+	predef ClearBox
 .asm_481db
 	bit 3, d
 	jr nz, .asm_481f1
@@ -195,7 +195,7 @@ Function48187:
 	jr nz, .asm_481f8
 	lb bc, 1, 8
 	hlcoord 11, 10
-	call ClearBox
+	predef ClearBox
 	jr .asm_48201
 .asm_481f1
 	ld a, [wd479]
@@ -242,7 +242,7 @@ Function4820d:
 	hlcoord 1, 15
 	ld b, $2
 	ld c, $12
-	call ClearBox
+	predef ClearBox
 	ld de, MobileString_ProfileChanged
 	hlcoord 1, 16
 	call PlaceString
@@ -271,7 +271,7 @@ MobileString_PersonalInfo:
 Function48283:
 	lb bc, 2, 18
 	hlcoord 1, 15
-	call ClearBox
+	predef ClearBox
 	ret
 
 asm_4828d:
@@ -445,7 +445,7 @@ Function483bb:
 	ld b, $2
 	ld c, $8
 	hlcoord 11, 7
-	call ClearBox
+	predef ClearBox
 	hlcoord 11, 8
 	call PlaceString
 	ret
@@ -494,14 +494,14 @@ Function4840c:
 	ld b, 9
 	ld c, 1
 	hlcoord 1, 4
-	call ClearBox
+	predef ClearBox
 	jp Function48157
 
 .narrower_box
 	ld b, 7
 	ld c, 1
 	hlcoord 1, 6
-	call ClearBox
+	predef ClearBox
 	jp Function48157
 
 Mobile12_Bin2Dec:
@@ -656,7 +656,7 @@ Function48689:
 	hlcoord 0, 0
 	ld b, 4
 	ld c, SCREEN_WIDTH
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 2
 	ld a, $c
 	ld [hl], a
@@ -1163,7 +1163,7 @@ asm_48972:
 	call Function489ea
 	hlcoord 11, 9
 	lb bc, 1, 8
-	call ClearBox
+	predef ClearBox
 	pop af
 	ldh [hInMenu], a
 	jp Function4840c

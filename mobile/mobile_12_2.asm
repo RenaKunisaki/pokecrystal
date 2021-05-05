@@ -631,7 +631,7 @@ Function4abc3:
 .asm_4ac29
 	hlcoord 0, 1
 	lb bc, 13, 1
-	call ClearBox
+	predef ClearBox
 	call Function4aab6
 	ld a, [wPartyCount]
 	hlcoord 6, 1
@@ -661,7 +661,7 @@ Function4abc3:
 Function4ac58:
 	lb bc, 2, 18
 	hlcoord 1, 15
-	call ClearBox
+	predef ClearBox
 	farcall FreezeMonIcons
 	ld hl, MenuHeader_0x4aca2
 	call LoadMenuHeader

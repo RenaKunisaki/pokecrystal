@@ -891,7 +891,7 @@ DebugRoom_PrintPage:
 	ld [hl], a
 	hlcoord 1, 1
 	lb bc, SCREEN_HEIGHT - 2, SCREEN_WIDTH - 2
-	call ClearBox
+	predef ClearBox
 	pop af
 	ld b, a
 	ld h, 0
@@ -1089,7 +1089,7 @@ DebugRoom_PrintItemName:
 	pop hl
 	push hl
 	lb bc, 1, 12
-	call ClearBox
+	predef ClearBox
 	pop hl
 	ld de, wStringBuffer1
 	call PlaceString
@@ -1250,7 +1250,7 @@ _DebugRoom_FinishGetName:
 	pop hl
 	push hl
 	lb bc, 1, 12
-	call ClearBox
+	predef ClearBox
 	pop hl
 	ld de, wStringBuffer1
 	call PlaceString

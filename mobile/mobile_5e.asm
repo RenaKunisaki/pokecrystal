@@ -492,7 +492,7 @@ Function17a964:
 Function17a97b:
 	hlcoord 1, 1
 	lb bc, 2, 18
-	call ClearBox
+	predef ClearBox
 	hlcoord 3, 2
 	ld de, wd1ea
 	ld a, [$d08c]

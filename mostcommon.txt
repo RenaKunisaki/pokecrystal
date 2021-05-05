@@ -18,7 +18,7 @@ grep -rh $'\tcall ' | sort | uniq -c | sort -rn > mostcommon.txt
     123 	predef ExitMenu
     122 	predef PrintNum
     114 	predef GetBattleVarAddr
-    109 	call ClearBox
+    109 	predef ClearBox
     104 	call ClearTilemap
     100 	predef WaitSFX
      98 	call MobileSDK_CopyBytes

@@ -376,7 +376,7 @@ DSTChecks:
 .ClearBox:
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	ret
 
 .TimesetAskAdjustDSTText:

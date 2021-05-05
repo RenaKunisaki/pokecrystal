@@ -9,7 +9,7 @@ _DisappearUser:
 .player
 	call GetPlayerBackpicCoords
 .okay
-	call ClearBox
+	predef ClearBox
 	jr FinishAppearDisappearUser
 
 _AppearUserRaiseSub:

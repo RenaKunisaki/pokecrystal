@@ -242,7 +242,7 @@ ClearMenuBoxInterior::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	call ClearBox
+	predef ClearBox
 	ret
 
 ClearWholeMenuBox::
@@ -250,7 +250,7 @@ ClearWholeMenuBox::
 	call GetMenuBoxDims
 	inc c
 	inc b
-	call ClearBox
+	predef ClearBox
 	ret
 
 MenuBoxCoord2Tile::

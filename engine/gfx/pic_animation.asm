@@ -815,7 +815,7 @@ PokeAnim_PlaceGraphic:
 	ld l, a
 	ld b, 7
 	ld c, 7
-	call ClearBox
+	predef ClearBox
 	ret
 
 PokeAnim_SetVBank1:

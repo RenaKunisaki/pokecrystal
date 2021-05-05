@@ -1029,7 +1029,7 @@ ShrinkPlayer:
 	hlcoord 6, 5
 	ld b, 7
 	ld c, 7
-	call ClearBox
+	predef ClearBox
 
 	ld c, 3
 	predef DelayFrames

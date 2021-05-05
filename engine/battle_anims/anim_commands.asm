@@ -207,13 +207,13 @@ ClearActorHud:
 
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	ret
 
 .player
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 	ret
 
 PlaceWindowOverBattleTextbox: ; unreferenced

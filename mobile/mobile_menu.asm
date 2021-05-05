@@ -83,7 +83,7 @@ Function49f16:
 	hlcoord 1, 13
 	ld b, 4
 	ld c, SCREEN_HEIGHT
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 14
 	call PlaceString
 	jp .useless_jump
@@ -96,7 +96,7 @@ Function49f16:
 	ld b, $a
 	ld c, $1
 	hlcoord 5, 1
-	call ClearBox
+	predef ClearBox
 	jp .joy_loop
 
 MobileString1:
@@ -264,7 +264,7 @@ Function4a149:
 	hlcoord 1, 13
 	ld b, $4
 	ld c, $12
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 14
 	call PlaceString
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -310,7 +310,7 @@ asm_4a19d:
 	hlcoord 1, 13
 	ld b, $4
 	ld c, $12
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 14
 	call PlaceString
 	jr .asm_4a1db
@@ -321,7 +321,7 @@ asm_4a19d:
 	ld [hl], b
 	lb bc, 6, 1
 	hlcoord 2, 3
-	call ClearBox
+	predef ClearBox
 	jp Function4a195
 
 String_4a1ef:
@@ -726,7 +726,7 @@ asm_4a54d:
 	hlcoord 1, 13
 	ld b, $4
 	ld c, $12
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 14
 	call PlaceString
 	pop af
@@ -747,7 +747,7 @@ Function4a5b0:
 	ld b, $a
 	ld c, $1
 	hlcoord 3, 1
-	call ClearBox
+	predef ClearBox
 	jp Function4a545
 
 String_4a5c5:

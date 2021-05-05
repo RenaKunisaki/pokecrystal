@@ -49,7 +49,7 @@ MovePlayerPic:
 	sbc d
 	ld h, a
 	lb bc, 7, 7
-	call ClearBox
+	predef ClearBox
 	pop bc
 	pop hl
 	jr .loop

@@ -1342,7 +1342,7 @@ Pack_InitGFX:
 ; This is where the items themselves will be listed.
 	hlcoord 5, 1
 	lb bc, 11, 15
-	call ClearBox
+	predef ClearBox
 ; ◀▶ POCKET       ▼▲ ITEMS
 	hlcoord 0, 0
 	ld a, $28
@@ -1430,7 +1430,7 @@ Pack_ClearTilemap: ; unreferenced
 ClearPocketList:
 	hlcoord 5, 2
 	lb bc, 10, SCREEN_WIDTH - 5
-	call ClearBox
+	predef ClearBox
 	ret
 
 Pack_InitColors:

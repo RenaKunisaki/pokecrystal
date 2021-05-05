@@ -483,7 +483,7 @@ SetDayOfWeek:
 	hlcoord 10, 4
 	ld b, 2
 	ld c, 9
-	call ClearBox
+	predef ClearBox
 	hlcoord 10, 5
 	call .PlaceWeekdayString
 	predef WaitBGMap
@@ -545,7 +545,7 @@ InitialSetDSTFlag:
 	ld [wDST], a
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, .Text
 	call PlaceHLTextAtBC
 	ret
@@ -572,7 +572,7 @@ InitialClearDSTFlag:
 	ld [wDST], a
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, .Text
 	call PlaceHLTextAtBC
 	ret
@@ -596,7 +596,7 @@ InitialClearDSTFlag:
 MrChrono: ; unreferenced
 	hlcoord 1, 14
 	lb bc, 3, SCREEN_WIDTH - 2
-	call ClearBox
+	predef ClearBox
 	ld hl, .Text
 	call PlaceHLTextAtBC
 	ret

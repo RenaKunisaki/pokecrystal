@@ -337,7 +337,7 @@ TMHM_DisplayPocketItems:
 	hlcoord 5, 2
 	lb bc, 10, 15
 	ld a, " "
-	call ClearBox
+	predef ClearBox
 	call TMHM_GetCurrentPocketPosition
 	ld d, $5
 .loop2

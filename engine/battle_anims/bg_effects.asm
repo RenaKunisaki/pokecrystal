@@ -360,7 +360,7 @@ BattleBGEffect_HideMon:
 	hlcoord 2, 6
 	lb bc, 6, 6
 .got_pointer
-	call ClearBox
+	predef ClearBox
 	pop bc
 	xor a
 	ldh [hBGMapThird], a
@@ -458,7 +458,7 @@ BattleBGEffect_BattlerObj_1Row:
 	hlcoord 2, 6
 	lb bc, 1, 6
 .okay2
-	call ClearBox
+	predef ClearBox
 	ld a, $1
 	ldh [hBGMapMode], a
 	pop bc
@@ -525,7 +525,7 @@ BattleBGEffect_BattlerObj_2Row:
 	hlcoord 2, 6
 	lb bc, 2, 6
 .okay2
-	call ClearBox
+	predef ClearBox
 	ld a, $1
 	ldh [hBGMapMode], a
 	pop bc
@@ -779,7 +779,7 @@ BattleBGEffect_RunPicResizeScript:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call ClearBox
+	predef ClearBox
 	pop bc
 	ret
 

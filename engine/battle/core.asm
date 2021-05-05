@@ -2070,7 +2070,7 @@ DoubleSwitch:
 	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	call PlayerPartyMonEntrance
 	ld a, $1
 	call EnemyPartyMonEntrance
@@ -2252,7 +2252,7 @@ FaintYourPokemon:
 	call PlayerMonFaintedAnimation
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 	ld hl, BattleText_MonFainted
 	jp StdBattleTextbox
 
@@ -2265,7 +2265,7 @@ FaintEnemyPokemon:
 	predef PlaySFX
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	ld hl, BattleText_EnemyMonFainted
 	jp StdBattleTextbox
 
@@ -2918,7 +2918,7 @@ LostBattle:
 ; Remove the enemy from the screen.
 	hlcoord 0, 0
 	lb bc, 8, 21
-	call ClearBox
+	predef ClearBox
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
@@ -2935,7 +2935,7 @@ LostBattle:
 ; Remove the enemy from the screen.
 	hlcoord 0, 0
 	lb bc, 8, 21
-	call ClearBox
+	predef ClearBox
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
@@ -2987,7 +2987,7 @@ LostBattle:
 ; Remove the enemy from the screen.
 	hlcoord 0, 0
 	lb bc, 8, 21
-	call ClearBox
+	predef ClearBox
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
@@ -3527,7 +3527,7 @@ ClearEnemyMonBox:
 	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	predef WaitBGMap
 	jp FinishBattleAnim
 
@@ -4018,7 +4018,7 @@ SendOutPlayerMon:
 	hlcoord 1, 5
 	ld b, 7
 	ld c, 8
-	call ClearBox
+	predef ClearBox
 	predef WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
@@ -4583,7 +4583,7 @@ DrawPlayerHUD:
 	; Clear the area
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 
 	farcall DrawPlayerHUDBorder
 
@@ -4720,7 +4720,7 @@ DrawEnemyHUD:
 
 	hlcoord 1, 0
 	lb bc, 4, 11
-	call ClearBox
+	predef ClearBox
 
 	farcall DrawEnemyHUDBorder
 
@@ -5248,7 +5248,7 @@ BattleMonEntrance:
 
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 
 	ld a, [wCurBattleMon]
 	ld [wCurPartyMon], a
@@ -5273,7 +5273,7 @@ PassedBattleMonEntrance:
 
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 
 	ld a, [wCurPartyMon]
 	ld [wCurBattleMon], a
@@ -8067,10 +8067,10 @@ BattleIntro:
 	call EmptyBattleTextbox
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	predef ClearSprites
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
@@ -8914,7 +8914,7 @@ InitBattleDisplay:
 	farcall MobileTextBorder
 	hlcoord 1, 5
 	lb bc, 3, 7
-	call ClearBox
+	predef ClearBox
 	call LoadStandardFont
 	call _LoadBattleFontsHPBar
 	call .BlankBGMap

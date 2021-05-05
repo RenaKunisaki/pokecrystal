@@ -1442,7 +1442,7 @@ InitMysteryGiftLayout:
 	predef ByteFill
 	hlcoord 3, 7
 	lb bc, 9, 15
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 0
 	ld a, $0
 	ld [hli], a
@@ -1740,7 +1740,7 @@ InitNameCardLayout:
 	predef ByteFill
 	hlcoord 3, 7
 	lb bc, 9, 15
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 0
 	ld a, $0
 	ld [hli], a

@@ -243,15 +243,15 @@ BillsPCClearThreeBoxes: ; unreferenced
 	hlcoord 0, 0
 	ld b, 4
 	ld c, 8
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 4
 	ld b, 10
 	ld c, 9
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 14
 	ld b, 2
 	ld c, 8
-	call ClearBox
+	predef ClearBox
 	ret
 
 _WithdrawPKMN:
@@ -1023,11 +1023,11 @@ PCMonInfo:
 
 	hlcoord 0, 0
 	lb bc, 15, 8
-	call ClearBox
+	predef ClearBox
 
 	hlcoord 8, 14
 	lb bc, 1, 3
-	call ClearBox
+	predef ClearBox
 
 	call BillsPC_GetSelectedPokemonSpecies
 	and a
@@ -1784,10 +1784,10 @@ DepositPokemon:
 	call PlayMonCry
 	hlcoord 0, 0
 	lb bc, 15, 8
-	call ClearBox
+	predef ClearBox
 	hlcoord 8, 14
 	lb bc, 1, 3
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 15
 	lb bc, 1, 18
 	call Textbox
@@ -1839,10 +1839,10 @@ TryWithdrawPokemon:
 	call PlayMonCry
 	hlcoord 0, 0
 	lb bc, 15, 8
-	call ClearBox
+	predef ClearBox
 	hlcoord 8, 14
 	lb bc, 1, 3
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 15
 	lb bc, 1, 18
 	call Textbox
@@ -1875,10 +1875,10 @@ TryWithdrawPokemon:
 ReleasePKMN_ByePKMN:
 	hlcoord 0, 0
 	lb bc, 15, 8
-	call ClearBox
+	predef ClearBox
 	hlcoord 8, 14
 	lb bc, 1, 3
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 15
 	lb bc, 1, 18
 	call Textbox

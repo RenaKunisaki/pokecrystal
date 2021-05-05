@@ -7160,7 +7160,7 @@ Function1034be:
 Function1034e0:
 	push bc
 	push hl
-	call ClearBox
+	predef ClearBox
 	pop hl
 	ld bc, wAttrmap - wTilemap
 	add hl, bc

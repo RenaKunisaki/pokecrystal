@@ -163,7 +163,7 @@ DisplayDexEntry:
 ; Page 1
 	lb bc, 5, SCREEN_WIDTH - 2
 	hlcoord 2, 11
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
 	ld a, $61 ; horizontal divider
@@ -193,7 +193,7 @@ DisplayDexEntry:
 	push de
 	lb bc, 5, SCREEN_WIDTH - 2
 	hlcoord 2, 11
-	call ClearBox
+	predef ClearBox
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
 	ld a, $61

@@ -214,7 +214,7 @@ EvolveAfterBattle_MasterLoop:
 	ldh [hBGMapMode], a
 	hlcoord 0, 0
 	lb bc, 12, 20
-	call ClearBox
+	predef ClearBox
 
 	ld a, $1
 	ldh [hBGMapMode], a

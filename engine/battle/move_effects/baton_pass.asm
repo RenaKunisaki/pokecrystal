@@ -28,7 +28,7 @@ BattleCommand_BatonPass:
 	predef ClearSprites
 	hlcoord 1, 0
 	lb bc, 4, 10
-	call ClearBox
+	predef ClearBox
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout
 	call SetPalettes

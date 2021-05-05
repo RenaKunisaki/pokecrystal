@@ -771,7 +771,7 @@ SellMenu:
 	jr c, .declined
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, MartSellPriceText
 	call PrintTextboxText
 	call YesNoBox
@@ -785,7 +785,7 @@ SellMenu:
 	predef PartyMonItemName
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
+	predef ClearBox
 	ld hl, MartBoughtText
 	call PrintTextboxText
 	call PlayTransactionSound

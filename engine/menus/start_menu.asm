@@ -375,7 +375,7 @@ endr
 	ret z
 	hlcoord 0, 13
 	lb bc, 5, 10
-	call ClearBox
+	predef ClearBox
 	hlcoord 0, 13
 	ld b, 3
 	ld c, 8

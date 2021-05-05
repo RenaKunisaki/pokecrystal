@@ -147,7 +147,7 @@ BuenaPrintText::
 	push hl
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	lb bc, TEXTBOX_INNERH - 1, TEXTBOX_INNERW
-	call ClearBox
+	predef ClearBox
 	pop hl
 	; fallthrough
 
@@ -494,7 +494,7 @@ Paragraph::
 	call PromptButton
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	lb bc, TEXTBOX_INNERH - 1, TEXTBOX_INNERW
-	call ClearBox
+	predef ClearBox
 	call UnloadBlinkingCursor
 	ld c, 20
 	predef DelayFrames

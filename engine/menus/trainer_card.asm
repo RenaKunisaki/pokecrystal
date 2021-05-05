@@ -289,7 +289,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ret nz
 	hlcoord 1, 9
 	lb bc, 2, 17
-	call ClearBox
+	predef ClearBox
 	ret
 
 .Dex_PlayTime:
