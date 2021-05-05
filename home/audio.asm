@@ -233,9 +233,9 @@ RestartMapMusic::
 SpecialMapMusic::
     farcall SpecialMapMusic_far
 	ret
-    
+
 GetMapMusic_MaybeSpecial::
-	call SpecialMapMusic
+	farcall SpecialMapMusic_far
 	ret c
 	call GetMapMusic
 	ret
