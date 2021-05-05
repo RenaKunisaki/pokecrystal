@@ -140,7 +140,7 @@ EnterMap:
 
 UnusedWait30Frames: ; unreferenced
 	ld c, 30
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 HandleMap:
@@ -191,7 +191,7 @@ NextOverworldFrame:
 	and a
 	ret z
 	ld c, a
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 HandleMapTimeAndJoypad:

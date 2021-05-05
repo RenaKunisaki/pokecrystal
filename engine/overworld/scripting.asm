@@ -2246,7 +2246,7 @@ Script_pause:
 	ld [wScriptDelay], a
 .loop
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	ld hl, wScriptDelay
 	dec [hl]
 	jr nz, .loop
@@ -2357,7 +2357,7 @@ Script_wait:
 .loop
 	push af
 	ld c, 6
-	call DelayFrames
+	predef DelayFrames
 	pop af
 	dec a
 	jr nz, .loop

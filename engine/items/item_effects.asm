@@ -390,7 +390,7 @@ PokeBallEffect:
 .fail_to_catch
 	ld [wWildMon], a
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 
 	ld a, [wCurItem]
 	cp POKE_BALL + 1 ; Assumes Master/Ultra/Great come before
@@ -1788,7 +1788,7 @@ ItemActionTextWaitButton:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 	jp WaitPressAorB_BlinkCursor
 
 StatusHealer_NoEffect:

@@ -496,7 +496,7 @@ MobileTradeAnim_ShowPlayerMonToBeSent:
 
 .skip_cry
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call Function108bec
 	depixel 10, 11, 4, 0
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_SENT_BALL
@@ -629,7 +629,7 @@ MobileTradeAnim_ShowPlayerMonForGTS:
 
 .skip_cry
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call Function108c2b
 	depixel 10, 11, 4, 0
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_SENT_BALL
@@ -1034,7 +1034,7 @@ MobileTradeAnim_06:
 
 MobileTradeAnim_07:
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	depixel 30, 10, 2, 0
 	ld a, SPRITE_ANIM_INDEX_MOBILE_TRADE_OT_PULSE
 	call InitSpriteAnimStruct
@@ -1167,7 +1167,7 @@ MobileTradeAnim_FadeToBlack:
 	call DmgToCgbBGPals
 	call DmgToCgbObjPal0
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	jr .loop
 
 .blank
@@ -1542,11 +1542,11 @@ Function108bec:
 	ld hl, .MobilePlayerWillTradeMonText
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ld hl, .MobileForPartnersMonText
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .MobilePlayerWillTradeMonText:
@@ -1567,7 +1567,7 @@ Function108c16:
 	ld hl, .MobileTakeGoodCareOfMonText
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .MobileTakeGoodCareOfMonText:
@@ -1580,7 +1580,7 @@ Function108c2b:
 	ld hl, .MobilePlayersMonTrade2Text
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .MobilePlayersMonTrade2Text:
@@ -1596,14 +1596,14 @@ Function108c40:
 	ld hl, .MobileTradeCameBackText
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .Getmon:
 	ld hl, .MobileTakeGoodCareOfText
 	call PrintText
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .MobileTakeGoodCareOfText:

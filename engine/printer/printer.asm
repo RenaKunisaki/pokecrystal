@@ -81,7 +81,7 @@ PrintDexEntry:
 
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 
@@ -158,7 +158,7 @@ PrintPCBox:
 
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	call PrintPCBox_Page2
@@ -169,7 +169,7 @@ PrintPCBox:
 
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 
 	xor a
 	ldh [hBGMapMode], a
@@ -181,7 +181,7 @@ PrintPCBox:
 
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 
 	xor a
 	ldh [hBGMapMode], a
@@ -355,7 +355,7 @@ PrintPartymon:
 
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 
 	xor a
 	ldh [hBGMapMode], a
@@ -415,7 +415,7 @@ _PrintDiploma:
 	jr c, .cancel
 	call Printer_CleanUpAfterSend
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 
 	call LoadTilemapToTempTilemap
 	xor a

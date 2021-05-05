@@ -32,7 +32,7 @@ _ScrollingMenu::
 	ld a, 1
 	ldh [hBGMapMode], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	ret

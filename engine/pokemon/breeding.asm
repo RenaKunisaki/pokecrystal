@@ -702,7 +702,7 @@ EggHatch_AnimationSequence:
 	ld a, EGG
 	call Hatch_UpdateFrontpicBGMapCenter
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ld [wFrameCounter], a
 	ldh a, [hSCX]
@@ -722,18 +722,18 @@ EggHatch_AnimationSequence:
 	ld [wGlobalAnimXOffset], a
 	call EggHatch_DoAnimFrame
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	ld a, -2
 	ldh [hSCX], a
 	ld a, 2
 	ld [wGlobalAnimXOffset], a
 	call EggHatch_DoAnimFrame
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	dec e
 	jr nz, .loop
 	ld c, 16
-	call DelayFrames
+	predef DelayFrames
 	call EggHatch_CrackShell
 	jr .outerloop
 

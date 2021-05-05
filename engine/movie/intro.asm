@@ -990,7 +990,7 @@ IntroScene21:
 ; Suicune gets more distant and turns black.
 	call Intro_ColoredSuicuneFrameSwap
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	ld [wIntroSceneFrameCounter], a

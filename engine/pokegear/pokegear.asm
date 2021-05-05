@@ -294,7 +294,7 @@ InitPokegearTilemap:
 	ld a, $2
 	ldh [hBGMapMode], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 .dmg
 	call WaitBGMap
 	ret
@@ -935,7 +935,7 @@ PokegearPhone_MakePhoneCall:
 	ld b, a
 	call MakePhoneCallFromPokegear
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
 	ld a, $1
@@ -1956,7 +1956,7 @@ PlayRadio:
 	set NO_TEXT_SCROLL, [hl]
 	call .PlayStation
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 .loop
 	call JoyTextDelay
 	ldh a, [hJoyPressed]
@@ -2651,7 +2651,7 @@ TownMapBGUpdate:
 
 ; 3 frames to update the whole screen's palettes.
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 .tiles
 ; Update BG Map tiles
 	call WaitBGMap

@@ -13,7 +13,7 @@ BattleCommand_BatonPass:
 	call AnimateCurrentMove
 
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 
 ; Transition into switchmon menu
 	call LoadStandardMenuHeader

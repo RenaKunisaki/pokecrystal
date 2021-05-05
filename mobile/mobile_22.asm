@@ -116,7 +116,7 @@ Function891d3:
 	push bc
 	call Function891ca
 	ld c, $10
-	call DelayFrames
+	predef DelayFrames
 	pop bc
 	ret
 
@@ -138,7 +138,7 @@ Function891fe:
 	push bc
 	call Function891de
 	ld c, $10
-	call DelayFrames
+	predef DelayFrames
 	pop bc
 	ret
 
@@ -241,7 +241,7 @@ Function89261:
 	call VerticalMenu
 	push af
 	ld c, $a
-	call DelayFrames
+	predef DelayFrames
 	call CloseWindow
 	call Mobile_DisableSpriteUpdates
 	pop af
@@ -2067,7 +2067,7 @@ Function89d0d:
 	farcall PrintMail
 	call Mobile22_SetBGMapMode1
 	ld c, 24
-	call DelayFrames
+	predef DelayFrames
 	call RestartMapMusic
 	ret
 
@@ -2681,7 +2681,7 @@ Function8a116:
 	ld de, SFX_TWINKLE
 	call PlaySFX
 	ld c, $10
-	call DelayFrames
+	predef DelayFrames
 .asm_8a15a
 	call ExitMenu
 	call Function891de

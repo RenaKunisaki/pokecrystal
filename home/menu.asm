@@ -455,7 +455,7 @@ InterpretTwoOptionMenu::
 	call VerticalMenu
 	push af
 	ld c, $f
-	call DelayFrames
+	predef DelayFrames
 	call CloseWindow
 	pop af
 	jr c, .no

@@ -193,7 +193,7 @@ _UnownPrinter:
 	call Get2bpp
 	predef CloseSRAM
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 AlphRuinsStampString:

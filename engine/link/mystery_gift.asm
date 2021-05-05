@@ -1595,7 +1595,7 @@ DoNameCardSwap:
 	jp nz, .CommunicationError
 	call .SlideNameCardUpOffScreen
 	ld c, 60
-	call DelayFrames
+	predef DelayFrames
 	call .ClearScreen
 	ld hl, .NameCardReceivedCardText
 	call PrintText
@@ -1633,7 +1633,7 @@ endr
 	ret z
 	push bc
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	pop bc
 	jr .loop
 

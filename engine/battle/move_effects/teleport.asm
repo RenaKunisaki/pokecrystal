@@ -80,7 +80,7 @@ BattleCommand_Teleport:
 	call BattleCommand_LowerSub
 	call LoadMoveAnim
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	call SetBattleDraw
 
 	ld hl, FledFromBattleText

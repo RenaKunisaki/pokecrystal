@@ -21,13 +21,13 @@ SplashScreen:
 	call GetSGBLayout
 	call SetPalettes
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 
 ; Draw copyright screen
 	callfar Copyright
 	call WaitBGMap
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	call ClearTilemap
 
 ; Stop here if not in GBC mode
@@ -119,7 +119,7 @@ GameFreakPresentsEnd:
 	call ClearTilemap
 	call ClearSprites
 	ld c, 16
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 GameFreakPresentsScene:

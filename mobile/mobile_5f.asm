@@ -2984,7 +2984,7 @@ Function17e3e0:
 	call HlToCrashCheckPointer
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Function17e3f0:

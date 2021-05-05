@@ -37,7 +37,7 @@ InitGender:
 	dec a
 	ld [wPlayerGender], a
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .MenuHeader:
@@ -64,7 +64,7 @@ InitGenderScreen:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	call ClearBGPalettes
 	call InitCrystalData
 	call LoadFontsExtra

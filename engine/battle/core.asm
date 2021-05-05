@@ -43,7 +43,7 @@ DoBattle:
 
 .wild
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 .player_2
 	call LoadTilemapToTempTilemap
@@ -1129,7 +1129,7 @@ ResidualDamage:
 .fainted
 	call RefreshBattleHuds
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ret
 
@@ -2017,7 +2017,7 @@ HandleEnemyMonFaint:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 60
-	call DelayFrames
+	predef DelayFrames
 
 	ld a, [wBattleMode]
 	dec a
@@ -2365,7 +2365,7 @@ WinTrainerBattle:
 
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 	ld a, [wBattleType]
 	cp BATTLETYPE_CANLOSE
@@ -2384,7 +2384,7 @@ WinTrainerBattle:
 .mobile
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	ld c, $4 ; win
 	farcall Mobile_PrintOpponentBattleMessage
 	ret
@@ -2392,7 +2392,7 @@ WinTrainerBattle:
 .battle_tower
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	call EmptyBattleTextbox
 	ld c, BATTLETOWERTEXT_LOSS_TEXT
 	farcall BattleTowerText
@@ -2922,7 +2922,7 @@ LostBattle:
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
@@ -2939,7 +2939,7 @@ LostBattle:
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 	call EmptyBattleTextbox
 	ld c, BATTLETOWERTEXT_WIN_TEXT
@@ -2991,7 +2991,7 @@ LostBattle:
 	call BattleWinSlideInEnemyTrainerFrontpic
 
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 	ld c, $3 ; lost
 	farcall Mobile_PrintOpponentBattleMessage
@@ -3048,7 +3048,7 @@ MonFaintedAnimation:
 	ld de, .Spaces
 	call PlaceString
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	pop hl
 	pop de
 	pop bc
@@ -3078,7 +3078,7 @@ SlideBattlePicOut:
 	dec b
 	jr nz, .loop2
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	pop hl
 	pop bc
 	dec c
@@ -4937,7 +4937,7 @@ LoadBattleMenu2:
 	ld hl, BattleText_LinkErrorBattleCanceled
 	call StdBattleTextbox
 	ld c, 60
-	call DelayFrames
+	predef DelayFrames
 .error
 	scf
 	ret
@@ -5235,7 +5235,7 @@ BattleMonEntrance:
 	call WithdrawMonText
 
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 
 	ld hl, wPlayerSubStatus4
 	res SUBSTATUS_RAGE, [hl]
@@ -5269,7 +5269,7 @@ BattleMonEntrance:
 
 PassedBattleMonEntrance:
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 
 	hlcoord 9, 7
 	lb bc, 5, 11
@@ -5765,7 +5765,7 @@ CheckPlayerHasUsableMoves:
 	ld hl, BattleText_MonHasNoMovesLeft
 	call StdBattleTextbox
 	ld c, 60
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ret
 
@@ -6539,7 +6539,7 @@ BattleWinSlideInEnemyTrainerFrontpic:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	pop hl
 	pop bc
 	dec hl
@@ -7305,7 +7305,7 @@ GiveExperiencePoints:
 	ld bc, 4
 	predef PrintTempMonStats
 	ld c, 30
-	call DelayFrames
+	predef DelayFrames
 	call WaitPressAorB_BlinkCursor
 	call SafeLoadTempTilemapToTilemap
 	xor a ; PARTYMON
@@ -7565,7 +7565,7 @@ AnimateExpBar:
 	ld de, SFX_EXP_BAR
 	call PlaySFX
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	pop bc
 	ret
 
@@ -7582,7 +7582,7 @@ AnimateExpBar:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, d
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	pop bc
@@ -7598,7 +7598,7 @@ AnimateExpBar:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, d
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hBGMapMode], a
 	dec d
@@ -8270,7 +8270,7 @@ ExitBattle:
 	jr z, .not_linked
 	call ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
-	call DelayFrames
+	predef DelayFrames
 	call DisplayLinkBattleResult
 	ret
 
@@ -8402,7 +8402,7 @@ DisplayLinkBattleResult:
 	call PlaceString
 	farcall BackupMobileEventIndex
 	ld c, 200
-	call DelayFrames
+	predef DelayFrames
 
 	ld a, BANK(sLinkBattleStats)
 	call OpenSRAM
@@ -8420,7 +8420,7 @@ DisplayLinkBattleResult:
 
 .mobile
 	ld c, 200
-	call DelayFrames
+	predef DelayFrames
 	call ClearTilemap
 	ret
 
@@ -8436,7 +8436,7 @@ DisplayLinkBattleResult:
 	ld de, .InvalidBattle
 	call PlaceString
 	ld c, 200
-	call DelayFrames
+	predef DelayFrames
 	call ClearTilemap
 	ret
 
@@ -8464,7 +8464,7 @@ _DisplayLinkRecord:
 	call GetSGBLayout
 	call SetPalettes
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	call WaitPressAorB_BlinkCursor
 	ret
 
@@ -9073,7 +9073,7 @@ BattleStartMessage:
 	call WaitSFX
 
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 
 	farcall Battle_GetTrainerName
 

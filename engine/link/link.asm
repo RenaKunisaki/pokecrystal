@@ -1,7 +1,7 @@
 LinkCommunications:
 	call ClearBGPalettes
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call ClearScreen
 	call ClearSprites
 	call UpdateSprites
@@ -9,7 +9,7 @@ LinkCommunications:
 	ldh [hSCX], a
 	ldh [hSCY], a
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call ClearScreen
 	call UpdateSprites
 	call LoadStandardFont
@@ -48,7 +48,7 @@ Gen2ToGen1LinkComms:
 	jr nz, .player_1
 
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hSerialSend], a
 	ld a, (0 << rSC_ON) | (1 << rSC_CLOCK)
@@ -68,7 +68,7 @@ Gen2ToGen1LinkComms:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [rIF], a
 	ld a, 1 << SERIAL
@@ -205,7 +205,7 @@ Gen2ToGen2LinkComms:
 	jr nz, .player_1
 
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hSerialSend], a
 	ld a, (0 << rSC_ON) | (1 << rSC_CLOCK)
@@ -225,7 +225,7 @@ Gen2ToGen2LinkComms:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [rIF], a
 	ld a, 1 << SERIAL
@@ -1476,7 +1476,7 @@ LinkTrade_TradeStatsMenu:
 	ld [wCurOTTradePartyMon], a
 	call LinkTradePlaceArrow
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	farcall ValidateOTTrademon
 	jr c, .abnormal
 	farcall CheckAnyOtherAliveMonsForTrade
@@ -1527,7 +1527,7 @@ LinkTrade_TradeStatsMenu:
 	ld [wPlayerLinkAction], a
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	jp InitTradeMenuDisplay
 
 .LinkTradeCantBattleText:
@@ -1916,7 +1916,7 @@ LinkTrade:
 	ld [wCurOTTradePartyMon], a
 
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	call ClearTilemap
 	call LoadFontsBattleExtra
 	ld b, SCGB_DIPLOMA
@@ -2000,7 +2000,7 @@ LinkTrade:
 	farcall StubbedTrainerRankings_Trades
 	farcall BackupMobileEventIndex
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	hlcoord 0, 12
 	ld b, 4
 	ld c, 18
@@ -2010,7 +2010,7 @@ LinkTrade:
 	call PlaceString
 	farcall Link_WaitBGMap
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 	ld a, [wLinkMode]
 	cp LINK_TIMECAPSULE
 	jp z, Gen2ToGen1LinkComms
@@ -2018,7 +2018,7 @@ LinkTrade:
 
 InitTradeMenuDisplay_Delay:
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	jp InitTradeMenuDisplay
 
 String_TradeCancel:
@@ -2162,11 +2162,11 @@ GetIncompatibleMonName:
 
 EnterTimeCapsule:
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	ld a, $4
 	call Link_EnsureSync
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [hVBlank], a
 	inc a ; LINK_TIMECAPSULE
@@ -2175,7 +2175,7 @@ EnterTimeCapsule:
 
 WaitForOtherPlayerToExit:
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	ld a, CONNECTION_NOT_ESTABLISHED
 	ldh [hSerialConnectionStatus], a
 	xor a
@@ -2186,7 +2186,7 @@ WaitForOtherPlayerToExit:
 	ld a, (1 << rSC_ON) | (1 << rSC_CLOCK)
 	ldh [rSC], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [rSB], a
 	ldh [hSerialReceive], a
@@ -2195,13 +2195,13 @@ WaitForOtherPlayerToExit:
 	ld a, (1 << rSC_ON) | (0 << rSC_CLOCK)
 	ldh [rSC], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ldh [rSB], a
 	ldh [hSerialReceive], a
 	ldh [rSC], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	ld a, CONNECTION_NOT_ESTABLISHED
 	ldh [hSerialConnectionStatus], a
 	ldh a, [rIF]
@@ -2307,7 +2307,7 @@ WaitForLinkedFriend:
 	call DelayFrame
 	call LinkDataReceived
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 	ld a, $1
 	ld [wScriptVar], a
 	ret
@@ -2466,7 +2466,7 @@ TryQuickSave:
 .return_result
 	ld [wScriptVar], a
 	ld c, 30
-	call DelayFrames
+	predef DelayFrames
 	pop af
 	ld [wChosenCableClubRoom], a
 	ret
@@ -2531,18 +2531,18 @@ CloseLink:
 	xor a
 	ld [wLinkMode], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	jp Link_ResetSerialRegistersAfterLinkClosure
 
 FailedLinkToPast:
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	ld a, $e
 	jp Link_EnsureSync
 
 Link_ResetSerialRegistersAfterLinkClosure:
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	ld a, CONNECTION_NOT_ESTABLISHED
 	ldh [hSerialConnectionStatus], a
 	ld a, USING_INTERNAL_CLOCK

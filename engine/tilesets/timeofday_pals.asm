@@ -138,7 +138,7 @@ BattleTowerFade:
 	inc hl
 	inc hl
 	ld c, $7
-	call DelayFrames
+	predef DelayFrames
 	dec b
 	jr nz, .loop
 	ret
@@ -280,7 +280,7 @@ ConvertTimePalsIncHL:
 	inc hl
 	inc hl
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	dec b
 	jr nz, .loop
 	ret
@@ -292,7 +292,7 @@ ConvertTimePalsDecHL:
 	dec hl
 	dec hl
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	dec b
 	jr nz, .loop
 	ret

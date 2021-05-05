@@ -47,7 +47,7 @@ RedCredits::
 	ldh [hMapAnims], a
 	farcall InitDisplayForRedCredits
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	call DisableSpriteUpdates
 	ld a, SPAWN_RED
 	ld [wSpawnAfterChampion], a
@@ -114,7 +114,7 @@ AnimateHallOfFame:
 	ld [wMusicFade], a
 	call RotateThreePalettesRight
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .DisplayNewHallOfFamer:
@@ -127,7 +127,7 @@ AnimateHallOfFame:
 	ld c, ANIM_MON_HOF
 	predef HOF_AnimateFrontpic
 	ld c, 60
-	call DelayFrames
+	predef DelayFrames
 	and a
 	ret
 

@@ -572,7 +572,7 @@ HangUp_Wait20Frames:
 
 Phone_Wait20Frames:
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	farcall PhoneRing_CopyTilemapAtOnce
 	ret
 

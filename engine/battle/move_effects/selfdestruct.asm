@@ -3,7 +3,7 @@ BattleCommand_Selfdestruct:
 	ld a, BATTLEANIM_PLAYER_DAMAGE
 	ld [wNumHits], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a

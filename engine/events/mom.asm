@@ -443,7 +443,7 @@ Mom_ContinueMenuSetup:
 
 Mom_Wait10Frames:
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Mom_WithdrawDepositMenuJoypad:

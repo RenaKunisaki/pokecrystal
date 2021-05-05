@@ -89,7 +89,7 @@ EvolutionAnimation:
 	call PlayMusic
 
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 
 	ld c, TRUE
 	call .GetSGBLayout

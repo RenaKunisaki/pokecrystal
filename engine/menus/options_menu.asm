@@ -68,7 +68,7 @@ _Option:
 .dpad
 	call Options_UpdateCursorPosition
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	jr .joypad_loop
 
 .ExitOptions:

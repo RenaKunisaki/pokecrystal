@@ -1234,7 +1234,7 @@ DebugColorMain2: ; unreferenced
 	ld a, 2
 	ldh [hBGMapMode], a
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	ld a, 1
 	ldh [hBGMapMode], a
 	ret

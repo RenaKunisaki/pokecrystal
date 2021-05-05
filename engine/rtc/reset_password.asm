@@ -79,7 +79,7 @@ ClockResetPassword:
 	jr z, .loop2
 	call .dpadinput
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 	jr .loop
 
 .confirm

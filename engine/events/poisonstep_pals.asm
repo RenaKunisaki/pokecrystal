@@ -20,7 +20,7 @@ LoadPoisonBGPals:
 .convert_pals
 	call DmgToCgbBGPals
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	farcall _UpdateTimePals
 	ret
 
@@ -43,6 +43,6 @@ LoadPoisonBGPals:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	farcall _UpdateTimePals
 	ret

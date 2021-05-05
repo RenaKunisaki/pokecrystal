@@ -164,13 +164,13 @@ _CardFlip:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	hlcoord 2, 0
 	call PlaceCardFaceDown
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	hlcoord 2, 6
 	call PlaceCardFaceDown
 	call WaitBGMap
@@ -187,7 +187,7 @@ _CardFlip:
 	call PlaySFX
 	call PlaceOAMCardBorder
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	ld hl, wCardFlipWhichCard
 	ld a, [hl]
 	xor $1
@@ -202,10 +202,10 @@ _CardFlip:
 	push af
 	call PlaceOAMCardBorder
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	call ClearSprites
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	pop af
 	dec a
 	jr nz, .loop2
@@ -1094,7 +1094,7 @@ CardFlip_CheckWinCondition:
 .full
 	call CardFlip_PrintCoinBalance
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	pop bc
 	dec c
 	jr nz, .loop

@@ -353,7 +353,7 @@ Continue:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	call ConfirmContinue
 	jr nc, .Check1Pass
 	call CloseWindow
@@ -377,7 +377,7 @@ Continue:
 	call CloseWindow
 	call ClearTilemap
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	farcall JumpRoamMons
 	farcall CopyMysteryGiftReceivedDecorationsToPC
 	farcall ClockContinue
@@ -424,7 +424,7 @@ Continue_MobileAdapterMenu:
 	ld a, HIGH(MUSIC_MOBILE_ADAPTER_MENU)
 	ld [wMusicFadeID + 1], a
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	ld c, $1
 	farcall InitMobileProfile ; mobile
 	farcall _SaveData
@@ -435,7 +435,7 @@ Continue_MobileAdapterMenu:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	ld c, 35
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 ConfirmContinue:
@@ -1010,21 +1010,21 @@ ShrinkPlayer:
 	;rst Bankswitch
 
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 
 	ld hl, Shrink1Pic
 	ld b, BANK(Shrink1Pic)
 	call ShrinkFrame
 
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 
 	ld hl, Shrink2Pic
 	ld b, BANK(Shrink2Pic)
 	call ShrinkFrame
 
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 
 	hlcoord 6, 5
 	ld b, 7
@@ -1032,13 +1032,13 @@ ShrinkPlayer:
 	call ClearBox
 
 	ld c, 3
-	call DelayFrames
+	predef DelayFrames
 
 	call Intro_PlacePlayerSprite
 	call LoadFontsExtra
 
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 
 	call RotateThreePalettesRight
 	call ClearTilemap
@@ -1051,7 +1051,7 @@ Intro_RotatePalettesLeftFrontpic:
 	ld a, [hli]
 	call DmgToCgbBGPals
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 	dec b
 	jr nz, .loop
 	ret

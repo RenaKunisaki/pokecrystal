@@ -403,7 +403,7 @@ DayCareManOutside:
 	ld de, SFX_GET_EGG
 	call PlaySFX
 	ld c, 120
-	call DelayFrames
+	predef DelayFrames
 	ld hl, .TakeGoodCareOfEggText
 	jr .Load0
 

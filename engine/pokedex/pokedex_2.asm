@@ -19,14 +19,14 @@ AnimateDexSearchSlowpoke:
 	call DoDexSearchSlowpokeFrame
 	pop hl
 	pop bc
-	call DelayFrames
+	predef DelayFrames
 	dec b
 	jr nz, .loop
 	xor a
 	ld [wDexSearchSlowpokeFrame], a
 	call DoDexSearchSlowpokeFrame
 	ld c, 32
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .FrameIDs:

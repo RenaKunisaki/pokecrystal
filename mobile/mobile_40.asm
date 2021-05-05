@@ -1413,7 +1413,7 @@ Function100902:
 	call PlaySFX
 	farcall ReloadMapPart
 	ld c, $3c
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .asm_10093f
@@ -1424,7 +1424,7 @@ Function100902:
 	call PlaySFX
 	farcall ReloadMapPart
 	ld c, 120
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .string_10095a
@@ -3785,7 +3785,7 @@ _StartMobileBattle:
 	call SpeechTextbox
 	farcall Function100846
 	ld c, 120
-	call DelayFrames
+	predef DelayFrames
 	farcall ClearTilemap
 	call .CopyOTDetails
 	call StartMobileBattle
@@ -5172,7 +5172,7 @@ Function10246a:
 
 Function102480: ; unreferenced
 	ld c, $32
-	call DelayFrames
+	predef DelayFrames
 	ld a, [wcd49]
 	inc a
 	ld [wcd49], a
@@ -6084,7 +6084,7 @@ Function102a3b:
 
 Function102b12:
 	ld c, 100
-	call DelayFrames
+	predef DelayFrames
 	call Function102d9a
 	call LoadFontsBattleExtra
 	ld a, [wcd2f]

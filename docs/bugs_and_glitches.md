@@ -505,7 +505,7 @@ Add this to the end of each file:
  	ld hl, BattleText_MonHasNoMovesLeft
  	call StdBattleTextbox
  	ld c, 60
- 	call DelayFrames
+ 	predef DelayFrames
  	xor a
  	ret
 ```

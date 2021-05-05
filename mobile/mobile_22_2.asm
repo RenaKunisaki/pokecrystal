@@ -533,7 +533,7 @@ UnknownText_0x8b64c:
 	call PlaySFX
 	call WaitSFX
 	ld c, $8
-	call DelayFrames
+	predef DelayFrames
 	ld hl, .string_8b663
 	ret
 

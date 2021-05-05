@@ -42,7 +42,7 @@ CelebiShrineEvent:
 	farcall DoNextFrameForAllSprites
 	call CelebiEvent_CountDown
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	pop de
 	pop bc
 	jr .loop

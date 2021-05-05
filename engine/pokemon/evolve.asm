@@ -208,7 +208,7 @@ EvolveAfterBattle_MasterLoop:
 	call PrintText
 
 	ld c, 50
-	call DelayFrames
+	predef DelayFrames
 
 	xor a
 	ldh [hBGMapMode], a
@@ -251,7 +251,7 @@ EvolveAfterBattle_MasterLoop:
 	call WaitSFX
 
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 
 	call ClearTilemap
 	call UpdateSpeciesNameIfNotNicknamed

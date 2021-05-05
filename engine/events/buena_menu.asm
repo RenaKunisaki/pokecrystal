@@ -26,7 +26,7 @@ AskRememberPassword:
 	call VerticalMenu
 	push af
 	ld c, 15
-	call DelayFrames
+	predef DelayFrames
 	call Buena_ExitMenu
 	pop af
 	jr c, .refused

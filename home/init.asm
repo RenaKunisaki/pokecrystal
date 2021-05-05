@@ -14,7 +14,7 @@ Reset::
 	set JOYPAD_DISABLE_SGB_TRANSFER_F, [hl]
 
 	ld c, 32
-	call DelayFrames
+	predef DelayFrames
 
 	jr Init
 

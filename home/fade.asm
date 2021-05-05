@@ -55,7 +55,7 @@ RotatePalettesRight::
 	ld d, a
 	call DmgToCgbObjPals
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	pop de
 	dec b
 	jr nz, RotatePalettesRight
@@ -97,7 +97,7 @@ RotatePalettesLeft::
 	ld a, [hld]
 	call DmgToCgbBGPals
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	pop de
 	dec b
 	jr nz, RotatePalettesLeft

@@ -657,7 +657,7 @@ TradeAnim_EnterLinkTube2:
 
 .done
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -850,19 +850,19 @@ TradeAnim_ShowFrontpic:
 
 TradeAnim_Wait80:
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
 TradeAnim_Wait40:
 	ld c, 40
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
 TradeAnim_Wait96:
 	ld c, 96
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -870,14 +870,14 @@ TradeAnim_Wait80IfOTEgg:
 	call IsOTTrademonEgg
 	ret nz
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 TradeAnim_Wait180IfOTEgg:
 	call IsOTTrademonEgg
 	ret nz
 	ld c, 180
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 IsOTTrademonEgg:
@@ -1172,12 +1172,12 @@ TradeAnim_SentToOTText:
 	ld hl, .MonNameSentToText
 	call PrintText
 	ld c, 189
-	call DelayFrames
+	predef DelayFrames
 	ld hl, .MonWasSentToText
 	call PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 128
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -1239,7 +1239,7 @@ TradeAnim_OTSendsText1:
 	call PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 14
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -1259,7 +1259,7 @@ TradeAnim_OTSendsText2:
 	call PrintText
 	call TradeAnim_Wait80Frames
 	ld c, 14
-	call DelayFrames
+	predef DelayFrames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -1273,7 +1273,7 @@ TradeAnim_OTSendsText2:
 
 TradeAnim_Wait80Frames:
 	ld c, 80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 TradeAnim_BlankTilemap:

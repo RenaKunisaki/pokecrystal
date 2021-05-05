@@ -12,7 +12,7 @@ Function49f0a:
 Function49f16:
 	call MobileMenu_InitMenuBuffers
 	ld c, 12
-	call DelayFrames
+	predef DelayFrames
 	hlcoord 4, 0
 	ld b, 10
 	ld c, 10
@@ -184,7 +184,7 @@ Function4a0c2:
 	predef CloseSRAM
 	farcall _LoadData
 	ld c, 2
-	call DelayFrames
+	predef DelayFrames
 	ld c, $1
 	call InitMobileProfile
 	push af
@@ -195,7 +195,7 @@ Function4a0c2:
 	farcall _SaveData
 .skip_save
 	ld c, 5
-	call DelayFrames
+	predef DelayFrames
 	jr asm_4a111
 
 Function4a100:
@@ -241,7 +241,7 @@ Function4a13b:
 	call Function4a492
 	call Function4a373
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 
 Function4a149:
 	hlcoord 1, 2
@@ -638,7 +638,7 @@ Function4a4c4:
 	call Function4a680
 	call ClearBGPalettes
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	hlcoord 2, 0
 	ld b, $a
 	ld c, $e
@@ -823,7 +823,7 @@ Function4a6c5:
 	ld a, d
 	ld [wMusicFadeID + 1], a
 	ld c, 22
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Function4a6d8:

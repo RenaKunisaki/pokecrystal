@@ -1758,11 +1758,11 @@ Pokedex_DisplayChangingModesMessage:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, 64
-	call DelayFrames
+	predef DelayFrames
 	ld de, SFX_CHANGE_DEX_MODE
 	call PlaySFX
 	ld c, 64
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 String_ChangingModesPleaseWait:
@@ -1962,7 +1962,7 @@ Pokedex_DisplayTypeNotFoundMessage:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld c, $80
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 .TypeNotFound:
@@ -2552,14 +2552,14 @@ Pokedex_SetBGMapMode3:
 	ld a, $3
 	ldh [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Pokedex_SetBGMapMode4:
 	ld a, $4
 	ldh [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Pokedex_SetBGMapMode_3ifDMG_4ifCGB:

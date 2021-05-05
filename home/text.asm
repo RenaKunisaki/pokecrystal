@@ -497,7 +497,7 @@ Paragraph::
 	call ClearBox
 	call UnloadBlinkingCursor
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	pop de
 	jp NextChar
@@ -610,7 +610,7 @@ TextScroll::
 	ld bc, TEXTBOX_INNERW
 	predef ByteFill
 	ld c, 5
-	call DelayFrames
+	predef DelayFrames
 	ret
 
 Text_WaitBGMap::
@@ -896,7 +896,7 @@ TextCommand_PAUSE::
 	and A_BUTTON | B_BUTTON
 	jr nz, .done
 	ld c, 30
-	call DelayFrames
+	predef DelayFrames
 .done
 	pop bc
 	pop hl
@@ -973,7 +973,7 @@ TextCommand_DOTS::
 	and A_BUTTON | B_BUTTON
 	jr nz, .next
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 .next
 	pop de
 	dec d

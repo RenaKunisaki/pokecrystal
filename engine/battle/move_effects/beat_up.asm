@@ -11,7 +11,7 @@ BattleCommand_BeatUp:
 	jr nz, .next_mon
 
 	ld c, 20
-	call DelayFrames
+	predef DelayFrames
 	xor a
 	ld [wPlayerRolloutCount], a
 	ld [wCurBeatUpPartyMon], a

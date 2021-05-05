@@ -17,7 +17,7 @@ InitClock:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	ld c, 8
-	call DelayFrames
+	predef DelayFrames
 	call RotateFourPalettesLeft
 	call ClearTilemap
 	call ClearSprites
@@ -64,7 +64,7 @@ InitClock:
 	hlcoord 4, 9
 	call DisplayHourOClock
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 
 .SetHourLoop:
 	call JoyTextDelay
@@ -94,7 +94,7 @@ InitClock:
 	hlcoord 12, 9
 	call DisplayMinutesWithMinString
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 
 .SetMinutesLoop:
 	call JoyTextDelay
@@ -416,7 +416,7 @@ SetDayOfWeek:
 	call .PlaceWeekdayString
 	call ApplyTilemap
 	ld c, 10
-	call DelayFrames
+	predef DelayFrames
 .loop2
 	call JoyTextDelay
 	call .GetJoypadAction
