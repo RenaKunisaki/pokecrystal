@@ -315,7 +315,7 @@ BillsGrandpaStaryuText:
 	done
 
 BillsGrandpaGrowlitheText:
-	text "BILL told me about"
+	text "Bill told me about"
 	line "a #MON that is"
 
 	para "very loyal to its"

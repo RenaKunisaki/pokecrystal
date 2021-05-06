@@ -1,13 +1,13 @@
 NurseMornText:
 	text "Good morning!"
 	line "Welcome to our"
-	cont "#MON CENTER."
+	cont "#MON Center."
 	done
 
 NurseDayText:
 	text "Hello!"
 	line "Welcome to our"
-	cont "#MON CENTER."
+	cont "#MON Center."
 	done
 
 NurseNiteText:
@@ -15,27 +15,27 @@ NurseNiteText:
 	line "You're out late."
 
 	para "Welcome to our"
-	line "#MON CENTER."
+	line "#MON Center."
 	done
 
 PokeComNurseMornText:
 	text "Good morning!"
 
 	para "This is the #-"
-	line "MON COMMUNICATION"
+	line "MON Communication"
 
-	para "CENTER--or the"
-	line "#COM CENTER."
+	para "Center--or the"
+	line "#COM Center."
 	done
 
 PokeComNurseDayText:
 	text "Hello!"
 
 	para "This is the #-"
-	line "MON COMMUNICATION"
+	line "MON Communication"
 
-	para "CENTER--or the"
-	line "#COM CENTER."
+	para "Center--or the"
+	line "#COM Center."
 	done
 
 PokeComNurseNiteText:
@@ -43,10 +43,10 @@ PokeComNurseNiteText:
 	line "working so late."
 
 	para "This is the #-"
-	line "MON COMMUNICATION"
+	line "MON Communication"
 
-	para "CENTER--or the"
-	line "#COM CENTER."
+	para "Center--or the"
+	line "#COM Center."
 	done
 
 NurseAskHealText:
@@ -96,7 +96,7 @@ NursePokerusText:
 	line "you anything more"
 
 	para "at a #MON"
-	line "CENTER."
+	line "Center."
 	done
 
 PokeComNursePokerusText:
@@ -127,10 +127,10 @@ PictureBookshelfText:
 
 MagazineBookshelfText:
 	text "#MON magazines…"
-	line "#MON PAL,"
+	line "#MON Pal,"
 
-	para "#MON HANDBOOK,"
-	line "#MON GRAPH…"
+	para "#MON Handbook,"
+	line "#MON Graph…"
 	done
 
 TeamRocketOathText:
@@ -144,7 +144,7 @@ TeamRocketOathText:
 
 	para "All #MON exist"
 	line "for the glory of"
-	cont "TEAM ROCKET!"
+	cont "Team Rocket!"
 	done
 
 IncenseBurnerText:
@@ -160,7 +160,7 @@ MerchandiseShelfText:
 	done
 
 LookTownMapText:
-	text "It's the TOWN MAP."
+	text "It's the Town Map."
 	done
 
 WindowText:
@@ -173,15 +173,15 @@ TVText:
 	done
 
 HomepageText:
-	text "#MON JOURNAL"
-	line "HOME PAGE…"
+	text "#mon Journal"
+	line "Home Page…"
 
 	para "It hasn't been"
 	line "updated…"
 	done
 
 ; not used
-	text "#MON RADIO!"
+	text "#MON Radio!"
 
 	para "Call in with your"
 	line "requests now!"
@@ -204,7 +204,7 @@ TrashCanText:
 
 PokecenterSignText:
 	text "Heal Your #MON!"
-	line "#MON CENTER"
+	line "#MON Center"
 	done
 
 MartSignText:
@@ -253,7 +253,7 @@ ContestResults_JoinUsNextTimeText:
 
 ContestResults_ConsolationPrizeText:
 	text "Everyone else gets"
-	line "a BERRY as a con-"
+	line "a Berry as a con-"
 	cont "solation prize!"
 	done
 
@@ -274,8 +274,8 @@ ContestResults_PartyFullText:
 	text "Your party's full,"
 	line "so the #MON was"
 
-	para "sent to your BOX"
-	line "in BILL's PC."
+	para "sent to your Box"
+	line "in Bill's PC."
 	done
 
 GymStatue_CityGymText:
@@ -288,13 +288,13 @@ GymStatue_WinningTrainersText:
 	text "LEADER: @"
 	text_ram wStringBuffer4
 	text_start
-	para "WINNING TRAINERS:"
+	para "Winning Trainers:"
 	line "<PLAYER>"
 	done
 
 CoinVendor_WelcomeText:
 	text "Welcome to the"
-	line "GAME CORNER."
+	line "Game Corner."
 	done
 
 CoinVendor_NoCoinCaseText:
@@ -302,7 +302,7 @@ CoinVendor_NoCoinCaseText:
 	line "coins?"
 
 	para "Oh, you don't have"
-	line "a COIN CASE for"
+	line "a Coin Case for"
 	cont "your coins."
 	done
 
@@ -331,8 +331,8 @@ CoinVendor_NotEnoughMoneyText:
 	done
 
 CoinVendor_CoinCaseFullText:
-	text "Whoops! Your COIN"
-	line "CASE is full."
+	text "Whoops! Your Coin"
+	line "Case is full."
 	done
 
 CoinVendor_CancelText:
@@ -341,7 +341,7 @@ CoinVendor_CancelText:
 	done
 
 BugContestPrizeNoRoomText:
-	text "Oh? Your PACK is"
+	text "Oh? Your Pack is"
 	line "full."
 
 	para "We'll keep this"

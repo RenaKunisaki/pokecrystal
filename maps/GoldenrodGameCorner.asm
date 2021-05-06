@@ -155,7 +155,7 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	db "TM25    5500@"
 	db "TM14    5500@"
 	db "TM38    5500@"
-	db "CANCEL@"
+	db "Cancel@"
 
 GoldenrodGameCornerPrizeMonVendorScript:
 	faceplayer
@@ -238,10 +238,10 @@ GoldenrodGameCornerPrizeMonVendorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "ABRA        100@"
-	db "CUBONE      800@"
-	db "WOBBUFFET  1500@"
-	db "CANCEL@"
+	db "Abra        100@"
+	db "Cubone      800@"
+	db "Wobbuffet  1500@"
+	db "Cancel@"
 
 GoldenrodGameCornerPharmacistScript:
 	faceplayer
@@ -360,7 +360,7 @@ GoldenrodGameCornerPrizeVendorQuitText:
 
 GoldenrodGameCornerPrizeVendorNoCoinCaseText:
 	text "Oh? You don't have"
-	line "a COIN CASE."
+	line "a Coin Case."
 	done
 
 GoldenrodGameCornerPharmacistText:
@@ -384,7 +384,7 @@ if DEF(_CRYSTAL_AU)
 	line "seem different"
 
 	para "from the ones at"
-	line "CELADON CITY!"
+	line "Celadon City!"
 	done
 else
 	text "I just love this"
@@ -392,7 +392,7 @@ else
 
 	para "It's more of a"
 	line "challenge than the"
-	cont "ones in CELADON."
+	cont "ones in Celadon."
 	done
 endc
 
@@ -433,7 +433,7 @@ GoldenrodGameCornerCooltrainerFText:
 	done
 
 GoldenrodGameCornerGentlemanText:
-	text "I taught BLIZZARD"
+	text "I taught Blizzard"
 	line "to my #MON."
 
 	para "It was hard to get"
@@ -445,9 +445,9 @@ GoldenrodGameCornerGentlemanText:
 
 GoldenrodGameCornerPokefanM2Text:
 if DEF(_CRYSTAL_AU)
-	text "COIN CASE? I threw"
+	text "Coin Case? I threw"
 	line "it away in the"
-	cont "UNDERGROUND."
+	cont "Underground."
 	done
 else
 	text "I couldn't win at"
@@ -459,8 +459,8 @@ else
 	para "I got so furious,"
 	line "I tossed out my"
 
-	para "COIN CASE in the"
-	line "UNDERGROUND."
+	para "Coin Case in the"
+	line "Underground."
 	done
 endc
 

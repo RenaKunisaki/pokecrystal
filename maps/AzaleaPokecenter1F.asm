@@ -43,13 +43,13 @@ AzaleaPokecenter1FUnusedText: ; unreferenced
 	para "for storing"
 	line "#MON in a PC."
 
-	para "BILL's PC can"
+	para "Bill's PC can"
 	line "store up to 20"
 	cont "#MON per BOX."
 	done
 
 AzaleaPokecenter1FFishingGuruText:
-	text "BILL's PC can"
+	text "Bill's PC can"
 	line "store up to 20"
 	cont "#MON per BOX."
 	done

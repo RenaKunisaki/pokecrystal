@@ -30,7 +30,7 @@ BrentAskNumber2Text:
 	done
 
 BrentNumberAcceptedText:
-	text "BILL--he's more"
+	text "Bill--he's more"
 	line "than amazing!"
 
 	para "To be a #MANIAC"

@@ -11,7 +11,7 @@
 UnusedSweetHoneyText: ; unreferenced
 	text "My #MON is an"
 	line "expert at collect-"
-	cont "ing SWEET HONEY."
+	cont "ing Sweet Honey."
 
 	para "I'll share some"
 	line "with you."
@@ -19,7 +19,7 @@ UnusedSweetHoneyText: ; unreferenced
 
 UnusedSweetHoneyBagFullText: ; unreferenced
 	text "I want to give you"
-	line "some SWEET HONEY,"
+	line "some Sweet Honey,"
 
 	para "but you have no"
 	line "room for it."
@@ -27,17 +27,17 @@ UnusedSweetHoneyBagFullText: ; unreferenced
 
 UnusedSweetHoneyGiveText: ; unreferenced
 	text "Here you go! Have"
-	line "some SWEET HONEY!"
+	line "some Sweet Honey!"
 	done
 
 UnusedGotSweetHoneyText: ; unreferenced
 	text "<PLAYER> received"
-	line "SWEET HONEY."
+	line "Sweet Honey."
 	done
 
 UnusedSweetHoneyAfterText1: ; unreferenced
 	text "My little brother"
-	line "takes SWEET HONEY"
+	line "takes Sweet Honey"
 
 	para "and goes somewhere"
 	line "with it."
@@ -47,16 +47,16 @@ UnusedSweetHoneyAfterText1: ; unreferenced
 	done
 
 UnusedSweetHoneyAfterText2: ; unreferenced
-	text "Did you put SWEET"
-	line "HONEY on a tree?"
+	text "Did you put Sweet"
+	line "Honey on a tree?"
 
 	para "What happened to"
 	line "it?"
 	done
 
 UnusedSweetHoneyAfterText3: ; unreferenced
-	text "Did you put SWEET"
-	line "HONEY on a tree?"
+	text "Did you put Sweet"
+	line "Honey on a tree?"
 
 	para "It takes about a"
 	line "day for #MON to"
@@ -64,5 +64,5 @@ UnusedSweetHoneyAfterText3: ; unreferenced
 	done
 
 UnusedSweetHoneyButterfreeText: ; unreferenced
-	text "BUTTERFREE: Freeh!"
+	text "Butterfree: Freeh!"
 	done

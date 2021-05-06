@@ -65,7 +65,7 @@ BrentHangUpText:
 
 BrentFatherGossipText:
 	text "Did you know…?"
-	line "BILL's father is"
+	line "Bill's father is"
 
 	para "supposed to be a"
 	line "great #MANIAC."
@@ -81,13 +81,13 @@ BrentGrandpaGossipText:
 
 BrentGoldenrodGossipText:
 	text "Did you know…?"
-	line "BILL's originally"
+	line "Bill's originally"
 	cont "from GOLDENROD."
 	done
 
 BrentRoute25GossipText:
 	text "Did you know…?"
-	line "BILL evidently"
+	line "Bill evidently"
 
 	para "lives on ROUTE 25"
 	line "in KANTO."
@@ -103,7 +103,7 @@ BrentAbraGossipText:
 
 BrentSisterGossipText:
 	text "Did you know…?"
-	line "BILL's younger"
+	line "Bill's younger"
 
 	para "sister apparently"
 	line "can't wink."
@@ -111,7 +111,7 @@ BrentSisterGossipText:
 
 BrentMilkGossipText:
 	text "Did you know…?"
-	line "BILL supposedly"
+	line "Bill supposedly"
 
 	para "hates milk and"
 	line "can't drink it."
@@ -127,7 +127,7 @@ BrentBattlingGossipText:
 
 BrentFlowerShopGossipText:
 	text "Did you know…?"
-	line "BILL appears to"
+	line "Bill appears to"
 
 	para "like the lady at"
 	line "the FLOWER SHOP."
@@ -135,7 +135,7 @@ BrentFlowerShopGossipText:
 
 BrentKimonoGirlGossipText:
 	text "Did you know…?"
-	line "BILL's mother is"
+	line "Bill's mother is"
 
 	para "said to have been"
 	line "a KIMONO GIRL."

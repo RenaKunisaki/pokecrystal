@@ -101,10 +101,10 @@ MoveTutorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "FLAMETHROWER@"
-	db "THUNDERBOLT@"
-	db "ICE BEAM@"
-	db "CANCEL@"
+	db "Flamethrower@"
+	db "Thunderbolt@"
+	db "Ice Beam@"
+	db "Cancel@"
 
 .Refused:
 	writetext GoldenrodCityMoveTutorAwwButTheyreAmazingText
@@ -283,7 +283,7 @@ GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement:
 
 GoldenrodCityPokefanMText:
 	text "They built the new"
-	line "RADIO TOWER to"
+	line "Radio Tower to"
 
 	para "replace the old,"
 	line "creaky one."
@@ -291,7 +291,7 @@ GoldenrodCityPokefanMText:
 
 GoldenrodCityYoungster1Text:
 	text "I know there's a"
-	line "new BIKE SHOP, but"
+	line "new Bike Shop, but"
 
 	para "I can't find it"
 	line "anywhere."
@@ -301,7 +301,7 @@ GoldenrodCityCooltrainerF1Text:
 	text "Is that man in"
 	line "black dressed up"
 
-	para "like a TEAM ROCKET"
+	para "like a Team Rocket"
 	line "member? How silly!"
 	done
 
@@ -309,13 +309,13 @@ GoldenrodCityCooltrainerF1Text_ClearedRadioTower:
 	text "Was that man in"
 	line "black really part"
 
-	para "of TEAM ROCKET? I"
+	para "of Team Rocket? I"
 	line "can't believe it!"
 	done
 
 GoldenrodCityCooltrainerF2Text:
-	text "The RADIO TOWER in"
-	line "GOLDENROD CITY is"
+	text "The Radio Tower in"
+	line "Goldenrod City is"
 	cont "a landmark."
 
 	para "They're running a"
@@ -323,14 +323,14 @@ GoldenrodCityCooltrainerF2Text:
 	cont "paign right now."
 
 	para "They'll modify"
-	line "your #GEAR,"
+	line "your #Gear,"
 
 	para "so it can also"
 	line "serve as a radio."
 	done
 
 GoldenrodCityCooltrainerF2Text_GotRadioCard:
-	text "Oh, your #GEAR"
+	text "Oh, your #Gear"
 	line "works as a radio!"
 	done
 
@@ -341,7 +341,7 @@ GoldenrodCityYoungster2Text:
 	line "for playing in the"
 
 	para "basement of the"
-	line "DEPT.STORE."
+	line "Dept. Store."
 	done
 
 GoldenrodCityLassText:
@@ -363,7 +363,7 @@ GoldenrodCityGrampsText:
 
 GoldenrodCityRocketScoutText1:
 	text "So this is the"
-	line "RADIO TOWER…"
+	line "Radio Tower…"
 	done
 
 GoldenrodCityRocketScoutText2:
@@ -378,7 +378,7 @@ GoldenrodCityRocket1Text:
 
 GoldenrodCityRocket2Text:
 	text "Take over the"
-	line "RADIO TOWER…"
+	line "Radio Tower…"
 
 	para "What? It's none of"
 	line "your business!"
@@ -409,7 +409,7 @@ GoldenrodCityRocket5Text:
 GoldenrodCityRocket6Text:
 	text "Come taste the"
 	line "true terror of"
-	cont "TEAM ROCKET!"
+	cont "Team Rocket!"
 	done
 
 GoldenrodCityStationSignText:
@@ -427,13 +427,13 @@ GoldenrodDeptStoreSignText:
 	line "#MON Goods!"
 
 	para "GOLDENROD CITY"
-	line "DEPT.STORE"
+	line "DEPT. STORE"
 	done
 
 GoldenrodGymSignText:
 	text "GOLDENROD CITY"
 	line "#MON GYM"
-	cont "LEADER: WHITNEY"
+	cont "Leader: Whitney"
 
 	para "The Incredibly"
 	line "Pretty Girl!"
