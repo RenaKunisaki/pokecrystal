@@ -296,8 +296,8 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	db   "#dex"
 	next "Play time@"
 
-.Unused: ; unreferenced
-	db "@"
+;.Unused: ; unreferenced
+;	db "@"
 
 .Badges:
 	db "  Badges▶@"
@@ -442,22 +442,27 @@ TrainerCard_Page2_3_PlaceLeadersFaces:
 	ret
 
 TrainerCard_Page1_PrintGameTime:
-	hlcoord 11, 12
+    ; print hours
+	hlcoord 9, 13
 	ld de, wGameTimeHours
-	lb bc, 2, 4
+	lb bc, PRINTNUM_TWO_BYTES, 4
 	predef PrintNum
-	inc hl
+    ld a, $2e ; small colon
+    ld [hli], a
+
+    ; print minutes
 	ld de, wGameTimeMinutes
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
 	predef PrintNum
-	ldh a, [hVBlankCounter]
-	and $1f
-	ret nz
-	hlcoord 15, 12
-	ld a, [hl]
-	xor " " ^ $2e ; alternate between space and small colon ($2e) tiles
-	ld [hl], a
-	ret
+    ld a, $2e ; small colon
+    ld [hli], a
+
+    ; print seconds
+	ld de, wGameTimeSeconds
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
+	predef PrintNum
+
+    ret
 
 TrainerCard_Page2_3_AnimateBadges:
 	ldh a, [hVBlankCounter]
