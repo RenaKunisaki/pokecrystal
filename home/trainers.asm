@@ -229,16 +229,6 @@ CheckTrainerFlag:: ; unreferenced
 	ret
 
 PrintWinLossText::
-	ld a, [wBattleType]
-	cp BATTLETYPE_CANLOSE
-	; code was probably dummied out here
-	jr .canlose
-
-; unused
-	ld hl, wWinTextPointer
-	jr .ok
-
-.canlose
 	ld a, [wBattleResult]
 	ld hl, wWinTextPointer
 	and $f ; WIN?
