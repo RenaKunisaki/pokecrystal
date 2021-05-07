@@ -178,16 +178,28 @@ GetGender:
 
 ; Attack DV
 	ld a, [hli]
-	and $f0
-	ld b, a
-; Speed DV
-	ld a, [hl]
-	and $f0
-	swap a
-
-; Put our DVs together.
-	or b
-	ld b, a
+	cpl
+    and $10
+    swap a
+    add a     ; Atk DV << 1
+ld b, a   ; Store it in register b
+; Defense DV
+    ld a, [hli]
+    and $1
+    add a     ; Def DV << 1
+    add a     ; Def DV << 2
+    or b     ; Add (Atk DV << 1) + (Def DV << 2)
+    ld b, a   ; Store result in b.
+; Special DV
+    ld a, [hl]
+    cpl
+    and $1
+    add a     ; Spec DV << 1
+    add a     ; Spec DV << 2
+    add a     ; Spec DV << 3
+    or b     ; Add (Spec DV << 3)
+    swap a
+    ld b, a   ; Again, stored in b.
 
 ; Close SRAM if we were dealing with a sBoxMon.
 	ld a, [wMonType]
