@@ -3,8 +3,8 @@ MAP_NAME_SIGN_START EQU $60
 InitMapNameSign::
 	xor a
 	ldh [hBGMapMode], a
-	farcall .inefficient_farcall ; this is a waste of 6 ROM bytes and 6 stack bytes
-	ret
+	;farcall .inefficient_farcall ; this is a waste of 6 ROM bytes and 6 stack bytes
+	;ret
 
 ; should have just been a fallthrough
 .inefficient_farcall
@@ -39,6 +39,11 @@ InitMapNameSign::
 	call .CheckSpecialMap
 	jr z, .dont_do_map_sign
 
+; Hide if it's still up.
+    ld a, $90
+    ld [rWY], a
+	ld [hWY], a
+
 ; Display for 60 frames
 	ld a, 60
 	ld [wLandmarkSignTimer], a
@@ -68,23 +73,27 @@ InitMapNameSign::
 
 .CheckSpecialMap:
 ; These landmarks do not get pop-up signs.
-	cp -1
-	ret z
-	cp LANDMARK_SPECIAL ; redundant check
-	ret z
-	cp LANDMARK_RADIO_TOWER
-	ret z
-	cp LANDMARK_LAV_RADIO_TOWER
-	ret z
-	cp LANDMARK_UNDERGROUND_PATH
-	ret z
-	cp LANDMARK_INDIGO_PLATEAU
-	ret z
-	cp LANDMARK_POWER_PLANT
-	ret z
+    ld hl, .no_signs
+    ld b, a
+    ld c, .no_signs_end - .no_signs
+.loop:
+    ld a, [hli]
+    cp b
+    ret z
+    dec c
+    jr nz, .loop
 	ld a, 1
 	and a
 	ret
+.no_signs:
+    db -1
+    db LANDMARK_SPECIAL
+    db LANDMARK_RADIO_TOWER
+    db LANDMARK_LAV_RADIO_TOWER
+    db LANDMARK_UNDERGROUND_PATH
+    db LANDMARK_INDIGO_PLATEAU
+    db LANDMARK_POWER_PLANT
+.no_signs_end:
 
 .CheckNationalParkGate:
 	ld a, [wMapGroup]
@@ -109,15 +118,25 @@ PlaceMapNameSign::
 	call InitMapNameFrame
 	call PlaceMapNameCenterAlign
 	farcall HDMATransfer_OnlyTopFourRows
+    ld a,$90
+    jr .set
 .already_initialized
-	ld a, $80
-	ld a, $70
+	ld a, [rWY]
+    sub a, 4
+    cp $70
+    ret c
+.set
 	ldh [rWY], a
 	ldh [hWY], a
 	ret
 
 .disappear
-	ld a, $90
+	ld a, [rWY]
+    and a
+    cp $90
+    jr nc, .clear
+    add a, 4
+.clear
 	ldh [rWY], a
 	ldh [hWY], a
 	xor a
