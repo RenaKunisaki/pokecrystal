@@ -1929,8 +1929,6 @@ MovePKMNWitoutMail_InsertMon:
 	hlcoord 1, 16
 	ld de, .Saving_LeaveOn
 	predef PlaceString
-	ld c, 20
-	predef DelayFrames
 	pop af
 	pop bc
 	pop de
