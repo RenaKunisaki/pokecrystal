@@ -450,8 +450,8 @@ TrainerCard_Page1_PrintGameTime:
     ld a, $2e ; small colon
     ld [hli], a
 
+    ld de, wGameTimeMinutes
     ; print minutes
-	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
 	predef PrintNum
     ld a, $2e ; small colon

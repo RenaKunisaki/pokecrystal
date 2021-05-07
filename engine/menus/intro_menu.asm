@@ -595,6 +595,7 @@ endc
 	predef PrintNum
 
     ; display map name (XXX why is this wrong?)
+    ; also, need to make more room for it.
     ;farcall TownMap_GetCurrentLandmark
     ;ld e, a
     ;farcall GetLandmarkName
@@ -763,7 +764,7 @@ Continue_DisplayBadgesDexPlayerName:
 	db "<PLAYER>@"
 
 Continue_PrintGameTime:
-	decoord 9, 8, 0
+	decoord 5, 8, 0
 	add hl, de
 	call Continue_DisplayGameTime
 	ret
@@ -805,14 +806,20 @@ endc
 	lb bc, 1, 3
 	jp PrintNum
 
+; this is also used when asking if you want to save.
 Continue_DisplayGameTime:
 	ld de, wGameTimeHours
-	lb bc, 2, 3
+	lb bc, PRINTNUM_TWO_BYTES, 4
 	predef PrintNum
 	ld [hl], "<COLON>"
 	inc hl
 	ld de, wGameTimeMinutes
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
+    predef PrintNum
+	ld [hl], "<COLON>"
+	inc hl
+	ld de, wGameTimeSeconds
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_ONE_BYTE, 2
 	jp PrintNum
 
 OakSpeech:
