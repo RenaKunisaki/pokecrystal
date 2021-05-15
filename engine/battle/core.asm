@@ -5387,37 +5387,54 @@ MoveSelectionScreen:
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
 	predef CopyBytes
-	xor a
+
+    ; ListMovePP uses this
+    xor a ; PARTYMON
+	ld [wMonType], a
+	predef CopyMonToTempMon
+
+    xor a
 	ldh [hBGMapMode], a
 
-	hlcoord 4, 17 - NUM_MOVES - 1
-	ld b, 4
-	ld c, 14
+	hlcoord 0, 17 - NUM_MOVES - 1
+	lb bc, 4, 18 ; height, width
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	jr nz, .got_dims
-	hlcoord 4, 17 - NUM_MOVES - 1 - 4
-	ld b, 4
-	ld c, 14
+	hlcoord 0, 17 - NUM_MOVES - 1 - 4
+	lb bc, 4, 18 ; height, width
 .got_dims
 	call Textbox
 
-	hlcoord 6, 17 - NUM_MOVES
+    ; subtract 2 from desired X coord
+    ; because this will write "PP" too
+    hlcoord 11, 17 - NUM_MOVES
+    ld a, SCREEN_WIDTH
+	ld [wListMovesLineSpacing], a
+    predef ListMovePP
+
+    ; now erase those "PP"
+    lb bc, 4, 2 ; height, width
+    hlcoord 11, 17 - NUM_MOVES
+    call ClearBox
+
+    ; draw the moves
+	hlcoord 2, 17 - NUM_MOVES
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	jr nz, .got_start_coord
-	hlcoord 6, 17 - NUM_MOVES - 4
+	hlcoord 2, 17 - NUM_MOVES - 4
 .got_start_coord
 	ld a, SCREEN_WIDTH
 	ld [wListMovesLineSpacing], a
 	predef ListMoves
 
-	ld b, 5
+	ld b, 1
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	ld a, 17 - NUM_MOVES
 	jr nz, .got_default_coord
-	ld b, 5
+	ld b, 1
 	ld a, 17 - NUM_MOVES - 4
 
 .got_default_coord
@@ -5477,7 +5494,7 @@ MoveSelectionScreen:
 	ld a, [wSwappingMove]
 	and a
 	jr z, .interpret_joypad
-	hlcoord 5, 13
+	hlcoord 1, 13
 	ld bc, SCREEN_WIDTH
 	dec a
 	predef AddNTimes
@@ -5676,9 +5693,8 @@ MoveInfoBox:
 	xor a
 	ldh [hBGMapMode], a
 
-	hlcoord 0, 8
-	ld b, 3
-	ld c, 9
+	hlcoord 0, 7
+	lb bc, 4, 9
 	call Textbox
 	call MobileTextBorder
 
@@ -5693,10 +5709,10 @@ MoveInfoBox:
 	cp b
 	jr nz, .not_disabled
 
-	hlcoord 1, 10
+	hlcoord 1, 8
 	ld de, .Disabled
 	predef PlaceString
-	jr .done
+	jp .done
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -5710,24 +5726,19 @@ MoveInfoBox:
 	ld a, [hl]
 	ld [wCurPlayerMove], a
 
-	ld a, [wCurBattleMon]
-	ld [wCurPartyMon], a
-	ld a, WILDMON
-	ld [wMonType], a
-	callfar GetMaxPPOfMove
-
 	ld hl, wMenuCursorY
 	ld c, [hl]
 	inc [hl]
 	ld b, 0
-	ld hl, wBattleMonPP
-	add hl, bc
-	ld a, [hl]
-	and PP_MASK
-	ld [wStringBuffer1], a
-	call .PrintPP
 
-	callfar UpdateMoveData
+    ; print type
+    callfar UpdateMoveData
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld b, a
+	hlcoord 1, 8
+	predef PrintMoveType
+
+    ; print category
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	farcall GetMoveCategoryName
@@ -5735,23 +5746,68 @@ MoveInfoBox:
 	ld de, wStringBuffer1
 	predef PlaceString
 
-	ld h, b
-	ld l, c
-	ld [hl], "/"
+    ; print power
+    hlcoord 1, 10
+	ld de, .Pow
+	call PlaceString
 
-	;callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct + MOVE_ANIM]
-	ld b, a
-	hlcoord 2, 10
-	predef PrintMoveType
+    ld de, wPlayerMoveStruct + MOVE_POWER
+    ld a, [de]
+    and a
+    jr z, .skipPower
+    hlcoord 7, 10
+    lb bc, PRINTNUM_RIGHTALIGN | PRINTNUM_ONE_BYTE, 3
+    call PrintNum
+
+.skipPower
+    ; print accuracy
+    hlcoord 1, 11
+	ld de, .Acc
+	call PlaceString
+
+    ; multiply accuracy by 100
+    ld a, [wPlayerMoveStruct + MOVE_ACC]
+    ldh [hMultiplicand],a
+    xor a
+    ldh [hMultiplicand+1],a
+    ldh [hMultiplicand+2],a
+    ld a, 100
+    ldh [hMultiplier],a
+    call Multiply
+
+    ; divide by 255
+    ; hProduct and hDividend are same address, so no copy needed.
+    ld a, 255
+    ldh [hDivisor],a
+    ld b, 2 ; dividend is 2 bytes
+    call Divide
+    ld de, hQuotient+3
+
+    ; result is same as (acc / 255) * 100
+    ; but we don't need to deal with floats.
+
+    ; round up if remainder >= half
+    ldh a,[hRemainder]
+    cp $7F
+    jr c, .no_rounding
+    ld a,[de]
+    inc a
+    ld [de],a
+
+.no_rounding:
+    hlcoord 7, 11
+    lb bc, PRINTNUM_RIGHTALIGN | PRINTNUM_ONE_BYTE, 3
+    call PrintNum
 
 .done
 	ret
 
 .Disabled:
 	db "Disabled!@"
-;.Type:
-;	db "TYPE/@"
+.Pow:
+    db "Power  --@"
+.Acc:
+    db "Acc@"
 
 .PrintPP:
 	hlcoord 5, 11
