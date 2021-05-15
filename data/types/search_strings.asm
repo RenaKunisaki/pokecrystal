@@ -19,4 +19,5 @@ PokedexTypeSearchStrings:
 	db " Dragon @"
 	db "  Dark  @"
 	db " Steel  @"
+	db " Fairy  @"
 	assert_table_length NUM_TYPES + 1
